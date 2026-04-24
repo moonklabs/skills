@@ -26,6 +26,7 @@ Manages the worktree lifecycle for a monorepo containing three git submodules (`
 | `/git-submodule-manager:status` | Show full worktree/submodule status | — |
 | `/git-submodule-manager:commit` | Unified commit across submodules + main | `[commit message]` |
 | `/git-submodule-manager:push` | Unified push of submodules + main | `[--force]` |
+| `/git-submodule-manager:pull` | Fast-forward pull across submodules + main | `[branch-name]` |
 | `/git-submodule-manager:switch` | Switch branches across submodules + main | `<branch-name> [--create]` |
 
 ## Skill Auto-Trigger
@@ -35,6 +36,7 @@ The `git-submodule-manager` skill activates automatically on the following phras
 - "worktree status", "check branches", "상태 확인", "브랜치 확인"
 - "commit", "commit changes", "커밋해줘", "변경사항 커밋"
 - "push", "push to remote", "푸시해줘", "원격에 올려줘"
+- "pull", "pull latest", "sync from remote", "풀받아줘", "최신 받아줘"
 - "switch branch", "checkout", "브랜치 전환", "브랜치 바꿔줘"
 
 ## Architecture
@@ -53,6 +55,7 @@ git-submodule-manager/
 │       │   ├── status.sh    # Show status
 │       │   ├── commit.sh    # Unified commit
 │       │   ├── push.sh      # Unified push
+│       │   ├── pull.sh      # Unified pull
 │       │   └── switch.sh    # Branch switching
 │       └── references/
 │           └── submodule-map.md  # Submodule branch mapping reference
@@ -61,6 +64,7 @@ git-submodule-manager/
 │   ├── status.md
 │   ├── commit.md
 │   ├── push.md
+│   ├── pull.md
 │   └── switch.md
 └── README.md
 ```

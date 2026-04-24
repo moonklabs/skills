@@ -28,6 +28,7 @@ skills/git-submodule-manager/scripts/
 ├── status.sh     # Show status
 ├── commit.sh     # Unified commit
 ├── push.sh       # Unified push
+├── pull.sh       # Unified pull
 └── switch.sh     # Branch switching
 ```
 
@@ -104,6 +105,27 @@ Pushes submodules and the main repo that have unpushed commits to their remotes.
    bash skills/git-submodule-manager/scripts/push.sh [--force] --yes
    ```
 4. **Push order**: admin-backend → backend → batch → main
+
+---
+
+### PULL — Unified Pull
+
+Fast-forward pulls the main repo and every submodule from their remote.
+
+**Triggers**: "pull", "pull latest", "sync from remote", "풀받아줘", "최신 받아줘", "git pull"
+
+**Procedure**:
+1. Parse optional branch name:
+   - If provided: pull that branch on main repo + all submodules (checkout first if needed)
+   - If omitted: pull each repo's **current** branch
+2. Abort if any repo has uncommitted changes (prevents merge conflicts)
+3. Show the pull plan (per-repo target branch)
+4. Run after user confirmation:
+   ```bash
+   bash skills/git-submodule-manager/scripts/pull.sh [branch-name] --yes
+   ```
+5. Uses `--ff-only` — stops on non-fast-forward (prevents accidental merge commits)
+6. **Pull order**: main → admin-backend → backend → batch (main first so submodule pointers stay current)
 
 ---
 
