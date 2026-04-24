@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:100%}
+  .sw{border-radius:var(--radius-md);padding:10px;display:flex;flex-direction:column;justify-content:space-between;min-height:96px;border:1px solid var(--border-default)}
+  .hex{font-family:var(--font-mono);font-size:10px;color:var(--fg-1);opacity:.9}
+  .nm{font-size:11px;color:var(--fg-1);font-weight:510;opacity:.95}
+</style>
+</head><body>
+<div class="grid">
+  <div class="sw" style="background:var(--bg-marketing)"><div class="nm">Marketing</div><div class="hex">bg-marketing</div></div>
+  <div class="sw" style="background:var(--bg-panel)"><div class="nm">Panel</div><div class="hex">bg-panel</div></div>
+  <div class="sw" style="background:var(--bg-surface)"><div class="nm">Surface</div><div class="hex">bg-surface</div></div>
+  <div class="sw" style="background:var(--bg-surface-hover)"><div class="nm">Surface Hover</div><div class="hex">bg-surface-hover</div></div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

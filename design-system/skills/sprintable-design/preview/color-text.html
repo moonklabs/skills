@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:100%}
+  .sw{border-radius:var(--radius-md);border:1px solid var(--border-subtle);background:var(--surface-alpha-1);padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+  .demo{font-size:22px;font-weight:510;letter-spacing:-0.3px}
+  .meta{display:flex;justify-content:space-between;align-items:center}
+  .hex{font-family:var(--font-mono);font-size:10px;color:var(--fg-4)}
+  .nm{font-size:11px;color:var(--fg-3);font-weight:510;font-family:var(--font-mono)}
+</style>
+</head><body>
+<div class="grid">
+  <div class="sw"><div class="demo" style="color:var(--fg-1)">Primary</div><div class="meta"><div class="nm">fg-1</div><div class="hex">fg-1</div></div></div>
+  <div class="sw"><div class="demo" style="color:var(--fg-2)">Secondary</div><div class="meta"><div class="nm">fg-2</div><div class="hex">fg-2</div></div></div>
+  <div class="sw"><div class="demo" style="color:var(--fg-3)">Tertiary</div><div class="meta"><div class="nm">fg-3</div><div class="hex">fg-3</div></div></div>
+  <div class="sw"><div class="demo" style="color:var(--fg-4)">Quaternary</div><div class="meta"><div class="nm">fg-4</div><div class="hex">fg-4</div></div></div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

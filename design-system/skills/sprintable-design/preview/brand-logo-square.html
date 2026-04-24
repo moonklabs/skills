@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:40px}
+  .tile{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .square{width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:14px}
+  .s-dark{background:var(--bg-surface);border:1px solid var(--border-default)}
+  .s-light{background:#fff}
+  .s-brand{background:#0059a5}
+  .lbl{font-family:var(--font-mono);font-size:10px;color:var(--fg-4)}
+  img{width:56px;height:56px;object-fit:contain}
+</style>
+</head><body>
+  <div class="tile"><div class="square s-dark"><img src="../assets/sprintable-logo-square.png"></div><div class="lbl">on dark</div></div>
+  <div class="tile"><div class="square s-light"><img src="../assets/sprintable-logo-square.png"></div><div class="lbl">on light</div></div>
+  <div class="tile"><div class="square s-brand"><img src="../assets/sprintable-logo-square.png"></div><div class="lbl">on brand</div></div>
+<script src="../theme-toggle.js"></script>
+</body></html>

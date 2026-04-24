@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  html,body{margin:0;padding:0;height:100%}
+  body{display:grid;grid-template-columns:1fr 1fr;box-sizing:border-box;overflow:hidden;font-family:var(--font-sans);font-feature-settings:"cv01","ss03"}
+  .pane{padding:16px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;position:relative;justify-content:center}
+  .dark{background:#08090a;color:#f7f8f8}
+  .light{background:#ffffff;color:#09090b;border-left:1px solid rgba(9,10,11,0.08)}
+  .tag{position:absolute;top:10px;right:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;opacity:.55}
+  .row{display:grid;grid-template-columns:130px 1fr 96px;align-items:center;gap:12px;padding:8px 10px;border-radius:6px}
+  .name{font-family:var(--font-mono);font-size:10px}
+  .hex{font-family:var(--font-mono);font-size:10px;text-align:right;opacity:.6}
+  .line{height:12px}
+
+  /* DARK */
+  .dark .row{background:rgba(255,255,255,0.02)}
+  .dark .name{color:#d0d6e0}
+  .dark .hex{color:#62666d}
+  .dark .b-subtle{border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+  .dark .b-default{border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
+  .dark .b-strong{border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12)}
+  .dark .b-solid{border-top:1px solid #23252a;border-bottom:1px solid #23252a}
+
+  /* LIGHT */
+  .light .row{background:rgba(9,10,11,0.02)}
+  .light .name{color:#3f3f46}
+  .light .hex{color:#a1a1aa}
+  .light .b-subtle{border-top:1px solid rgba(9,10,11,0.06);border-bottom:1px solid rgba(9,10,11,0.06)}
+  .light .b-default{border-top:1px solid rgba(9,10,11,0.10);border-bottom:1px solid rgba(9,10,11,0.10)}
+  .light .b-strong{border-top:1px solid rgba(9,10,11,0.14);border-bottom:1px solid rgba(9,10,11,0.14)}
+  .light .b-solid{border-top:1px solid #e4e4e7;border-bottom:1px solid #e4e4e7}
+</style>
+</head><body>
+<div class="pane dark">
+  <span class="tag">Dark</span>
+  <div class="row"><span class="name">subtle</span><span class="line b-subtle"></span><span class="hex">w / .05</span></div>
+  <div class="row"><span class="name">default</span><span class="line b-default"></span><span class="hex">w / .08</span></div>
+  <div class="row"><span class="name">strong</span><span class="line b-strong"></span><span class="hex">w / .12</span></div>
+  <div class="row"><span class="name">solid-1</span><span class="line b-solid"></span><span class="hex">#23252a</span></div>
+</div>
+<div class="pane light">
+  <span class="tag">Light</span>
+  <div class="row"><span class="name">subtle</span><span class="line b-subtle"></span><span class="hex">k / .06</span></div>
+  <div class="row"><span class="name">default</span><span class="line b-default"></span><span class="hex">k / .10</span></div>
+  <div class="row"><span class="name">strong</span><span class="line b-strong"></span><span class="hex">k / .14</span></div>
+  <div class="row"><span class="name">solid-1</span><span class="line b-solid"></span><span class="hex">#e4e4e7</span></div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

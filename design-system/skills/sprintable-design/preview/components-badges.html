@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  html,body{margin:0;padding:0;height:100%}
+  body{display:grid;grid-template-columns:1fr 1fr;box-sizing:border-box;overflow:hidden;font-family:var(--font-sans);font-feature-settings:"cv01","ss03"}
+  .pane{padding:18px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:10px;align-content:center;align-items:center;position:relative}
+  .dark{background:#08090a;color:#f7f8f8}
+  .light{background:#ffffff;color:#09090b;border-left:1px solid rgba(9,10,11,0.08)}
+  .tag{position:absolute;top:10px;right:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;opacity:.55}
+
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:9999px;padding:4px 10px;font-size:12px;font-weight:510}
+  .pill .dot{width:6px;height:6px;border-radius:50%}
+  .badge{display:inline-flex;align-items:center;gap:5px;border-radius:2px;padding:1px 8px;font-size:10px;font-weight:510}
+  .chip{display:inline-flex;align-items:center;gap:4px;border-radius:9999px;padding:3px 10px;font-size:12px;font-weight:510}
+  .status-dot{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:510}
+  .status-dot .d{width:8px;height:8px;border-radius:50%}
+
+  /* DARK */
+  .dark .pill{background:transparent;color:#d0d6e0;border:1px solid #23252a}
+  .dark .badge{background:rgba(255,255,255,0.05);color:#f7f8f8;border:1px solid rgba(255,255,255,0.05)}
+  .dark .chip{background:rgba(51,133,248,.12);color:#71aefe;border:1px solid rgba(51,133,248,.25)}
+  .dark .status-dot{color:#d0d6e0}
+
+  /* LIGHT */
+  .light .pill{background:#ffffff;color:#3f3f46;border:1px solid #e4e4e7}
+  .light .badge{background:#f4f4f5;color:#18181b;border:1px solid rgba(9,10,11,0.06)}
+  .light .chip{background:rgba(51,133,248,.10);color:#1f6ee0;border:1px solid rgba(51,133,248,.30)}
+  .light .status-dot{color:#3f3f46}
+</style>
+</head><body>
+<div class="pane dark">
+  <span class="tag">Dark</span>
+  <span class="pill"><span class="dot" style="background:#27a644"></span>In progress</span>
+  <span class="pill"><span class="dot" style="background:#8a8f98"></span>Backlog</span>
+  <span class="pill"><span class="dot" style="background:#10b981"></span>Done</span>
+  <span class="badge">v2.4.0</span>
+  <span class="badge">DRAFT</span>
+  <span class="chip">platform</span>
+  <span class="chip">api</span>
+  <span class="status-dot"><span class="d" style="background:#27a644"></span>Active</span>
+  <span class="status-dot"><span class="d" style="background:#ef4444"></span>Blocked</span>
+</div>
+<div class="pane light">
+  <span class="tag">Light</span>
+  <span class="pill"><span class="dot" style="background:#1f8a36"></span>In progress</span>
+  <span class="pill"><span class="dot" style="background:#71717a"></span>Backlog</span>
+  <span class="pill"><span class="dot" style="background:#0b9c6b"></span>Done</span>
+  <span class="badge">v2.4.0</span>
+  <span class="badge">DRAFT</span>
+  <span class="chip">platform</span>
+  <span class="chip">api</span>
+  <span class="status-dot"><span class="d" style="background:#1f8a36"></span>Active</span>
+  <span class="status-dot"><span class="d" style="background:#d93b3b"></span>Blocked</span>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

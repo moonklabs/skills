@@ -1,0 +1,15 @@
+{
+  "name": "moonklabs-fundraising",
+  "version": "1.0.0",
+  "description": "투자 유치 프로세스 · 투자자 리서치 · 피치 덱 · 텀시트 · 커뮤니케이션 6종 스킬 번들.",
+  "author": "Moonklabs",
+  "commands": [],
+  "skills": [
+    { "name": "fundraising-process", "source": "./skills/fundraising-process" },
+    { "name": "term-sheet-knowledge", "source": "./skills/term-sheet-knowledge" },
+    { "name": "deal-sourcing", "source": "./skills/deal-sourcing" },
+    { "name": "investor-research", "source": "./skills/investor-research" },
+    { "name": "fundraise-comms", "source": "./skills/fundraise-comms" },
+    { "name": "pitch-craft", "source": "./skills/pitch-craft" }
+  ]
+}

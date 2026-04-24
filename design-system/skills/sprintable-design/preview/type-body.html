@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  html,body{margin:0;padding:0;height:100%}
+  body{display:grid;grid-template-columns:1fr 1fr;box-sizing:border-box;overflow:hidden;font-family:var(--font-sans);font-feature-settings:"cv01","ss03"}
+  .pane{padding:20px 22px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:10px;position:relative}
+  /* force per-pane theming independent of global toggle */
+  .dark{background:#08090a;color:#f7f8f8}
+  .light{background:#ffffff;color:#09090b;border-left:1px solid rgba(9,10,11,0.08)}
+  .tag{position:absolute;top:10px;right:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;opacity:.55}
+  .body-lg{font-size:18px;font-weight:400;line-height:1.6;letter-spacing:-0.165px;max-width:300px}
+  .body{font-size:16px;font-weight:400;line-height:1.5;max-width:300px}
+  .small{font-size:15px;font-weight:400;line-height:1.6;letter-spacing:-0.165px}
+  .spec{font-family:var(--font-mono);font-size:11px;margin-top:4px}
+  .dark .body-lg{color:#d0d6e0}
+  .dark .body{color:#d0d6e0}
+  .dark .small{color:#d0d6e0}
+  .dark .spec{color:#62666d}
+  .light .body-lg{color:#3f3f46}
+  .light .body{color:#3f3f46}
+  .light .small{color:#3f3f46}
+  .light .spec{color:#a1a1aa}
+</style>
+</head><body>
+<div class="pane dark">
+  <span class="tag">Dark</span>
+  <div class="body-lg">Sprintable is where small teams plan, estimate, and ship — in one place.</div>
+  <div class="body">Body 16 / 400 · the workhorse.</div>
+  <div class="small">Small 15 — supporting copy.</div>
+  <div class="spec">18 · 16 · 15 / 400 · 510 · 590</div>
+</div>
+<div class="pane light">
+  <span class="tag">Light</span>
+  <div class="body-lg">Sprintable is where small teams plan, estimate, and ship — in one place.</div>
+  <div class="body">Body 16 / 400 · the workhorse.</div>
+  <div class="small">Small 15 — supporting copy.</div>
+  <div class="spec">18 · 16 · 15 / 400 · 510 · 590</div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

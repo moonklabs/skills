@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .menu{width:320px;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:12px;box-shadow:var(--shadow-dialog),var(--shadow-ring);padding:6px;font-size:13px}
+  .search{padding:10px 12px;color:var(--fg-3);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:8px}
+  .search svg{color:var(--fg-3)}
+  .item{padding:7px 10px;border-radius:6px;color:var(--fg-2);display:flex;align-items:center;gap:10px;font-weight:510}
+  .item.active{background:var(--surface-alpha-3);color:var(--fg-1)}
+  .item .kbd{margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--fg-4)}
+  .sect{padding:10px 10px 4px;font-family:var(--font-mono);font-size:10px;color:var(--fg-4);letter-spacing:.02em;text-transform:uppercase}
+  .item svg{color:var(--fg-3)}
+  .item.active svg{color:var(--brand-light)}
+</style>
+</head><body>
+  <div class="menu">
+    <div class="search">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Type a command or search…</span>
+    </div>
+    <div class="sect">Actions</div>
+    <div class="item active">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      New issue<span class="kbd">C</span>
+    </div>
+    <div class="item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg>
+      Start sprint<span class="kbd">S</span>
+    </div>
+    <div class="item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      Switch workspace<span class="kbd">⌘ ⇧ O</span>
+    </div>
+  </div>
+<script src="../theme-toggle.js"></script>
+</body></html>

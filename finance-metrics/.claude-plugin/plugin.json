@@ -1,0 +1,11 @@
+{
+  "name": "moonklabs-finance-metrics",
+  "version": "1.0.0",
+  "description": "스타트업 핵심 지표 · 3-시나리오 재무 모델링 · 유닛 이코노믹스 2종 스킬 번들.",
+  "author": "Moonklabs",
+  "commands": [],
+  "skills": [
+    { "name": "startup-metrics", "source": "./skills/startup-metrics" },
+    { "name": "financial-modeling", "source": "./skills/financial-modeling" }
+  ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden}
+  .card{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .spec{font-family:var(--font-mono);font-size:11px;color:var(--fg-4)}
+  pre{margin:0;font-family:var(--font-mono);font-size:13px;line-height:1.5;color:var(--fg-2);
+       background:var(--surface-alpha-1);border:1px solid var(--border-default);
+       padding:14px 16px;border-radius:var(--radius);overflow:hidden}
+  .k{color:var(--brand-light)}
+  .s{color:var(--status-success-soft)}
+  .c{color:var(--fg-4)}
+  .row{display:flex;gap:14px;align-items:center}
+  .kbd{font-family:var(--font-mono);font-size:11px;color:var(--fg-2);background:var(--surface-alpha-3);
+        border:1px solid var(--border-default);border-radius:var(--radius-sm);padding:2px 7px}
+</style>
+</head><body>
+<div class="card">
+  <pre><span class="c">// deploy a sprint</span>
+<span class="k">const</span> sprint = <span class="k">await</span> sprintable.ship({
+  team: <span class="s">"platform"</span>,
+  cycle: <span class="s">"wk-42"</span>
+});</pre>
+  <div class="row">
+    <span class="kbd">⌘</span><span class="kbd">K</span>
+    <span class="spec">Berkeley Mono → JetBrains Mono fallback · 13–14px</span>
+  </div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

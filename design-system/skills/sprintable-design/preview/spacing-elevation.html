@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:30px 20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:center;height:100%}
+  .demo{aspect-ratio:1.6/1;border-radius:var(--radius-md);display:flex;align-items:flex-end;justify-content:flex-start;padding:10px}
+  .s1{background:var(--surface-alpha-2);border:1px solid var(--border-default)}
+  .s2{background:var(--surface-alpha-2);border:1px solid var(--border-default);box-shadow:var(--shadow-inset)}
+  .s3{background:var(--bg-surface);box-shadow:var(--shadow-dialog),var(--shadow-ring)}
+  .s4{background:var(--bg-surface);border:1px solid var(--border-default);box-shadow:var(--shadow-elevated)}
+  .nm{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);letter-spacing:0}
+</style>
+</head><body>
+<div class="grid">
+  <div class="demo s1"><div class="nm">surface</div></div>
+  <div class="demo s2"><div class="nm">inset</div></div>
+  <div class="demo s4"><div class="nm">elevated</div></div>
+  <div class="demo s3"><div class="nm">dialog</div></div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

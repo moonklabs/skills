@@ -1,0 +1,426 @@
+/* ========================================================================
+   Sprintable Design System — Core tokens
+   Dark-mode-native. Sprintable blue accent.
+   ======================================================================== */
+
+/* ------- Fonts -------
+   Inter Variable is the primary typeface. Berkeley Mono is proprietary;
+   substituted with JetBrains Mono (Google Fonts) — see README. */
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   THEME SYSTEM
+   Default = dark (attribute omitted or [data-theme="dark"]).
+   Light theme activates via [data-theme="light"] on <html> or <body>.
+   Token NAMES stay identical across themes so component CSS never
+   branches; only the values change.
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  /* --- Background surfaces (dark, the native medium) --- */
+  --bg-marketing: #08090a;
+  --bg-marketing-deep: #010102;
+  --bg-panel: #0f1011;
+  --bg-surface: #191a1b;
+  --bg-surface-hover: #28282c;
+
+  /* Translucent overlays for layering on dark */
+  --surface-alpha-1: rgba(255, 255, 255, 0.02);
+  --surface-alpha-2: rgba(255, 255, 255, 0.04);
+  --surface-alpha-3: rgba(255, 255, 255, 0.05);
+  --surface-alpha-4: rgba(255, 255, 255, 0.08);
+
+  /* --- Text --- */
+  --fg-1: #f7f8f8;
+  --fg-2: #d0d6e0;
+  --fg-3: #8a8f98;
+  --fg-4: #62666d;
+  --fg-inverse: #08090a;
+
+  /* --- Brand & accent (Sprintable blue) --- */
+  --brand-primary: #3385f8;
+  --brand-deep: #0059a5;
+  --brand-light: #71aefe;
+  --brand-soft: #a8cbfe;
+  --accent-hover: #5a9dff;
+  --accent-focus: rgba(51, 133, 248, 0.35);
+
+  /* --- Status --- */
+  --status-success: #27a644;
+  --status-success-soft: #10b981;
+  --status-warning: #f5a623;
+  --status-danger: #ef4444;
+
+  /* --- Borders (semi-transparent white > solid dark) --- */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-solid-1: #23252a;
+  --border-solid-2: #34343a;
+  --border-solid-3: #3e3e44;
+  --line-tint: #141516;
+
+  /* --- Overlay --- */
+  --overlay-backdrop: rgba(0, 0, 0, 0.85);
+
+  /* --- Shadows (dark) --- */
+  --shadow-ring-alpha: rgba(0, 0, 0, 0.2);
+  --shadow-elevated-alpha: rgba(0, 0, 0, 0.4);
+  --shadow-dialog-alpha: rgba(0, 0, 0, 0.08);
+
+  /* --- Status swatches (used inline for dots) --- */
+  --swatch-neutral: #8a8f98;
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   LIGHT THEME
+   Light UI-kit palette, re-tinted with Sprintable blue.
+   Surfaces go white → near-white; text inverts; translucent white
+   overlays become translucent black; borders become semi-transparent
+   black. The brand accent remains the same blue (it reads well on both).
+   ============================================================ */
+[data-theme="light"] {
+  /* --- Background surfaces --- */
+  --bg-marketing: #ffffff;
+  --bg-marketing-deep: #f7f8f8;
+  --bg-panel: #fafbfc;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f3f5;
+
+  /* Translucent overlays on light become black-alpha */
+  --surface-alpha-1: rgba(9, 10, 11, 0.02);
+  --surface-alpha-2: rgba(9, 10, 11, 0.035);
+  --surface-alpha-3: rgba(9, 10, 11, 0.05);
+  --surface-alpha-4: rgba(9, 10, 11, 0.08);
+
+  /* --- Text --- */
+  --fg-1: #131315;
+  /* primary, near-black */
+  --fg-2: #3a3d44;
+  /* secondary */
+  --fg-3: #62666d;
+  /* tertiary / metadata */
+  --fg-4: #8a8f98;
+  /* quaternary */
+  --fg-inverse: #ffffff;
+
+  /* --- Brand unchanged (blue works on white) --- */
+  --brand-primary: #3385f8;
+  --brand-deep: #0059a5;
+  --brand-light: #5a9dff;
+  --brand-soft: #d6e6ff;
+  --accent-hover: #1f6ee0;
+  --accent-focus: rgba(51, 133, 248, 0.28);
+
+  /* --- Status (slightly deeper for AA on white) --- */
+  --status-success: #1f8a36;
+  --status-success-soft: #0b9c6b;
+  --status-warning: #b5750d;
+  --status-danger: #d93b3b;
+
+  /* --- Borders (semi-transparent black on light) --- */
+  --border-subtle: rgba(9, 10, 11, 0.06);
+  --border-default: rgba(9, 10, 11, 0.10);
+  --border-strong: rgba(9, 10, 11, 0.16);
+  --border-solid-1: #e6e7ea;
+  --border-solid-2: #d3d5d9;
+  --border-solid-3: #bfc2c7;
+  --line-tint: #f0f1f3;
+
+  /* --- Overlay --- */
+  --overlay-backdrop: rgba(9, 10, 11, 0.55);
+
+  /* --- Shadows (light) --- */
+  --shadow-ring-alpha: rgba(9, 10, 11, 0.08);
+  --shadow-elevated-alpha: rgba(9, 10, 11, 0.10);
+  --shadow-dialog-alpha: rgba(9, 10, 11, 0.14);
+
+  --swatch-neutral: #8a8f98;
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   NON-COLOR TOKENS (theme-independent)
+   ============================================================ */
+:root {
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont,
+    'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Berkeley Mono', ui-monospace, 'SF Mono', Menlo,
+    Consolas, monospace;
+
+  /* Weight tokens — 510 is Sprintable's signature weight */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 510;
+  /* signature */
+  --fw-semibold: 590;
+
+  /* OpenType features — ALWAYS on for Inter */
+  --font-features: "cv01", "ss03";
+
+  /* Size tokens (rem scale) */
+  --fs-display-xl: 4.5rem;
+  /* 72 */
+  --fs-display-lg: 4rem;
+  /* 64 */
+  --fs-display: 3rem;
+  /* 48 */
+  --fs-h1: 2rem;
+  /* 32 */
+  --fs-h2: 1.5rem;
+  /* 24 */
+  --fs-h3: 1.25rem;
+  /* 20 */
+  --fs-body-lg: 1.125rem;
+  /* 18 */
+  --fs-body-em: 1.0625rem;
+  /* 17 */
+  --fs-body: 1rem;
+  /* 16 */
+  --fs-sm: 0.9375rem;
+  /* 15 */
+  --fs-caption-lg: 0.875rem;
+  /* 14 */
+  --fs-caption: 0.8125rem;
+  /* 13 */
+  --fs-label: 0.75rem;
+  /* 12 */
+  --fs-micro: 0.6875rem;
+  /* 11 */
+  --fs-tiny: 0.625rem;
+  /* 10 */
+
+  /* ============================================================
+     SPACING
+     ============================================================ */
+  --space-px: 1px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-optic-7: 7px;
+  /* optical micro-adjust */
+  --space-optic-11: 11px;
+  /* optical micro-adjust */
+
+  /* ============================================================
+     RADII
+     ============================================================ */
+  --radius-micro: 2px;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 22px;
+  --radius-pill: 9999px;
+  --radius-circle: 50%;
+
+  /* ============================================================
+     SHADOWS / ELEVATION
+     Backgrounds step in luminance to suggest depth on dark.
+     ============================================================ */
+  --shadow-subtle: rgba(0, 0, 0, 0.03) 0px 1.2px 0px 0px;
+  --shadow-ring: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+  --shadow-inset: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
+  --shadow-elevated: rgba(0, 0, 0, 0.4) 0px 2px 4px;
+  --shadow-dialog:
+    rgba(0, 0, 0, 0.00) 0px 8px 2px,
+    rgba(0, 0, 0, 0.01) 0px 5px 2px,
+    rgba(0, 0, 0, 0.04) 0px 3px 2px,
+    rgba(0, 0, 0, 0.07) 0px 1px 1px,
+    rgba(0, 0, 0, 0.08) 0px 0px 1px;
+  --shadow-focus: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --shadow-focus-ring: 0 0 0 3px var(--accent-focus);
+}
+
+/* ========================================================================
+   BASE RESETS & DEFAULTS
+   ======================================================================== */
+html,
+body {
+  background: var(--bg-marketing);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-feature-settings: var(--font-features);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+* {
+  font-feature-settings: var(--font-features);
+}
+
+/* ========================================================================
+   SEMANTIC TYPE ROLES
+   ======================================================================== */
+
+.type-display-xl {
+  font-size: var(--fs-display-xl);
+  font-weight: var(--fw-medium);
+  line-height: 1.0;
+  letter-spacing: -1.584px;
+  color: var(--fg-1);
+}
+
+.type-display-lg {
+  font-size: var(--fs-display-lg);
+  font-weight: var(--fw-medium);
+  line-height: 1.0;
+  letter-spacing: -1.408px;
+  color: var(--fg-1);
+}
+
+.type-display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-medium);
+  line-height: 1.0;
+  letter-spacing: -1.056px;
+  color: var(--fg-1);
+}
+
+.type-h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  line-height: 1.13;
+  letter-spacing: -0.704px;
+  color: var(--fg-1);
+}
+
+.type-h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  line-height: 1.33;
+  letter-spacing: -0.288px;
+  color: var(--fg-1);
+}
+
+.type-h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  color: var(--fg-1);
+}
+
+.type-body-lg {
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+  letter-spacing: -0.165px;
+  color: var(--fg-2);
+}
+
+.type-body-em {
+  font-size: var(--fs-body-em);
+  font-weight: var(--fw-semibold);
+  line-height: 1.6;
+  color: var(--fg-1);
+}
+
+.type-body {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.type-body-medium {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  color: var(--fg-1);
+}
+
+.type-small {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+  letter-spacing: -0.165px;
+  color: var(--fg-2);
+}
+
+.type-small-medium {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.6;
+  letter-spacing: -0.165px;
+  color: var(--fg-1);
+}
+
+.type-caption {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+  letter-spacing: -0.13px;
+  color: var(--fg-3);
+}
+
+.type-caption-lg {
+  font-size: var(--fs-caption-lg);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  letter-spacing: -0.182px;
+  color: var(--fg-2);
+}
+
+.type-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--fg-2);
+}
+
+.type-micro {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--fg-3);
+}
+
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption-lg);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.type-mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--fg-3);
+}
+
+/* Convenience element mappings */
+h1 {
+  font: inherit;
+}
+
+h2 {
+  font: inherit;
+}
+
+h3 {
+  font: inherit;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+}

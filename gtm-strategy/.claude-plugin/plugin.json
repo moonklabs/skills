@@ -1,0 +1,14 @@
+{
+  "name": "moonklabs-gtm-strategy",
+  "version": "1.0.0",
+  "description": "Go-to-Market · 경쟁 포지셔닝 · 가격 · 시장 규모 · B2B 세일즈 플레이북 5종 스킬 번들.",
+  "author": "Moonklabs",
+  "commands": [],
+  "skills": [
+    { "name": "gtm-strategy", "source": "./skills/gtm-strategy" },
+    { "name": "competitive-landscape", "source": "./skills/competitive-landscape" },
+    { "name": "pricing-strategy", "source": "./skills/pricing-strategy" },
+    { "name": "market-sizing", "source": "./skills/market-sizing" },
+    { "name": "sales-playbook", "source": "./skills/sales-playbook" }
+  ]
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:100%}
+  .box{background:var(--surface-alpha-3);border:1px solid var(--border-default);aspect-ratio:1.2/1;display:flex;flex-direction:column;justify-content:flex-end;padding:10px;gap:2px}
+  .nm{font-family:var(--font-mono);font-size:10px;color:var(--fg-2)}
+  .v{font-family:var(--font-mono);font-size:10px;color:var(--fg-4)}
+</style>
+</head><body>
+<div class="grid">
+  <div class="box" style="border-radius:2px"><div class="nm">micro</div><div class="v">2px</div></div>
+  <div class="box" style="border-radius:6px"><div class="nm">default</div><div class="v">6px</div></div>
+  <div class="box" style="border-radius:8px"><div class="nm">card</div><div class="v">8px</div></div>
+  <div class="box" style="border-radius:12px"><div class="nm">panel</div><div class="v">12px</div></div>
+  <div class="box" style="border-radius:22px"><div class="nm">large</div><div class="v">22px</div></div>
+  <div class="box" style="border-radius:9999px;aspect-ratio:2/1"><div class="nm">pill</div><div class="v">9999</div></div>
+  <div class="box" style="border-radius:50%;aspect-ratio:1/1"><div class="nm">circle</div><div class="v">50%</div></div>
+  <div class="box" style="border-radius:4px"><div class="nm">sm</div><div class="v">4px</div></div>
+</div>
+<script src="../theme-toggle.js"></script>
+</body></html>

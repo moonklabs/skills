@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:24px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden;display:flex;flex-direction:column;gap:12px}
+  .input{display:flex;align-items:center;gap:8px;background:var(--surface-alpha-1);border:1px solid var(--border-default);border-radius:6px;padding:10px 12px;color:var(--fg-2);font-size:14px}
+  .input.focus{box-shadow:0 0 0 3px rgba(51,133,248,.25);border-color:var(--brand-primary)}
+  .input svg{color:var(--fg-3);flex-shrink:0}
+  .input input{all:unset;flex:1;color:var(--fg-1);font-family:inherit;font-size:14px}
+  .kbd{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);background:var(--surface-alpha-3);border:1px solid var(--border-subtle);border-radius:3px;padding:1px 5px}
+  textarea{all:unset;box-sizing:border-box;width:100%;background:var(--surface-alpha-1);border:1px solid var(--border-default);border-radius:6px;padding:10px 12px;color:var(--fg-2);font-family:inherit;font-size:14px;resize:none;min-height:56px}
+</style>
+</head><body>
+  <div class="input">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input placeholder="Search issues, docs, people…">
+    <span class="kbd">⌘K</span>
+  </div>
+  <div class="input focus">
+    <input value="platform-42: ship deploy API" style="color:var(--fg-1)">
+  </div>
+  <textarea placeholder="Leave a comment"></textarea>
+<script src="../theme-toggle.js"></script>
+</body></html>

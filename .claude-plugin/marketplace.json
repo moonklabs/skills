@@ -1,0 +1,55 @@
+{
+  "name": "moonklabs-skills-marketplace",
+  "description": "Moonklabs 스킬 마켓플레이스 — 스타트업 펀드레이징, GTM 전략, 재무 지표, 지원사업, 개발자 워크플로, 디자인 시스템 등 카테고리별 Claude Code 플러그인 모음.",
+  "owner": { "name": "moonklabs" },
+  "plugins": [
+    {
+      "name": "moonklabs-fundraising",
+      "description": "투자 유치 프로세스 · 투자자 리서치 · 피치 덱 · 텀시트 · 커뮤니케이션 6종 스킬 번들.",
+      "version": "1.0.0",
+      "source": "./fundraising",
+      "author": { "name": "moonklabs" },
+      "category": "startup"
+    },
+    {
+      "name": "moonklabs-gtm-strategy",
+      "description": "Go-to-Market · 경쟁 포지셔닝 · 가격 · 시장 규모 · B2B 세일즈 플레이북 5종 스킬 번들.",
+      "version": "1.0.0",
+      "source": "./gtm-strategy",
+      "author": { "name": "moonklabs" },
+      "category": "startup"
+    },
+    {
+      "name": "moonklabs-finance-metrics",
+      "description": "스타트업 핵심 지표 · 3-시나리오 재무 모델링 · 유닛 이코노믹스 2종 스킬 번들.",
+      "version": "1.0.0",
+      "source": "./finance-metrics",
+      "author": { "name": "moonklabs" },
+      "category": "startup"
+    },
+    {
+      "name": "moonklabs-gov-apply",
+      "description": "한국 정부·민간 지원사업 사업계획서 자동화 — 지식베이스 · 공고 지식 · 작성 · HWP 서식 4종 스킬 번들.",
+      "version": "1.0.0",
+      "source": "./gov-apply",
+      "author": { "name": "moonklabs" },
+      "category": "startup"
+    },
+    {
+      "name": "moonklabs-dev-workflow",
+      "description": "개발자 워크플로 — Git worktree + 서브모듈 통합 관리 스킬.",
+      "version": "1.0.0",
+      "source": "./dev-workflow",
+      "author": { "name": "moonklabs" },
+      "category": "developer"
+    },
+    {
+      "name": "moonklabs-design-system",
+      "description": "디자인 시스템 — Stitch `design.md` 스펙 생성기 + Sprintable 브랜드 UI 키트.",
+      "version": "1.0.0",
+      "source": "./design-system",
+      "author": { "name": "moonklabs" },
+      "category": "developer"
+    }
+  ]
+}

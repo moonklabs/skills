@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css?v=20260421">
+<style>
+  body{margin:0;padding:20px;box-sizing:border-box;background:var(--bg-marketing);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:var(--surface-alpha-2);border:1px solid var(--border-default);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px}
+  .title{font-size:15px;font-weight:590;letter-spacing:-0.2px;color:var(--fg-1)}
+  .body{font-size:13px;color:var(--fg-3);letter-spacing:-0.13px;line-height:1.5}
+  .meta{display:flex;align-items:center;gap:8px;margin-top:auto}
+  .avatar{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#3385f8,#0059a5)}
+  .meta-text{font-size:11px;color:var(--fg-4);font-family:var(--font-mono)}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:transparent;color:var(--fg-2);border:1px solid var(--border-solid-1);border-radius:9999px;padding:2px 8px;font-size:11px;font-weight:510;align-self:flex-start}
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:#27a644}
+</style>
+</head><body>
+  <div class="card">
+    <span class="pill"><span class="dot"></span>In progress</span>
+    <div class="title">Ship deploy preview API</div>
+    <div class="body">Return a preview URL for each branch push, signed with the workspace key.</div>
+    <div class="meta"><div class="avatar"></div><div class="meta-text">aria · 2h</div></div>
+  </div>
+  <div class="card">
+    <span class="pill" style="color:var(--fg-3)"><span class="dot" style="background:var(--fg-3)"></span>Backlog</span>
+    <div class="title">Audit webhook retry logic</div>
+    <div class="body">Exponential backoff exists but the cap is wrong for 5xx chains.</div>
+    <div class="meta"><div class="avatar" style="background:linear-gradient(135deg,#71aefe,#3385f8)"></div><div class="meta-text">kenji · 1d</div></div>
+  </div>
+<script src="../theme-toggle.js"></script>
+</body></html>

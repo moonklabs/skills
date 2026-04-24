@@ -1,0 +1,13 @@
+{
+  "name": "moonklabs-gov-apply",
+  "version": "1.0.0",
+  "description": "한국 정부·민간 지원사업 사업계획서 자동화 — 지식베이스 · 공고 지식 · 작성 · HWP 서식 4종 스킬 번들.",
+  "author": "Moonklabs",
+  "commands": [],
+  "skills": [
+    { "name": "kb-structure", "source": "./skills/kb-structure" },
+    { "name": "gov-program-knowledge", "source": "./skills/gov-program-knowledge" },
+    { "name": "bizplan-writing", "source": "./skills/bizplan-writing" },
+    { "name": "hwp-format", "source": "./skills/hwp-format" }
+  ]
+}
