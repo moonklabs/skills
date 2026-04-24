@@ -1,61 +1,61 @@
 # git-submodule-manager
 
-sellerking-data-monolith의 Git worktree + submodule 통합 관리 Claude Code 플러그인.
+A Claude Code plugin that unifies Git worktree + submodule management for `sellerking-data-monolith`.
 
-## 개요
+## Overview
 
-이 플러그인은 3개의 git submodule(admin-backend, backend, batch)을 포함한 모노리포에서 worktree 생명주기를 통합 관리합니다.
+Manages the worktree lifecycle for a monorepo containing three git submodules (`admin-backend`, `backend`, `batch`).
 
-## 설치
+## Installation
 
 ```bash
-# 1. 로컬 마켓플레이스 등록
+# 1. Register the local marketplace
 /plugin marketplace add /Users/drumcap/workspace/sellerking-data-monolith/git-submodule-manager
 
-# 2. 플러그인 설치
+# 2. Install the plugin
 /plugin install git-submodule-manager@git-submodule-manager-dev
 
-# 3. Claude Code 재시작 후 사용
+# 3. Restart Claude Code, then use
 ```
 
-## 커맨드 목록
+## Commands
 
-| 커맨드 | 설명 | 인자 |
-|--------|------|------|
-| `/git-submodule-manager:create` | 새 feature worktree 생성 | `<feature-name> [base-branch]` |
-| `/git-submodule-manager:status` | 전체 worktree/서브모듈 상태 조회 | - |
-| `/git-submodule-manager:commit` | 모든 서브모듈+메인 통합 커밋 | `[커밋 메시지]` |
-| `/git-submodule-manager:push` | 모든 서브모듈+메인 통합 푸시 | `[--force]` |
-| `/git-submodule-manager:switch` | 모든 서브모듈+메인 브랜치 전환 | `<브랜치명> [--create]` |
+| Command | Description | Arguments |
+|---------|-------------|-----------|
+| `/git-submodule-manager:create` | Create a new feature worktree | `<feature-name> [base-branch]` |
+| `/git-submodule-manager:status` | Show full worktree/submodule status | — |
+| `/git-submodule-manager:commit` | Unified commit across submodules + main | `[commit message]` |
+| `/git-submodule-manager:push` | Unified push of submodules + main | `[--force]` |
+| `/git-submodule-manager:switch` | Switch branches across submodules + main | `<branch-name> [--create]` |
 
-## Skill 자동 트리거
+## Skill Auto-Trigger
 
-다음 키워드로 대화할 때 `worktree-manager` skill이 자동으로 활성화됩니다:
-- "worktree 만들어줘", "새 feature 브랜치"
-- "worktree 상태 확인", "브랜치 확인"
-- "커밋해줘", "변경사항 커밋"
-- "푸시해줘", "원격에 올려줘"
-- "브랜치 전환", "브랜치 바꿔줘"
+The `git-submodule-manager` skill activates automatically on the following phrases:
+- "create a worktree", "new feature branch", "worktree 만들어줘", "새 feature 브랜치"
+- "worktree status", "check branches", "상태 확인", "브랜치 확인"
+- "commit", "commit changes", "커밋해줘", "변경사항 커밋"
+- "push", "push to remote", "푸시해줘", "원격에 올려줘"
+- "switch branch", "checkout", "브랜치 전환", "브랜치 바꿔줘"
 
-## 아키텍처
+## Architecture
 
 ```
 git-submodule-manager/
 ├── .claude-plugin/
-│   ├── plugin.json          # 플러그인 메타데이터
-│   └── marketplace.json     # 로컬 개발 마켓플레이스
+│   ├── plugin.json          # Plugin metadata
+│   └── marketplace.json     # Local development marketplace
 ├── skills/
-│   └── worktree-manager/
-│       ├── SKILL.md         # 디스패처 skill 정의
+│   └── git-submodule-manager/
+│       ├── SKILL.md         # Dispatcher skill definition
 │       ├── scripts/
-│       │   ├── _config.sh   # 공통 설정 (서브모듈 목록, 색상, 유틸)
-│       │   ├── create.sh    # worktree 생성
-│       │   ├── status.sh    # 상태 조회
-│       │   ├── commit.sh    # 통합 커밋
-│       │   ├── push.sh      # 통합 푸시
-│       │   └── switch.sh    # 브랜치 전환
+│       │   ├── _config.sh   # Shared config (submodule list, colors, utilities)
+│       │   ├── create.sh    # Create worktree
+│       │   ├── status.sh    # Show status
+│       │   ├── commit.sh    # Unified commit
+│       │   ├── push.sh      # Unified push
+│       │   └── switch.sh    # Branch switching
 │       └── references/
-│           └── submodule-map.md  # 서브모듈 브랜치 매핑 참조
+│           └── submodule-map.md  # Submodule branch mapping reference
 ├── commands/                # Slash commands (thin wrappers)
 │   ├── create.md
 │   ├── status.md
@@ -65,31 +65,31 @@ git-submodule-manager/
 └── README.md
 ```
 
-## 서브모듈 매핑
+## Submodule Mapping
 
-| 경로 | 기본 브랜치 |
-|------|------------|
+| Path | Default Branch |
+|------|----------------|
 | `admin-backend` | `develop-ai` |
 | `backend` | `develop` |
 | `batch` | `develop` |
 
-## 직접 스크립트 실행
+## Running Scripts Directly
 
 ```bash
-# 상태 조회
+# Show status
 bash skills/git-submodule-manager/scripts/status.sh
 
-# worktree 생성 (비대화식)
+# Create worktree (non-interactive)
 bash skills/git-submodule-manager/scripts/create.sh my-feature main --yes
 
-# 통합 커밋 (비대화식)
+# Unified commit (non-interactive)
 bash skills/git-submodule-manager/scripts/commit.sh "feat: add feature" --yes
 
-# 통합 푸시 (비대화식)
+# Unified push (non-interactive)
 bash skills/git-submodule-manager/scripts/push.sh --yes
 
-# 브랜치 전환
+# Branch switch
 bash skills/git-submodule-manager/scripts/switch.sh feature/my-feature --yes
 ```
 
-`--yes` 플래그: 모든 확인 프롬프트를 자동 승인 (Claude에서 비대화식 실행 시 필수)
+`--yes` flag: auto-approves every confirmation prompt (required when Claude invokes scripts non-interactively).

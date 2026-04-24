@@ -1,130 +1,131 @@
 ---
 name: git-submodule-manager
 description: >
-  Git worktree 생성/전환, 서브모듈 브랜치 동기화, 모노리포 커밋/푸시 관리.
-  "worktree", "서브모듈", "브랜치 동기화", "feature 브랜치 생성"을 요청할 때 트리거.
+  Git worktree creation/switching, submodule branch synchronization, and monorepo commit/push management.
+  Triggers on "worktree", "submodule", "branch sync", "create feature branch",
+  "서브모듈", "브랜치 동기화", "feature 브랜치 생성" requests.
 ---
 
 # Worktree Manager Skill
 
-sellerking-data-monolith 모노리포의 Git worktree 및 서브모듈을 통합 관리합니다.
+Unified Git worktree and submodule management for the `sellerking-data-monolith` monorepo.
 
-## 서브모듈 매핑
+## Submodule Mapping
 
-| 서브모듈 | 저장소 | 기본 브랜치 |
-|---------|--------|------------|
+| Submodule | Repository | Default Branch |
+|-----------|------------|----------------|
 | `admin-backend` | moonklabs/sellerking-admin-backend | `develop-ai` |
 | `backend` | moonklabs/sellerking-backend | `develop` |
 | `batch` | moonklabs/sellerking-scraper | `develop` |
 
-## 스크립트 경로
+## Script Paths
 
-모든 스크립트는 플러그인 루트 기준 상대 경로:
+All scripts use plugin-root-relative paths:
 ```
 skills/git-submodule-manager/scripts/
-├── _config.sh    # 공통 설정 (자동 source됨)
-├── create.sh     # worktree 생성
-├── status.sh     # 상태 조회
-├── commit.sh     # 통합 커밋
-├── push.sh       # 통합 푸시
-└── switch.sh     # 브랜치 전환
+├── _config.sh    # Shared config (auto-sourced)
+├── create.sh     # Create worktree
+├── status.sh     # Show status
+├── commit.sh     # Unified commit
+├── push.sh       # Unified push
+└── switch.sh     # Branch switching
 ```
 
-## 작업별 가이드
+## Operation Guides
 
-### CREATE - Worktree 생성
+### CREATE — Create Worktree
 
-새 기능 개발을 위한 worktree 및 서브모듈 브랜치를 일괄 생성합니다.
+Creates a new worktree plus matching submodule branches for feature development.
 
-**트리거**: "worktree 만들어줘", "새 기능 브랜치", "feature worktree 생성"
+**Triggers**: "create a worktree", "new feature branch", "feature worktree", "worktree 만들어줘", "새 기능 브랜치"
 
-**절차**:
-1. feature 이름과 베이스 브랜치 확인 (기본: main)
-2. 생성될 내용 사용자에게 요약 표시:
-   - Worktree 경로: `../sellerking-data-monolith-{feature-name}`
-   - Main 브랜치: `feature/{feature-name}` (from main)
-   - 서브모듈 브랜치: 동일 feature 브랜치
-3. 사용자 확인 후 실행:
+**Procedure**:
+1. Confirm feature name and base branch (default: `main`)
+2. Summarize what will be created:
+   - Worktree path: `../sellerking-data-monolith-{feature-name}`
+   - Main branch: `feature/{feature-name}` (from main)
+   - Submodule branches: same feature branch name on each submodule
+3. Run after user confirmation:
    ```bash
    bash skills/git-submodule-manager/scripts/create.sh {feature-name} {base-branch} --yes
    ```
 
 ---
 
-### STATUS - 상태 조회
+### STATUS — Show Status
 
-현재 worktree와 모든 서브모듈의 상태를 표시합니다.
+Displays the current worktree and the state of every submodule.
 
-**트리거**: "worktree 상태", "브랜치 확인", "서브모듈 상태"
+**Triggers**: "worktree status", "check branches", "submodule status", "상태 확인", "브랜치 확인"
 
-**절차**:
-1. 바로 실행 (확인 불필요):
+**Procedure**:
+1. Run directly (no confirmation needed):
    ```bash
    bash skills/git-submodule-manager/scripts/status.sh
    ```
-2. 출력 분석 및 이슈 보고:
-   - DETACHED HEAD → 브랜치 체크아웃 권고
-   - 브랜치 불일치 → switch 명령 안내
-   - 미푸시 커밋 (↑N) → push 명령 안내
+2. Parse output and report issues:
+   - DETACHED HEAD → recommend checking out a branch
+   - Branch mismatch → suggest the `switch` command
+   - Unpushed commits (↑N) → suggest the `push` command
 
 ---
 
-### COMMIT - 통합 커밋
+### COMMIT — Unified Commit
 
-변경된 모든 서브모듈과 메인을 동일 메시지로 커밋합니다.
+Commits all changed submodules and the main repo with the same message.
 
-**트리거**: "커밋해줘", "변경사항 커밋", "commit all"
+**Triggers**: "commit", "commit changes", "commit all", "커밋해줘", "변경사항 커밋"
 
-**절차**:
-1. 커밋 메시지 결정:
-   - 인자 있으면: 제공된 메시지 사용
-   - 인자 없으면: 변경사항 분석 후 Conventional Commits 형식으로 자동 생성
-     (`feat:`, `fix:`, `docs:`, `chore:` 등)
-2. 변경사항 요약 표시 (서브모듈별)
-3. 사용자 확인 후 실행:
+**Procedure**:
+1. Determine commit message:
+   - If provided as argument: use it verbatim
+   - Otherwise: analyze changes and generate a Conventional Commits–style message
+     (`feat:`, `fix:`, `docs:`, `chore:`, etc.)
+2. Summarize changes per submodule
+3. Run after user confirmation:
    ```bash
    bash skills/git-submodule-manager/scripts/commit.sh "{commit-message}" --yes
    ```
-4. **커밋 순서**: admin-backend → backend → batch → main (서브모듈 참조 포함)
+4. **Commit order**: admin-backend → backend → batch → main (main includes submodule pointer updates)
 
 ---
 
-### PUSH - 통합 푸시
+### PUSH — Unified Push
 
-미푸시 커밋이 있는 서브모듈과 메인을 원격에 푸시합니다.
+Pushes submodules and the main repo that have unpushed commits to their remotes.
 
-**트리거**: "푸시해줘", "원격에 올려줘", "push all"
+**Triggers**: "push", "push to remote", "push all", "푸시해줘", "원격에 올려줘"
 
-**절차**:
-1. 푸시 대상 목록 표시 (미푸시 커밋 수 포함)
-2. ⚠️ `--force` 요청 시: 위험성 경고 후 명시적 동의 확인
-3. 사용자 확인 후 실행:
+**Procedure**:
+1. List push targets with unpushed commit counts
+2. ⚠️ On `--force`: warn about the risk and require explicit confirmation
+3. Run after user confirmation:
    ```bash
    bash skills/git-submodule-manager/scripts/push.sh [--force] --yes
    ```
-4. **푸시 순서**: admin-backend → backend → batch → main
+4. **Push order**: admin-backend → backend → batch → main
 
 ---
 
-### SWITCH - 브랜치 전환
+### SWITCH — Branch Switch
 
-메인과 모든 서브모듈의 브랜치를 동시에 전환합니다.
+Switches branches on the main repo and every submodule at the same time.
 
-**트리거**: "브랜치 전환", "브랜치 바꿔줘", "switch to", "체크아웃"
+**Triggers**: "switch branch", "checkout", "switch to", "브랜치 전환", "브랜치 바꿔줘", "체크아웃"
 
-**절차**:
-1. 전환할 브랜치명 및 `--create` 플래그 확인
-2. 미커밋 변경사항 확인 (있으면 중단)
-3. 사용자 확인 후 실행:
+**Procedure**:
+1. Confirm target branch name and optional `--create` flag
+2. Check for uncommitted changes (abort if any exist)
+3. Run after user confirmation:
    ```bash
    bash skills/git-submodule-manager/scripts/switch.sh {branch-name} [--create] --yes
    ```
 
 ---
 
-## 주의사항
+## Cautions
 
-- **항상 서브모듈 먼저**: commit/push 시 서브모듈 → 메인 순서 필수
-- **Detached HEAD 주의**: 서브모듈 작업 전 브랜치 확인
-- **`--force` 푸시**: 팀 협업 중 사용 금지, 명시적 동의 필수
-- **상위 저장소 참조 업데이트**: 서브모듈 커밋 후 메인에서 참조 업데이트 자동 처리
+- **Submodules first, always**: for commit/push, submodules must be processed before the main repo
+- **Watch for detached HEAD**: verify the branch on every submodule before making changes
+- **`--force` push**: do not use during team collaboration — requires explicit user consent
+- **Main repo pointer updates**: submodule pointer changes are staged on the main repo automatically after submodules commit

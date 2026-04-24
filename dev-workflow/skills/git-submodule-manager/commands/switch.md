@@ -1,7 +1,7 @@
 ---
-description: '메인과 모든 서브모듈의 브랜치를 동시에 전환'
-argument-hint: '<브랜치명> [--create]'
+description: 'Switch the main repo and all submodules to the same branch simultaneously'
+argument-hint: '<branch-name> [--create]'
 ---
 
-Skill(git-submodule-manager:worktree-manager)의 SWITCH 작업을 실행하세요.
-인자: $ARGUMENTS
+Run the SWITCH operation of Skill(git-submodule-manager:worktree-manager).
+Arguments: $ARGUMENTS

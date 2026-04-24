@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
-# 사용법: ./push.sh [--force] [--yes]
+# Usage: ./push.sh [--force] [--yes]
 
 source "$(dirname "$0")/_config.sh"
 
-# --force 및 --yes 플래그 파싱
+# Parse --force and --yes flags
 FORCE_FLAG=""
 parse_yes_flag "$@"
 for arg in "$@"; do
@@ -14,7 +14,7 @@ for arg in "$@"; do
     fi
 done
 
-# 푸시할 항목 수집
+# Collect push targets
 declare -A TO_PUSH
 
 for sub in "${SUBMODULES[@]}"; do
@@ -35,7 +35,7 @@ if [ "$MAIN_AHEAD" != "0" ]; then
     TO_PUSH["main"]="$MAIN_BRANCH (↑$MAIN_AHEAD)"
 fi
 
-# 푸시할 내용 출력
+# Print push targets
 if [ ${#TO_PUSH[@]} -eq 0 ]; then
     log_success "Everything is up to date. Nothing to push."
     exit 0
@@ -48,10 +48,10 @@ for repo in "${!TO_PUSH[@]}"; do
 done
 echo ""
 
-# 사용자 확인
+# Confirm
 confirm_action "Proceed with push?" || exit 0
 
-# 서브모듈 먼저 푸시 (의존성 때문)
+# Push submodules first (pointer dependency on main)
 for sub in "${SUBMODULES[@]}"; do
     if [ -n "${TO_PUSH[$sub]}" ]; then
         log_info "Pushing $sub..."
@@ -67,7 +67,7 @@ for sub in "${SUBMODULES[@]}"; do
     fi
 done
 
-# 메인 리포지토리 푸시
+# Push main repo
 if [ -n "${TO_PUSH[main]}" ]; then
     log_info "Pushing main repository..."
 

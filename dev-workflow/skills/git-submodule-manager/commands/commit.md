@@ -1,7 +1,7 @@
 ---
-description: '변경된 모든 서브모듈과 메인을 동일한 커밋 메시지로 한번에 커밋'
-argument-hint: '[커밋 메시지] (미입력시 자동 생성)'
+description: 'Commit all changed submodules and the main repo with the same message in one step'
+argument-hint: '[commit message] (auto-generated if omitted)'
 ---
 
-Skill(git-submodule-manager:worktree-manager)의 COMMIT 작업을 실행하세요.
-인자: $ARGUMENTS
+Run the COMMIT operation of Skill(git-submodule-manager:worktree-manager).
+Arguments: $ARGUMENTS
