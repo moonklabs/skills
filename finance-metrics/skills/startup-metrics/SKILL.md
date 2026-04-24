@@ -1,254 +1,257 @@
 ---
 name: startup-metrics
-description: 비즈니스 모델별 핵심 스타트업 지표와 단계별 벤치마크를 안내합니다. "스타트업 지표", "핵심 지표", "KPI", "메트릭스", "벤치마크", "투자자 보고" 등으로 실행합니다.
+description: >
+  Core startup metrics framework by business model and stage-specific benchmarks for SaaS, Marketplace, Consumer, and B2B.
+  Triggers on "startup metrics", "key metrics", "KPI", "metrics", "benchmark", "investor reporting",
+  "스타트업 지표", "핵심 지표", "KPI", "메트릭스", "벤치마크", "투자자 보고" requests.
 ---
 
 # Startup Metrics
 
-> 익숙하지 않은 플레이스홀더가 보이거나 연결된 도구를 확인하려면 [CONNECTORS.md](../../CONNECTORS.md)를 참조하세요.
+> For unfamiliar placeholders or to check connected tools, see [CONNECTORS.md](../../CONNECTORS.md).
 
-비즈니스 모델별 핵심 스타트업 지표 프레임워크와 단계별 벤치마크를 제공합니다. SaaS, 마켓플레이스, 컨슈머, B2B 각 모델에 최적화된 지표 세트와 투자 단계별(Pre-seed ~ Series B) 목표 수치를 안내합니다.
+Provides core startup metrics framework by business model and stage-specific benchmarks. Delivers metric sets optimized for SaaS, Marketplace, Consumer, and B2B models, with target numbers by funding stage (Pre-seed through Series B).
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    STARTUP METRICS FRAMEWORK                    │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (단독 작동)                                            │
-│  ✓ 비즈니스 모델 자동 감지 (SaaS/마켓플레이스/컨슈머/B2B)         │
-│  ✓ 모델별 핵심 지표 세트 제공 (North Star + 보조지표)            │
-│  ✓ 현재 단계 벤치마크 비교 (Pre-seed ~ Series B)                 │
-│  ✓ 투자자 보고 형식 지표 대시보드 생성                            │
+│  Core Features (Standalone)                                      │
+│  ✓ Auto-detect business model (SaaS/Marketplace/Consumer/B2B)   │
+│  ✓ Model-specific metric sets (North Star + supporting metrics)  │
+│  ✓ Stage benchmarks by round (Pre-seed ~ Series B)               │
+│  ✓ Investor-ready metrics dashboard generation                  │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~analytics: 실시간 지표 데이터 자동 수집                      │
-│  + ~~spreadsheet: 코호트 분석 및 추세 차트                       │
-│  + ~~knowledge base: 과거 투자자 보고서에서 벤치마크 추출         │
+│  Enhanced Mode (With Connectors)                                 │
+│  + ~~analytics: Auto-collect real-time metric data               │
+│  + ~~spreadsheet: Cohort analysis and trend charts               │
+│  + ~~knowledge base: Extract benchmarks from past reports        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 시작하기
+## Getting Started
 
-1. **비즈니스 모델 확인**: "우리 SaaS 제품의 핵심 지표를 알려줘"
-2. **벤치마크 비교**: "Pre-seed SaaS 벤치마크와 비교해줘"
-3. **투자자 보고서**: "월간 투자자용 지표 대시보드 만들어줘"
-4. **지표 개선**: "NRR을 높이려면 어떤 지표에 집중해야 해?"
+1. **Identify business model**: "What are the key metrics for our SaaS product?"
+2. **Compare benchmarks**: "How do we compare to Pre-seed SaaS benchmarks?"
+3. **Investor reporting**: "Create a monthly metrics dashboard for investors"
+4. **Improve metrics**: "Which metrics should we focus on to improve NRR?"
 
-## 비즈니스 모델별 핵심 지표
+## Core Metrics by Business Model
 
 ### 1. SaaS (Software as a Service)
 
 #### North Star Metric
 - **ARR/MRR** (Annual/Monthly Recurring Revenue)
 
-#### 핵심 지표 (8개)
-| 지표 | 정의 | 목표 | 계산 |
-|------|------|------|------|
-| **MRR Growth** | 월간 반복 매출 성장률 | 10-20%/월 (초기) | (MRR_이번달 - MRR_지난달) / MRR_지난달 |
-| **NRR** | Net Revenue Retention | >100% (우수: >120%) | (시작 ARR + 확장 - 축소 - 이탈) / 시작 ARR |
-| **CAC** | Customer Acquisition Cost | < LTV/3 | 총 마케팅+세일즈 비용 / 신규 고객 수 |
+#### Core Metrics (8)
+| Metric | Definition | Target | Calculation |
+|--------|-----------|--------|-------------|
+| **MRR Growth** | Monthly recurring revenue growth rate | 10-20%/mo (early) | (MRR_this_month - MRR_last_month) / MRR_last_month |
+| **NRR** | Net Revenue Retention | >100% (strong: >120%) | (Start ARR + Expansion - Contraction - Churn) / Start ARR |
+| **CAC** | Customer Acquisition Cost | < LTV/3 | Total Marketing+Sales / New Customers |
 | **LTV** | Lifetime Value | > CAC × 3 | ARPA × Gross Margin % / Churn Rate |
-| **CAC Payback** | 투자 회수 기간 | < 12개월 (우수: < 6개월) | CAC / (ARPA × Gross Margin %) |
-| **Burn Multiple** | 매출 대비 소진율 | < 1.5x (우수: < 1.0x) | Net Burn / Net New ARR |
-| **Rule of 40** | 성장+수익성 | > 40% | ARR Growth % + EBITDA Margin % |
-| **Magic Number** | S&M 효율성 | > 0.75 (우수: > 1.0) | Net New ARR / 전 분기 S&M 비용 |
+| **CAC Payback** | Payback period | < 12mo (strong: < 6mo) | CAC / (ARPA × Gross Margin %) |
+| **Burn Multiple** | Burn vs revenue growth | < 1.5x (strong: < 1.0x) | Net Burn / Net New ARR |
+| **Rule of 40** | Growth + profitability | > 40% | ARR Growth % + EBITDA Margin % |
+| **Magic Number** | S&M efficiency | > 0.75 (strong: > 1.0) | Net New ARR / Prior Quarter S&M Spend |
 
-#### 보조 지표
-- **Quick Ratio**: (신규 MRR + 확장 MRR) / (축소 MRR + 이탈 MRR) — 목표 > 4x
-- **Gross Margin**: 목표 > 70% (성숙 SaaS > 80%)
-- **Churn Rate**: 월간 < 2% (연간 < 20%), Logo Churn < Revenue Churn
-- **Expansion MRR %**: 전체 MRR 대비 확장 매출 비중 — 목표 > 10%
+#### Supporting Metrics
+- **Quick Ratio**: (New MRR + Expansion MRR) / (Contraction MRR + Churn MRR) — Target > 4x
+- **Gross Margin**: Target > 70% (mature SaaS > 80%)
+- **Churn Rate**: <2%/mo (<20%/yr), Logo Churn < Revenue Churn
+- **Expansion MRR %**: Expansion revenue as % of total MRR — Target > 10%
 
-### 2. 마켓플레이스 (Marketplace)
-
-#### North Star Metric
-- **GMV** (Gross Merchandise Value) 또는 **Net Revenue**
-
-#### 핵심 지표 (7개)
-| 지표 | 정의 | 목표 | 계산 |
-|------|------|------|------|
-| **GMV Growth** | 총 거래액 성장률 | 15-30%/월 (초기) | (GMV_이번달 - GMV_지난달) / GMV_지난달 |
-| **Take Rate** | 수수료율 | 10-30% (카테고리별 상이) | Net Revenue / GMV |
-| **Liquidity** | 공급-수요 균형 | > 80% 매칭률 | 성사된 거래 / 전체 요청 |
-| **Buyer Retention** | 구매자 재구매율 | 월간 > 30%, 연간 > 60% | 이번 달 재구매 고객 / 전체 구매 고객 |
-| **Seller Retention** | 판매자 유지율 | 월간 > 70%, 연간 > 50% | 이번 달 활성 판매자 / 전 달 활성 판매자 |
-| **Repeat Tx %** | 재구매 거래 비중 | > 40% (성숙 시장 > 60%) | 재구매 거래 GMV / 전체 GMV |
-| **Supply Utilization** | 공급 활용도 | > 60% | 거래 성사 판매자 / 전체 등록 판매자 |
-
-#### 보조 지표
-- **Average Order Value (AOV)**: 거래당 평균 금액
-- **Frequency**: 고객당 월평균 거래 횟수
-- **Contribution Margin**: (Net Revenue - Variable Costs) / Net Revenue — 목표 > 20%
-- **Time to Liquidity**: 신규 카테고리가 80% 매칭률 달성까지 소요 시간
-
-### 3. 컨슈머 (Consumer / Social)
+### 2. Marketplace
 
 #### North Star Metric
-- **DAU** (Daily Active Users) 또는 **Engagement**
+- **GMV** (Gross Merchandise Value) or **Net Revenue**
 
-#### 핵심 지표 (6개)
-| 지표 | 정의 | 목표 | 계산 |
-|------|------|------|------|
-| **DAU / MAU** | 일일 사용자 / 월간 사용자 비율 | > 20% (우수: > 50%) | DAU / MAU |
-| **L7/L28** | 주간/월간 활성도 | > 50% | 최근 7일 활성 / 최근 28일 활성 |
-| **D1/D7/D30 Retention** | 신규 가입 후 재방문율 | D1 > 40%, D7 > 20%, D30 > 10% | Day N 재방문 사용자 / Day 0 가입 사용자 |
-| **K-factor** | 바이럴 계수 | > 1.0 (폭발적 성장) | (초대 수 × 전환율) × 재초대 반복 |
-| **Session Length** | 평균 세션 시간 | 카테고리별 상이 | 총 세션 시간 / 세션 수 |
-| **Frequency** | 주당 방문 횟수 | > 3회/주 (습관 형성) | 총 세션 수 / 주간 활성 사용자 |
+#### Core Metrics (7)
+| Metric | Definition | Target | Calculation |
+|--------|-----------|--------|-------------|
+| **GMV Growth** | Total transaction volume growth rate | 15-30%/mo (early) | (GMV_this_month - GMV_last_month) / GMV_last_month |
+| **Take Rate** | Commission rate | 10-30% (varies by category) | Net Revenue / GMV |
+| **Liquidity** | Supply-demand balance | > 80% match rate | Completed Transactions / Total Requests |
+| **Buyer Retention** | Buyer repeat purchase rate | >30%/mo, >60%/yr | Repeat Buyers This Month / Total Buyers |
+| **Seller Retention** | Seller retention rate | >70%/mo, >50%/yr | Active Sellers This Month / Prior Month |
+| **Repeat Tx %** | Repeat transaction share | > 40% (mature > 60%) | Repeat GMV / Total GMV |
+| **Supply Utilization** | Supply utilization | > 60% | Sellers with Transactions / Total Sellers |
 
-#### 보조 지표
-- **Activation Rate**: 신규 가입 후 "Aha moment" 도달 비율 — 목표 > 30%
-- **Retention Curves**: 코호트별 장기 유지율 곡선 (평평해지는 지점 확인)
-- **Resurrection Rate**: 이탈 사용자 재활성화 비율
-- **Stickiness**: DAU / MAU × 100 (높을수록 습관성 강함)
+#### Supporting Metrics
+- **Average Order Value (AOV)**: Avg amount per transaction
+- **Frequency**: Avg monthly transactions per customer
+- **Contribution Margin**: (Net Revenue - Variable Costs) / Net Revenue — Target > 20%
+- **Time to Liquidity**: Time for new category to reach 80% match rate
+
+### 3. Consumer / Social
+
+#### North Star Metric
+- **DAU** (Daily Active Users) or **Engagement**
+
+#### Core Metrics (6)
+| Metric | Definition | Target | Calculation |
+|--------|-----------|--------|-------------|
+| **DAU / MAU** | Daily / Monthly active user ratio | > 20% (strong: > 50%) | DAU / MAU |
+| **L7/L28** | Weekly/monthly engagement | > 50% | Active Last 7 Days / Active Last 28 Days |
+| **D1/D7/D30 Retention** | Post-signup return rate | D1 > 40%, D7 > 20%, D30 > 10% | Day N Active / Day 0 Signups |
+| **K-factor** | Viral coefficient | > 1.0 (explosive growth) | (Invites × Conversion Rate) × Repeat |
+| **Session Length** | Avg session duration | Category-dependent | Total Session Time / Session Count |
+| **Frequency** | Weekly visit frequency | > 3x/week (habit formation) | Total Sessions / Weekly Active Users |
+
+#### Supporting Metrics
+- **Activation Rate**: % reaching "Aha moment" post-signup — Target > 30%
+- **Retention Curves**: Long-term cohort retention (identify plateau point)
+- **Resurrection Rate**: Reactivated churned user %
+- **Stickiness**: DAU / MAU × 100 (higher = stronger habit)
 
 ### 4. B2B (Enterprise / SMB)
 
 #### North Star Metric
-- **ARR** (Annual Recurring Revenue) 또는 **Bookings**
+- **ARR** (Annual Recurring Revenue) or **Bookings**
 
-#### 핵심 지표 (8개)
-| 지표 | 정의 | 목표 | 계산 |
-|------|------|------|------|
-| **Win Rate** | 영업 성공률 | 20-40% (Enterprise), 10-20% (SMB) | Won Deals / Total Opportunities |
-| **Sales Cycle** | 평균 영업 기간 | SMB 30-60일, Mid 60-120일, Ent 120-270일 | 평균 (Close Date - Opportunity Created Date) |
-| **ACV** | Average Contract Value | Enterprise > $100K, SMB $10K-50K | Total Contract Value / Contract Years |
-| **Pipeline Coverage** | 파이프라인 커버리지 | 3-5x 목표 | Total Pipeline Value / Quarterly Quota |
-| **Lead Velocity Rate** | 리드 증가율 | 월 10-20% | (이번 달 적격 리드 - 지난 달) / 지난 달 |
-| **Conversion Rates** | 단계별 전환율 | Lead→Opp 10-20%, Demo→Prop 30-50% | 다음 단계 진입 / 현 단계 총 수 |
-| **Customer Concentration** | 고객 집중도 | Top 5 < 50% ARR | Top 5 고객 ARR / Total ARR |
-| **Expansion ARR** | 기존 고객 확장 매출 | > 30% of New ARR | Upsell + Cross-sell ARR / Total New ARR |
+#### Core Metrics (8)
+| Metric | Definition | Target | Calculation |
+|--------|-----------|--------|-------------|
+| **Win Rate** | Sales close rate | 20-40% (Ent), 10-20% (SMB) | Won Deals / Total Opportunities |
+| **Sales Cycle** | Avg sales duration | SMB 30-60d, Mid 60-120d, Ent 120-270d | Avg (Close Date - Opp Create Date) |
+| **ACV** | Average Contract Value | Ent >$100K, SMB $10K-50K | Total Contract Value / Contract Years |
+| **Pipeline Coverage** | Pipeline coverage ratio | 3-5x quota | Total Pipeline Value / Quarterly Quota |
+| **Lead Velocity Rate** | Qualified lead growth | 10-20%/month | (This Month Leads - Prior Month) / Prior |
+| **Conversion Rates** | Stage conversion | Lead→Opp 10-20%, Demo→Prop 30-50% | Next Stage / Current Stage |
+| **Customer Concentration** | Customer concentration | Top 5 < 50% ARR | Top 5 ARR / Total ARR |
+| **Expansion ARR** | Existing customer expansion | > 30% of New ARR | Upsell + Cross-sell / Total New ARR |
 
-#### 보조 지표
-- **Sales Productivity**: 영업 담당자당 ARR — 목표 > $500K (성숙 조직 > $1M)
-- **NPS** (Net Promoter Score): 목표 > 30 (우수: > 50)
-- **Time to Value**: 계약 후 첫 가치 실현까지 시간 — 목표 < 30일
-- **Implementation Time**: 온보딩 완료까지 기간
+#### Supporting Metrics
+- **Sales Productivity**: ARR per sales rep — Target > $500K (mature > $1M)
+- **NPS** (Net Promoter Score): Target > 30 (strong: > 50)
+- **Time to Value**: Time from contract to first value — Target < 30 days
+- **Implementation Time**: Onboarding completion timeline
 
-## 투자 단계별 Focus 지표
+## Metrics by Funding Stage
 
 ### Pre-seed / Seed
-**주 목표**: Product-Market Fit 검증
+**Primary Goal**: Validate Product-Market Fit
 
-| 단계 | 핵심 지표 | 벤치마크 |
-|------|-----------|----------|
-| **Pre-seed** | • Activation Rate<br>• D7/D30 Retention<br>• Qualitative Feedback | • 첫 가치 실현 > 30%<br>• D7 Retention > 20%<br>• "매우 실망" > 40% |
-| **Seed** | • MRR/GMV Growth<br>• Unit Economics (CAC/LTV)<br>• Retention Curves | • 월 10-15% 성장<br>• LTV:CAC > 1:1 (초기 허용)<br>• Flattening curve |
+| Stage | Core Metrics | Benchmarks |
+|-------|-------------|-----------|
+| **Pre-seed** | • Activation Rate<br>• D7/D30 Retention<br>• Qualitative Feedback | • First value realization > 30%<br>• D7 Retention > 20%<br>• "Would be very disappointed" > 40% |
+| **Seed** | • MRR/GMV Growth<br>• Unit Economics (CAC/LTV)<br>• Retention Curves | • 10-15%/mo growth<br>• LTV:CAC > 1:1 (early acceptable)<br>• Flattening curve |
 
 ### Series A
-**주 목표**: 확장 가능한 성장 엔진
+**Primary Goal**: Scalable Growth Engine
 
-| 핵심 지표 | 벤치마크 |
+| Core Metric | Benchmark |
 |-----------|----------|
-| MRR/GMV Growth | 월 8-12% (연 2.5-3.5x) |
-| CAC Payback | < 18개월 |
+| MRR/GMV Growth | 8-12%/mo (2.5-3.5x/yr) |
+| CAC Payback | < 18 months |
 | LTV:CAC | > 3:1 |
 | NRR (SaaS) | > 100% |
 | Burn Multiple | < 2.0x |
 
 ### Series B
-**주 목표**: 효율적 성장 + 수익성 경로
+**Primary Goal**: Efficient Growth + Path to Profitability
 
-| 핵심 지표 | 벤치마크 |
+| Core Metric | Benchmark |
 |-----------|----------|
-| ARR/GMV Growth | 월 5-8% (연 1.8-2.5x) |
-| Rule of 40 | > 30% (목표 > 40%) |
-| CAC Payback | < 12개월 |
-| Gross Margin | > 70% (SaaS), > 30% (마켓플레이스) |
+| ARR/GMV Growth | 5-8%/mo (1.8-2.5x/yr) |
+| Rule of 40 | > 30% (target > 40%) |
+| CAC Payback | < 12 months |
+| Gross Margin | > 70% (SaaS), > 30% (Marketplace) |
 | Magic Number | > 0.75 |
 | Burn Multiple | < 1.5x |
 
-**상세 벤치마크**: [references/benchmarks-by-stage.md](references/benchmarks-by-stage.md) 참조
+**Detailed Benchmarks**: See [references/benchmarks-by-stage.md](references/benchmarks-by-stage.md)
 
-## 출력 형식
+## Output Format
 
-### 지표 대시보드 (투자자 보고용)
+### Metrics Dashboard (Investor-ready)
 
 ```markdown
-# [회사명] 월간 지표 대시보드
-**보고 기간**: YYYY년 M월 | **비즈니스 모델**: [SaaS/마켓플레이스/컨슈머/B2B]
+# [Company Name] Monthly Metrics Dashboard
+**Reporting Period**: [YYYY-MM] | **Business Model**: [SaaS/Marketplace/Consumer/B2B]
 
 ## 📊 North Star Metric
-- **[ARR/MRR/GMV/DAU]**: $X.XM (전월 대비 +Y%)
-- **목표 달성률**: Z% (월간 목표 $X.XM)
+- **[ARR/MRR/GMV/DAU]**: $X.XM (+Y% vs prior month)
+- **Goal Achievement**: Z% (monthly target $X.XM)
 
-## 🎯 핵심 지표 (MoM)
+## 🎯 Core Metrics (MoM)
 
-| 지표 | 현재 | 전월 | 변화 | 벤치마크 | 상태 |
-|------|------|------|------|----------|------|
+| Metric | Current | Prior Month | Change | Benchmark | Status |
+|--------|---------|-------------|--------|-----------|--------|
 | MRR Growth | 12% | 10% | +2%p | 10-15% | 🟢 |
 | NRR | 108% | 105% | +3%p | >100% | 🟢 |
-| CAC Payback | 14개월 | 16개월 | -2개월 | <18개월 | 🟡 |
+| CAC Payback | 14mo | 16mo | -2mo | <18mo | 🟡 |
 | Burn Multiple | 1.8x | 2.1x | -0.3x | <2.0x | 🟢 |
 
-🟢 = 목표 달성/초과  |  🟡 = 주의  |  🔴 = 개선 필요
+🟢 = Target met/exceeded  |  🟡 = Caution  |  🔴 = Needs improvement
 
-## 📈 코호트 분석 (Retention)
-[월별 코호트 테이블 또는 차트]
+## 📈 Cohort Analysis (Retention)
+[Monthly cohort table or chart]
 
-## 💡 인사이트
-- **긍정**: [주요 성과 2-3개]
-- **우려**: [개선 필요 영역 1-2개]
-- **다음 달 초점**: [집중 지표 및 목표]
+## 💡 Insights
+- **Positive**: [2-3 key wins]
+- **Concerns**: [1-2 areas needing improvement]
+- **Next Month Focus**: [Key metrics and targets]
 ```
 
-## 실행 흐름
+## Execution Flow
 
-1. **모델 감지**: 비즈니스 설명에서 SaaS/마켓플레이스/컨슈머/B2B 자동 분류
-2. **현재 단계 파악**: Pre-seed/Seed/Series A/B 확인 (명시 또는 트랙션 기반)
-3. **핵심 지표 선정**: 모델 + 단계에 최적화된 5-8개 지표 선택
-4. **데이터 수집**:
-   - 기본: 사용자 입력 또는 파일 업로드
-   - 강화: ~~analytics 도구에서 자동 수집
-5. **벤치마크 비교**: 단계별 목표 수치와 현재 지표 비교
-6. **대시보드 생성**: 투자자 보고 형식 또는 내부 모니터링용
-7. **인사이트 제공**: 개선 우선순위 및 실행 권장사항
+1. **Detect Model**: Auto-classify as SaaS/Marketplace/Consumer/B2B from description
+2. **Identify Stage**: Determine Pre-seed/Seed/Series A/B (explicit or traction-based)
+3. **Select Metrics**: Choose 5-8 metrics optimized for model + stage
+4. **Collect Data**:
+   - Basic: User input or file upload
+   - Enhanced: Auto-collect from ~~analytics tools
+5. **Compare to Benchmarks**: Assess current metrics vs stage targets
+6. **Generate Dashboard**: Investor-ready format or internal monitoring
+7. **Provide Insights**: Prioritized improvements and action recommendations
 
-## 지표별 개선 전략
+## Metrics-Specific Improvement Strategies
 
-### NRR 개선 (SaaS)
-1. **Expansion 강화**: Upsell/Cross-sell 모션 구축
-2. **Churn 감소**: 이탈 위험 고객 조기 감지 (Health Score)
-3. **Downsell 방지**: 사용량 기반 가격 → Feature 기반 전환
+### Improve NRR (SaaS)
+1. **Strengthen Expansion**: Build upsell/cross-sell motions
+2. **Reduce Churn**: Early identify at-risk customers (Health Score)
+3. **Prevent Downsells**: Transition from usage-based to feature-based pricing
 
-### Liquidity 개선 (마켓플레이스)
-1. **Supply 확보**: 판매자 온보딩 인센티브, 독점 공급
-2. **Demand 활성화**: 구매자 획득 캠페인, 재구매 루프
-3. **매칭 최적화**: 검색/추천 알고리즘, 카테고리 세분화
+### Improve Liquidity (Marketplace)
+1. **Acquire Supply**: Seller onboarding incentives, exclusive inventory
+2. **Activate Demand**: Buyer acquisition campaigns, repeat loops
+3. **Optimize Matching**: Search/recommendation algorithms, category refinement
 
-### Retention 개선 (컨슈머)
-1. **Activation 강화**: Aha moment까지 시간 단축, 온보딩 최적화
-2. **Habit 형성**: 푸시 알림, 이메일 리마인더, 스트릭 시스템
-3. **Network Effects**: 소셜 기능, 바이럴 루프, 커뮤니티
+### Improve Retention (Consumer)
+1. **Strengthen Activation**: Shorten time to "Aha moment", optimize onboarding
+2. **Build Habit**: Push notifications, email reminders, streak systems
+3. **Enable Network Effects**: Social features, viral loops, community
 
-### Win Rate 개선 (B2B)
-1. **ICP 정제**: 최고 Win Rate 세그먼트에 집중
-2. **Sales Enablement**: 배틀카드, 데모 환경, ROI 계산기
-3. **Objection Handling**: 일반 반대 의견에 대한 표준 답변
+### Improve Win Rate (B2B)
+1. **Refine ICP**: Focus on highest-win-rate segments
+2. **Enable Sales**: Battlecards, demo environments, ROI calculators
+3. **Handle Objections**: Standardized responses to common concerns
 
-## 연결 가능한 도구
+## Connectable Tools
 
-| 도구 카테고리 | 플레이스홀더 | 용도 | 예시 도구 |
-|---------------|-------------|------|-----------|
-| 분석 플랫폼 | `~~analytics` | 실시간 지표 데이터 자동 수집 | Mixpanel, Amplitude, Segment |
-| 스프레드시트 | `~~spreadsheet` | 코호트 분석, 추세 차트 | Google Sheets, Excel |
-| 지식 베이스 | `~~knowledge base` | 과거 보고서에서 벤치마크 추출 | Notion, Confluence |
-| BI 도구 | (~~analytics) | 대시보드 시각화 | Looker, Tableau, Metabase |
+| Tool Category | Placeholder | Purpose | Example Tools |
+|---------------|-------------|---------|----------------|
+| Analytics Platform | `~~analytics` | Auto-collect real-time metric data | Mixpanel, Amplitude, Segment |
+| Spreadsheet | `~~spreadsheet` | Cohort analysis, trend charts | Google Sheets, Excel |
+| Knowledge Base | `~~knowledge base` | Extract benchmarks from past reports | Notion, Confluence |
+| BI Tool | (~~analytics) | Dashboard visualization | Looker, Tableau, Metabase |
 
-## 관련 스킬
+## Related Skills
 
-- **financial-modeling**: 지표를 재무 모델에 통합
-- **fundraise-comms**: 투자자 업데이트에 지표 포함
-- **market-sizing**: TAM/SAM 달성을 위한 지표 역산
-- **gtm-strategy**: GTM 모션별 핵심 지표 선택
+- **financial-modeling** — Integrate metrics into financial models
+- **fundraise-comms** — Include metrics in investor updates
+- **market-sizing** — Reverse-engineer metrics for TAM/SAM achievement
+- **gtm-strategy** — Select key metrics by GTM motion
 
-## 팁
+## Tips
 
-- **Less is More**: 5-8개 핵심 지표에 집중. 30개 지표 추적은 실행력 저하
-- **단계별 전환**: Pre-seed는 Retention, Seed는 Unit Economics, Series A+는 효율성
-- **코호트 필수**: 평균 지표는 오해의 소지. 코호트별 분석으로 진짜 트렌드 파악
-- **벤치마크는 참고용**: 업종/지역/모델에 따라 다름. 자사 과거 데이터와 비교가 우선
-- **Leading vs Lagging**: CAC/LTV는 Lagging, Pipeline Coverage/Lead Velocity는 Leading
-- **투자자 관점**: Rule of 40, Burn Multiple, CAC Payback은 VC가 가장 주목하는 지표
-- **정의 일관성**: 같은 지표도 회사마다 계산 방식 다름. 한 번 정의하면 일관되게 유지
+- **Less is More**: Focus on 5-8 core metrics. Tracking 30 kills execution
+- **Stage-specific Focus**: Pre-seed emphasizes Retention, Seed emphasizes Unit Economics, Series A+ emphasizes efficiency
+- **Cohort Analysis Required**: Averages mislead. Cohort analysis reveals true trends
+- **Benchmarks as Reference Only**: Vary by industry/region/model. Compare vs your own history first
+- **Leading vs Lagging**: CAC/LTV are lagging; Pipeline Coverage/Lead Velocity are leading
+- **Investor Perspective**: Rule of 40, Burn Multiple, CAC Payback are most VC-watched
+- **Consistency Matters**: Definition of same metric varies by company. Once defined, maintain consistently

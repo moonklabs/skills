@@ -1,81 +1,81 @@
-# 비즈니스 모델별 재무 모델 템플릿
+# Financial Model Templates by Business Model
 
-이 문서는 4가지 주요 비즈니스 모델(SaaS, 마켓플레이스, E-commerce, 서비스)의 상세 재무 모델 템플릿을 제공합니다. 각 템플릿은 월별 구조, 핵심 동인, 스프레드시트 수식, 실제 예시를 포함합니다.
-
----
-
-## 목차
-
-1. [SaaS 재무 모델](#saas-재무-모델)
-2. [마켓플레이스 재무 모델](#마켓플레이스-재무-모델)
-3. [E-commerce 재무 모델](#e-commerce-재무-모델)
-4. [서비스/Agency 재무 모델](#서비스agency-재무-모델)
+This document provides detailed financial model templates for 4 major business models (SaaS, Marketplace, E-commerce, Services). Each template includes monthly structure, core drivers, spreadsheet formulas, and real-world examples.
 
 ---
 
-## SaaS 재무 모델
+## Table of Contents
 
-### 핵심 동인
+1. [SaaS Financial Model](#saas-financial-model)
+2. [Marketplace Financial Model](#marketplace-financial-model)
+3. [E-commerce Financial Model](#e-commerce-financial-model)
+4. [Services/Agency Financial Model](#servicesagency-financial-model)
 
-**매출 구성:**
+---
+
+## SaaS Financial Model
+
+### Core Drivers
+
+**Revenue Composition:**
 ```
 MRR (Monthly Recurring Revenue) =
-  이전 달 MRR
-  + New MRR (신규 고객)
-  + Expansion MRR (업셀/크로스셀)
-  - Contraction MRR (다운그레이드)
-  - Churn MRR (해지)
+  Prior Month MRR
+  + New MRR (new customers)
+  + Expansion MRR (upsell/cross-sell)
+  - Contraction MRR (downgrades)
+  - Churn MRR (cancellations)
 
 ARR = MRR × 12
 ```
 
-**유닛 이코노믹스:**
+**Unit Economics:**
 ```
-CAC = (S&M 비용) / (신규 고객 수)
+CAC = (S&M Spend) / (New Customers)
 LTV = (ARPU × Gross Margin) / Churn Rate
 CAC Payback = CAC / (ARPU × Gross Margin)
 ```
 
-**핵심 메트릭스:**
+**Core Metrics:**
 - Net Revenue Retention (NRR)
 - Gross Revenue Retention (GRR)
-- Rule of 40 = 성장률 + EBITDA Margin
-- Magic Number = (Net New ARR) / (S&M 비용)
+- Rule of 40 = Growth Rate + EBITDA Margin
+- Magic Number = (Net New ARR) / (S&M Spend)
 
-### 월별 구조
+### Monthly Structure
 
-#### Sheet 1: 고객 & MRR 빌드업
+#### Sheet 1: Customers & MRR Buildup
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **고객 수** |
-| 이전 달 고객 | 0 | =B2+B3-B5 | =C2+C3-C5 | ... |
-| 신규 고객 | 10 | 12 | 15 | ... | 150 |
-| 업그레이드 | 0 | 0 | 1 | ... | 20 |
-| 다운그레이드 | 0 | 0 | 0 | ... | 5 |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Customer Count** |
+| Prior Month | 0 | =B2+B3-B5 | =C2+C3-C5 | ... |
+| New Customers | 10 | 12 | 15 | ... | 150 |
+| Upgrades | 0 | 0 | 1 | ... | 20 |
+| Downgrades | 0 | 0 | 0 | ... | 5 |
 | Churn | 0 | 0 | 1 | ... | 15 |
-| 월말 고객 | 10 | =B2+B3-B5 | ... | ... |
+| End of Month | 10 | =B2+B3-B5 | ... | ... |
 |  |
-| **MRR 빌드업** |
-| 이전 달 MRR | 0 | =B9+B10-B11-B12 | ... |
+| **MRR Buildup** |
+| Prior Month MRR | 0 | =B9+B10-B11-B12 | ... |
 | New MRR | 1,000 | 1,200 | 1,500 | ... | 15,000 |
 | Expansion MRR | 0 | 0 | 100 | ... | 3,000 |
 | Contraction MRR | 0 | 0 | 0 | ... | 200 |
 | Churn MRR | 0 | 0 | 100 | ... | 1,500 |
-| 월말 MRR | 1,000 | =B9+B10-B11-B12 | ... | ... |
+| End of Month MRR | 1,000 | =B9+B10-B11-B12 | ... | ... |
 |  |
-| **메트릭스** |
+| **Metrics** |
 | ARPU | =B13/B6 | =C13/C6 | ... |
 | Gross Churn % | - | =C12/C9 | ... |
 | Net Churn % | - | =(C12-C11)/C9 | ... |
 | NRR % | - | =(C9+C11-C12)/B9 | ... |
 ```
 
-#### Sheet 2: 코호트 분석
+#### Sheet 2: Cohort Analysis
 
 ```
-고객 코호트 (월별):
+Customer Cohorts (Monthly):
 
 |        | M0   | M1   | M2   | M3   | ... | M12  |
 |--------|------|------|------|------|-----|------|
@@ -83,7 +83,7 @@ CAC Payback = CAC / (ARPU × Gross Margin)
 | Feb-24 | 100% | 96%  | 93%  | 91%  | ... | 74%  |
 | Mar-24 | 100% | 97%  | 95%  | 93%  | ... | 76%  |
 
-MRR 코호트 (월별 MRR):
+MRR Cohorts (Monthly MRR):
 
 |        | M0    | M1    | M2    | M3    | ... | M12   |
 |--------|-------|-------|-------|-------|-----|-------|
@@ -91,431 +91,431 @@ MRR 코호트 (월별 MRR):
 | Feb-24 | $12K  | $12.6K| $13K  | $13.5K| ... | $17K  |
 | Mar-24 | $15K  | $15.8K| $16.5K| $17K  | ... | $21K  |
 
-해석:
-- M0 → M12 Retention: 75% (목표: >80%)
-- M0 → M12 MRR 확대: 140% (Expansion 덕분)
-- NRR = 140% × 75% = 105% (>100% = 좋음)
+Interpretation:
+- M0 → M12 Retention: 75% (Target: >80%)
+- M0 → M12 MRR Expansion: 140% (due to expansion)
+- NRR = 140% × 75% = 105% (>100% = healthy)
 ```
 
-#### Sheet 3: 손익계산서 (P&L)
+#### Sheet 3: P&L Statement
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **매출** |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Revenue** |
 | MRR | 1,000 | =Sheet1!B13 | ... |
 | Setup Fee | 100 | 120 | 150 | ... |
-| 총 매출 | =B2+B3 | =C2+C3 | ... |
+| Total Revenue | =B2+B3 | =C2+C3 | ... |
 |  |
 | **COGS** |
-| 호스팅 (20% of MRR) | -200 | =C2*0.2 | ... |
-| API 비용 (5%) | -50 | =C2*0.05 | ... |
-| CS (고객당 $5) | =-Sheet1!B6*5 | ... |
-| 총 COGS | =SUM(B6:B8) | ... |
+| Hosting (20% of MRR) | -200 | =C2*0.2 | ... |
+| API Costs (5%) | -50 | =C2*0.05 | ... |
+| CS (per customer $5) | =-Sheet1!B6*5 | ... |
+| Total COGS | =SUM(B6:B8) | ... |
 | Gross Profit | =B4+B9 | ... |
 | Gross Margin % | =B10/B4 | ... |
 |  |
-| **영업비용** |
+| **Operating Expenses** |
 | R&D | -5,000 | -5,500 | -6,000 | ... |
 | Sales & Marketing | -3,000 | -3,500 | -4,000 | ... |
 | G&A | -1,000 | -1,200 | -1,500 | ... |
-| 총 OpEx | =SUM(B13:B15) | ... |
+| Total OpEx | =SUM(B13:B15) | ... |
 |  |
 | **EBITDA** | =B10+B16 | ... |
 | EBITDA Margin % | =B18/B4 | ... |
 ```
 
-### 예시: SaaS 스타트업 (Base 시나리오)
+### Example: SaaS Startup (Base Scenario)
 
-**가정:**
-- 시작 고객: 0명
-- 월 신규 고객: M1-M12: 10→50명 (선형 성장), M13-M36: 50→150명
-- ARPU: $100 (M1-M12), $120 (M13-M36 - 가격 인상)
-- Churn: 3.5%/월
-- Expansion: 15% 고객이 연 1회 업그레이드 (+50% ARPU)
+**Assumptions:**
+- Starting customers: 0
+- New customers/month: M1-M12: 10→50 (linear growth), M13-M36: 50→150
+- ARPU: $100 (M1-M12), $120 (M13-M36 — price increase)
+- Churn: 3.5%/month
+- Expansion: 15% of customers upgrade annually (+50% ARPU)
 - CAC: $300
 - Gross Margin: 75%
 
-**결과 (Year 3 종료 시):**
-- 고객 수: 2,500명
+**Results (Year 3 End):**
+- Customer count: 2,500
 - MRR: $300K
 - ARR: $3.6M
 - NRR: 105%
 - LTV:CAC: 3.4:1
-- CAC Payback: 8.5개월
-- Rule of 40: 60% (성장 45% + EBITDA 15%)
+- CAC Payback: 8.5 months
+- Rule of 40: 60% (45% growth + 15% EBITDA)
 
 ---
 
-## 마켓플레이스 재무 모델
+## Marketplace Financial Model
 
-### 핵심 동인
+### Core Drivers
 
-**매출 구성:**
+**Revenue Composition:**
 ```
-GMV (Gross Merchandise Value) = 거래량 × 평균 거래 금액
-매출 (Revenue) = GMV × Take Rate
-```
-
-**양면 성장:**
-```
-공급 (Supply): 판매자 수, 리스팅 수
-수요 (Demand): 구매자 수, 거래 수
-유동성 = 거래 완료율
+GMV (Gross Merchandise Value) = Transaction Volume × Avg Transaction Amount
+Revenue = GMV × Take Rate
 ```
 
-**유닛 이코노믹스:**
+**Two-Sided Growth:**
 ```
-CAC (구매자) = (마케팅 비용) / (신규 구매자)
-CAC (판매자) = (판매자 획득 비용) / (신규 판매자)
-LTV (구매자) = (평균 거래 빈도 × 평균 거래 금액 × Take Rate) / Churn
+Supply: Seller count, listing count
+Demand: Buyer count, transaction count
+Liquidity = Transaction completion rate
 ```
 
-### 월별 구조
+**Unit Economics:**
+```
+CAC (Buyer) = (Marketing Spend) / (New Buyers)
+CAC (Seller) = (Seller acquisition cost) / (New Sellers)
+LTV (Buyer) = (Avg transaction frequency × Avg transaction amount × Take Rate) / Churn
+```
 
-#### Sheet 1: 공급/수요 & GMV
+### Monthly Structure
+
+#### Sheet 1: Supply/Demand & GMV
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **공급 (Supply)** |
-| 활성 판매자 | 50 | 60 | 72 | ... | 1,000 |
-| 신규 판매자 | 50 | 15 | 18 | ... | 100 |
-| 판매자 Churn | 0 | 5 | 6 | ... | 80 |
-| 판매자당 리스팅 | 5 | 6 | 7 | ... | 10 |
-| 총 리스팅 | =B2*B5 | ... |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Supply** |
+| Active Sellers | 50 | 60 | 72 | ... | 1,000 |
+| New Sellers | 50 | 15 | 18 | ... | 100 |
+| Seller Churn | 0 | 5 | 6 | ... | 80 |
+| Listings per Seller | 5 | 6 | 7 | ... | 10 |
+| Total Listings | =B2*B5 | ... |
 |  |
-| **수요 (Demand)** |
-| 활성 구매자 | 200 | 250 | 310 | ... | 5,000 |
-| 신규 구매자 | 200 | 80 | 100 | ... | 500 |
-| 구매자 Churn | 0 | 30 | 40 | ... | 400 |
-| 구매자당 거래/월 | 0.5 | 0.6 | 0.7 | ... | 1.2 |
+| **Demand** |
+| Active Buyers | 200 | 250 | 310 | ... | 5,000 |
+| New Buyers | 200 | 80 | 100 | ... | 500 |
+| Buyer Churn | 0 | 30 | 40 | ... | 400 |
+| Transactions per Buyer/mo | 0.5 | 0.6 | 0.7 | ... | 1.2 |
 |  |
-| **GMV & 매출** |
-| 총 거래 수 | =B8*B11 | ... |
-| 평균 거래 금액 | $50 | $52 | $54 | ... | $80 |
+| **GMV & Revenue** |
+| Total Transactions | =B8*B11 | ... |
+| Avg Transaction Amount | $50 | $52 | $54 | ... | $80 |
 | GMV | =B13*B14 | ... |
 | Take Rate | 15% | 16% | 17% | ... | 20% |
-| 매출 | =B15*B16 | ... |
+| Revenue | =B15*B16 | ... |
 |  |
-| **유동성 지표** |
-| 리스팅당 거래 | =B13/B6 | ... |
-| 거래 완료율 | - | 10% | 12% | ... | 25% |
-| 반복 구매율 | - | 30% | 35% | ... | 60% |
+| **Liquidity Metrics** |
+| Transactions per Listing | =B13/B6 | ... |
+| Transaction Completion Rate | - | 10% | 12% | ... | 25% |
+| Repeat Purchase Rate | - | 30% | 35% | ... | 60% |
 ```
 
-#### Sheet 2: 손익계산서
+#### Sheet 2: P&L Statement
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **매출** |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Revenue** |
 | GMV | =Sheet1!B15 | ... |
 | Take Rate | =Sheet1!B16 | ... |
-| 총 매출 | =Sheet1!B17 | ... |
+| Total Revenue | =Sheet1!B17 | ... |
 |  |
 | **COGS** |
-| 결제 수수료 (2.9%) | =B2*0.029 | ... |
-| 사기 방지 | =B2*0.005 | ... |
-| CS (거래당 $0.5) | =-Sheet1!B13*0.5 | ... |
-| 총 COGS | =SUM(B6:B8) | ... |
+| Payment Processing (2.9%) | =B2*0.029 | ... |
+| Fraud Prevention | =B2*0.005 | ... |
+| CS (per transaction $0.5) | =-Sheet1!B13*0.5 | ... |
+| Total COGS | =SUM(B6:B8) | ... |
 | Gross Profit | =B4+B9 | ... |
 | Gross Margin % | =B10/B4 | ... |
 |  |
-| **영업비용** |
+| **Operating Expenses** |
 | R&D | -10,000 | -11,000 | ... |
-| S&M (구매자) | =Sheet1!B9*CAC_buyer | ... |
-| S&M (판매자) | =Sheet1!B3*CAC_seller | ... |
+| S&M (Buyers) | =Sheet1!B9*CAC_buyer | ... |
+| S&M (Sellers) | =Sheet1!B3*CAC_seller | ... |
 | G&A | -2,000 | -2,200 | ... |
-| 총 OpEx | =SUM(B13:B16) | ... |
+| Total OpEx | =SUM(B13:B16) | ... |
 |  |
 | **EBITDA** | =B10+B17 | ... |
 ```
 
-### 예시: 마켓플레이스 (Base 시나리오)
+### Example: Marketplace (Base Scenario)
 
-**가정:**
-- 시작: 판매자 50명, 구매자 200명
-- 성장: 판매자 +20%/월 (M1-M12) → +10%/월 (M13-M36)
-- 성장: 구매자 +25%/월 (M1-M12) → +15%/월 (M13-M36)
-- 평균 거래 금액: $50 (M1) → $80 (M36)
-- Take Rate: 15% (M1) → 20% (M36 - 브랜드 강화)
-- 구매자 CAC: $20
-- 판매자 CAC: $100
+**Assumptions:**
+- Starting: 50 sellers, 200 buyers
+- Growth: Sellers +20%/month (M1-M12) → +10%/month (M13-M36)
+- Growth: Buyers +25%/month (M1-M12) → +15%/month (M13-M36)
+- Avg transaction amount: $50 (M1) → $80 (M36)
+- Take Rate: 15% (M1) → 20% (M36 — brand strengthening)
+- Buyer CAC: $20
+- Seller CAC: $100
 
-**결과 (Year 3 종료 시):**
-- GMV: $4M/월
-- 매출: $800K/월 (Take Rate 20%)
-- 활성 판매자: 1,000명
-- 활성 구매자: 5,000명
+**Results (Year 3 End):**
+- GMV: $4M/month
+- Revenue: $800K/month (20% Take Rate)
+- Active Sellers: 1,000
+- Active Buyers: 5,000
 - Gross Margin: 65%
-- Liquidity: 리스팅당 거래 0.4건/월
+- Liquidity: 0.4 transactions per listing/month
 
 ---
 
-## E-commerce 재무 모델
+## E-commerce Financial Model
 
-### 핵심 동인
+### Core Drivers
 
-**매출 구성:**
+**Revenue Composition:**
 ```
-GMV = 주문 수 × AOV (Average Order Value)
-매출 = GMV (자사 재고) or GMV × Take Rate (마켓플레이스 모델)
-```
-
-**고객 코호트:**
-```
-신규 고객: 첫 구매
-재구매 고객: 2회 이상 구매
-LTV = 평균 생애 주문 수 × AOV × Gross Margin
+GMV = Order Count × AOV (Average Order Value)
+Revenue = GMV (own inventory) or GMV × Take Rate (marketplace model)
 ```
 
-**재고 관리:**
+**Customer Cohorts:**
 ```
-재고 회전율 = COGS / 평균 재고
-캐시 컨버전 사이클 = 재고 보유 일수 + 매출채권 회수 일수 - 매입채무 지급 일수
+New customers: First purchase
+Repeat customers: 2+ purchases
+LTV = Avg lifetime order count × AOV × Gross Margin
 ```
 
-### 월별 구조
+**Inventory Management:**
+```
+Inventory Turnover = COGS / Avg Inventory
+Cash Conversion Cycle = Days Inventory Held + Days Receivables - Days Payable
+```
 
-#### Sheet 1: 주문 & GMV
+### Monthly Structure
+
+#### Sheet 1: Orders & GMV
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **고객 획득** |
-| 월초 고객 | 0 | =B2+B3-B4 | ... |
-| 신규 고객 | 500 | 600 | 720 | ... | 5,000 |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Customer Acquisition** |
+| Month Start | 0 | =B2+B3-B4 | ... |
+| New Customers | 500 | 600 | 720 | ... | 5,000 |
 | Churn | 0 | 50 | 60 | ... | 500 |
-| 월말 고객 | =B2+B3-B4 | ... |
+| Month End | =B2+B3-B4 | ... |
 |  |
-| **주문 & GMV** |
-| 신규 고객 주문 | =B3*1.0 | ... | # 1.0 = 첫 구매율 |
-| 재구매 주문 | =B2*0.3 | ... | # 0.3 = 월 재구매율 |
-| 총 주문 수 | =B7+B8 | ... |
+| **Orders & GMV** |
+| New Customer Orders | =B3*1.0 | ... | # 1.0 = first purchase rate |
+| Repeat Orders | =B2*0.3 | ... | # 0.3 = monthly repeat rate |
+| Total Orders | =B7+B8 | ... |
 |  |
-| 신규 고객 AOV | $60 | $62 | $64 | ... | $100 |
-| 재구매 AOV | - | $80 | $85 | ... | $150 |
+| New Customer AOV | $60 | $62 | $64 | ... | $100 |
+| Repeat Customer AOV | - | $80 | $85 | ... | $150 |
 | Blended AOV | =IF(B9=0,B11,(B7*B11+B8*B12)/B9) | ... |
 | GMV | =B9*B13 | ... |
 |  |
-| **재구매 지표** |
-| 재구매율 | - | =B8/(B2+B3) | ... |
-| 코호트 LTV (12개월) | - | - | ... | $450 |
+| **Repeat Metrics** |
+| Repeat Rate | - | =B8/(B2+B3) | ... |
+| Cohort LTV (12mo) | - | - | ... | $450 |
 ```
 
-#### Sheet 2: 재고 & COGS
+#### Sheet 2: Inventory & COGS
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **재고 관리** |
-| 월초 재고 | 10,000 | =B2+B3-B4 | ... |
-| 매입 (Purchase) | 20,000 | 25,000 | 30,000 | ... |
-| 판매 (COGS) | =-Sheet1!B14*0.55 | ... | # 55% COGS |
-| 월말 재고 | =B2+B3+B4 | ... |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Inventory Management** |
+| Month Start | 10,000 | =B2+B3-B4 | ... |
+| Purchases | 20,000 | 25,000 | 30,000 | ... |
+| COGS | =-Sheet1!B14*0.55 | ... | # 55% COGS |
+| Month End | =B2+B3+B4 | ... |
 |  |
-| 재고 회전율 (연) | =(-B4*12)/((B2+B5)/2) | ... |
-| 재고 보유 일수 | =365/B7 | ... |
+| Inventory Turnover (Annual) | =(-B4*12)/((B2+B5)/2) | ... |
+| Days Inventory | =365/B7 | ... |
 ```
 
-#### Sheet 3: 손익계산서
+#### Sheet 3: P&L Statement
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **매출** |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Revenue** |
 | GMV | =Sheet1!B14 | ... |
-| 총 매출 | =B2 | ... | # 자사 재고 모델 |
+| Total Revenue | =B2 | ... | # Own inventory model |
 |  |
 | **COGS** |
-| 제품 원가 (55%) | =Sheet2!B4 | ... |
-| 배송 비용 (주문당 $5) | =-Sheet1!B9*5 | ... |
-| 재고 관리 (GMV의 3%) | =-B2*0.03 | ... |
-| 총 COGS | =SUM(B6:B8) | ... |
+| Product Cost (55%) | =Sheet2!B4 | ... |
+| Shipping (per order $5) | =-Sheet1!B9*5 | ... |
+| Inventory Management (3% of GMV) | =-B2*0.03 | ... |
+| Total COGS | =SUM(B6:B8) | ... |
 | Gross Profit | =B3+B9 | ... |
 | Gross Margin % | =B10/B3 | ... |
 |  |
-| **영업비용** |
+| **Operating Expenses** |
 | R&D | -5,000 | -5,500 | ... |
 | S&M (CAC $30) | =-Sheet1!B3*30 | ... |
 | G&A | -2,000 | -2,200 | ... |
-| 총 OpEx | =SUM(B13:B15) | ... |
+| Total OpEx | =SUM(B13:B15) | ... |
 |  |
 | **EBITDA** | =B10+B16 | ... |
 ```
 
-### 예시: E-commerce (Base 시나리오)
+### Example: E-commerce (Base Scenario)
 
-**가정:**
-- 월 신규 고객: 500명 (M1) → 5,000명 (M36)
-- 첫 구매율: 100% (당연)
-- 재구매율: 30%/월 (활성 고객 중)
-- 신규 AOV: $60 → $100 (3년)
-- 재구매 AOV: $80 → $150 (3년)
+**Assumptions:**
+- New customers/month: 500 (M1) → 5,000 (M36)
+- First purchase rate: 100% (given)
+- Repeat purchase rate: 30%/month (active customers)
+- New Customer AOV: $60 → $100 (3 years)
+- Repeat Customer AOV: $80 → $150 (3 years)
 - COGS: 55% of GMV
 - CAC: $30
-- 배송: $5/주문
+- Shipping: $5/order
 
-**결과 (Year 3 종료 시):**
-- GMV: $600K/월
-- 주문 수: 6,000건/월
+**Results (Year 3 End):**
+- GMV: $600K/month
+- Order count: 6,000/month
 - Blended AOV: $100
 - Gross Margin: 42%
-- 재구매 고객 비율: 60%
-- LTV: $450 (12개월)
+- Repeat customer %: 60%
+- LTV: $450 (12 months)
 - LTV:CAC: 15:1
 
 ---
 
-## 서비스/Agency 재무 모델
+## Services/Agency Financial Model
 
-### 핵심 동인
+### Core Drivers
 
-**매출 구성:**
+**Revenue Composition:**
 ```
-시간 기반:
-매출 = 빌러블 헤드카운트 × 시간당 청구율 × 활용률 × 근무 시간
+Time-based:
+Revenue = Billable Headcount × Hourly Billing Rate × Utilization Rate × Working Hours
 
-프로젝트 기반:
-매출 = 프로젝트 수 × 평균 프로젝트 규모
-```
-
-**인력 계획:**
-```
-빌러블 비율 = 빌러블 인력 / 총 인력
-활용률 = 실제 청구 시간 / 가용 시간
+Project-based:
+Revenue = Project Count × Avg Project Size
 ```
 
-**제품화 전환:**
+**Headcount Planning:**
 ```
-서비스 매출 → 제품 매출 비율 변화
-서비스 Gross Margin: 40-50%
-제품 Gross Margin: 70-80%
+Billable Ratio = Billable Staff / Total Staff
+Utilization Rate = Actual Billable Hours / Available Hours
 ```
 
-### 월별 구조
+**Productization Transition:**
+```
+Services Revenue → Product Revenue ratio change
+Services Gross Margin: 40-50%
+Product Gross Margin: 70-80%
+```
 
-#### Sheet 1: 인력 & 시간 기반 매출
+### Monthly Structure
+
+#### Sheet 1: Headcount & Time-based Revenue
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **인력 계획** |
-| 총 헤드카운트 | 10 | 11 | 12 | ... | 50 |
-| - 시니어 (청구율 $150/h) | 3 | 3 | 4 | ... | 15 |
-| - 미드 (청구율 $100/h) | 4 | 5 | 5 | ... | 20 |
-| - 주니어 (청구율 $60/h) | 3 | 3 | 3 | ... | 15 |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Headcount Planning** |
+| Total HC | 10 | 11 | 12 | ... | 50 |
+| - Senior (billing $150/h) | 3 | 3 | 4 | ... | 15 |
+| - Mid (billing $100/h) | 4 | 5 | 5 | ... | 20 |
+| - Junior (billing $60/h) | 3 | 3 | 3 | ... | 15 |
 |  |
-| 비-빌러블 (경영진, 세일즈) | 2 | 2 | 3 | ... | 10 |
-| 빌러블 헤드카운트 | =B2-B6 | ... |
-| 빌러블 비율 | =B7/B2 | ... |
+| Non-billable (Mgmt, Sales) | 2 | 2 | 3 | ... | 10 |
+| Billable HC | =B2-B6 | ... |
+| Billable % | =B7/B2 | ... |
 |  |
-| **시간 & 활용률** |
-| 월 가용 시간 (인당) | 160 | 160 | 160 | ... |
-| 활용률 | 65% | 70% | 75% | ... | 80% |
-| 월 청구 시간 (인당) | =B10*B11 | ... |
+| **Hours & Utilization** |
+| Available Hours/Person/mo | 160 | 160 | 160 | ... |
+| Utilization Rate | 65% | 70% | 75% | ... | 80% |
+| Billable Hours/Person/mo | =B10*B11 | ... |
 |  |
-| **시간 기반 매출** |
-| 시니어 매출 | =B3*B12*150 | ... |
-| 미드 매출 | =B4*B12*100 | ... |
-| 주니어 매출 | =B5*B12*60 | ... |
-| 총 시간 기반 매출 | =SUM(B14:B16) | ... |
+| **Time-based Revenue** |
+| Senior Revenue | =B3*B12*150 | ... |
+| Mid Revenue | =B4*B12*100 | ... |
+| Junior Revenue | =B5*B12*60 | ... |
+| Total Time Revenue | =SUM(B14:B16) | ... |
 ```
 
-#### Sheet 2: 프로젝트 기반 매출
+#### Sheet 2: Project-based Revenue
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **프로젝트 파이프라인** |
-| 신규 프로젝트 | 3 | 4 | 5 | ... | 15 |
-| 진행 중 프로젝트 | 3 | 5 | 7 | ... | 30 |
-| 완료 프로젝트 | 0 | 2 | 3 | ... | 12 |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Project Pipeline** |
+| New Projects | 3 | 4 | 5 | ... | 15 |
+| In Progress | 3 | 5 | 7 | ... | 30 |
+| Completed | 0 | 2 | 3 | ... | 12 |
 |  |
-| **프로젝트 매출** |
-| 평균 프로젝트 규모 | $30K | $35K | $40K | ... | $80K |
-| 프로젝트 기간 (월) | 2 | 2 | 2.5 | ... | 3 |
-| 월별 인식 매출 | =B2*B6/B7 | ... |
+| **Project Revenue** |
+| Avg Project Size | $30K | $35K | $40K | ... | $80K |
+| Project Duration (mo) | 2 | 2 | 2.5 | ... | 3 |
+| Monthly Revenue Recognized | =B2*B6/B7 | ... |
 |  |
-| **제품 매출 (전환)** |
-| 제품 MRR | 0 | 0 | 1,000 | ... | 50,000 |
+| **Product Revenue (Transition)** |
+| Product MRR | 0 | 0 | 1,000 | ... | 50,000 |
 ```
 
-#### Sheet 3: 손익계산서
+#### Sheet 3: P&L Statement
 
 ```
-| 월 | M1 | M2 | M3 | ... | M36 |
-|----|----|----|----|----|-----|
-| **매출** |
-| 시간 기반 | =Sheet1!B17 | ... |
-| 프로젝트 기반 | =Sheet2!B8 | ... |
-| 제품 (SaaS) | =Sheet2!B11 | ... |
-| 총 매출 | =SUM(B2:B4) | ... |
+| Month | M1 | M2 | M3 | ... | M36 |
+|-------|----|----|----|----|-----|
+| **Revenue** |
+| Time-based | =Sheet1!B17 | ... |
+| Project-based | =Sheet2!B8 | ... |
+| Product (SaaS) | =Sheet2!B11 | ... |
+| Total Revenue | =SUM(B2:B4) | ... |
 |  |
-| **COGS (인건비)** |
-| 시니어 급여 (인당 $10K/월) | =-Sheet1!B3*10000 | ... |
-| 미드 급여 (인당 $6K/월) | =-Sheet1!B4*6000 | ... |
-| 주니어 급여 (인당 $4K/월) | =-Sheet1!B5*4000 | ... |
-| 제품 COGS (20%) | =-B4*0.2 | ... |
-| 총 COGS | =SUM(B7:B10) | ... |
+| **COGS (Labor)** |
+| Senior Salary ($10K/mo per person) | =-Sheet1!B3*10000 | ... |
+| Mid Salary ($6K/mo per person) | =-Sheet1!B4*6000 | ... |
+| Junior Salary ($4K/mo per person) | =-Sheet1!B5*4000 | ... |
+| Product COGS (20%) | =-B4*0.2 | ... |
+| Total COGS | =SUM(B7:B10) | ... |
 | Gross Profit | =B5+B11 | ... |
 | Gross Margin % | =B12/B5 | ... |
 |  |
-| **영업비용** |
-| 비-빌러블 급여 | =-Sheet1!B6*12000 | ... |
+| **Operating Expenses** |
+| Non-billable Salaries | =-Sheet1!B6*12000 | ... |
 | S&M | -5,000 | -6,000 | ... |
 | G&A | -3,000 | -3,300 | ... |
-| 총 OpEx | =SUM(B15:B17) | ... |
+| Total OpEx | =SUM(B15:B17) | ... |
 |  |
 | **EBITDA** | =B12+B18 | ... |
 ```
 
-### 예시: 서비스 → SaaS 전환 (Base 시나리오)
+### Example: Services → SaaS Transition (Base Scenario)
 
-**가정:**
-- 시작 팀: 10명 (빌러블 8명)
-- 성장: +2명/분기 (M1-M24), +5명/분기 (M25-M36)
-- 활용률: 65% (M1-M6) → 80% (M36)
-- 평균 시간당 청구율: $100 (weighted avg)
-- 프로젝트: 3건/월 (M1) → 15건/월 (M36)
-- 평균 프로젝트 규모: $30K → $80K
-- 제품 전환: M12부터 시작, M36에 매출의 40%
+**Assumptions:**
+- Starting team: 10 (8 billable)
+- Growth: +2/quarter (M1-M24), +5/quarter (M25-M36)
+- Utilization: 65% (M1-M6) → 80% (M36)
+- Average billing rate: $100/h (weighted avg)
+- Projects: 3/month (M1) → 15/month (M36)
+- Avg project size: $30K → $80K
+- Product transition: Start M12, 40% of revenue by M36
 
-**결과 (Year 3 종료 시):**
-- 총 매출: $500K/월
-  - 서비스: $300K (60%)
-  - 제품 (SaaS): $200K (40%)
-- 헤드카운트: 50명 (빌러블 35명)
+**Results (Year 3 End):**
+- Total Revenue: $500K/month
+  - Services: $300K (60%)
+  - Product (SaaS): $200K (40%)
+- Headcount: 50 (35 billable)
 - Gross Margin:
-  - 서비스: 45%
-  - 제품: 80%
+  - Services: 45%
+  - Product: 80%
   - Blended: 59%
 - EBITDA Margin: 15%
 
 ---
 
-## 스프레드시트 수식 치트시트
+## Spreadsheet Formula Cheat Sheet
 
-### 일반적인 수식
+### Common Formulas
 
-**MRR 빌드업:**
+**MRR Buildup:**
 ```
-=이전_MRR + 신규_MRR + Expansion_MRR - Contraction_MRR - Churn_MRR
+=Prior_MRR + New_MRR + Expansion_MRR - Contraction_MRR - Churn_MRR
 ```
 
 **Churn Rate:**
 ```
-=Churn_고객수 / 월초_고객수
-=Churn_MRR / 월초_MRR
+=Churn_Customers / Month_Start_Customers
+=Churn_MRR / Month_Start_MRR
 ```
 
 **NRR (Net Revenue Retention):**
 ```
-=(월초_MRR + Expansion_MRR - Churn_MRR) / 월초_MRR
+=(Month_Start_MRR + Expansion_MRR - Churn_MRR) / Month_Start_MRR
 ```
 
-**CAC Payback (개월):**
+**CAC Payback (months):**
 ```
 =CAC / (ARPU * Gross_Margin)
 ```
@@ -532,159 +532,159 @@ LTV = 평균 생애 주문 수 × AOV × Gross Margin
 
 **Gross Margin %:**
 ```
-=(매출 - COGS) / 매출
+=(Revenue - COGS) / Revenue
 ```
 
 **EBITDA Margin %:**
 ```
-=EBITDA / 매출
+=EBITDA / Revenue
 ```
 
 **Burn Multiple:**
 ```
 =(Net_Cash_Burn) / (Net_New_ARR)
 ```
-낮을수록 좋음 (1x = 1달러 태워서 1달러 ARR 생성)
+Lower is better (1x = burn $1 to create $1 ARR)
 
 **Rule of 40:**
 ```
-=YoY_성장률 + EBITDA_Margin
+=YoY_Growth_Rate + EBITDA_Margin
 ```
-40% 이상 = 건강
+40%+ = healthy
 
 **Magic Number (SaaS):**
 ```
-=(이번_분기_Net_New_ARR) / (지난_분기_S&M_비용)
+=(Current_Quarter_Net_New_ARR) / (Prior_Quarter_S&M_Spend)
 ```
-1.0 이상 = 효율적
+1.0+ = efficient
 
-### 코호트 Retention 계산
+### Cohort Retention Calculation
 
-**월별 Retention:**
+**Monthly Retention:**
 ```
-코호트_M1 = (M1_활성_고객 / M0_활성_고객)
-코호트_M2 = (M2_활성_고객 / M0_활성_고객)
+Cohort_M1 = (M1_Active_Customers / M0_Active_Customers)
+Cohort_M2 = (M2_Active_Customers / M0_Active_Customers)
 ...
 ```
 
 **Dollar Retention:**
 ```
-코호트_M1_MRR = M1_해당코호트_MRR
+Cohort_M1_MRR = M1_Cohort_MRR
 ```
 
-### 성장률 계산
+### Growth Rate Calculations
 
-**MoM 성장률:**
+**MoM Growth Rate:**
 ```
-=(이번_달 / 지난_달) - 1
+=(Current_Month / Prior_Month) - 1
 ```
 
-**CAGR (연평균 성장률):**
+**CAGR (Compound Annual Growth Rate):**
 ```
-=((마지막_값 / 첫_값)^(1/년수)) - 1
+=((Ending_Value / Beginning_Value)^(1/Years)) - 1
 ```
 
 ---
 
-## 벤치마크 & 목표 설정
+## Benchmarks & Target Setting
 
-### SaaS 벤치마크 (단계별)
+### SaaS Benchmarks (By Stage)
 
-| 메트릭 | Seed | Series A | Series B |
+| Metric | Seed | Series A | Series B |
 |--------|------|----------|----------|
 | ARR | $0.5-2M | $3-10M | $10-30M |
-| YoY 성장 | 100%+ | 80-100% | 60-80% |
+| YoY Growth | 100%+ | 80-100% | 60-80% |
 | Gross Margin | 60-70% | 70-75% | 75-80% |
 | Net Churn | <10% | <5% | <5% |
 | NRR | 95-105% | 105-110% | 110-120% |
-| CAC Payback | <18개월 | <12개월 | <9개월 |
+| CAC Payback | <18mo | <12mo | <9mo |
 | LTV:CAC | 2:1+ | 3:1+ | 4:1+ |
 | Rule of 40 | 40+ | 50+ | 60+ |
 
-### 마켓플레이스 벤치마크
+### Marketplace Benchmarks
 
-| 메트릭 | Early | Growth | Scale |
+| Metric | Early | Growth | Scale |
 |--------|-------|--------|-------|
 | GMV | $1-5M | $10-50M | $100M+ |
 | Take Rate | 10-15% | 15-20% | 20-25% |
 | Gross Margin | 50-60% | 60-70% | 70-75% |
 | Liquidity | 10-15% | 20-30% | 30-40% |
-| 반복 거래율 | 20-30% | 40-50% | 60-70% |
+| Repeat Tx % | 20-30% | 40-50% | 60-70% |
 
-### E-commerce 벤치마크
+### E-commerce Benchmarks
 
-| 메트릭 | Early | Growth | Scale |
+| Metric | Early | Growth | Scale |
 |--------|-------|--------|-------|
 | GMV | $0.5-2M | $5-20M | $50M+ |
 | Gross Margin | 35-45% | 40-50% | 45-55% |
-| 재구매율 | 20-30% | 35-45% | 50-60% |
+| Repeat Rate | 20-30% | 35-45% | 50-60% |
 | LTV:CAC | 5:1+ | 8:1+ | 10:1+ |
 | AOV | $50-80 | $80-120 | $120-200 |
 
 ---
 
-## 시나리오 설계 가이드라인
+## Scenario Design Guidelines
 
-### Base 시나리오 (50-60% 확률)
+### Base Scenario (50-60% probability)
 
-**원칙:**
-- 현실적이고 달성 가능
-- 시장 평균 또는 벤치마크 기반
-- 알려진 리스크 반영 (심각한 쇼크 제외)
+**Principles:**
+- Realistic and achievable
+- Based on market average or benchmarks
+- Reflect known risks (exclude severe shocks)
 
-**예시 가정:**
-- SaaS: 월 +10-15% MRR 성장, 3.5% Churn
-- 마켓플레이스: 월 +15-20% GMV 성장, Take Rate 15%→18%
-- E-commerce: 월 +20% 주문 성장, 30% 재구매율
+**Example Assumptions:**
+- SaaS: +10-15%/mo MRR growth, 3.5% churn
+- Marketplace: +15-20%/mo GMV growth, Take Rate 15%→18%
+- E-commerce: +20%/mo order growth, 30% repeat rate
 
-### Bull 시나리오 (20-30% 확률)
+### Bull Scenario (20-30% probability)
 
-**원칙:**
-- 모든 것이 잘 풀릴 때
-- 상위 25% 벤치마크
-- 제품 market fit 강화, 채널 최적화 성공
+**Principles:**
+- Everything goes well
+- Top 25% benchmark
+- Strong product-market fit, successful channel optimization
 
-**예시 가정:**
-- SaaS: 월 +20-25% MRR 성장, 2% Churn
-- 마켓플레이스: 월 +30% GMV 성장, Take Rate 18%→22%
-- E-commerce: 월 +35% 주문 성장, 45% 재구매율
+**Example Assumptions:**
+- SaaS: +20-25%/mo MRR growth, 2% churn
+- Marketplace: +30%/mo GMV growth, Take Rate 18%→22%
+- E-commerce: +35%/mo order growth, 45% repeat rate
 
-### Bear 시나리오 (10-20% 확률)
+### Bear Scenario (10-20% probability)
 
-**원칙:**
-- 주요 리스크 현실화
-- 시장 둔화, 경쟁 심화, 실행 실패
-- 최악은 아니지만 어려운 상황
+**Principles:**
+- Key risks materialize
+- Market slowdown, intensified competition, execution challenges
+- Difficult but not worst-case
 
-**예시 가정:**
-- SaaS: 월 +5% MRR 성장, 6% Churn
-- 마켓플레이스: 월 +8% GMV 성장, Take Rate 정체 15%
-- E-commerce: 월 +10% 주문 성장, 20% 재구매율
+**Example Assumptions:**
+- SaaS: +5%/mo MRR growth, 6% churn
+- Marketplace: +8%/mo GMV growth, Take Rate flat at 15%
+- E-commerce: +10%/mo order growth, 20% repeat rate
 
 ---
 
-## 추가 리소스
+## Additional Resources
 
-**외부 벤치마크 소스:**
+**External Benchmark Sources:**
 - OpenView SaaS Benchmarks
 - Bessemer Cloud Index
 - Andreessen Horowitz Marketplace Metrics
 - FirstRound Capital State of Startups
 
-**모델 검증 체크리스트:**
-- [ ] 모든 수식이 올바른가?
-- [ ] 코호트 Retention이 현실적인가?
-- [ ] CAC Payback < 18개월?
+**Model Validation Checklist:**
+- [ ] Are all formulas correct?
+- [ ] Is cohort retention realistic?
+- [ ] CAC Payback < 18 months?
 - [ ] LTV:CAC > 3:1?
-- [ ] Gross Margin이 벤치마크 범위 내인가?
-- [ ] 런웨이가 충분한가? (최소 12개월)
-- [ ] Bull/Bear 시나리오가 합리적인가?
-- [ ] 가정이 문서화되었는가?
+- [ ] Gross Margin within benchmark range?
+- [ ] Sufficient runway? (minimum 12 months)
+- [ ] Bull/Bear scenarios reasonable?
+- [ ] Assumptions documented?
 
-**다음 단계:**
-1. 비즈니스 모델에 맞는 템플릿 선택
-2. 현재 상태 데이터 입력
-3. 시나리오별 가정 설정
-4. 3-5년 예측 생성
-5. 투자자 프레젠테이션용 차트 생성
-6. 월별 실적과 비교하여 모델 업데이트
+**Next Steps:**
+1. Select template matching your business model
+2. Input current state data
+3. Set scenario-specific assumptions
+4. Generate 3-5 year forecast
+5. Create charts for investor presentation
+6. Update model monthly based on actual results
