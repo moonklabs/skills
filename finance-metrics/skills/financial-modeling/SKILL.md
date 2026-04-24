@@ -1,753 +1,756 @@
 ---
 name: financial-modeling
-description: 스타트업 3-시나리오 재무 모델링(Base/Bull/Bear), 비즈니스 모델별 템플릿(SaaS/마켓플레이스/커머스), 유닛 이코노믹스(CAC/LTV), 코호트 분석, 런웨이 계산을 안내합니다. "재무 모델", "3년 예측", "유닛 이코노믹스", "런웨이 계산", "재무 전망" 등으로 실행합니다.
+description: >
+  Build 3-scenario financial models (Base/Bull/Bear) for startups with templates by business model (SaaS/Marketplace/Commerce), unit economics (CAC/LTV), cohort analysis, and runway calculations.
+  Triggers on "financial model", "3-year projection", "unit economics", "runway", "financial forecast",
+  "재무 모델", "3년 예측", "유닛 이코노믹스", "런웨이 계산", "재무 전망" requests.
 ---
 
-# 스타트업 재무 모델링
+# Startup Financial Modeling
 
-투자자는 숫자로 말합니다. 이 스킬은 투자 유치를 위한 설득력 있는 재무 모델을 구축하는 프레임워크를 제공합니다 — 3-시나리오 예측, 비즈니스 모델별 템플릿, 유닛 이코노믹스 분석, 그리고 가정의 투명한 문서화.
+Investors speak in numbers. This skill provides a framework for building compelling financial models for fundraising — 3-scenario forecasts, business-model-specific templates, unit economics analysis, and transparent assumption documentation.
 
-## 커넥터 (선택사항)
+## Connectors (Optional)
 
-| 커넥터 | 추가 기능 |
-|--------|----------|
-| **스프레드시트** | Google Sheets 또는 Excel로 모델 자동 생성, 실시간 협업 |
-| **지식 베이스** | 과거 재무 데이터, 메트릭스 히스토리 자동 참조 |
-| **분석/BI** | 실제 데이터 자동 수집, 예측 vs 실적 대조 |
-| **CRM** | 세일즈 파이프라인 기반 매출 예측 |
+| Connector | Additional Functionality |
+|-----------|--------------------------|
+| **~~spreadsheet** | Auto-generate models in Google Sheets or Excel with real-time collaboration |
+| **~~knowledge base** | Auto-reference historical financial data and metrics history |
+| **~~analytics** | Auto-collect actual data, forecast vs actuals reconciliation |
+| **~~CRM** | Revenue forecasts based on sales pipeline |
 
-> **커넥터가 없나요?** 웹 리서치와 사용자 입력만으로도 견고한 재무 모델을 구축할 수 있습니다. 결과를 마크다운 표 또는 CSV로 출력하여 스프레드시트에 복사하세요.
+> **No connectors?** You can build solid financial models with web research and user input alone. Output results as markdown tables or CSV and copy to your spreadsheet.
 
 ---
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                   FINANCIAL MODELING                              │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (단독 작동)                                            │
-│  ✓ 3-시나리오 예측 (Base/Bull/Bear) 3-5년                        │
-│  ✓ 비즈니스 모델별 템플릿 (SaaS/마켓플레이스/커머스/서비스)        │
-│  ✓ 유닛 이코노믹스 (CAC/LTV/Payback/LTV:CAC)                     │
-│  ✓ 코호트 기반 매출 모델링                                        │
-│  ✓ 런웨이 & Burn rate 계산                                       │
-│  ✓ 가정 문서화 & 민감도 분석                                      │
+│  Core Features (Standalone)                                      │
+│  ✓ 3-scenario forecasts (Base/Bull/Bear) 3-5 years               │
+│  ✓ Business-model templates (SaaS/Marketplace/Commerce/Services) │
+│  ✓ Unit economics (CAC/LTV/Payback/LTV:CAC)                     │
+│  ✓ Cohort-based revenue modeling                                │
+│  ✓ Runway & burn rate calculations                              │
+│  ✓ Assumption documentation & sensitivity analysis              │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~spreadsheet: Google Sheets/Excel 자동 생성                 │
-│  + ~~knowledge base: 과거 데이터 자동 참조                        │
-│  + ~~analytics: 실제 데이터 자동 수집                             │
-│  + ~~CRM: 세일즈 파이프라인 기반 매출 예측                         │
+│  Enhanced Mode (With Connectors)                                 │
+│  + ~~spreadsheet: Auto-generate in Google Sheets/Excel          │
+│  + ~~knowledge base: Auto-reference historical data              │
+│  + ~~analytics: Auto-collect actual data                        │
+│  + ~~CRM: Revenue forecasts from sales pipeline                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 시작하기
+## Getting Started
 
 ```bash
-"3년 재무 모델 작성 - SaaS, MRR 1천만원, CAC 30만원"
-"유닛 이코노믹스 계산 - CAC, LTV, Payback"
-"현재 자금 5억원, 월 Burn 5천만원 기준 런웨이 계산"
-"마켓플레이스 재무 모델 - GMV 기반"
+"3-year financial model - SaaS, MRR ₩10M, CAC ₩300K"
+"Calculate unit economics - CAC, LTV, Payback"
+"Calculate runway - current cash ₩500M, monthly burn ₩50M"
+"Marketplace financial model - GMV-based"
 ```
 
 ---
 
-## 출력 형식
+## Output Format
 
-### 3-시나리오 재무 모델 요약
+### 3-Scenario Financial Model Summary
 
 ```markdown
-# 재무 모델: [회사명] - [비즈니스 모델]
-**작성일:** [날짜] | **예측 기간:** [시작 월] ~ [종료 월] (3년/5년) | **시나리오:** Base/Bull/Bear
+# Financial Model: [Company Name] - [Business Model]
+**Date:** [Date] | **Forecast Period:** [Start Month] ~ [End Month] (3-year/5-year) | **Scenarios:** Base/Bull/Bear
 
 ---
 
 ## Executive Summary
 
-| 시나리오 | Year 3 매출 | Year 3 EBITDA | Burn | 추가 자금 필요 |
-|----------|-------------|---------------|------|----------------|
-| Bull | [금액] | [금액] | [금액] | [없음/X억] |
-| Base | [금액] | [금액] | [금액] | [X억] |
-| Bear | [금액] | [금액] | [금액] | [X억] |
+| Scenario | Year 3 Revenue | Year 3 EBITDA | Burn | Additional Funding Needed |
+|----------|----------------|---------------|------|---------------------------|
+| Bull | [Amount] | [Amount] | [Amount] | [None/₩X] |
+| Base | [Amount] | [Amount] | [Amount] | [₩X] |
+| Bear | [Amount] | [Amount] | [Amount] | [₩X] |
 
-**핵심 가정:**
-- Base: [현실적 성장률 - 시장 평균 수준]
-- Bull: [공격적 성장률 - 상위 25% 벤치마크]
-- Bear: [보수적 성장률 - 리스크 반영]
+**Key Assumptions:**
+- Base: [Realistic growth rate — market average level]
+- Bull: [Aggressive growth rate — top 25% benchmark]
+- Bear: [Conservative growth rate — risk-adjusted]
 
 ---
 
-## 시나리오별 상세
+## Scenario Details
 
-### 📊 Base 시나리오 (가장 가능성 높음)
+### 📊 Base Scenario (Most Likely)
 
-**매출 (단위: 억원)**
-| 연도 | Y1 | Y2 | Y3 | YoY 성장률 |
+**Revenue (Unit: ₩)**
+| Year | Y1 | Y2 | Y3 | YoY Growth |
 |------|----|----|----|-----------||
-| 매출 | X | Y | Z | Y2→Y3: +W% |
+| Revenue | X | Y | Z | Y2→Y3: +W% |
 
-**주요 동인:**
-- [동인 1]: [가정 및 근거]
-- [동인 2]: [가정 및 근거]
+**Key Drivers:**
+- [Driver 1]: [Assumption and rationale]
+- [Driver 2]: [Assumption and rationale]
 
-**손익 구조:**
-| 항목 | Y1 | Y2 | Y3 | Y3 % of Revenue |
-|------|----|----|----|-----------------||
-| 매출 | X | Y | Z | 100% |
+**P&L Structure:**
+| Line Item | Y1 | Y2 | Y3 | Y3 % of Revenue |
+|-----------|----|----|----|-----------------||
+| Revenue | X | Y | Z | 100% |
 | COGS | -A | -B | -C | -D% |
-| 매출총이익 | E | F | G | +H% |
-| 영업비용 | -I | -J | -K | -L% |
+| Gross Profit | E | F | G | +H% |
+| OpEx | -I | -J | -K | -L% |
 | EBITDA | M | N | O | +/-P% |
 
 ---
 
-### 🚀 Bull 시나리오 (상승 케이스)
+### 🚀 Bull Scenario (Upside Case)
 
-**차이점:**
-- [Base 대비 주요 차이 1]
-- [Base 대비 주요 차이 2]
+**Key Differences:**
+- [Major difference vs Base 1]
+- [Major difference vs Base 2]
 
-**매출 (단위: 억원)**
-[간소화된 표 - 핵심 지표만]
-
----
-
-### ⚠️ Bear 시나리오 (하락 케이스)
-
-**리스크 반영:**
-- [주요 리스크 1 + 영향]
-- [주요 리스크 2 + 영향]
-
-**매출 (단위: 억원)**
-[간소화된 표 - 핵심 지표만]
+**Revenue (Unit: ₩)**
+[Simplified table — key metrics only]
 
 ---
 
-## 유닛 이코노믹스
+### ⚠️ Bear Scenario (Downside Case)
 
-| 지표 | Year 1 | Year 2 | Year 3 | 목표/벤치마크 |
-|------|--------|--------|--------|---------------|
-| CAC | [금액] | [금액] | [금액] | [벤치마크] |
-| LTV | [금액] | [금액] | [금액] | [벤치마크] |
-| LTV:CAC | [비율] | [비율] | [비율] | 3:1 이상 |
-| Payback | [개월] | [개월] | [개월] | <12개월 |
+**Risk Factors:**
+- [Major risk 1 + impact]
+- [Major risk 2 + impact]
+
+**Revenue (Unit: ₩)**
+[Simplified table — key metrics only]
+
+---
+
+## Unit Economics
+
+| Metric | Year 1 | Year 2 | Year 3 | Target/Benchmark |
+|--------|--------|--------|--------|-------------------|
+| CAC | [Amount] | [Amount] | [Amount] | [Benchmark] |
+| LTV | [Amount] | [Amount] | [Amount] | [Benchmark] |
+| LTV:CAC | [Ratio] | [Ratio] | [Ratio] | 3:1+ |
+| Payback | [Months] | [Months] | [Months] | <12 months |
 | Gross Margin | [%] | [%] | [%] | >70% (SaaS) |
 
-**해석:**
-- [건강성 평가]
-- [개선 영역]
+**Interpretation:**
+- [Health assessment]
+- [Areas for improvement]
 
 ---
 
-## 자금 계획
+## Funding Plan
 
-**현재 상태 (Base 시나리오):**
-- 현재 자금: [금액]
-- 월 Burn rate: [금액]
-- 런웨이: [X개월] ([종료 날짜])
+**Current State (Base Scenario):**
+- Current cash: [Amount]
+- Monthly burn rate: [Amount]
+- Runway: [X months] ([End date])
 
-**추가 자금 필요:**
-- [라운드]: [금액] by [시기]
-- 용도: [1. 항목 - 금액], [2. 항목 - 금액]
+**Additional Funding Required:**
+- [Round]: [Amount] by [Timing]
+- Use of funds: [1. Item — Amount], [2. Item — Amount]
 
-**시나리오별 자금 요구:**
-- Bull: [없음 or 적은 금액]
-- Base: [계획된 금액]
-- Bear: [더 많은 금액 or 더 빠른 시기]
-
----
-
-## 핵심 가정
-
-### 매출 가정
-- [가정 1]: [값] — [근거]
-- [가정 2]: [값] — [근거]
-
-### 비용 가정
-- [가정 1]: [값] — [근거]
-- [가정 2]: [값] — [근거]
-
-### 민감도 분석
-가장 민감한 변수:
-1. [변수 1]: 10% 변화 시 Year 3 매출 [X]% 영향
-2. [변수 2]: 10% 변화 시 Year 3 EBITDA [Y]% 영향
+**Funding Needs by Scenario:**
+- Bull: [None or modest amount]
+- Base: [Planned amount]
+- Bear: [Larger amount or earlier timing]
 
 ---
 
-## 다음 단계
+## Key Assumptions
 
-- [ ] 스프레드시트에서 상세 월별 모델 구축
-- [ ] 시나리오별 민감도 분석
-- [ ] 이사회/투자자용 요약 차트 생성
-- [ ] 실적 추적 대시보드 설정
+### Revenue Assumptions
+- [Assumption 1]: [Value] — [Rationale]
+- [Assumption 2]: [Value] — [Rationale]
+
+### Cost Assumptions
+- [Assumption 1]: [Value] — [Rationale]
+- [Assumption 2]: [Value] — [Rationale]
+
+### Sensitivity Analysis
+Most sensitive variables:
+1. [Variable 1]: 10% change → Year 3 revenue [X]% impact
+2. [Variable 2]: 10% change → Year 3 EBITDA [Y]% impact
+
+---
+
+## Next Steps
+
+- [ ] Build detailed monthly model in spreadsheet
+- [ ] Perform sensitivity analysis by scenario
+- [ ] Generate summary charts for board/investors
+- [ ] Set up performance tracking dashboard
 ```
 
 ---
 
-## 실행 흐름
+## Execution Flow
 
-### 1단계: 비즈니스 모델 파악
-
-```
-질문 체크리스트:
-- 비즈니스 모델: SaaS / 마켓플레이스 / E-commerce / 서비스?
-- 현재 단계: Pre-revenue / Early traction / Growth?
-- 매출 모델: 구독 / 거래 수수료 / 제품 판매 / 시간제?
-- 주요 메트릭스: MRR / GMV / 거래량 / 프로젝트 수?
-```
-
-비즈니스 모델에 따라 적절한 템플릿 선택 → `references/model-templates.md` 참조
-
-### 2단계: 현재 상태 데이터 수집
+### Step 1: Identify Business Model
 
 ```
-기본 데이터:
-- 현재 매출 (MRR, GMV, 월매출 등)
-- 고객 수 & 성장률
-- 유닛 이코노믹스 (CAC, LTV - 있으면)
-- 팀 규모 & 급여
-- 현재 자금 & Burn rate
-
-강화 (커넥터 사용 시):
-- ~~analytics: 실제 메트릭스 자동 수집
-- ~~CRM: 세일즈 파이프라인 데이터
-- ~~knowledge base: 과거 재무 데이터
+Checklist:
+- Business model: SaaS / Marketplace / E-commerce / Services?
+- Current stage: Pre-revenue / Early traction / Growth?
+- Revenue model: Subscription / Transaction fees / Product sales / Hourly?
+- Key metrics: MRR / GMV / Transaction volume / Number of projects?
 ```
 
-### 3단계: 시나리오 설계
+Select appropriate template by business model → see `references/model-templates.md`
 
-**Base 시나리오 (50-60% 확률):**
+### Step 2: Collect Current State Data
+
 ```
-원칙:
-- 현실적이고 달성 가능한 성장률
-- 시장 평균 또는 유사 기업 벤치마크 기반
-- 알려진 리스크를 반영하되, 심각한 쇼크는 제외
-- "가장 가능성 높은" 결과
+Core Data:
+- Current revenue (MRR, GMV, monthly revenue, etc.)
+- Customer count & growth rate
+- Unit economics (CAC, LTV — if available)
+- Team size & payroll
+- Current cash & burn rate
 
-예시 가정:
-- 고객 성장: 월 +10-15% (시장 평균)
-- Churn: 3-5% (벤치마크)
-- CAC: 현재 수준 유지 또는 소폭 개선
-```
-
-**Bull 시나리오 (20-30% 확률):**
-```
-원칙:
-- 모든 것이 잘 풀릴 때의 성장
-- 상위 25% 벤치마크
-- 제품 market fit 강화, 채널 최적화 성공
-- "낙관적이지만 불가능하지 않은" 결과
-
-예시 가정:
-- 고객 성장: 월 +20-30% (공격적 마케팅)
-- Churn: 2% 이하 (제품 개선)
-- CAC: 20-30% 감소 (채널 최적화)
+Enhanced (With Connectors):
+- ~~analytics: Auto-collect actual metrics
+- ~~CRM: Sales pipeline data
+- ~~knowledge base: Historical financial data
 ```
 
-**Bear 시나리오 (10-20% 확률):**
+### Step 3: Design Scenarios
+
+**Base Scenario (50-60% probability):**
 ```
-원칙:
-- 주요 리스크가 현실화될 때
-- 보수적 가정
-- 시장 둔화, 경쟁 심화, 실행 실패 반영
-- "최악은 아니지만 어려운" 결과
+Principles:
+- Realistic and achievable growth rate
+- Based on market average or comparable company benchmarks
+- Reflect known risks, but exclude severe shocks
+- "Most likely" outcome
 
-예시 가정:
-- 고객 성장: 월 +5% (시장 둔화)
-- Churn: 8-10% (경쟁 심화)
-- CAC: 20% 증가 (채널 효율 저하)
+Example Assumptions:
+- Customer growth: +10-15%/month (market average)
+- Churn: 3-5% (benchmark)
+- CAC: Maintain current level or modest improvement
 ```
 
-### 4단계: 비즈니스 모델별 모델링
+**Bull Scenario (20-30% probability):**
+```
+Principles:
+- Growth when everything goes well
+- Top 25% benchmark
+- Strong product-market fit, successful channel optimization
+- "Optimistic but realistic" outcome
 
-각 비즈니스 모델은 고유한 동인과 메트릭스가 있습니다. 상세 템플릿은 `references/model-templates.md` 참조.
+Example Assumptions:
+- Customer growth: +20-30%/month (aggressive marketing)
+- Churn: ≤2% (product improvements)
+- CAC: 20-30% reduction (channel optimization)
+```
+
+**Bear Scenario (10-20% probability):**
+```
+Principles:
+- Key risks materialize
+- Conservative assumptions
+- Market slowdown, increased competition, execution challenges
+- "Difficult but not worst-case" outcome
+
+Example Assumptions:
+- Customer growth: +5%/month (market slowdown)
+- Churn: 8-10% (intensified competition)
+- CAC: 20% increase (channel efficiency decline)
+```
+
+### Step 4: Model by Business Model
+
+Each business model has unique drivers and metrics. See `references/model-templates.md` for detailed templates.
 
 **SaaS:**
 ```
-핵심 동인:
-- 신규 MRR (New MRR)
-- Expansion MRR (업셀/크로스셀)
-- Churn MRR (해지)
-- 순 MRR = 기존 + 신규 + Expansion - Churn
+Core Drivers:
+- New MRR (New Customers)
+- Expansion MRR (Upsell/Cross-sell)
+- Churn MRR (Cancellations)
+- Net MRR = Prior + New + Expansion - Churn
 
-코호트 기반 매출:
-- 월별 신규 고객 코호트
-- 각 코호트의 Retention curve
-- 월별 ARPU 변화
+Cohort-based Revenue:
+- Monthly new customer cohorts
+- Retention curve per cohort
+- Monthly ARPU changes
 ```
 
-**마켓플레이스:**
+**Marketplace:**
 ```
-핵심 동인:
+Core Drivers:
 - GMV (Gross Merchandise Value)
-- Take rate (수수료율)
-- 매출 = GMV × Take rate
-- 공급/수요 양면 성장
+- Take Rate (commission rate)
+- Revenue = GMV × Take Rate
+- Two-sided supply/demand growth
 
-유동성 지표:
-- 거래 완료율
-- 반복 구매율
-- 공급자당 수요
+Liquidity Metrics:
+- Transaction completion rate
+- Repeat purchase rate
+- Demand per supplier
 ```
 
 **E-commerce:**
 ```
-핵심 동인:
-- 월별 주문 수
+Core Drivers:
+- Monthly order volume
 - AOV (Average Order Value)
-- 재구매율
-- 매출 = 주문 수 × AOV
+- Repeat purchase rate
+- Revenue = Order Count × AOV
 
-코호트 분석:
-- 첫 구매 코호트
-- 재구매 패턴
-- LTV 계산
+Cohort Analysis:
+- First purchase cohorts
+- Repeat purchase patterns
+- LTV calculation
 ```
 
-**서비스/Agency:**
+**Services/Agency:**
 ```
-핵심 동인:
-- 빌러블 헤드카운트
-- 시간당 청구율
-- 활용률 (Utilization rate)
-- 매출 = 헤드카운트 × 시간 × 청구율 × 활용률
+Core Drivers:
+- Billable headcount
+- Hourly billing rate
+- Utilization rate
+- Revenue = Headcount × Hours × Billing Rate × Utilization
 
-프로젝트 기반:
-- 평균 프로젝트 규모
-- 월별 프로젝트 수
+Project-based:
+- Average project size
+- Monthly project count
 ```
 
-### 5단계: 비용 구조 모델링
+### Step 5: Model Cost Structure
 
 **COGS (Cost of Goods Sold):**
 ```
 SaaS:
-- 호스팅 비용 (AWS, GCP)
-- 서드파티 API 비용
-- 고객 지원 비용 (일부)
-목표: Gross Margin 70-80%
+- Hosting costs (AWS, GCP)
+- Third-party API costs
+- Customer support costs (partial)
+Target: Gross Margin 70-80%
 
-마켓플레이스:
-- 결제 수수료
-- 사기 방지 비용
-- 고객 지원
-목표: Gross Margin 60-70%
+Marketplace:
+- Payment processing fees
+- Fraud prevention costs
+- Customer support
+Target: Gross Margin 60-70%
 
 E-commerce:
-- 제품 원가 (COGS)
-- 배송 비용
-- 재고 관리
-목표: Gross Margin 40-60%
+- Product COGS
+- Shipping costs
+- Inventory management
+Target: Gross Margin 40-60%
 ```
 
-**영업비용 (Operating Expenses):**
+**Operating Expenses:**
 ```
 R&D / Product:
-- 엔지니어 급여 (매출의 25-35%)
-- 도구 & 인프라
+- Engineer salaries (25-35% of revenue)
+- Tools & infrastructure
 
 Sales & Marketing:
-- CAC 예산 (신규 고객 × CAC)
-- 마케팅 팀 급여
-목표: 매출의 30-50% (성장 단계)
+- CAC budget (New customers × CAC)
+- Marketing team salaries
+Target: 30-50% of revenue (growth stage)
 
 G&A (General & Administrative):
-- 경영진 급여
-- 법무, 회계, 오피스
-목표: 매출의 10-15%
+- Executive salaries
+- Legal, accounting, office
+Target: 10-15% of revenue
 ```
 
-### 6단계: 가정 문서화 & 검증
+### Step 6: Document & Validate Assumptions
 
-**가정 문서 구조:**
+**Assumption Documentation Structure:**
 ```markdown
-## 핵심 가정 문서
+## Key Assumptions Document
 
-### 1. 고객 획득
-- **가정:** 월별 신규 고객 [X]명
-- **근거:** [과거 3개월 평균 Y명 × 성장률 Z%]
-- **리스크:** [CAC 상승, 채널 포화]
-- **검증:** [월별 실적 추적]
+### 1. Customer Acquisition
+- **Assumption:** [X] new customers/month
+- **Rationale:** [Past 3-month avg Y customers × growth rate Z%]
+- **Risk:** [CAC increase, channel saturation]
+- **Validation:** [Monthly performance tracking]
 
 ### 2. Churn Rate
-- **가정:** 월 [X]%
-- **근거:** [과거 6개월 평균 + 벤치마크]
-- **리스크:** [제품 부족, 경쟁 심화]
-- **검증:** [코호트 분석]
+- **Assumption:** [X]%/month
+- **Rationale:** [Past 6-month avg + benchmark]
+- **Risk:** [Product gaps, intensified competition]
+- **Validation:** [Cohort analysis]
 
-[모든 주요 가정 반복]
+[Repeat for all major assumptions]
 ```
 
-**민감도 분석:**
+**Sensitivity Analysis:**
 ```
-가장 영향이 큰 변수 3개:
-1. 고객 성장률: ±10% → Year 3 매출 ±X%
-2. Churn rate: ±2%p → Year 3 매출 ±Y%
-3. CAC: ±20% → Profitability 도달 ±Z개월
+Top 3 most impactful variables:
+1. Customer growth rate: ±10% → Year 3 revenue ±X%
+2. Churn rate: ±2%p → Year 3 revenue ±Y%
+3. CAC: ±20% → Profitability achievement ±Z months
 ```
 
 ---
 
-## 비즈니스 모델별 고려사항
+## Business Model Considerations
 
 ### SaaS (Software as a Service)
 
-**핵심 메트릭스:**
+**Core Metrics:**
 - MRR (Monthly Recurring Revenue)
 - ARR (Annual Recurring Revenue)
 - Net Revenue Retention (NRR)
 - CAC Payback Period
-- Rule of 40 (성장률 + EBITDA margin)
+- Rule of 40 (Growth rate + EBITDA margin)
 
-**모델링 접근:**
-- 코호트 기반 MRR 빌드업
-- Expansion & Contraction 분리
-- 연간 계약 vs 월간 계약 비율
+**Modeling Approach:**
+- Cohort-based MRR buildup
+- Separate expansion & contraction
+- Annual vs monthly contract mix
 
-**상세 템플릿:** `references/model-templates.md` → SaaS 섹션
+**Detailed Template:** `references/model-templates.md` → SaaS section
 
-### 마켓플레이스 (Marketplace)
+### Marketplace
 
-**핵심 메트릭스:**
+**Core Metrics:**
 - GMV (Gross Merchandise Value)
-- Take Rate (수수료율)
-- Liquidity (거래 완료율)
-- 반복 거래율
+- Take Rate (commission rate)
+- Liquidity (transaction completion rate)
+- Repeat transaction rate
 
-**모델링 접근:**
-- 공급/수요 양면 성장 모델
-- 유동성 곡선 (초기 낮음 → 성숙 시 높음)
-- Take rate 변화 (초기 낮음 → 브랜드 강화 후 상승)
+**Modeling Approach:**
+- Two-sided supply/demand growth model
+- Liquidity curve (low initially → high at maturity)
+- Take rate progression (low initially → increases with brand strength)
 
-**상세 템플릿:** `references/model-templates.md` → 마켓플레이스 섹션
+**Detailed Template:** `references/model-templates.md` → Marketplace section
 
 ### E-commerce
 
-**핵심 메트릭스:**
+**Core Metrics:**
 - GMV
 - AOV (Average Order Value)
 - Repeat Purchase Rate
 - Inventory Turnover
 
-**모델링 접근:**
-- 신규 vs 재구매 고객 분리
-- 계절성 반영
-- 재고 회전율 & 캐시 컨버전 사이클
+**Modeling Approach:**
+- Separate new vs repeat customers
+- Incorporate seasonality
+- Inventory turnover & cash conversion cycle
 
-**상세 템플릿:** `references/model-templates.md` → E-commerce 섹션
+**Detailed Template:** `references/model-templates.md` → E-commerce section
 
-### 서비스/Agency
+### Services/Agency
 
-**핵심 메트릭스:**
-- 빌러블 헤드카운트
-- 활용률 (Utilization Rate)
-- 시간당 청구율
-- 프로젝트 규모 & 기간
+**Core Metrics:**
+- Billable headcount
+- Utilization Rate
+- Hourly billing rate
+- Project size & duration
 
-**모델링 접근:**
-- 헤드카운트 기반 캐파시티 모델
-- 프로젝트 파이프라인 → 매출 전환
-- 제품화 로드맵 (서비스 → SaaS 전환)
+**Modeling Approach:**
+- Headcount-based capacity model
+- Project pipeline → revenue conversion
+- Productization roadmap (services → SaaS transition)
 
-**상세 템플릿:** `references/model-templates.md` → 서비스 섹션
+**Detailed Template:** `references/model-templates.md` → Services section
 
 ---
 
-## 유닛 이코노믹스 프레임워크
+## Unit Economics Framework
 
-### 핵심 지표 정의
+### Core Metric Definitions
 
 **1. CAC (Customer Acquisition Cost)**
 ```
-CAC = (Sales & Marketing 비용) / (신규 고객 수)
+CAC = (Sales & Marketing Spend) / (New Customers)
 
-포함 항목:
-- 마케팅 캠페인 비용
-- Sales 팀 급여 (전체 또는 일부)
-- 마케팅 도구 & 인프라
-- 광고비, 이벤트, 콘텐츠 제작
+Includes:
+- Marketing campaign costs
+- Sales team salaries (all or portion)
+- Marketing tools & infrastructure
+- Ad spend, events, content creation
 
-제외 항목:
-- Customer Success (유지 비용)
-- 제품 개발 비용
+Excludes:
+- Customer Success (retention costs)
+- Product development costs
 ```
 
 **2. LTV (Lifetime Value)**
 ```
 LTV = (ARPU × Gross Margin) / Churn Rate
 
-SaaS 예시:
-- ARPU: 월 10만원
+SaaS Example:
+- ARPU: ₩100K/month
 - Gross Margin: 80%
-- Churn: 월 3%
-- LTV = (100K × 0.8) / 0.03 = 266만원
+- Churn: 3%/month
+- LTV = (100K × 0.8) / 0.03 = ₩2.67M
 
-또는:
+Or:
 LTV = ARPU × Avg. Customer Lifetime × Gross Margin
 ```
 
 **3. LTV:CAC Ratio**
 ```
-건강한 비율:
-- 3:1 이상 → 건강
-- 2:1~3:1 → 개선 필요
-- <2:1 → 위험 (유닛 이코노믹스 깨짐)
+Healthy Ratios:
+- 3:1+ → Healthy
+- 2:1~3:1 → Needs improvement
+- <2:1 → Risk (broken unit economics)
 
-투자자 기대:
-- Seed: 2:1+ (초기 효율 증명)
-- Series A: 3:1+ (확장 가능성)
-- Series B+: 4:1+ (성숙)
+Investor Expectations:
+- Seed: 2:1+ (prove initial efficiency)
+- Series A: 3:1+ (scalability)
+- Series B+: 4:1+ (maturity)
 ```
 
 **4. CAC Payback Period**
 ```
 Payback = CAC / (ARPU × Gross Margin)
 
-목표:
-- SaaS: <12개월
-- 마켓플레이스: <6개월
-- E-commerce: <3개월
+Targets:
+- SaaS: <12 months
+- Marketplace: <6 months
+- E-commerce: <3 months
 
-예시:
-- CAC: 30만원
-- ARPU: 10만원
+Example:
+- CAC: ₩300K
+- ARPU: ₩100K
 - Gross Margin: 80%
-- Payback = 300K / (100K × 0.8) = 3.75개월
+- Payback = 300K / (100K × 0.8) = 3.75 months
 ```
 
-### 유닛 이코노믹스 개선 전략
+### Unit Economics Improvement Strategies
 
-**CAC 줄이기:**
-- Organic 채널 강화 (SEO, 콘텐츠, 입소문)
-- 채널 최적화 (효율 낮은 채널 제거)
-- 퍼널 전환율 개선
+**Reduce CAC:**
+- Strengthen organic channels (SEO, content, word-of-mouth)
+- Optimize channels (eliminate low-efficiency ones)
+- Improve funnel conversion rates
 
-**LTV 높이기:**
-- Churn 감소 (제품 개선, CS 강화)
-- Upsell/Cross-sell (ARPU 증가)
-- Usage 확대 (사용량 기반 가격)
+**Increase LTV:**
+- Reduce churn (product improvements, stronger CS)
+- Upsell/Cross-sell (increase ARPU)
+- Expand usage (usage-based pricing)
 
 ---
 
-## 런웨이 & Burn Rate
+## Runway & Burn Rate
 
-### 기본 계산
+### Basic Calculation
 
 ```
-런웨이 (개월) = 현재 자금 / 월 Burn Rate
+Runway (months) = Current Cash / Monthly Burn Rate
 
-Burn Rate = 월 매출 - 월 비용
+Burn Rate = Monthly Revenue - Monthly Costs
 
-예시:
-- 현재 자금: 5억원
-- 월 매출: 5천만원
-- 월 비용: 1억원
-- Burn: -5천만원
-- 런웨이: 5억 / 5천만 = 10개월
+Example:
+- Current cash: ₩500M
+- Monthly revenue: ₩50M
+- Monthly costs: ₩100M
+- Burn: -₩50M
+- Runway: 500M / 50M = 10 months
 ```
 
-### 자금 조달 타이밍
+### Fundraising Timing
 
 ```
 Rule of Thumb:
-- 6개월 런웨이 남았을 때 다음 라운드 시작
-- 투자 유치 소요: 3-6개월 (Seed/Series A)
+- Start next round when 6 months of runway remain
+- Time to close: 3-6 months (Seed/Series A)
 
-예시:
-- 현재 런웨이: 12개월
-- 6개월 시점에 라운드 시작
-- 9-12개월 시점에 클로징 목표
-- 안전 마진: 3-6개월 추가 (Bear 케이스 대비)
+Example:
+- Current runway: 12 months
+- Start fundraising at month 6
+- Close target: months 9-12
+- Safety margin: Additional 3-6 months (for Bear case)
 ```
 
-### 시나리오별 런웨이
+### Runway by Scenario
 
 ```
-| 시나리오 | Burn Rate | 런웨이 | 추가 자금 필요 | 시기 |
-|----------|-----------|--------|----------------|------|
-| Bull | -3천만 | 16개월 | 없음 | - |
-| Base | -5천만 | 10개월 | 5억 | 6개월 후 |
-| Bear | -8천만 | 6개월 | 10억 | 즉시 |
+| Scenario | Burn Rate | Runway | Funding Needed | Timing |
+|----------|-----------|--------|-----------------|--------|
+| Bull | -₩30M | 16 months | None | - |
+| Base | -₩50M | 10 months | ₩500M | Month 6 |
+| Bear | -₩80M | 6 months | ₩1B | Immediately |
 
-의사결정:
-- Bull 시나리오 확률 높으면 → 추가 자금 연기 가능
-- Bear 리스크 높으면 → 지금 자금 확보 또는 Burn 감축
+Decision Rules:
+- If Bull probability is high → defer additional funding
+- If Bear risk is high → secure funding now or reduce burn
 ```
 
 ---
 
-## 가정 문서화 & 투명성
+## Assumption Documentation & Transparency
 
-### 왜 가정 문서화가 중요한가?
+### Why Document Assumptions?
 
-1. **투자자 신뢰** — 투자자는 숫자보다 사고 과정을 평가합니다.
-2. **팀 정렬** — 모두가 같은 전제에서 출발하도록.
-3. **추적 가능성** — 실적과 비교하여 가정 검증.
-4. **민첩성** — 가정이 틀렸을 때 빠르게 조정.
+1. **Investor Confidence** — Investors evaluate your thinking process, not just numbers.
+2. **Team Alignment** — Ensure everyone starts from the same premises.
+3. **Traceability** — Validate assumptions against actual results.
+4. **Agility** — Quickly adjust when assumptions prove wrong.
 
-### 가정 문서 템플릿
+### Assumption Documentation Template
 
 ```markdown
-# 재무 모델 가정 문서
-**모델 버전:** v1.3 | **작성일:** 2024-11-15
+# Financial Model Assumptions Document
+**Model Version:** v1.3 | **Date:** 2024-11-15
 
 ---
 
-## 1. 고객 획득 (Customer Acquisition)
+## 1. Customer Acquisition
 
-### 1.1 신규 고객 수 (월)
-- **Base:** 100명 (+15% MoM)
-- **Bull:** 150명 (+25% MoM)
-- **Bear:** 60명 (+8% MoM)
+### 1.1 New Customers (Monthly)
+- **Base:** 100 customers (+15% MoM)
+- **Bull:** 150 customers (+25% MoM)
+- **Bear:** 60 customers (+8% MoM)
 
-**근거:**
-- 과거 3개월 평균: 85명/월
-- Base: 마케팅 예산 2배 증액 → +15% 성장 (벤치마크)
-- Bull: 바이럴 효과 + 채널 최적화
-- Bear: 시장 둔화 + CAC 상승
+**Rationale:**
+- Past 3-month average: 85 customers/month
+- Base: Double marketing budget → +15% growth (benchmark)
+- Bull: Viral effect + channel optimization
+- Bear: Market slowdown + higher CAC
 
-**리스크:**
-- CAC 예상보다 높음 → 고객 수 감소
-- 경쟁사 공격적 마케팅 → 시장 포화
+**Risks:**
+- CAC higher than expected → fewer customers
+- Competitor aggressive marketing → market saturation
 
-**검증 방법:**
-- 월별 실적 추적
-- 채널별 CAC & 전환율 모니터링
+**Validation:**
+- Monthly performance tracking
+- CAC & conversion rate by channel
 
 ---
 
 ## 2. Churn Rate
 
-### 2.1 월 Churn
+### 2.1 Monthly Churn
 - **Base:** 3.5%
 - **Bull:** 2.0%
 - **Bear:** 6.0%
 
-**근거:**
-- 과거 6개월 평균: 4.2%
-- Base: 제품 개선 + CS 강화 → 벤치마크 수준
-- Bull: 엔터프라이즈 전환 → Churn 절반
-- Bear: 제품 부족 + 경쟁 심화
+**Rationale:**
+- Past 6-month average: 4.2%
+- Base: Product improvements + stronger CS → benchmark level
+- Bull: Enterprise customers → half the churn
+- Bear: Product gaps + intense competition
 
-**리스크:**
-- 제품 결함 발견
-- 경쟁사 강력한 대안 출시
+**Risks:**
+- Product defects discovered
+- Competitor launches strong alternative
 
-**검증 방법:**
-- 코호트별 Retention 추적
-- Churn 이유 인터뷰
+**Validation:**
+- Cohort retention tracking
+- Churn reason interviews
 
-[모든 주요 가정 반복]
+[Repeat for all major assumptions]
 ```
 
 ---
 
-## 투자자 프레젠테이션용 요약
+## Investor Presentation Summary
 
-### 피치 덱에 포함할 재무 슬라이드 (3-4장)
+### Financial Slides for Pitch Deck (3-4 slides)
 
-**슬라이드 1: 3-시나리오 매출 예측**
+**Slide 1: 3-Scenario Revenue Forecast**
 ```
-차트:
-- X축: Year 0 → Year 3
-- Y축: 매출 (억원)
-- 3개 선: Bull (상단), Base (중간), Bear (하단)
-- Year 3 숫자 강조
+Chart:
+- X-axis: Year 0 → Year 3
+- Y-axis: Revenue (₩)
+- 3 lines: Bull (top), Base (middle), Bear (bottom)
+- Highlight Year 3 numbers
 
-핵심 메시지:
-"Base 시나리오에서 Year 3 매출 [X]억, [성장률]% CAGR"
+Key Message:
+"Base scenario: Year 3 revenue ₩[X], [Y]% CAGR"
 ```
 
-**슬라이드 2: 유닛 이코노믹스**
+**Slide 2: Unit Economics**
 ```
-4개 박스:
+4 boxes:
 ┌─────────────┬─────────────┐
 │ CAC         │ LTV         │
-│ [금액]      │ [금액]      │
+│ [Amount]    │ [Amount]    │
 └─────────────┴─────────────┘
 ┌─────────────┬─────────────┐
 │ LTV:CAC     │ Payback     │
-│ [비율]      │ [개월]      │
+│ [Ratio]     │ [Months]    │
 └─────────────┴─────────────┘
 
-벤치마크 비교:
-"우리: 3.2:1 / 업계 평균: 3:1"
+Benchmark Comparison:
+"Ours: 3.2:1 / Industry avg: 3:1"
 ```
 
-**슬라이드 3: 자금 사용 계획**
+**Slide 3: Use of Funds**
 ```
-워터폴 차트 또는 파이 차트:
-- 제품 개발: 40% (X억)
-- Sales & Marketing: 35% (Y억)
-- 팀 확장: 15% (Z억)
-- 운영 & 예비: 10% (W억)
+Waterfall or pie chart:
+- Product Development: 40% (₩X)
+- Sales & Marketing: 35% (₩Y)
+- Team Expansion: 15% (₩Z)
+- Operations & Contingency: 10% (₩W)
 
-마일스톤:
-"12개월 내: [핵심 목표 3개]"
-"24개월 내: [다음 라운드 준비]"
+Milestones:
+"Within 12 months: [3 key goals]"
+"Within 24 months: [Next round readiness]"
 ```
 
-**슬라이드 4: 코호트 이코노믹스 (선택)**
+**Slide 4: Cohort Economics (Optional)**
 ```
-코호트 Retention 곡선:
-- 월별 코호트 (M0 → M12)
-- Retention % 또는 매출 $
+Cohort Retention Curve:
+- Monthly cohorts (M0 → M12)
+- Retention % or Revenue $
 
-핵심 메시지:
-"12개월 코호트: [X]% Retention, [Y]배 매출 확대"
+Key Message:
+"12-month cohort: [X]% retention, [Y]x revenue expansion"
 ```
 
 ---
 
-## 관련 스킬
+## Related Skills
 
-이 스킬과 함께 사용하면 효과적인 스킬:
+Effective when used alongside this skill:
 
-- **startup-metrics** — 비즈니스 모델별 핵심 메트릭스 정의
-- **market-sizing** — TAM/SAM/SOM으로 매출 상한 검증
-- **fundraising-process** — 투자 라운드별 재무 요구사항
-- **pitch-craft** — 재무 슬라이드를 피치 덱에 통합
-- **investor-update** — 월간 업데이트에 재무 실적 반영
-
----
-
-## 팁
-
-1. **단순하게 시작하세요** — 처음부터 완벽한 모델을 만들려고 하지 마세요. 핵심 동인에 집중하고 점진적으로 정교화하세요.
-
-2. **가정을 문서화하세요** — 투자자는 숫자보다 사고 과정을 평가합니다. 모든 주요 가정에 근거를 제시하세요.
-
-3. **Base 시나리오가 현실적이어야 합니다** — Bull/Bear는 극단이지만, Base는 "가장 가능성 높은" 결과여야 합니다.
-
-4. **유닛 이코노믹스가 우선입니다** — 고객 한 명의 경제성이 안 맞으면, 규모를 키워도 문제는 커질 뿐입니다.
-
-5. **월별 모델을 만드세요** — 연간 요약은 피치용이지만, 실제 운영은 월별 추적이 필요합니다.
-
-6. **코호트로 생각하세요** — 특히 SaaS/마켓플레이스는 코호트 기반 매출 모델링이 정확합니다.
-
-7. **실적과 비교하세요** — 모델은 살아있는 문서입니다. 매달 실적과 비교하여 가정을 업데이트하세요.
-
-8. **스프레드시트 연결** — ~~spreadsheet 커넥터 사용 시, Google Sheets로 자동 생성하여 팀과 실시간 협업하세요.
-
-9. **벤치마크를 참조하세요** — 업계 평균, 유사 기업 공개 데이터, VC 벤치마크 리포트를 활용하세요.
-
-10. **민감도 분석을 하세요** — 어느 변수가 가장 큰 영향을 미치는지 파악하고, 그 변수를 집중 관리하세요.
+- **startup-metrics** — Define core metrics by business model
+- **market-sizing** — Validate revenue ceiling with TAM/SAM/SOM
+- **fundraising-process** — Financial requirements by funding round
+- **pitch-craft** — Integrate financial slides into pitch deck
+- **investor-update** — Include financial performance in monthly updates
 
 ---
 
-## 상세 템플릿
+## Tips
 
-비즈니스 모델별 상세 재무 모델 템플릿은 다음 파일을 참조하세요:
+1. **Start simple** — Don't aim for a perfect model from day one. Focus on core drivers and refine progressively.
+
+2. **Document assumptions** — Investors evaluate your thinking, not just numbers. Back up all major assumptions with reasoning.
+
+3. **Base scenario must be realistic** — Bull/Bear are extremes, but Base should be the "most likely" outcome.
+
+4. **Unit economics come first** — If one customer doesn't make economic sense, scaling only amplifies the problem.
+
+5. **Build monthly models** — Annual summaries are for pitches; operations require monthly tracking.
+
+6. **Think in cohorts** — Especially for SaaS/Marketplace, cohort-based revenue modeling is most accurate.
+
+7. **Compare against actuals** — Your model is a living document. Update assumptions monthly based on results.
+
+8. **Connect to spreadsheet** — Use ~~spreadsheet connector to auto-generate in Google Sheets for real-time team collaboration.
+
+9. **Reference benchmarks** — Leverage industry averages, public comps, and VC benchmark reports.
+
+10. **Do sensitivity analysis** — Identify which variables have the greatest impact and manage those intensively.
+
+---
+
+## Detailed Templates
+
+For business-model-specific financial model templates, see:
 
 📄 **`references/model-templates.md`**
 
-포함 내용:
-- SaaS 재무 모델 (MRR 빌드업, NRR, Rule of 40)
-- 마켓플레이스 재무 모델 (GMV, Take Rate, 양면 성장)
-- E-commerce 재무 모델 (GMV, AOV, 재구매율, 재고)
-- 서비스/Agency 재무 모델 (헤드카운트, 활용률, 프로젝트)
-- 각 모델의 월별 상세 구조
-- 스프레드시트 수식 예시
+Includes:
+- SaaS financial model (MRR buildup, NRR, Rule of 40)
+- Marketplace financial model (GMV, Take Rate, two-sided growth)
+- E-commerce financial model (GMV, AOV, repeat rate, inventory)
+- Services/Agency financial model (headcount, utilization, projects)
+- Monthly detailed structure for each model
+- Spreadsheet formula examples
