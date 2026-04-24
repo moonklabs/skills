@@ -2,11 +2,13 @@
 name: design-md
 version: 1.0.0
 description: |
-  Stitch(Google Labs) design.md alpha 스펙을 준수하는 DESIGN.md 파일을 생성한다.
-  프로젝트의 디자인 토큰 · 컴포넌트 · 브랜드 맥락을 자동 탐색한 뒤
-  YAML frontmatter(기계 판독용) + 표준 8섹션 markdown(인간 판독용) 으로 작성한다.
-  Claude Code · Cursor · Stitch · AI 코딩 에이전트 모두 동일하게 이해하는 단일 디자인 진리의 원천.
-  사용 시점: "DESIGN.md 만들어줘", "디자인 시스템 문서화", "design.md 스펙", "Stitch 포맷 디자인 문서"
+  Generate a DESIGN.md file that conforms to the Stitch (Google Labs) design.md alpha spec.
+  Auto-discovers the project's design tokens, components, and brand context, then emits
+  YAML frontmatter (machine-readable) + 8 standard markdown sections (human-readable).
+  Single source of design truth that Claude Code, Cursor, Stitch, and any AI coding agent
+  understand the same way.
+  Triggers: "create DESIGN.md", "design system docs", "design.md spec", "Stitch-format design doc",
+  "DESIGN.md 만들어줘", "디자인 시스템 문서화", "design.md 스펙", "Stitch 포맷 디자인 문서"
 allowed-tools:
   - Read
   - Write
@@ -17,46 +19,51 @@ allowed-tools:
   - AskUserQuestion
   - WebFetch
 triggers:
+  - create DESIGN.md
+  - design md file
+  - design.md
+  - Stitch design spec
+  - design system docs
+  - design token documentation
   - DESIGN.md 생성
   - 디자인 md 파일
-  - design.md
   - Stitch 디자인 스펙
   - 디자인 시스템 문서
   - 디자인 토큰 문서화
 ---
 
-# design-md · Stitch 스펙 DESIGN.md 생성기
+# design-md · Stitch-spec DESIGN.md generator
 
-## 0. 핵심 원칙
+## 0. Core Principles
 
-이 스킬은 **Google Labs [`@google/design.md`](https://github.com/google-labs-code/design.md) alpha 스펙** 을 그대로 따른다.
+This skill follows the **Google Labs [`@google/design.md`](https://github.com/google-labs-code/design.md) alpha spec** verbatim.
 
-생성되는 `DESIGN.md` 는 다음 두 계층으로 구성된다:
+The generated `DESIGN.md` has two layers:
 
-| 계층 | 형식 | 역할 |
+| Layer | Format | Purpose |
 |---|---|---|
-| **YAML Frontmatter** | `---` 로 감싼 YAML | 기계 판독 (Stitch · 린터 · 자동 export) |
-| **Markdown Body** | `##` h2 섹션 8개 | 인간 판독 (설계 의도 · 사용 가이드) |
+| **YAML Frontmatter** | YAML wrapped in `---` | Machine-readable (Stitch, linters, automated exports) |
+| **Markdown Body** | Eight `##` h2 sections | Human-readable (design intent, usage guidance) |
 
-**반드시 지킬 것:**
-- 섹션 순서 고정: Overview → Colors → Typography → Layout → Elevation & Depth → Shapes → Components → Do's and Don'ts
-- 토큰 참조 문법은 `{colors.primary}`, `{typography.h1}`, `{spacing.4}` 형태 (중괄호 + dot notation)
-- 색상은 `#` + hex(sRGB), dimension 은 `px|rem|em` 단위 포함
-- Primary 컬러 **반드시** 정의
-- 불필요한 섹션은 생략 가능하지만 존재하면 순서를 지켜야 함
+**Must-haves:**
+- Section order is fixed: Overview → Colors → Typography → Layout → Elevation & Depth → Shapes → Components → Do's and Don'ts
+- Token reference syntax is `{colors.primary}`, `{typography.h1}`, `{spacing.4}` (curly braces + dot notation)
+- Colors are `#` + hex (sRGB); dimensions carry `px|rem|em` units
+- Primary color **must** be defined
+- Optional sections can be omitted, but when present the order is mandatory
 
 ---
 
-## 1. 워크플로우
+## 1. Workflow
 
-사용자가 이 스킬을 호출하면 아래 5단계를 **순차적으로** 수행한다.
+When invoked, execute the five phases **in order**.
 
-### Phase 1 · 프로젝트 탐색 (Discovery)
+### Phase 1 · Project Discovery
 
-병렬로 다음 패턴을 스캔한다:
+Scan these patterns in parallel:
 
 ```bash
-# 디자인 토큰 소스 후보
+# Design-token source candidates
 src/design-system/**/*.{ts,js,json}
 src/theme/**/*.{ts,js}
 src/**/tokens*.{ts,js,json}
@@ -67,58 +74,58 @@ tokens-studio.json
 src/**/variables.css
 src/**/theme.{ts,js}
 
-# 컴포넌트 위치 후보
+# Component location candidates
 src/design-system/ui/**/*.{tsx,ts}
 src/components/ui/**/*.{tsx,ts}
 src/components/**/*.{tsx,ts}
 packages/ui/**/*.{tsx,ts}
 
-# 기존 디자인 문서
+# Existing design docs
 DESIGN.md
 docs/design.md
 docs/DESIGN-SYSTEM.md
 STYLEGUIDE.md
 ```
 
-**탐색 결과를 분류한다:**
+**Classify what you find:**
 
-1. **Single-source token file 발견** → 직접 파싱 (예: `source.js`, `tokens.ts`, `theme.ts`)
-2. **Tailwind config 발견** → theme.extend 파싱
-3. **CSS variables 발견** → `:root { --color-* }` grep
-4. **MUI theme 발견** → `createTheme({ palette, typography })` 파싱
-5. **전부 없음** → 인터뷰 모드 진입 (Phase 2b)
+1. **Single-source token file** → parse directly (e.g. `source.js`, `tokens.ts`, `theme.ts`)
+2. **Tailwind config** → parse `theme.extend`
+3. **CSS variables** → grep `:root { --color-* }`
+4. **MUI theme** → parse `createTheme({ palette, typography })`
+5. **Nothing found** → enter interview mode (Phase 2b)
 
-### Phase 2a · 토큰 자동 추출
+### Phase 2a · Automatic Token Extraction
 
-찾은 소스에서 다음을 추출:
+From the discovered source, extract:
 
-| 항목 | 최소 필수 | 추가로 수집 |
+| Category | Minimum required | Collect if present |
 |---|---|---|
-| **colors** | primary | secondary · accent · success · warning · error · info · text/bg/border |
-| **typography** | h1, body | h2~h6, caption, display, numeric |
-| **spacing** | 기본 scale (4/8/16px 등) | 전체 scale |
+| **colors** | primary | secondary, accent, success, warning, error, info, text/bg/border |
+| **typography** | h1, body | h2–h6, caption, display, numeric |
+| **spacing** | base scale (4/8/16px etc.) | full scale |
 | **rounded** | sm/md/lg | full, xl+ |
-| **components** | button, input, card | 프로젝트 고유 컴포넌트 |
+| **components** | button, input, card | project-specific components |
 
-### Phase 2b · 인터뷰 (토큰이 불충분할 때)
+### Phase 2b · Interview (when tokens are insufficient)
 
-`AskUserQuestion` 으로 아래 질문을 **그룹핑**하여 최대 4개까지 묻는다:
+Use `AskUserQuestion` with up to 4 **grouped** questions:
 
-1. **Brand Personality**: 어떤 톤? (professional/playful/minimal/editorial/brutalist/…)
-2. **Primary Color**: 주요 브랜드 컬러 hex 값?
-3. **Target Users**: 누가, 어떤 맥락에서 사용하는 제품인가?
-4. **Typography Preference**: 폰트 체계에 대한 구체적 요구? (특정 폰트, 한/영/숫자 분리, Weight 제약)
+1. **Brand Personality**: what tone? (professional / playful / minimal / editorial / brutalist / …)
+2. **Primary Color**: what's the primary brand color hex?
+3. **Target Users**: who uses this, and in what context?
+4. **Typography Preference**: any specific typography requirements? (particular fonts, separate Latin/CJK/numeric stacks, weight constraints)
 
-### Phase 3 · YAML Frontmatter 생성
+### Phase 3 · Generate YAML Frontmatter
 
-아래 **정확한 순서와 필드**로 작성한다:
+Follow this **exact order and field set**:
 
 ```yaml
 ---
 version: alpha
-name: <제품명>
+name: <product-name>
 description: >
-  <2~4줄. 제품 정체성, 타깃 사용자, 디자인 언어의 핵심>
+  <2–4 lines. Product identity, target user, core design language.>
 
 colors:
   # Brand
@@ -128,20 +135,20 @@ colors:
   secondary: "#xxxxxx"
   accent: "#xxxxxx"
 
-  # Status (4종 필수)
+  # Status (4 required)
   success: "#xxxxxx"
   warning: "#xxxxxx"
   error: "#xxxxxx"
   info: "#xxxxxx"
 
-  # Text (primary/secondary/muted/disabled/inverse 최소 5종)
+  # Text (primary/secondary/muted/disabled/inverse — at least 5)
   text-primary: "#xxxxxx"
   text-secondary: "#xxxxxx"
   text-muted: "#xxxxxx"
   text-disabled: "#xxxxxx"
   text-inverse: "#xxxxxx"
 
-  # Background (primary/secondary/hover/selected 최소 4종)
+  # Background (primary/secondary/hover/selected — at least 4)
   bg-primary: "#xxxxxx"
   bg-secondary: "#xxxxxx"
   bg-hover: "#xxxxxx"
@@ -151,7 +158,7 @@ colors:
   border-focus: "#xxxxxx"
 
 typography:
-  # 최소 base + h1~h3, 가능하면 9~15 levels
+  # At minimum base + h1–h3; prefer 9–15 levels
   caption:
     fontFamily: <Font>
     fontSize: 1.2rem
@@ -188,7 +195,7 @@ spacing:
   "8": 32px
 
 components:
-  # 발견된 컴포넌트마다 하나씩
+  # One entry per discovered component
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.text-inverse}"
@@ -213,209 +220,209 @@ components:
 ---
 ```
 
-**토큰 참조 규칙:**
-- 값 대신 다른 토큰을 참조할 때는 반드시 `"{category.name}"` 형식
-- 문자열로 감싸기 (YAML 파서 호환성)
-- 중첩 참조는 1단계까지만 (토큰 → 토큰 → 토큰 금지)
+**Token-reference rules:**
+- When pointing one token at another, always use `"{category.name}"` form
+- Quote as strings (YAML-parser compatibility)
+- Max one hop for chained references (never token → token → token)
 
-### Phase 4 · Markdown Body 8섹션 작성
+### Phase 4 · Write the 8-Section Markdown Body
 
-각 섹션의 **필수 구성요소:**
+**Required contents per section:**
 
 #### ① Overview
 
-- Brand Personality 표 (Tone / Density / Color / Voice / Target · 4~5축)
-- Emotional Response 3~5개 (사용자가 느껴야 할 감정)
-- Core Design Principles 5개 이내
-- **Anti-Patterns** (What this is NOT) — 의도적으로 피하는 것들
+- Brand Personality table (Tone / Density / Color / Voice / Target — 4–5 axes)
+- Emotional Response (3–5 items the user should feel)
+- Core Design Principles (5 or fewer)
+- **Anti-Patterns** (What this is NOT) — what we deliberately avoid
 
 #### ② Colors
 
-- Palette Hierarchy 도식 (어떤 카테고리가 몇 개 토큰으로 구성되는지)
-- Primary 의 single-source-of-truth 역할 강조
-- Status 4종 사용 원칙 (언제 어떤 색을 쓰는가)
-- **WCAG 접근성 대비 비율 표** (최소 3~5 조합)
-- Text / Background / Border 각 토큰 표
+- Palette Hierarchy diagram (how many tokens per category)
+- Emphasize primary's single-source-of-truth role
+- Status-color usage rules (when to use which)
+- **WCAG accessibility contrast table** (at least 3–5 combinations)
+- Text / Background / Border token tables
 
 #### ③ Typography
 
-- Font Stack 선택 근거 (왜 이 폰트인가, 언제 쓰는가)
-- fallback chain
-- Scale 전체 표 (Token / Size / Line-Height / Weight / 용도)
-- Numeric Variant 별도 섹션 (tabular-nums 필요 시)
-- Usage Heuristic — ✅/❌ 룰 5~8개
+- Font-stack rationale (why this font, when to use it)
+- Fallback chain
+- Full scale table (Token / Size / Line-Height / Weight / Use case)
+- Numeric Variant section (when tabular-nums are required)
+- Usage Heuristic — 5–8 ✅/❌ rules
 
 #### ④ Layout
 
-- Breakpoints 표
-- Container 전략 (max-width, gutter)
-- Spacing Scale 전체
-- Spacing Application Heuristic 표 (상황별 권장 간격)
-- Grid System (Flexbox vs CSS Grid 분기 기준)
-- Component Dimensions 표 (height sizes matrix)
-- Z-Index Semantic 계층
+- Breakpoints table
+- Container strategy (max-width, gutter)
+- Full Spacing Scale
+- Spacing Application Heuristic table (recommended gap per situation)
+- Grid System (Flexbox vs CSS Grid decision criteria)
+- Component Dimensions table (height size matrix)
+- Z-Index semantic layers
 
 #### ⑤ Elevation & Depth
 
-- Philosophy 선언 (flat vs material, subtle vs dramatic)
-- Shadow Tokens 전체 표
-- **Status Glow Shadow** (있을 경우)
-- Elevation Hierarchy 도식 (Z-elev 0~5)
-- Motion Tokens (duration · easing)
+- Philosophy statement (flat vs material, subtle vs dramatic)
+- Full Shadow Tokens table
+- **Status Glow Shadow** (if any)
+- Elevation Hierarchy diagram (Z-elev 0–5)
+- Motion Tokens (duration, easing)
 - Opacity Scale
 
 #### ⑥ Shapes
 
-- Corner Radius Scale 전체 표
-- Shape Language 선언 (4px 기본? 8px? 0?)
-- Border Width 규칙
-- **Shape-to-Component Mapping 표** (어떤 컴포넌트가 어떤 radius 를 쓰는지)
+- Full Corner Radius Scale table
+- Shape Language statement (4px default? 8px? 0?)
+- Border width rules
+- **Shape-to-Component Mapping table** (which component uses which radius)
 
 #### ⑦ Components
 
-각 주요 컴포넌트에 대해:
+For each major component:
 
-- 파일 경로
-- 기본 API (props 표)
-- 사용 예시 코드 (실제 코드, 가상 금지)
-- 토큰 참조 (`{components.xxx}`)
-- Variants / Presets 표
-- 디자인 의도 설명
+- File path
+- Primary API (props table)
+- Usage example (real code — never fabricated)
+- Token references (`{components.xxx}`)
+- Variants / Presets table
+- Design-intent explanation
 
-순서: Button → Input/Field → Select/Combobox → Checkbox → Radio → Modal → Card → Tag → Table → Navigation → Custom
+Order: Button → Input/Field → Select/Combobox → Checkbox → Radio → Modal → Card → Tag → Table → Navigation → Custom
 
 #### ⑧ Do's and Don'ts
 
-- ✅ Do: 7~12개 (각 항목은 *원칙 + 코드 예시*)
-- ❌ Don't: 7~12개 (각 항목은 *안티 패턴 + 올바른 대안*)
+- ✅ Do: 7–12 items (each = *principle + code example*)
+- ❌ Don't: 7–12 items (each = *anti-pattern + correct alternative*)
 
-카테고리 커버리지:
-- 토큰 참조
-- 단위 (px vs rem)
-- Primary 사용 제약
-- 접근성 (focus ring, 대비)
-- Z-Index 의미론
-- Deprecated 사용 금지
+Category coverage:
+- Token references
+- Units (px vs rem)
+- Primary-use constraints
+- Accessibility (focus ring, contrast)
+- Z-Index semantics
+- Deprecated usage bans
 
-### Phase 5 · Appendix & 검증
+### Phase 5 · Appendix & Validation
 
-**Appendix 에 포함:**
-1. Token 치트시트 (CSS Variables / Tailwind class / 프레임워크 theme)
-2. Import 치트시트 (주요 컴포넌트 import 경로)
-3. 기여 가이드 (새 토큰 / 새 컴포넌트 추가 워크플로우)
-4. 린팅 명령어:
+**Include in the Appendix:**
+1. Token cheatsheet (CSS variables / Tailwind class / framework theme)
+2. Import cheatsheet (import paths for major components)
+3. Contribution guide (workflow for adding new tokens / components)
+4. Linting commands:
    ```bash
    npx @google/design.md lint DESIGN.md
    npx @google/design.md export --format tailwind DESIGN.md
    npx @google/design.md diff DESIGN.md DESIGN-v2.md
    ```
 
-**자체 검증 체크리스트 (출력 전 반드시 통과):**
+**Self-validation checklist (must pass before emitting):**
 
-- [ ] YAML frontmatter 가 `---` 로 열고 닫힘
-- [ ] `name` · `colors.primary` · `typography` 정의됨
-- [ ] 8 섹션이 정확한 순서
-- [ ] 섹션 중복 없음
-- [ ] 토큰 참조(`{...}`)가 실제 존재하는 토큰을 가리킴
-- [ ] hex 값은 `#` + 6자리
-- [ ] dimension 은 단위(px/rem/em) 포함 또는 0
-- [ ] h1 타이틀은 선택, `##` 이 주된 섹션 레벨
-- [ ] Primary 와 본문 대비 WCAG AA 이상
-
----
-
-## 2. 출력 경로
-
-기본값: `<project-root>/DESIGN.md` 또는 `<project-root>/src/design-system/DESIGN.md`
-
-**결정 룰:**
-1. `src/design-system/` 폴더가 이미 있으면 → 그 안에 생성
-2. 없으면 프로젝트 루트에 생성
-3. 사용자가 명시적으로 경로를 지정했으면 → 그 경로 사용
+- [ ] YAML frontmatter opens and closes with `---`
+- [ ] `name`, `colors.primary`, and `typography` are defined
+- [ ] Eight sections in correct order
+- [ ] No duplicate sections
+- [ ] Every `{...}` token reference points at an existing token
+- [ ] Hex values use `#` + 6 digits
+- [ ] Dimensions include a unit (px/rem/em) or are exactly 0
+- [ ] Optional h1 title; `##` is the main section level
+- [ ] Primary-on-body contrast ≥ WCAG AA
 
 ---
 
-## 3. 언어 정책
+## 2. Output Path
 
-- 프로젝트의 `CLAUDE.md` 또는 README 에서 주 언어 감지
-- 한국어 프로젝트(CLAUDE.md 에 "always use korean" 등이 있으면) → **한국어로 작성**
-- 영어 프로젝트 → **영어로 작성**
-- YAML frontmatter 의 key 는 **항상 영어 snake-case**
+Default: `<project-root>/DESIGN.md` or `<project-root>/src/design-system/DESIGN.md`
+
+**Decision rules:**
+1. If `src/design-system/` already exists → write inside it
+2. Otherwise → write to project root
+3. If the user passes an explicit path → use that path
 
 ---
 
-## 4. 호출 예시
+## 3. Language Policy
 
-### 4.1 기본 호출
+- Detect the project's primary language from `CLAUDE.md` or `README`
+- Korean project (e.g. CLAUDE.md contains "always use korean") → **write in Korean**
+- English project → **write in English**
+- YAML frontmatter keys are **always English snake-case**
+
+---
+
+## 4. Invocation Examples
+
+### 4.1 Default
 ```
 /design-md
 ```
-현재 디렉토리 스캔 → `DESIGN.md` 생성
+Scan the current directory → generate `DESIGN.md`.
 
-### 4.2 경로 지정
+### 4.2 Explicit output path
 ```
 /design-md --output src/design-system/DESIGN.md
 ```
 
-### 4.3 기존 파일 업데이트
+### 4.3 Update existing file
 ```
 /design-md --update
 ```
-기존 `DESIGN.md` 의 섹션을 유지하면서 토큰/컴포넌트만 재추출해서 병합
+Preserve existing `DESIGN.md` sections, re-extract tokens and components, and merge.
 
-### 4.4 최소 스켈레톤만 생성
+### 4.4 Skeleton only
 ```
 /design-md --skeleton
 ```
-인터뷰 없이 플레이스홀더로 채운 빈 템플릿만 생성
+Skip the interview and generate a placeholder-filled empty template.
 
 ---
 
-## 5. 안티 패턴 (이 스킬이 하지 말아야 할 것)
+## 5. Anti-Patterns (what this skill must NOT do)
 
-- ❌ 존재하지 않는 컴포넌트를 컴포넌트 섹션에 상상으로 추가
-- ❌ 실제 프로젝트 토큰이 아닌 "추천 팔레트" 만들기
-- ❌ 섹션 순서 임의 변경
-- ❌ `{colors.xxx}` 토큰 참조를 쓰면서 실제로 그 토큰이 정의되지 않음
-- ❌ 한국어 프로젝트인데 본문을 영어로 작성
-- ❌ 기존 `DESIGN.md` 를 백업 없이 덮어쓰기 (update 모드 아닌 경우 덮어쓰기 전 확인)
+- ❌ Invent components that don't exist and add them to the Components section
+- ❌ Fabricate a "recommended palette" instead of extracting real project tokens
+- ❌ Reorder sections arbitrarily
+- ❌ Use `{colors.xxx}` token references that point at undefined tokens
+- ❌ Write English prose for a Korean-language project
+- ❌ Overwrite an existing `DESIGN.md` without backup (confirm before overwriting unless in update mode)
 
 ---
 
-## 6. 참고 자료
+## 6. References
 
-- Spec Repo: https://github.com/google-labs-code/design.md
-- Spec Doc: https://github.com/google-labs-code/design.md/blob/main/docs/spec.md
-- Stitch Official: https://stitch.withgoogle.com/docs/design-md/
+- Spec repo: https://github.com/google-labs-code/design.md
+- Spec doc: https://github.com/google-labs-code/design.md/blob/main/docs/spec.md
+- Stitch official: https://stitch.withgoogle.com/docs/design-md/
 - Blog: https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-design-md/
 
 ---
 
-## 7. 완료 보고 포맷
+## 7. Completion Report Format
 
-작업 완료 시 아래 형식으로 사용자에게 보고:
+On completion, report back in this format:
 
 ```markdown
-## ✅ DESIGN.md 생성 완료
+## ✅ DESIGN.md generated
 
-**경로:** <path>
-**크기:** <NNkb, NN lines>
-**스펙:** Stitch design.md alpha
+**Path:** <path>
+**Size:** <NNkb, NN lines>
+**Spec:** Stitch design.md alpha
 
-### 📊 추출 결과
-- Colors: <n> 토큰 (primary/status/text/bg/border/chart)
-- Typography: <n> 레벨
-- Spacing: <n> 단계
-- Components: <n> 컴포넌트
+### 📊 Extraction results
+- Colors: <n> tokens (primary/status/text/bg/border/chart)
+- Typography: <n> levels
+- Spacing: <n> steps
+- Components: <n> components
 
-### ✔️ 자체 검증 통과
-- [x] Frontmatter `---` 유효
-- [x] 필수 토큰 존재 (primary)
-- [x] 8 섹션 순서 준수
-- [x] 토큰 참조 무결성
-- [x] WCAG AA 대비
+### ✔️ Self-validation passed
+- [x] Frontmatter `---` valid
+- [x] Required tokens present (primary)
+- [x] 8-section order respected
+- [x] Token-reference integrity
+- [x] WCAG AA contrast
 
-### 🔍 다음 단계
+### 🔍 Next steps
 \`\`\`bash
 npx @google/design.md lint <path>
 \`\`\`
