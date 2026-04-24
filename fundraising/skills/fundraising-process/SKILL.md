@@ -1,414 +1,417 @@
 ---
 name: fundraising-process
-description: Pre-seed부터 Series B까지 투자 유치 라이프사이클, 단계별 벤치마크, 8주 타임라인, 준비 체크리스트를 안내합니다. "투자 유치 프로세스", "펀드레이징 단계", "시리즈 A 준비", "투자 타임라인", "라운드 준비" 등으로 실행합니다.
+description: >
+  Fundraising lifecycle from pre-seed through Series B: stage benchmarks, 8-week timeline, preparation checklist.
+  Triggers on "fundraising process", "fundraising stages", "prepare for Series A", "funding timeline", "round preparation",
+  "투자 유치 프로세스", "펀드레이징 단계", "시리즈 A 준비", "투자 타임라인", "라운드 준비".
 ---
 
-# 펀드레이징 프로세스
+# Fundraising Process
 
-Pre-seed부터 Series B까지 투자 유치 라이프사이클, 단계별 벤치마크, 8주 실행 타임라인, 준비 체크리스트를 제공합니다.
+Fundraising lifecycle from pre-seed through Series B, stage benchmarks, 8-week execution timeline, and preparation checklist.
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                  FUNDRAISING PROCESS                             │
 ├─────────────────────────────────────────────────────────────────┤
-│  제공하는 정보                                                    │
-│  ✓ 단계별 라이프사이클: Pre-seed → Seed → Series A → Series B  │
-│  ✓ 단계별 벤치마크: 트랙션, 밸류에이션, 체크사이즈, 희석율       │
-│  ✓ 8주 타임라인: 주차별 실행 계획                                │
-│  ✓ 준비 체크리스트: IR 자료, 데이터룸, 피치 덱                   │
-│  ✓ 일반적 실수 & 안티패턴                                        │
+│  Information Provided                                           │
+│  ✓ Lifecycle by stage: Pre-seed → Seed → Series A → Series B  │
+│  ✓ Stage benchmarks: traction, valuation, check size, dilution│
+│  ✓ 8-week timeline: execution plan by week                     │
+│  ✓ Prep checklist: pitch deck, financial model, data room     │
+│  ✓ Common mistakes & anti-patterns                            │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 투자 라운드별 라이프사이클
+## Fundraising Stage Lifecycle
 
 ### Pre-seed
 
-**특징:**
-- 아이디어 → 초기 제품
-- 창업자, F&F (Friends & Family), 엔젤
-- 검증보다는 팀과 비전에 투자
+**Characteristics:**
+- Idea → early product
+- Founder-led, Friends & Family, angels
+- Invest in team and vision, not validation
 
-**전형적 벤치마크:**
-| 항목 | 범위 |
-|------|------|
-| **조달 금액** | $100K - $500K |
-| **밸류에이션** | $1M - $3M (post-money) |
-| **희석율** | 10-20% |
-| **타임라인** | 2-4개월 |
-| **트랙션** | MVP, 초기 사용자 (<100) |
-| **팀** | 1-2명 창업자 |
-| **투자자** | 엔젤, F&F, 초기 VC |
+**Typical Benchmarks:**
+| Item | Range |
+|------|-------|
+| **Amount Raised** | $100K - $500K |
+| **Valuation** | $1M - $3M (post-money) |
+| **Dilution** | 10-20% |
+| **Timeline** | 2-4 months |
+| **Traction** | MVP, early users (<100) |
+| **Team** | 1-2 co-founders |
+| **Investors** | Angels, F&F, early-stage VCs |
 
-**이 단계의 초점:**
-- 문제-솔루션 적합성 검증
-- MVP 구축
-- 초기 고객 확보
-- 팀 구성
+**Focus at This Stage:**
+- Validate problem-solution fit
+- Build MVP
+- Acquire first customers
+- Assemble team
 
 ---
 
 ### Seed
 
-**특징:**
-- 제품-시장 적합성 탐색
-- Seed 펀드, 엔젤, 일부 VC
-- 초기 트랙션 증명 필요
+**Characteristics:**
+- Search for product-market fit
+- Seed funds, angels, some VCs
+- Need to prove initial traction
 
-**전형적 벤치마크:**
-| 항목 | 범위 |
-|------|------|
-| **조달 금액** | $500K - $3M |
-| **밸류에이션** | $3M - $10M (post-money) |
-| **희석율** | 15-25% |
-| **타임라인** | 3-6개월 |
-| **트랙션** | PMF 신호, $10K-$50K MRR (SaaS) |
-| **팀** | 3-5명 |
-| **투자자** | Seed 펀드, 엔젤 신디케이트 |
+**Typical Benchmarks:**
+| Item | Range |
+|------|-------|
+| **Amount Raised** | $500K - $3M |
+| **Valuation** | $3M - $10M (post-money) |
+| **Dilution** | 15-25% |
+| **Timeline** | 3-6 months |
+| **Traction** | PMF signals, $10K-$50K MRR (SaaS) |
+| **Team** | 3-5 people |
+| **Investors** | Seed funds, angel syndicates |
 
-**이 단계의 초점:**
-- 제품-시장 적합성 달성
-- 재현 가능한 고객 확보 채널
-- 유닛 이코노믹스 초기 증명
-- 핵심 팀 확장
+**Focus at This Stage:**
+- Achieve product-market fit
+- Build repeatable customer acquisition channel
+- Prove early unit economics
+- Expand core team
 
 ---
 
 ### Series A
 
-**특징:**
-- PMF 증명 → 스케일 시작
-- 기관 VC, 리드 투자자 필수
-- 반복 가능한 비즈니스 모델
+**Characteristics:**
+- Prove PMF → start scaling
+- Institutional VCs, lead investor required
+- Repeatable business model
 
-**전형적 벤치마크:**
-| 항목 | 범위 |
-|------|------|
-| **조달 금액** | $2M - $15M |
-| **밸류에이션** | $10M - $50M (post-money) |
-| **희석율** | 20-30% |
-| **타임라인** | 4-8개월 |
-| **트랙션** | $100K-$300K MRR (SaaS), 명확한 성장 |
-| **팀** | 10-25명 |
-| **투자자** | Tier 1/2 VC |
+**Typical Benchmarks:**
+| Item | Range |
+|------|-------|
+| **Amount Raised** | $2M - $15M |
+| **Valuation** | $10M - $50M (post-money) |
+| **Dilution** | 20-30% |
+| **Timeline** | 4-8 months |
+| **Traction** | $100K-$300K MRR (SaaS), clear growth |
+| **Team** | 10-25 people |
+| **Investors** | Tier 1/2 VCs |
 
-**이 단계의 초점:**
-- 재현 가능한 성장 엔진
-- 유닛 이코노믹스 건강성
-- 스케일 가능한 GTM
-- 리더십 팀 구축
+**Focus at This Stage:**
+- Build repeatable growth engine
+- Demonstrate unit economics health
+- Create scalable GTM
+- Build leadership team
 
 ---
 
 ### Series B
 
-**특징:**
-- 스케일 증명 → 시장 리더십
-- Large 기관 VC, 성장 펀드
-- 경쟁 우위 확립
+**Characteristics:**
+- Prove scale → market leadership
+- Large institutional VCs, growth funds
+- Establish competitive advantage
 
-**전형적 벤치마크:**
-| 항목 | 범위 |
-|------|------|
-| **조달 금액** | $10M - $50M |
-| **밸류에이션** | $50M - $200M (post-money) |
-| **희석율** | 15-25% |
-| **타임라인** | 6-12개월 |
-| **트랙션** | $1M-$3M MRR (SaaS), 강한 성장률 |
-| **팀** | 50-100명 |
-| **투자자** | Top-tier VC, 성장 펀드 |
+**Typical Benchmarks:**
+| Item | Range |
+|------|-------|
+| **Amount Raised** | $10M - $50M |
+| **Valuation** | $50M - $200M (post-money) |
+| **Dilution** | 15-25% |
+| **Timeline** | 6-12 months |
+| **Traction** | $1M-$3M MRR (SaaS), strong growth rate |
+| **Team** | 50-100 people |
+| **Investors** | Top-tier VCs, growth funds |
 
-**이 단계의 초점:**
-- 시장 리더십 확보
-- 국제 확장 또는 신규 시장
-- 제품 라인 확장
-- 조직 스케일
+**Focus at This Stage:**
+- Establish market leadership
+- International expansion or new markets
+- Expand product lines
+- Scale organization
 
 ---
 
-## 8주 펀드레이징 타임라인
+## 8-Week Fundraising Timeline
 
-### 사전 준비 (Week -4 ~ -1)
+### Pre-Execution (Week -4 ~ -1)
 
 ```
 Week -4:
-□ 펀드레이징 전략 수립 (목표 금액, 희석율, 타겟 투자자 유형)
-□ IR 자료 준비 시작 (피치 덱, 재무 모델, 데이터룸)
-□ 기존 투자자·어드바이저에게 인트로 요청
-□ 딜소싱 시작 (타겟 VC/AC 리스트 100개)
+□ Define fundraising strategy (target amount, dilution, investor types)
+□ Start IR material prep (pitch deck, financial model, data room)
+□ Request intros from existing investors/advisors
+□ Start deal sourcing (build target VC/AC list, ~100)
 
 Week -3:
-□ 피치 덱 v1 완성
-□ 재무 모델 3-시나리오 완성
-□ 데이터룸 초안 (법인 문서, 계약서, IP)
-□ Thesis 매칭 → 우선순위 투자자 30개
+□ Complete pitch deck v1
+□ Finish financial model (3-scenario)
+□ Draft data room (incorporation, contracts, IP)
+□ Thesis matching → prioritize 30 target investors
 
 Week -2:
-□ 피치 연습 (어드바이저, 멘토, 친구)
-□ 예상 질문 30개 + 답변 준비
-□ 데이터룸 완성
-□ 웜인트로 확보 시작 (우선순위 상위 10개)
+□ Practice pitch (with advisors, mentors, friends)
+□ Prepare 30 anticipated Q&A
+□ Complete data room
+□ Start securing warm intros (top 10 priority targets)
 
 Week -1:
-□ 피치 덱 최종 버전
-□ 웜인트로 10개 확보 완료
-□ 아웃리치 시퀀스 준비 (Day 0/5/10/21)
-□ 런웨이 확인 (최소 6개월)
+□ Final pitch deck version
+□ Confirm 10 warm intros
+□ Prepare outreach sequence (Day 0/5/10/21)
+□ Verify runway (minimum 6 months)
 ```
 
-### 실행 단계 (Week 1 ~ 8)
+### Execution Phase (Week 1 ~ 8)
 
 ```
-Week 1: 아웃리치 시작
-□ 우선순위 상위 20개 투자자 접촉
-□ 웜인트로 10개 발송
-□ 콜드 이메일 10개 발송
-□ 응답률 추적 시작
+Week 1: Launch Outreach
+□ Contact top 20 priority investors
+□ Send 10 warm intros
+□ Send 10 cold emails
+□ Start tracking response rates
 
-Week 2: 초기 미팅
-□ 첫 파트너 미팅 5-10건
-□ 피드백 수집 및 피치 조정
-□ 후속 아웃리치 20개 추가
-□ 파이프라인 커버리지 3x 확인
+Week 2: Early Meetings
+□ First partner meetings: 5-10
+□ Collect feedback, adjust pitch
+□ Add 20 more follow-up outreach
+□ Confirm 3x pipeline coverage
 
-Week 3-4: 미팅 가속
-□ 파트너 미팅 10-15건/주
-□ 관심 표명 투자자 파악 (3-5개)
-□ 파트너 컨센서스 미팅 요청
-□ DD 자료 업데이트
+Week 3-4: Accelerate Meetings
+□ Partner meetings: 10-15/week
+□ Identify interested investors (3-5)
+□ Request partner consensus meetings
+□ Update DD materials
 
-Week 5-6: 심사 DD
-□ 관심 투자자 3-5개와 DD 진행
-□ 데이터룸 접근 제공
-□ 레퍼런스 체크 대응
-□ 리드 투자자 확정
+Week 5-6: Conduct Due Diligence
+□ DD with 3-5 interested investors
+□ Provide data room access
+□ Handle reference checks
+□ Confirm lead investor
 
-Week 7: 텀시트 협상
-□ 리드 투자자 텀시트 수령
-□ 법무 검토 (변호사 필수)
-□ 조건 협상
-□ 다른 투자자 최종 커밋 확보
+Week 7: Term Sheet Negotiation
+□ Receive term sheet from lead investor
+□ Legal review (lawyer required)
+□ Negotiate conditions
+□ Secure final commitments from other investors
 
-Week 8: 클로징
-□ 텀시트 서명
-□ 최종 서류 작업 (SPA, SHA)
-□ 송금 완료
-□ 공개 발표 준비
+Week 8: Closing
+□ Sign term sheet
+□ Complete final paperwork (SPA, SHA)
+□ Wire funds received
+□ Prepare public announcement
 ```
 
 ---
 
-## 단계별 준비 체크리스트
+## Stage-Specific Prep Checklist
 
-### 피치 덱 (필수)
+### Pitch Deck (Required)
 
 ```
-□ 커버 슬라이드 (회사명, 태그라인, 로고)
-□ 문제 (3가지 핵심 페인 포인트)
-□ 솔루션 (제품 스크린샷, 핵심 기능)
-□ 시장 기회 (TAM/SAM/SOM)
-□ 제품 (데모, 고객 플로우)
-□ 트랙션 (핵심 지표, 성장 그래프)
-□ 비즈니스 모델 (수익 구조, 가격)
-□ 경쟁 분석 (포지셔닝 맵)
-□ GTM 전략 (채널, CAC, LTV)
-□ 팀 (창업자, 핵심 멤버, 어드바이저)
-□ 재무 전망 (3년, 3-시나리오)
-□ 투자 제안 (조달 금액, 용도, 마일스톤)
+□ Cover slide (company name, tagline, logo)
+□ Problem (3 key pain points)
+□ Solution (product screenshots, key features)
+□ Market opportunity (TAM/SAM/SOM)
+□ Product (demo, customer flow)
+□ Traction (key metrics, growth chart)
+□ Business model (revenue structure, pricing)
+□ Competitive analysis (positioning map)
+□ GTM strategy (channels, CAC, LTV)
+□ Team (founders, key members, advisors)
+□ Financial forecast (3 years, 3-scenario)
+□ Investment ask (amount, use of funds, milestones)
 
 Appendix:
-□ 상세 재무 모델
-□ 제품 로드맵
-□ 고객 사례/레퍼런스
-□ 경쟁사 상세 비교
+□ Detailed financial model
+□ Product roadmap
+□ Customer case studies/references
+□ Detailed competitive comparison
 ```
 
-### 재무 모델 (필수)
+### Financial Model (Required)
 
 ```
-□ 3-시나리오 (Base/Bull/Bear)
-□ 5년 P&L (월별 첫 2년, 분기별 나머지)
-□ 매출 모델 (코호트 기반)
-□ 비용 구조 (COGS, S&M, R&D, G&A)
-□ 유닛 이코노믹스 (CAC, LTV, Payback)
-□ 현금흐름 & 런웨이
-□ 자금 사용 계획
-□ 주요 가정 문서화 탭
+□ 3-scenario (Base/Bull/Bear)
+□ 5-year P&L (monthly first 2 years, quarterly remainder)
+□ Revenue model (cohort-based)
+□ Cost structure (COGS, S&M, R&D, G&A)
+□ Unit economics (CAC, LTV, Payback)
+□ Cash flow & runway
+□ Use of funds plan
+□ Key assumptions documented
 ```
 
-### 데이터룸 (DD 단계)
+### Data Room (DD Stage)
 
 ```
-□ 법인 문서
-  - 정관, 주주명부, 캡테이블
-  - 이전 투자 계약서 (SAFE, 전환사채, SPA)
+□ Corporate Documents
+  - Articles of incorporation, cap table, shareholder list
+  - Previous investment agreements (SAFE, convertible notes, SPA)
 
-□ 재무 정보
-  - 손익계산서 (월별, 최근 2년)
-  - 대차대조표
-  - 은행 잔고 증명
+□ Financial Info
+  - Income statement (monthly, past 2 years)
+  - Balance sheet
+  - Bank statements
 
-□ 계약서
-  - 고객 계약서 (주요 3-5개)
-  - 벤더 계약서
-  - 임대차 계약서
+□ Contracts
+  - Customer contracts (top 3-5)
+  - Vendor contracts
+  - Lease agreements
 
-□ IP & 법률
-  - 특허, 상표 출원
-  - 오픈소스 라이선스 정리
-  - 창업자 지분귀속 계약
-  - 직원 IP 양도 계약
+□ IP & Legal
+  - Patents, trademark applications
+  - Open source license audit
+  - Founder vesting agreements
+  - Employee IP assignment agreements
 
-□ 인사
-  - 조직도
-  - 핵심 멤버 이력서
-  - 스톡옵션 풀
+□ HR
+  - Organizational chart
+  - Key team member resumes
+  - Stock option pool
 
-□ 제품
-  - 제품 로드맵
-  - 기술 아키텍처 문서
-  - 보안 인증 (있는 경우)
+□ Product
+  - Product roadmap
+  - Technical architecture documentation
+  - Security certifications (if any)
 ```
 
 ---
 
-## 펀드레이징 파이프라인 관리
+## Fundraising Pipeline Management
 
-### 커버리지 3x 규칙
+### 3x Coverage Rule
 
-투자 유치는 깔때기입니다. 전환율이 낮으므로 충분한 파이프라인이 필요합니다.
+Fundraising is a funnel. Low conversion rates require sufficient pipeline.
 
 ```
-전환율 벤치마크:
-- 발굴 → 접촉: 50-70%
-- 접촉 → 미팅: 20-30%
-- 미팅 → 심사DD: 30-40%
-- 심사DD → 텀시트: 20-30%
-- 텀시트 → 클로징: 70-90%
+Conversion Rate Benchmarks:
+- Discover → Contact: 50-70%
+- Contact → Meeting: 20-30%
+- Meeting → DD: 30-40%
+- DD → Term Sheet: 20-30%
+- Term Sheet → Close: 70-90%
 
-종합 전환율: 1-3%
+Overall Conversion: 1-3%
 
-예시:
-목표: $2M, 평균 체크사이즈 $500K → 4명 투자자 필요
-커버리지 3x: 12명 심사DD 단계
-역산: 40명 미팅, 130명 접촉, 200명 발굴
+Example:
+Target: $2M, avg check $500K → need 4 investors
+3x coverage: 12 in DD stage
+Work backward: 40 meetings, 130 contacts, 200 discovery
 ```
 
-### 파이프라인 단계별 관리
+### Pipeline Stage Management
 
-| 단계 | 목표 | 액션 |
-|------|------|------|
-| **발굴** | 200개 타겟 | 딜소싱, Thesis 매칭 |
-| **접촉** | 100-130개 | 아웃리치 시퀀스 |
-| **미팅** | 40개 | 파트너 미팅, 피드백 수집 |
-| **심사DD** | 12개 | 데이터룸, 레퍼런스 |
-| **텀시트** | 4-6개 | 조건 협상 |
-| **클로징** | 4개 | 최종 서류, 송금 |
-
----
-
-## 일반적 실수 & 안티패턴
-
-### ❌ 실수 1: 너무 늦게 시작
-
-**문제:** 런웨이 3개월 남았을 때 시작
-**왜 위험:** 펀드레이징 = 4-8개월, 급하면 조건 불리
-
-**올바른 방법:**
-- 런웨이 12개월 남았을 때 준비 시작
-- 런웨이 9개월에 아웃리치 시작
-- 6개월 버퍼 확보
+| Stage | Target Count | Actions |
+|-------|-------------|---------|
+| **Discovery** | 200 targets | Deal sourcing, thesis match |
+| **Contact** | 100-130 | Outreach sequences |
+| **Meeting** | 40 | Partner meetings, collect feedback |
+| **DD** | 12 | Data room access, references |
+| **Term Sheet** | 4-6 | Condition negotiation |
+| **Close** | 4 | Final paperwork, wire funds |
 
 ---
 
-### ❌ 실수 2: 파이프라인 부족
+## Common Mistakes & Anti-Patterns
 
-**문제:** 관심 있는 투자자 2-3명만 대화
-**왜 위험:** 1명이라도 빠지면 라운드 실패
+### ❌ Mistake 1: Start Too Late
 
-**올바른 방법:**
-- 커버리지 3x 유지
-- 최소 12명과 동시 진행
-- 지속적인 딜소싱
+**Problem:** Start when only 3 months of runway left
+**Why risky:** Fundraising = 4-8 months; rushing leads to bad terms
 
----
-
-### ❌ 실수 3: 준비 부족
-
-**문제:** 피치 덱만 있고 재무 모델·데이터룸 없음
-**왜 위험:** DD 단계에서 지연 → 투자자 신뢰 하락
-
-**올바른 방법:**
-- Week -4부터 모든 자료 준비
-- 데이터룸 미리 정리
-- 예상 질문 30개 답변 준비
+**Right Approach:**
+- Start prep when 12 months runway remains
+- Begin outreach when 9 months runway left
+- Maintain 6-month buffer
 
 ---
 
-### ❌ 실수 4: Thesis 부적합 투자자
+### ❌ Mistake 2: Insufficient Pipeline
 
-**문제:** "아무 VC나" 접근
-**왜 위험:** 응답률 < 5%, 시간 낭비
+**Problem:** Only 2-3 interested investors in conversation
+**Why risky:** Lose one = round fails
 
-**올바른 방법:**
-- Thesis 매칭 4차원 (섹터·단계·체크·지역)
-- HIGH 적합도만 집중
-- 포트폴리오 역추적
-
----
-
-### ❌ 실수 5: 리드 없이 진행
-
-**문제:** 여러 투자자가 "팔로우 온"만 하겠다고 함
-**왜 위험:** 리드 없으면 라운드 안 닫힘
-
-**올바른 방법:**
-- 리드 투자자 먼저 확정 (체크사이즈 50%+)
-- 리드 조건(텀시트, 밸류) 정한 후
-- 팔로우 온 투자자 모집
+**Right Approach:**
+- Maintain 3x coverage
+- Engage minimum 12 investors in parallel
+- Continuous deal sourcing
 
 ---
 
-### ❌ 실수 6: 밸류에이션 집착
+### ❌ Mistake 3: Under-Prepared Materials
 
-**문제:** 밸류에이션만 최대화하려고 조건 무시
-**왜 위험:** 나쁜 조건(높은 청산우선, ratchet) → 나중에 더 큰 문제
+**Problem:** Only pitch deck; no financial model or data room
+**Why risky:** DD delays → lost investor confidence
 
-**올바른 방법:**
-- 밸류에이션 + 조건 균형
-- 청산우선, 참여우선, 희석방지 체크
-- 장기적 캡테이블 건강
-
----
-
-## 한국 특화: K-Startup, TIPS, 정부 지원
-
-### 정부 프로그램
-
-| 프로그램 | 조달 가능 | 특징 |
-|---------|----------|------|
-| **TIPS** | $300K-$1M | 엔젤 매칭, 정부 R&D 지원 |
-| **K-Startup** | $100K-$500K | 창업진흥원, 데모데이 |
-| **중진공** | $200K-$1M | 정책자금, 저금리 융자 |
-
-**전략:**
-- 민간 VC + 정부 프로그램 병행
-- 정부 지원은 "희석 없는 자금"
-- 단, 보고·의무 많음
+**Right Approach:**
+- Prepare all materials starting Week -4
+- Organize data room early
+- Prepare answers to 30 anticipated questions
 
 ---
 
-## 관련 스킬 및 커맨드
+### ❌ Mistake 4: Wrong-Fit Investors
 
-- **deal-sourcing** — 투자자 발굴 방법론
-- **investor-research** — 특정 VC 심층 조사
-- **pitch-craft** — 피치 덱 구조 & 스토리텔링
-- **financial-modeling** — 3-시나리오 재무 모델링
-- **term-sheet-knowledge** — 텀시트 조건 이해
-- `/daily-fundraise` — 일일 펀드레이징 브리핑
-- `/lead-dashboard` — 투자자 파이프라인 현황
-- `/fundraise-forecast` — 투자유치 예측
+**Problem:** Approach "any VC"
+**Why risky:** Response rate < 5%, waste of time
+
+**Right Approach:**
+- 4-dimension thesis match (sector·stage·check·geography)
+- Focus on HIGH fit only
+- Use portfolio reverse sourcing
+
+---
+
+### ❌ Mistake 5: No Lead Investor
+
+**Problem:** Multiple investors say "follow-on" only
+**Why risky:** No lead = round doesn't close
+
+**Right Approach:**
+- Secure lead investor first (check size 50%+)
+- Finalize lead terms (term sheet, valuation)
+- Then recruit follow-on investors
+
+---
+
+### ❌ Mistake 6: Valuation Obsession
+
+**Problem:** Maximize valuation, ignore bad terms
+**Why risky:** Bad terms (high liquidation preference, ratchet) cause bigger problems later
+
+**Right Approach:**
+- Balance valuation + terms
+- Check liquidation preference, anti-dilution, participation
+- Maintain long-term cap table health
+
+---
+
+## Korea-Specific: Government Programs (TIPS, K-Startup)
+
+### Government Programs
+
+| Program | Available Funding | Characteristics |
+|---------|------------------|-----------------|
+| **TIPS** | $300K-$1M | Angel matching, government R&D support |
+| **K-Startup** | $100K-$500K | Korean Startup Foundation, demo days |
+| **SME Promotion** | $200K-$1M | Policy loans, low-interest financing |
+
+**Strategy:**
+- Combine private VC + government programs
+- Government support = non-dilutive capital
+- Note: More reporting and obligations required
+
+---
+
+## Related Skills and Commands
+
+- **deal-sourcing** — Investor discovery methodology
+- **investor-research** — Deep research on specific VC
+- **pitch-craft** — Pitch deck structure & storytelling
+- **financial-modeling** — 3-scenario financial modeling
+- **term-sheet-knowledge** — Understand term sheet conditions
+- `/daily-fundraise` — Daily fundraising briefing
+- `/lead-dashboard` — Investor pipeline status
+- `/fundraise-forecast` — Fundraising forecast

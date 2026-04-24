@@ -1,452 +1,458 @@
 ---
 name: deal-sourcing
-description: VC, AC, 엔젤, CVC 등 투자자 소싱 방법론과 데이터 소스를 안내합니다. "투자자 찾기", "VC 리스트", "AC 프로그램 찾기", "딜소싱", "투자자 소싱", "VC 발굴", "[섹터] 투자자", "[단계] VC" 등으로 실행합니다.
+description: >
+  Guidance on investor sourcing methodology and data sources for VC, AC, angels, and CVC funds.
+  Triggers on "find investors", "VC list", "find accelerator programs", "deal sourcing", "investor sourcing",
+  "discover VCs", "[sector] investors", "[stage] VC",
+  "투자자 찾기", "VC 리스트", "AC 프로그램 찾기", "딜소싱", "투자자 소싱", "VC 발굴".
 ---
 
-# 딜소싱 (Deal Sourcing)
+# Deal Sourcing
 
-신규 VC, AC, 엔젤, CVC 투자자를 체계적으로 발굴하고, thesis 적합도를 평가하며, 접근 경로를 매핑하는 방법론입니다. 이 스킬은 웹 검색만으로도 항상 작동하며, 데이터 보강 도구(THE VC, 혁신의숲, OpenDART)가 추가되면 크게 향상됩니다.
+Systematically discover new VC, AC, angel, and CVC investors. Evaluate thesis fit and map approach pathways. This skill works standalone with web search alone and scales dramatically when data enrichment tools (THE VC, Innovation Forest, OpenDART) are connected.
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                       DEAL SOURCING                              │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (웹 검색으로 단독 작동)                                 │
-│  ✓ 투자자 유형별 소싱 전략 (VC/AC/엔젤/CVC)                       │
-│  ✓ 10-query 웹 검색 패턴: thesis, 포트폴리오, 투자 이력          │
-│  ✓ Thesis 매칭 프레임워크: 섹터·단계·체크·지역 4차원 평가         │
-│  ✓ 접근 경로 매핑: 웜인트로/콜드/AC지원                           │
+│  Core Features (works standalone via web search)                │
+│  ✓ Investor sourcing strategy by type (VC/AC/Angel/CVC)        │
+│  ✓ 10-query web search pattern: thesis, portfolio, investment   │
+│  ✓ Thesis matching framework: 4-dimensional evaluation          │
+│    (sector·stage·check size·geography)                           │
+│  ✓ Approach pathway mapping: warm intro / cold / accelerator    │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~data enrichment: THE VC, 혁신의숲, OpenDART 전문 데이터     │
-│  + ~~CRM: 기존 투자자 네트워크, 인트로 경로 자동 매핑              │
-│  + ~~knowledge base: 팀 문서에서 커넥션, 인트로 이력 검색          │
+│  Enhanced Mode (with tool connections)                          │
+│  + ~~data enrichment: THE VC, Innovation Forest, OpenDART data  │
+│  + ~~CRM: investor network analysis, intro path mapping         │
+│  + ~~knowledge base: team docs for connections, intro history   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 시작하기
+## Getting Started
 
-투자자 소싱이 필요한 상황에서 자동으로 활성화됩니다:
+Activates automatically when investor sourcing is needed:
 
-- "fintech series A 투자자 찾아줘"
-- "한국에서 SaaS seed 투자하는 VC 리스트"
-- "Y Combinator 같은 AC 프로그램 있어?"
-- "우리 포트폴리오에 투자한 VC 중 다른 투자자 추천해줘"
+- "Find fintech series A investors"
+- "List of VCs investing in SaaS seed stage in Korea"
+- "Are there accelerator programs like Y Combinator?"
+- "Recommend other investors who've invested in our portfolio companies"
 
-즉시 웹 검색을 실행하고, ~~data enrichment가 연결되어 있으면 해당 데이터도 가져옵니다.
-
----
-
-## 커넥터 (선택사항)
-
-도구를 연결하여 이 스킬을 강화하세요:
-
-| 커넥터 | 추가 기능 |
-|--------|----------|
-| **데이터 보강** | THE VC (투자 라운드·포트폴리오), 혁신의숲 (성장 지표), OpenDART (상장사 공시) — 웹 검색 기반, OpenDART는 MCP 연결 가능 |
-| **CRM** | 기존 투자자 네트워크 분석, 인트로 경로 자동 매핑 |
-| **지식 베이스** | Notion, Google Drive — 팀의 인트로 이력, 커넥션 DB 검색 |
-
-> **커넥터가 없나요?** 문제없습니다. 웹 검색만으로도 충실한 투자자 리스트와 접근 전략을 제공합니다.
+Executes web search immediately. If ~~data enrichment is connected, pulls data from those sources as well.
 
 ---
 
-## 출력 형식
+## Connectors (Optional)
+
+Enhance this skill by connecting tools:
+
+| Connector | Additional Features |
+|-----------|-------------------|
+| **Data Enrichment** | THE VC (investment rounds, portfolio), Innovation Forest (growth metrics), OpenDART (public company filings) — web search-based, OpenDART supports MCP connection |
+| **CRM** | Existing investor network analysis, auto-map intro pathways |
+| **Knowledge Base** | Notion, Google Drive — search team intro history and connection database |
+
+> **No connectors?** No problem. Web search alone provides comprehensive investor lists and approach strategies.
+
+---
+
+## Output Format
 
 ```markdown
-# 딜소싱 리포트: [검색 조건]
+# Deal Sourcing Report: [Search Criteria]
 
-**검색 기준:**
-- 섹터: [섹터]
-- 단계: [단계]
-- 지역: [지역]
-- 체크사이즈: $[X]-[X]
+**Search Criteria:**
+- Sector: [sector]
+- Stage: [stage]
+- Geography: [geography]
+- Check Size: $[X]-[X]
 
-**발굴 투자자 수:** [X]개 펀드/프로그램
-
----
-
-## 투자자 유형별 결과
-
-### VC (Venture Capital) — [X]개
-
-| VC 펀드 | Thesis 적합도 | 체크사이즈 | 접근 경로 |
-|---------|-------------|-----------|----------|
-| [펀드명] | ⭐⭐⭐ HIGH | $[X]-[X] | [웜인트로/콜드] |
-| [펀드명] | ⭐⭐ MEDIUM | $[X]-[X] | [콜드] |
-
-### AC (Accelerator) — [X]개
-
-| 프로그램 | 지원 마감 | 펀딩 | 적합도 |
-|---------|----------|------|--------|
-| [프로그램명] | [날짜] | $[X] + [멘토링] | HIGH |
-
-### 엔젤 투자자 — [X]명
-
-| 이름 | 배경 | 투자 이력 | 접근 경로 |
-|------|------|----------|----------|
-| [이름] | [전 CEO @ 회사] | [섹터, X건] | [LinkedIn 2촌] |
-
-### CVC (Corporate VC) — [X]개
-
-| 모기업 | CVC 펀드 | 섹터 초점 | 접근 경로 |
-|--------|---------|----------|----------|
-| [회사명] | [펀드명] | [섹터] | [콜드/파트너십] |
+**Investors Discovered:** [X] funds/programs
 
 ---
 
-## 최우선 타겟 상세 (적합도 HIGH)
+## Results by Investor Type
 
-### [VC 펀드명]
-**Thesis 적합도:** ⭐⭐⭐ HIGH
+### VC (Venture Capital) — [X] funds
 
-| 차원 | 평가 |
-|------|------|
-| 섹터 | 🟢 MATCH — [thesis 명시, 포트폴리오 3개 기업] |
-| 단계 | 🟢 MATCH — [seed/A/B] |
-| 체크사이즈 | 🟢 MATCH — $[X]-[X] |
-| 지역 | 🟢 MATCH — [지역] |
+| VC Fund | Thesis Fit | Check Size | Approach |
+|---------|-----------|-----------|----------|
+| [Fund Name] | ⭐⭐⭐ HIGH | $[X]-[X] | [Warm intro/Cold] |
+| [Fund Name] | ⭐⭐ MEDIUM | $[X]-[X] | [Cold] |
 
-**최근 투자:** [회사명] ($[X], [날짜])
-**포트폴리오:** [회사1], [회사2], [회사3]
-**주요 파트너:** [이름 — 직함 — LinkedIn]
+### AC (Accelerator) — [X] programs
 
-**접근 경로:**
-1. 🔥 웜인트로: [포트폴리오 CEO] → [파트너]
-2. 🔥 웜인트로: [기존 투자자] → [파트너]
-3. 콜드: [이메일]
+| Program | Application Deadline | Funding | Fit |
+|---------|-------------------|---------|-----|
+| [Program Name] | [Date] | $[X] + [Mentoring] | HIGH |
 
-**Why Now:** [최근 펀드 조성/유사 투자/thesis 발표]
+### Angel Investors — [X] investors
+
+| Name | Background | Investment Track Record | Approach |
+|------|-----------|---------------------|----------|
+| [Name] | [Former CEO @ Company] | [Sector, X deals] | [LinkedIn 2nd connection] |
+
+### CVC (Corporate VC) — [X] funds
+
+| Parent Company | CVC Fund | Sector Focus | Approach |
+|----------------|---------|-------------|----------|
+| [Company] | [Fund Name] | [Sector] | [Cold/Partnership] |
 
 ---
 
-## 다음 단계
+## Top Targets in Detail (Thesis Fit: HIGH)
 
-1. [ ] `/investor-outreach [VC명]` — 맞춤형 아웃리치 작성
-2. [ ] `/lead-dashboard` 업데이트 — 신규 타겟 추가
-3. [ ] 웜인트로 확보 — [투자자 X명]
-4. [ ] AC 지원서 제출 — [프로그램명, 마감 [날짜]]
+### [VC Fund Name]
+**Thesis Fit:** ⭐⭐⭐ HIGH
+
+| Dimension | Rating |
+|-----------|--------|
+| Sector | 🟢 MATCH — [explicit thesis, 3 portfolio companies] |
+| Stage | 🟢 MATCH — [seed/A/B] |
+| Check Size | 🟢 MATCH — $[X]-[X] |
+| Geography | 🟢 MATCH — [geography] |
+
+**Recent Investment:** [Company] ($[X], [Date])
+**Portfolio:** [Company 1], [Company 2], [Company 3]
+**Key Partners:** [Name — Title — LinkedIn]
+
+**Approach Pathways:**
+1. 🔥 Warm intro: [Portfolio CEO] → [Partner]
+2. 🔥 Warm intro: [Existing investor] → [Partner]
+3. Cold: [Email]
+
+**Why Now:** [Recent fund close / Similar investment / Thesis announcement]
+
+---
+
+## Next Steps
+
+1. [ ] `/investor-outreach [VC Name]` — Write customized outreach
+2. [ ] Update `/lead-dashboard` — Add new targets
+3. [ ] Secure warm intros — [X investors]
+4. [ ] Submit accelerator applications — [Program Name, deadline [Date]]
 ```
 
 ---
 
-## 실행 흐름
+## Execution Flow
 
-### 1단계: 타겟 기준 명확화
+### Step 1: Clarify Target Criteria
 
-사용자 요청을 분석하여 다음 기준을 명확히 합니다:
-
-```
-필수 기준:
-- 섹터: [예: fintech, SaaS, healthcare, marketplace]
-- 단계: [예: seed, series A, series B]
-
-선택 기준:
-- 지역: [예: Korea, US, SEA, Global]
-- 체크사이즈: [예: $500K-$2M, $2M-$10M]
-- 투자자 유형: [VC, AC, 엔젤, CVC, 전체]
-```
-
-**불명확한 경우:**
-"어떤 단계의 투자자를 찾고 계신가요? (seed, series A, series B)"
-"지역 선호도가 있나요? (한국, 미국, 동남아, 전세계)"
-
-### 2단계: 데이터 소스 우선순위
+Analyze user request to establish criteria:
 
 ```
-1순위: 네트워크 (가장 효과적)
-   - 기존 투자자에게 인트로 요청
-   - 포트폴리오 기업 CEO/Founder에게 추천 요청
-   - 어드바이저, 멘토 네트워크
+Required Criteria:
+- Sector: [e.g., fintech, SaaS, healthcare, marketplace]
+- Stage: [e.g., seed, series A, series B]
 
-2순위: 데이터베이스
-   - ~~data enrichment 연결 시: THE VC, 혁신의숲, OpenDART (웹 검색 기반)
-   - 미연결 시: 웹 검색 (아래 10-query 패턴)
+Optional Criteria:
+- Geography: [e.g., Korea, US, SEA, Global]
+- Check Size: [e.g., $500K-$2M, $2M-$10M]
+- Investor Type: [VC, AC, Angel, CVC, All]
+```
 
-3순위: 역추적 소싱 (Reverse Sourcing)
-   - 유사 스타트업에 투자한 VC 찾기
-   - 포트폴리오 분석 → 다른 투자자 발굴
+**If unclear:**
+"What investor stage are you targeting? (seed, series A, series B)"
+"Do you have geography preferences? (Korea, US, Southeast Asia, Global)"
 
-4순위: 이벤트 & 커뮤니티
-   - Demo Day, Pitch Competition
-   - VC 컨퍼런스, 업계 이벤트
+### Step 2: Data Source Priority
+
+```
+Priority 1: Network (Most Effective)
+   - Request intros from existing investors
+   - Ask for recommendations from portfolio CEO/Founders
+   - Advisor and mentor network
+
+Priority 2: Databases
+   - When ~~data enrichment connected: THE VC, Innovation Forest, OpenDART
+     (web search-based, OpenDART supports MCP)
+   - Without connection: Web search (10-query pattern below)
+
+Priority 3: Reverse Sourcing
+   - Find VCs investing in similar startups
+   - Portfolio analysis → discover other investors
+
+Priority 4: Events & Community
+   - Demo Days, Pitch Competitions
+   - VC conferences, industry events
    - LinkedIn, AngelList, ProductHunt
 
-5순위: AC 프로그램 달력
+Priority 5: Accelerator Program Calendar
    - Y Combinator, Techstars, 500 Global
-   - 한국: SparkLabs, 블루포인트, 프라이머
-   - 지원 마감일 추적
+   - Korea: SparkLabs, Bluepoint, Primer
+   - Track application deadlines
 ```
 
-### 3단계: 웹 검색 (10-query 패턴)
+### Step 3: Web Search (10-Query Pattern)
 
-~~data enrichment 미연결 시, 다음 검색을 병렬로 실행:
-
-```
-1. "[섹터] [단계] venture capital firms"
-   → 예: "fintech seed venture capital firms"
-
-2. "[섹터] investors [지역]"
-   → 예: "SaaS investors Korea"
-
-3. "[단계] VC funds [지역] 2024 2025"
-   → 예: "series A VC funds US 2024 2025"
-
-4. "top [섹터] [단계] investors"
-   → 예: "top healthcare seed investors"
-
-5. "[섹터] accelerator programs [지역]"
-   → 예: "fintech accelerator programs Asia"
-
-6. "[유사 스타트업] investors"
-   → 예: "Stripe investors" (유사 기업)
-
-7. "[섹터] angel investors [지역]"
-   → 예: "SaaS angel investors Silicon Valley"
-
-8. "[섹터] corporate venture capital"
-   → 예: "fintech corporate venture capital"
-
-9. "new VC funds [섹터] 2024 2025"
-   → 신규 펀드 조성 (dry powder 많음)
-
-10. "[지역] startup funding [섹터]"
-    → 예: "Korea startup funding fintech"
-```
-
-**추출 정보:**
-- VC 펀드명, 웹사이트
-- Thesis, 투자 섹터·단계
-- 체크사이즈, 펀드 규모
-- 포트폴리오 대표 기업 (3-5개)
-- 주요 파트너 (이름, 직함, LinkedIn)
-- 최근 투자 발표 (최근 90일)
-
-### 4단계: Thesis 매칭 프레임워크
-
-각 투자자를 4차원으로 평가:
+When ~~data enrichment not connected, run these searches in parallel:
 
 ```
-차원 1: 섹터 (Sector)
-   🟢 GREEN (MATCH): thesis, 포트폴리오에서 [섹터] 명시
-   🟡 YELLOW (PARTIAL): 인접 섹터, "tech" 같은 광범위 thesis
-   🔴 RED (MISMATCH): 완전히 다른 섹터
+1. "[Sector] [Stage] venture capital firms"
+   → e.g., "fintech seed venture capital firms"
 
-차원 2: 단계 (Stage)
-   🟢 GREEN: seed/A/B 명시적 일치
-   🟡 YELLOW: 인접 단계 (예: seed-A 투자자에게 series A 요청)
-   🔴 RED: 완전히 다른 단계 (예: seed 스타트업에 growth VC)
+2. "[Sector] investors [Geography]"
+   → e.g., "SaaS investors Korea"
 
-차원 3: 체크사이즈 (Check Size)
-   🟢 GREEN: 전형적 투자 금액이 요청 범위와 일치
-   🟡 YELLOW: 범위 일부 중첩 또는 불확실
-   🔴 RED: 너무 크거나 작음
+3. "[Stage] VC funds [Geography] 2024 2025"
+   → e.g., "series A VC funds US 2024 2025"
 
-차원 4: 지역 (Geography)
-   🟢 GREEN: 지역 명시적 커버리지
-   🟡 YELLOW: "Global" thesis 또는 인접 지역
-   🔴 RED: 명시적으로 다른 지역만 투자
+4. "top [Sector] [Stage] investors"
+   → e.g., "top healthcare seed investors"
+
+5. "[Sector] accelerator programs [Geography]"
+   → e.g., "fintech accelerator programs Asia"
+
+6. "[Similar Startup] investors"
+   → e.g., "Stripe investors" (comparable company)
+
+7. "[Sector] angel investors [Geography]"
+   → e.g., "SaaS angel investors Silicon Valley"
+
+8. "[Sector] corporate venture capital"
+   → e.g., "fintech corporate venture capital"
+
+9. "new VC funds [Sector] 2024 2025"
+   → New fund closings (abundant dry powder)
+
+10. "[Geography] startup funding [Sector]"
+    → e.g., "Korea startup funding fintech"
 ```
 
-**종합 적합도 산정:**
+**Extract:**
+- VC fund name, website
+- Thesis, investment sector, stage
+- Check size, fund size
+- Representative portfolio companies (3-5)
+- Key partners (name, title, LinkedIn)
+- Recent announcements (last 90 days)
+
+### Step 4: Thesis Matching Framework
+
+Evaluate each investor across 4 dimensions:
+
+```
+Dimension 1: Sector
+   🟢 GREEN (MATCH): explicit in thesis, portfolio shows [sector]
+   🟡 YELLOW (PARTIAL): adjacent sector, broad thesis like "tech"
+   🔴 RED (MISMATCH): completely different sector
+
+Dimension 2: Stage
+   🟢 GREEN: explicit match on seed/A/B
+   🟡 YELLOW: adjacent stage (e.g., seed-A investor for series A)
+   🔴 RED: completely different stage (e.g., growth VC for seed startup)
+
+Dimension 3: Check Size
+   🟢 GREEN: typical check aligns with request range
+   🟡 YELLOW: partial overlap or unclear
+   🔴 RED: too large or too small
+
+Dimension 4: Geography
+   🟢 GREEN: explicit regional coverage
+   🟡 YELLOW: "Global" thesis or adjacent region
+   🔴 RED: explicitly invests in different region only
+```
+
+**Overall Fit Assessment:**
 
 ```
 HIGH (⭐⭐⭐):
-   - 4차원 중 3개 이상 GREEN
-   - RED 없음
-   → 웜인트로 있으면 최우선, 없어도 콜드 시도
+   - 3+ dimensions GREEN
+   - No RED
+   → Warm intro = top priority; cold attempt if no intro
 
 MEDIUM (⭐⭐):
-   - 2개 GREEN, 또는 1개 RED
-   → 웜인트로 있으면 시도, 콜드는 보류
+   - 2 GREEN, or 1 RED
+   → Try if warm intro exists; hold cold
 
 LOW (⭐):
-   - 2개 이상 RED
-   → 우선순위 하향 또는 제외
+   - 2+ RED
+   → Lower priority or exclude
 ```
 
-### 5단계: 접근 경로 매핑
+### Step 5: Approach Pathway Mapping
 
-각 HIGH/MEDIUM 투자자에 대해 접근 경로를 탐색합니다:
+Explore approach pathways for each HIGH/MEDIUM investor:
 
-#### A. 웜인트로 경로 (최우선)
-
-```
-1. 포트폴리오 연결
-   - 타겟 VC의 포트폴리오 기업 CEO → VC 파트너
-   - LinkedIn에서 포트폴리오 CEO 검색 → 2촌 확인
-
-2. 기존 투자자 연결
-   - 우리 기존 투자자 → 타겟 VC
-   - Co-investment 이력, 펀드 간 관계 확인
-
-3. 네트워크 연결
-   - LinkedIn 2촌 분석
-   - 공동 배경 (학교, 이전 회사)
-   - 어드바이저, 멘토, 보드 멤버
-
-~~CRM 또는 ~~knowledge base 연결 시:
-   - 팀원들의 LinkedIn 커넥션 자동 스캔
-   - Notion, Google Drive에서 인트로 이메일 이력 검색
-   - 과거 미팅 참석자, 이메일 CC 분석
-```
-
-#### B. 콜드 아웃리치
+#### A. Warm Intro Pathways (Top Priority)
 
 ```
-웜인트로 없을 때:
-   - Thesis 적합도 HIGH만 → 콜드 이메일
-   - 파트너 이메일 주소 패턴: firstname@fund.com
-   - 웹사이트 "Contact" 또는 "Founders" 페이지
+1. Portfolio Connection
+   - Target VC's portfolio company CEO → VC partner
+   - Search portfolio CEO on LinkedIn → check 2nd connections
+
+2. Existing Investor Connection
+   - Our existing investor → target VC
+   - Check co-investment history, fund relationships
+
+3. Network Connection
+   - LinkedIn 2nd-degree analysis
+   - Common background (school, previous company)
+   - Advisors, mentors, board members
+
+When ~~CRM or ~~knowledge base connected:
+   - Auto-scan team member LinkedIn connections
+   - Search Notion, Google Drive for intro email history
+   - Analyze past meeting attendees, email CC patterns
 ```
 
-#### C. AC 지원
+#### B. Cold Outreach
 
 ```
-액셀러레이터 프로그램:
-   - 지원서 제출 (공개 프로세스)
-   - 지원 마감일 추적
-   - 레퍼런스 준비
+When no warm intro available:
+   - Only HIGH thesis fit → cold email
+   - Partner email pattern: firstname@fund.com
+   - Website "Contact" or "Founders" page
 ```
 
-### 6단계: 우선순위 정렬 및 출력
+#### C. Accelerator Application
 
 ```
-정렬 순서:
-1. Thesis 적합도 HIGH + 웜인트로 ⭐⭐⭐🔥
-2. Thesis 적합도 HIGH + 콜드 ⭐⭐⭐
-3. Thesis 적합도 MEDIUM + 웜인트로 ⭐⭐🔥
-4. AC 프로그램 (적합도 HIGH)
-5. Thesis 적합도 MEDIUM + 콜드 ⭐⭐
+Accelerator programs:
+   - Submit application (public process)
+   - Track application deadlines
+   - Prepare references
+```
 
-상위 5-10개를 상세 프로필로 출력
-나머지는 표 형식으로 요약
+### Step 6: Priority Sorting and Output
+
+```
+Sort Order:
+1. Thesis Fit HIGH + Warm Intro ⭐⭐⭐🔥
+2. Thesis Fit HIGH + Cold ⭐⭐⭐
+3. Thesis Fit MEDIUM + Warm Intro ⭐⭐🔥
+4. Accelerator Programs (Fit HIGH)
+5. Thesis Fit MEDIUM + Cold ⭐⭐
+
+Output top 5-10 in detailed profiles
+Summarize remainder in table format
 ```
 
 ---
 
-## 투자자 유형별 소싱 전략
+## Sourcing Strategy by Investor Type
 
 ### VC (Venture Capital)
 
-**특징:**
-- 전문 투자 펀드, LP로부터 자금 조성
-- 명확한 thesis, 섹터·단계 초점
-- 파트너 컨센서스 필요 (의사결정 느림)
-- 체크사이즈 $500K-$50M (펀드 규모에 따라)
+**Characteristics:**
+- Professional investment fund, capital raised from LPs
+- Explicit thesis, sector/stage focus
+- Partner consensus required (slow decision)
+- Check size $500K-$50M (depends on fund size)
 
-**소싱 방법:**
-- 포트폴리오 역추적 (가장 효과적)
-- THE VC, 혁신의숲 웹 검색
-- VC 협회 회원사 리스트
-- 웹 검색: "[섹터] [단계] VC"
+**Sourcing Methods:**
+- Portfolio reverse tracking (most effective)
+- THE VC, Innovation Forest web search
+- VC association member lists
+- Web search: "[sector] [stage] VC"
 
-**접근 전략:**
-- 웜인트로 필수 (콜드 응답률 < 5%)
-- 포트폴리오 CEO 인트로가 최고 효과
-- 파트너별 thesis 차이 확인
+**Approach Strategy:**
+- Warm intro essential (cold response rate < 5%)
+- Portfolio CEO intro = highest impact
+- Confirm partner thesis variance
 
 ### AC (Accelerator)
 
-**특징:**
-- Batch 단위 운영, 코호트 구조
-- 소액 투자 + 멘토링 + 네트워크
-- 공개 지원 프로세스
-- Demo Day로 추가 투자 연결
+**Characteristics:**
+- Batch-based operation, cohort structure
+- Small check + mentoring + network
+- Public application process
+- Demo Day connects additional investors
 
-**소싱 방법:**
-- "accelerator programs [섹터] [지역]"
-- F6S, AngelList, THE VC 프로그램 DB
-- YC, Techstars, 500 Global 등 Top-tier
-- 한국: SparkLabs, 블루포인트, 프라이머
+**Sourcing Methods:**
+- "accelerator programs [sector] [geography]"
+- F6S, AngelList, THE VC program database
+- YC, Techstars, 500 Global (top-tier)
+- Korea: SparkLabs, Bluepoint, Primer
 
-**지원 전략:**
-- 지원 마감일 달력 관리
-- Batch 일정 (보통 6개월)
-- 레퍼런스 2-3명 준비
-- 트랙션 증빙 자료
+**Application Strategy:**
+- Maintain deadline calendar
+- Batch timeline (typically 6 months)
+- Prepare 2-3 references
+- Gather traction documentation
 
-### 엔젤 투자자
+### Angel Investors
 
-**특징:**
-- 개인 자금으로 투자
-- 빠른 의사결정 (1-2주)
-- 소액 ($25K-$250K)
-- 개인적 관심사, 경험 기반
+**Characteristics:**
+- Invest personal capital
+- Fast decision (1-2 weeks)
+- Small check ($25K-$250K)
+- Personal interest, experience-driven
 
-**소싱 방법:**
+**Sourcing Methods:**
 - AngelList, LinkedIn
-- 산업별 엔젤 그룹
-- 성공한 창업자, 전 임원 타겟
-- 네트워크 이벤트, Pitch Night
+- Sector-specific angel groups
+- Successful founders, former executives
+- Network events, Pitch Nights
 
-**접근 전략:**
-- 개인적 연결 중요 (학교, 회사)
-- LinkedIn 직접 메시지
-- 소개팅 문화 활용
+**Approach Strategy:**
+- Personal connection key (school, company)
+- Direct LinkedIn messages
+- Leverage intro culture
 
 ### CVC (Corporate VC)
 
-**특징:**
-- 기업의 전략적 투자
-- 재무적 + 전략적 목표
-- 모기업 비즈니스와 시너지
-- 의사결정 복잡 (내부 승인)
+**Characteristics:**
+- Corporate strategic investment
+- Financial + strategic objectives
+- Synergy with parent business
+- Complex decision (internal approvals)
 
-**소싱 방법:**
-- "[모기업] corporate venture capital"
-- THE VC CVC 필터
-- 산업별 주요 기업의 CVC 팀
+**Sourcing Methods:**
+- "[Parent Company] corporate venture capital"
+- THE VC CVC filters
+- Key companies' CVC teams by industry
 
-**접근 전략:**
-- 전략적 가치 강조 (재무 외)
-- 모기업 파트너십 제안
-- BD, 제휴 경로 활용
+**Approach Strategy:**
+- Emphasize strategic value (beyond financial)
+- Propose parent partnership
+- Leverage BD, partnership channels
 
 ---
 
-## 한국 특화 딜소싱
+## Korea-Specific Deal Sourcing
 
 ### VC/AC
 
-**주요 VC:**
-- Early-stage: 프라이머, 블루포인트파트너스, 본엔젤스
-- Mid-stage: 스마일게이트인베스트먼트, 카카오벤처스
-- Growth: IMM인베스트먼트, 알토스벤처스
+**Key VCs:**
+- Early-stage: Primer, Bluepoint Partners, Bon Angels
+- Mid-stage: Smilegate Investment, Kakao Ventures
+- Growth: IMM Investment, Altos Ventures
 
-**주요 AC:**
-- SparkLabs (글로벌 네트워크)
-- 블루포인트파트너스 AC
-- 프라이머
-- 퓨처플레이
+**Key ACs:**
+- SparkLabs (global network)
+- Bluepoint Partners AC
+- Primer
+- FuturePlay
 
-**정부 프로그램:**
+**Government Programs:**
 - TIPS (Tech Incubator Program for Startup)
-- K-Startup (창업진흥원)
-- 중소벤처기업진흥공단
+- K-Startup (Korean Startup Foundation)
+- SME and Venture Business Promotion Corporation
 
-### 데이터 소스
+### Data Sources
 
 ```
-1. 협회/단체
-   - KVCA (한국벤처캐피탈협회) — 회원사 리스트
-   - KVIC (한국벤처투자) — 정부 출자 펀드
+1. Associations/Organizations
+   - KVCA (Korea Venture Capital Association) — member list
+   - KVIC (Korea Venture Investment) — government-backed funds
 
-2. 데이터베이스
-   - thevc.kr — 한국 VC 투자 데이터베이스
-   - innoforest.co.kr — 스타트업 성장 지표
-   - 벤처스퀘어 — 투자 통계
+2. Databases
+   - thevc.kr — Korean VC investment database
+   - innoforest.co.kr — startup growth metrics
+   - VentureSquare — investment statistics
 
-3. 뉴스/미디어
-   - Platum — 투자 뉴스
-   - 벤처스퀘어 — 딜 발표
+3. News/Media
+   - Platum — investment news
+   - VentureSquare — deal announcements
    - TechCrunch Korea
 
-4. 커뮤니티
+4. Community
    - Startup Alliance
    - D.CAMP
    - Google for Startups Campus
@@ -454,113 +460,113 @@ LOW (⭐):
 
 ---
 
-## AC 프로그램 달력
+## Accelerator Program Calendar
 
-주요 AC 프로그램의 지원 마감일을 추적합니다:
+Track key AC program application deadlines:
 
-### 글로벌 Top-Tier
+### Global Top-Tier
 
-| 프로그램 | Batch 주기 | 지원 시기 | 펀딩 |
-|---------|----------|----------|------|
-| Y Combinator | 연 2회 (겨울/여름) | 9월, 3월 | $500K |
-| Techstars | 연 4회 | 수시 | $120K |
-| 500 Global | 연 4회 | 수시 | $150K |
+| Program | Batch Frequency | Application Periods | Funding |
+|---------|----------------|-------------------|---------|
+| Y Combinator | 2x/year (Winter/Summer) | September, March | $500K |
+| Techstars | 4x/year | Rolling | $120K |
+| 500 Global | 4x/year | Rolling | $150K |
 
-### 한국
+### Korea
 
-| 프로그램 | Batch 주기 | 지원 시기 | 펀딩 |
-|---------|----------|----------|------|
-| SparkLabs | 연 2회 | 수시 | $150K |
-| 블루포인트 AC | 연 2회 | 수시 | $100K |
-
----
-
-## 역추적 소싱 (Reverse Sourcing)
-
-가장 효과적인 딜소싱 방법:
-
-### 1단계: 유사 스타트업 식별
-
-```
-우리와 유사한 기업:
-- 동일 섹터
-- 비슷한 비즈니스 모델
-- 같은 단계
-- 유사한 트랙션
-
-예: Stripe → fintech B2B SaaS 결제
-유사 기업: Adyen, Square, PayPal
-```
-
-### 2단계: 투자자 발굴
-
-```
-THE VC, 혁신의숲, 웹 검색:
-"[유사 스타트업] investors"
-"[유사 스타트업] series A"
-
-추출:
-- 투자자 리스트
-- 투자 단계
-- 투자 금액
-- 투자 일자
-```
-
-### 3단계: Thesis 검증
-
-```
-해당 VC가:
-- 우리 섹터에 반복 투자 → 🟢 Thesis 확인
-- 유사 기업에 여러 번 투자 → 🟢 강한 관심
-- Lead 투자자인지 Co-investor인지 확인
-```
-
-### 4단계: 포트폴리오 연결
-
-```
-유사 기업 CEO → VC 파트너 웜인트로 요청
-"안녕하세요, [유사 기업]에 투자하신 것을 보고..."
-```
+| Program | Batch Frequency | Application Periods | Funding |
+|---------|----------------|-------------------|---------|
+| SparkLabs | 2x/year | Rolling | $150K |
+| Bluepoint AC | 2x/year | Rolling | $100K |
 
 ---
 
-## ~~data enrichment 연결 시
+## Reverse Sourcing
 
-THE VC, 혁신의숲, OpenDART 연결 시 자동으로 (웹 검색 기반, OpenDART는 MCP 가능):
+Most effective deal sourcing method:
+
+### Step 1: Identify Similar Startups
 
 ```
-정확한 데이터:
-- 펀드 규모, AUM (Assets Under Management)
-- 전체 포트폴리오 (웹 검색보다 완전)
-- 투자 이력, 평균 체크사이즈
-- 파트너별 투자 분야, 이력
-- 펀드 조성 시기, Vintage (dry powder 추정)
-- LP 구성, 펀드 전략
+Comparable companies:
+- Same sector
+- Similar business model
+- Same stage
+- Similar traction
 
-추가 필터링:
-- "최근 12개월 내 [섹터]에 투자한 VC"
-- "펀드 조성 1년 이내 (dry powder 많음)"
-- "[지역]에서 활동하는 [단계] 투자자"
+Example: Stripe → fintech B2B payments SaaS
+Similar: Adyen, Square, PayPal
+```
+
+### Step 2: Discover Investors
+
+```
+THE VC, Innovation Forest, web search:
+"[Similar Startup] investors"
+"[Similar Startup] series A"
+
+Extract:
+- Investor list
+- Investment stage
+- Investment amount
+- Investment date
+```
+
+### Step 3: Validate Thesis
+
+```
+Does this VC:
+- Repeatedly invest in our sector → 🟢 Thesis confirmed
+- Invest multiple times in similar companies → 🟢 Strong interest
+- Check if lead investor or co-investor
+```
+
+### Step 4: Portfolio Connection
+
+```
+Similar company CEO → VC partner warm intro request
+"Hi, I saw you invested in [Similar Company]..."
 ```
 
 ---
 
-## 팁
+## When ~~data enrichment Connected
 
-1. **포트폴리오 역추적 최우선** — 유사 스타트업 투자자 찾기가 가장 효과적
-2. **커버리지 3x 유지** — 타겟 마감액의 3배 파이프라인 (전환율 1-3%)
-3. **웜인트로 확보에 집중** — 콜드 응답률 < 5% vs 웜인트로 > 40%
-4. **Thesis 적합도 엄격히** — HIGH만 시간 투자, MEDIUM은 웜인트로 있을 때만
-5. **AC 달력 미리 관리** — 지원 마감일 놓치지 않기
-6. **매일 딜소싱** — 지속적인 신규 타겟 발굴로 파이프라인 건강 유지
-7. **한국 VC는 네트워크 중심** — 인맥, 인트로가 해외보다 더 중요
+THE VC, Innovation Forest, OpenDART automatically available (web search-based, OpenDART supports MCP):
+
+```
+Precise Data:
+- Fund size, AUM (Assets Under Management)
+- Complete portfolio (more complete than web search)
+- Investment history, average check size
+- Partner investment focus, track record
+- Fund closing date, Vintage (dry powder estimate)
+- LP composition, fund strategy
+
+Advanced Filtering:
+- "VCs investing in [sector] in past 12 months"
+- "Funds closed within 1 year (abundant dry powder)"
+- "Investors active in [geography] at [stage]"
+```
 
 ---
 
-## 관련 스킬 및 커맨드
+## Tips
 
-- **investor-research** — 특정 VC 펀드/파트너 심층 조사
-- **fundraise-comms** — 웜인트로, 콜드 이메일 템플릿
-- `/deal-sourcing` — 이 스킬의 커맨드 버전, 구조화된 출력
-- `/lead-dashboard` — 발굴한 투자자를 파이프라인에 추가, 추적
-- `/investor-outreach` — 특정 투자자에 대한 맞춤형 아웃리치 작성
+1. **Portfolio reverse sourcing first** — Finding similar startup investors is most effective
+2. **Maintain 3x coverage** — 3x target closing amount in pipeline (1-3% conversion)
+3. **Focus on warm intros** — Cold response < 5% vs warm intro > 40%
+4. **Strict thesis fit** — Invest time only in HIGH fit, MEDIUM only with warm intro
+5. **Manage AC calendar proactively** — Don't miss application deadlines
+6. **Source daily** — Continuous target discovery maintains healthy pipeline
+7. **Korea VC is network-driven** — Personal connections, intros more critical than overseas
+
+---
+
+## Related Skills and Commands
+
+- **investor-research** — Deep research on specific VC fund/partner
+- **fundraise-comms** — Warm intro, cold email templates
+- `/deal-sourcing` — Command version of this skill, structured output
+- `/lead-dashboard` — Add discovered investors to pipeline, track
+- `/investor-outreach` — Write customized outreach for specific investor

@@ -1,231 +1,234 @@
 ---
 name: pitch-craft
-description: Sequoia-style 피치 덱 구조, 슬라이드별 가이드, 스토리텔링 원칙, VC 예상질문 30개를 제공합니다. "피치 덱 만들기", "덱 구조", "슬라이드 개선", "피치 스토리", "투자 발표" 등으로 실행합니다.
+description: >
+  Sequoia-style pitch deck structure, slide-by-slide guide, storytelling principles, 30 anticipated VC questions.
+  Triggers on "create pitch deck", "deck structure", "improve slides", "pitch story", "investor presentation",
+  "피치 덱 만들기", "덱 구조", "슬라이드 개선", "피치 스토리", "투자 발표".
 ---
 
-# 피치 크래프트 (Pitch Craft)
+# Pitch Craft
 
-Sequoia-style 12슬라이드 피치 덱 구조, 슬라이드별 작성 가이드, 스토리텔링 원칙, VC 예상질문 30개와 답변 전략을 제공합니다.
+Sequoia-style 12-slide pitch deck structure, slide-by-slide writing guide, storytelling principles, 30 anticipated VC questions with answer strategies.
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                      PITCH CRAFT                                 │
 ├─────────────────────────────────────────────────────────────────┤
-│  제공하는 가이드                                                  │
-│  ✓ Sequoia 12-슬라이드 구조                                      │
-│  ✓ 슬라이드별 작성 가이드 (Do/Don't)                             │
-│  ✓ 스토리텔링 원칙 (Hero's Journey)                              │
-│  ✓ VC 예상질문 30개 + 답변 전략                                  │
-│  ✓ 디자인 원칙 & 안티패턴                                        │
+│  Guidance Provided                                              │
+│  ✓ Sequoia 12-slide structure                                  │
+│  ✓ Slide-by-slide writing guide (Do/Don't)                     │
+│  ✓ Storytelling principles (Hero's Journey)                    │
+│  ✓ 30 anticipated VC questions + answer strategies             │
+│  ✓ Design principles & anti-patterns                           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Sequoia 12-슬라이드 구조
+## Sequoia 12-Slide Structure
 
-### 슬라이드 1: 커버
+### Slide 1: Cover
 
-**목적:** 첫인상, 브랜딩
+**Purpose:** First impression, branding
 
-**포함 요소:**
-- 회사명, 로고
-- 태그라인 (한 줄로 뭐하는 회사인지)
-- 연락처
+**Include:**
+- Company name, logo
+- Tagline (one line: what does your company do?)
+- Contact info
 
-**예시:**
+**Example:**
 ```
-[로고]
+[Logo]
 Stripe
 Payment infrastructure for the internet
 founders@stripe.com
 ```
 
 **Do:**
-- 간결하고 명확한 태그라인
-- 전문적인 디자인
-- 연락처 명시
+- Concise, clear tagline
+- Professional design
+- Include contact info
 
 **Don't:**
-- 태그라인에 buzzword 나열
-- 복잡한 그래픽
-- 과도한 정보
+- List buzzwords in tagline
+- Complex graphics
+- Excessive information
 
 ---
 
-### 슬라이드 2: 문제
+### Slide 2: Problem
 
-**목적:** VC가 "왜 이게 중요한가"를 이해
+**Purpose:** VC understands "why does this matter?"
 
-**포함 요소:**
-- 3가지 핵심 페인 포인트
-- 현재 해결책의 한계
-- 시장 크기 암시
+**Include:**
+- 3 key pain points
+- Limitations of current solutions
+- Market size hint
 
-**스토리텔링 구조:**
+**Storytelling Structure:**
 ```
-"현재 [타겟 고객]은 [문제]로 고통받고 있습니다.
-이것은 [비용/시간/기회손실]을 초래합니다.
-기존 해결책([경쟁사])은 [한계] 때문에 불충분합니다."
+"Currently, [target customer] suffers from [problem].
+This results in [cost/time/opportunity loss].
+Existing solutions ([competitors]) are insufficient because [limitations]."
 ```
 
 **Do:**
-- 구체적이고 정량화 가능한 문제
-- 타겟 고객 명확히
-- 데이터로 문제 크기 증명
+- Be specific and quantifiable about problems
+- Clearly define target customer
+- Use data to prove problem scale
 
 **Don't:**
-- 너무 많은 문제 나열
-- 추상적인 문제 ("비효율적")
-- 경쟁사 과도하게 비하
+- List too many problems
+- Use abstract problems ("inefficient")
+- Over-criticize competitors
 
 ---
 
-### 슬라이드 3: 솔루션
+### Slide 3: Solution
 
-**목적:** 제품이 어떻게 문제를 해결하는지
+**Purpose:** How product solves the problem
 
-**포함 요소:**
-- 제품 스크린샷 (실제 제품)
-- 3가지 핵심 기능
-- "Before vs After" 비교
+**Include:**
+- Product screenshots (actual product)
+- 3 key features
+- "Before vs After" comparison
 
-**스토리텔링 구조:**
+**Storytelling Structure:**
 ```
-"[제품명]은 [핵심 가치제안]입니다.
-우리는 [방법]을 통해 [문제]를 해결합니다."
+"[Product Name] is [core value proposition].
+We solve [problem] through [method]."
 ```
 
 **Do:**
-- 실제 제품 스크린샷 (목업 아님)
-- 핵심 기능만 (3개 이하)
-- 고객 관점에서 설명
+- Use real product screenshots (not mockups)
+- Only key features (3 max)
+- Explain from customer perspective
 
 **Don't:**
-- 모든 기능 나열
-- 기술 용어 과다
-- 추상적인 설명
+- List every feature
+- Use excessive technical jargon
+- Use abstract descriptions
 
 ---
 
-### 슬라이드 4: 시장 기회
+### Slide 4: Market Opportunity
 
-**목적:** TAM이 충분히 크다는 증명
+**Purpose:** Prove TAM is large enough
 
-**포함 요소:**
+**Include:**
 - TAM / SAM / SOM
-- 3가지 방법론 중 최소 2개
-- 성장률 & 트렌드
+- At least 2 of 3 methodologies
+- Growth rate & trends
 
-**권장 형식:**
+**Recommended Format:**
 ```
 TAM: $10B (Total Addressable Market)
 SAM: $2B (Serviceable Available Market)
-SOM: $200M (Serviceable Obtainable Market, 5년)
+SOM: $200M (Serviceable Obtainable Market, 5-year)
 
-방법론: Bottom-up + Value Theory
+Methodologies: Bottom-up + Value Theory
 ```
 
 **Do:**
-- 보수적 추정 (과장 금물)
-- 계산 과정 투명하게
-- 성장 트렌드 데이터
+- Conservative estimates (no exaggeration)
+- Show calculation process clearly
+- Use growth trend data
 
 **Don't:**
-- Top-down만 사용 (신뢰도 낮음)
-- "조 단위" TAM 과장
-- 방법론 명시 없음
+- Use only top-down (low credibility)
+- Exaggerate with "trillion-dollar" TAM
+- Skip methodology explanation
 
 ---
 
-### 슬라이드 5: 제품
+### Slide 5: Product
 
-**목적:** 제품 작동 방식 시연
+**Purpose:** Demonstrate how product works
 
-**포함 요소:**
-- 고객 플로우 (3-5 스텝)
-- 주요 화면 스크린샷
-- "Aha moment" 강조
+**Include:**
+- Customer flow (3-5 steps)
+- Key screen screenshots
+- Highlight "Aha moment"
 
-**스토리텔링 구조:**
+**Storytelling Structure:**
 ```
-사용자 여정:
-1. [문제 발생]
-2. [우리 제품 사용]
-3. [즉각적 가치 획득]
+User journey:
+1. [Problem occurs]
+2. [Use our product]
+3. [Get immediate value]
 ```
 
 **Do:**
-- 실제 사용 시나리오
-- 간단한 플로우 (복잡 X)
-- 고객 관점
+- Show real usage scenario
+- Simple flow (not complex)
+- From customer perspective
 
 **Don't:**
-- 기술 아키텍처 설명
-- 모든 기능 다 보여주기
-- UI만 나열
+- Explain technical architecture
+- Show every feature
+- Just list UI elements
 
 ---
 
-### 슬라이드 6: 트랙션
+### Slide 6: Traction
 
-**목적:** "이게 실제로 작동한다" 증명
+**Purpose:** Prove "this actually works"
 
-**포함 요소:**
-- 핵심 지표 성장 그래프
-- 고객 로고 (유명 고객)
-- 주요 마일스톤
+**Include:**
+- Growth graph of key metrics
+- Customer logos (well-known customers)
+- Key milestones
 
-**단계별 권장 지표:**
+**Recommended Metrics by Stage:**
 
 **Pre-seed/Seed:**
 - MAU / DAU
-- 초기 고객 수
-- 고객 피드백 인용
+- Early customer count
+- Customer testimonial quotes
 
 **Series A:**
-- MRR / ARR 그래프 (성장 곡선)
-- 고객 수 & Retention
-- NPS 또는 고객 만족도
+- MRR / ARR graph (growth curve)
+- Customer count & Retention
+- NPS or customer satisfaction
 
 **Series B:**
 - ARR $1M+
-- YoY 성장률 100%+
-- CAC / LTV 비율
+- YoY growth rate 100%+
+- CAC / LTV ratio
 - Net Revenue Retention
 
 **Do:**
-- 명확한 성장 곡선
-- 단계에 맞는 지표
-- 정직한 데이터
+- Clear growth curve
+- Metrics appropriate to stage
+- Honest data
 
 **Don't:**
-- 의미 없는 vanity metrics
-- 누적 데이터로 성장 숨기기
-- 너무 많은 지표 (3-4개만)
+- Use vanity metrics
+- Hide growth with cumulative data
+- Too many metrics (3-4 max)
 
 ---
 
-### 슬라이드 7: 비즈니스 모델
+### Slide 7: Business Model
 
-**목적:** 어떻게 돈 버는지
+**Purpose:** How we make money
 
-**포함 요소:**
-- 수익 구조 (구독, 거래 수수료, 라이선스 등)
-- 가격 (Tier별)
-- 유닛 이코노믹스 (CAC, LTV, Payback)
+**Include:**
+- Revenue structure (subscription, transaction fees, licensing, etc.)
+- Pricing (by tier)
+- Unit economics (CAC, LTV, Payback)
 
-**권장 형식:**
+**Recommended Format:**
 ```
-수익 모델: SaaS 구독
+Revenue Model: SaaS Subscription
 Pricing:
   - Starter: $49/mo
   - Pro: $199/mo
   - Enterprise: Custom
 
-유닛 이코노믹스:
+Unit Economics:
   - CAC: $500
   - LTV: $3,000
   - LTV:CAC = 6:1
@@ -233,58 +236,58 @@ Pricing:
 ```
 
 **Do:**
-- 간단하고 명확한 구조
-- 유닛 이코노믹스 건강성 증명
-- 벤치마크 대비 위치
+- Keep structure simple and clear
+- Prove unit economics health
+- Show position vs benchmarks
 
 **Don't:**
-- 복잡한 가격 구조
-- CAC/LTV 없음
-- 이론적 숫자 (실제 데이터 없음)
+- Use complex pricing structures
+- Skip CAC/LTV
+- Use theoretical numbers (no actual data)
 
 ---
 
-### 슬라이드 8: 경쟁 분석
+### Slide 8: Competitive Analysis
 
-**목적:** 경쟁 이해하고 차별화 명확히
+**Purpose:** Understand competition and clarify differentiation
 
-**포함 요소:**
-- 2x2 포지셔닝 맵
-- 경쟁사 3-5개
-- 우리의 독특한 가치
+**Include:**
+- 2x2 positioning map
+- 3-5 competitors
+- Our unique value
 
-**포지셔닝 맵 예시:**
+**Positioning Map Example:**
 ```
-Y축: Enterprise-ready
-X축: Developer-first
+Y-axis: Enterprise-ready
+X-axis: Developer-first
 
-우리: 오른쪽 위 (Developer-first + Enterprise-ready)
-경쟁사 A: 왼쪽 위
-경쟁사 B: 오른쪽 아래
+Us: Top right (Developer-first + Enterprise-ready)
+Competitor A: Top left
+Competitor B: Bottom right
 ```
 
 **Do:**
-- 정직한 경쟁 평가
-- 명확한 차별화 포인트
-- 지속 가능한 경쟁우위
+- Be honest in competitive assessment
+- Clearly articulate differentiation
+- Focus on sustainable advantages
 
 **Don't:**
-- "경쟁사 없음"
-- 모든 축에서 우리가 최고
-- 경쟁사 과소평가
+- Say "no competitors"
+- Claim top position on all axes
+- Underestimate competitors
 
 ---
 
-### 슬라이드 9: GTM 전략
+### Slide 9: GTM Strategy
 
-**목적:** 어떻게 스케일할 것인지
+**Purpose:** How we'll scale
 
-**포함 요소:**
-- 주요 채널 (3개 이하)
-- 고객 확보 전략
-- 채널별 CAC & 전환율
+**Include:**
+- Primary channels (3 max)
+- Customer acquisition strategy
+- CAC & conversion by channel
 
-**권장 형식:**
+**Recommended Format:**
 ```
 Primary: Inbound (SEO, Content)
   - CAC: $200
@@ -299,55 +302,55 @@ Tertiary: Partnerships
 ```
 
 **Do:**
-- 채널 우선순위 명확히
-- 실제 데이터 (추정 말고)
-- 스케일 계획
+- Clearly prioritize channels
+- Use actual data (not estimates)
+- Show scale plan
 
 **Don't:**
-- 모든 채널 다 하겠다
-- 채널별 경제성 없음
-- "바이럴" 의존
+- Plan to do all channels
+- Use channels without unit economics
+- Depend on "virality"
 
 ---
 
-### 슬라이드 10: 팀
+### Slide 10: Team
 
-**목적:** 이 팀이 이걸 해낼 수 있다는 신뢰
+**Purpose:** Build confidence that this team can execute
 
-**포함 요소:**
-- 창업자 (사진, 이름, 역할)
-- 관련 경험 (도메인, 기술)
-- 핵심 팀원 (CTO, Head of X)
-- 어드바이저 (유명인사)
+**Include:**
+- Founders (photo, name, role)
+- Relevant experience (domain, tech)
+- Key team members (CTO, Head of X)
+- Advisors (notable people)
 
-**강조할 요소:**
-- 도메인 전문성
-- 이전 창업 경험
-- Top-tier 회사 경력
-- 학력 (Stanford, MIT 등)
+**Key Elements to Highlight:**
+- Domain expertise
+- Previous founder experience
+- Top-tier company experience
+- Education (Stanford, MIT, etc.)
 
 **Do:**
-- 각 멤버의 핵심 자격 1줄
-- 팀 완성도 증명
-- 전문적인 사진
+- One-liner on each person's key credential
+- Prove team completeness
+- Use professional photos
 
 **Don't:**
-- 너무 많은 사람 (핵심만)
-- 관련 없는 경력
-- 불완전한 팀 (핵심 포지션 공석)
+- Include too many people (key only)
+- List irrelevant experience
+- Show incomplete team (critical roles open)
 
 ---
 
-### 슬라이드 11: 재무 전망
+### Slide 11: Financial Projections
 
-**목적:** 성장 계획의 현실성
+**Purpose:** Prove realistic growth plan
 
-**포함 요소:**
-- 3-5년 재무 전망 (매출, 비용, 손익)
-- 주요 가정
-- 3-시나리오 (Base/Bull/Bear) 요약
+**Include:**
+- 3-5 year financials (revenue, costs, P&L)
+- Key assumptions
+- 3-scenario summary (Base/Bull/Bear)
 
-**권장 형식:**
+**Recommended Format:**
 ```
          2025   2026   2027   2028   2029
 Revenue  $500K  $2M    $6M    $15M   $35M
@@ -360,34 +363,34 @@ EBITDA   $0     $0     $0     $0     $0
 ```
 
 **Do:**
-- 현실적 성장률 (SaaS: 2-3x YoY)
-- 주요 가정 명시
-- 손익분기점 시기
+- Use realistic growth rates (SaaS: 2-3x YoY)
+- State key assumptions
+- Show break-even timing
 
 **Don't:**
-- 하키스틱 없는 근거
-- 비용 구조 누락
-- 너무 낙관적
+- Use hockey stick without justification
+- Omit cost structure
+- Over-optimize (too rosy)
 
 ---
 
-### 슬라이드 12: 투자 제안 (The Ask)
+### Slide 12: Investment Proposal (The Ask)
 
-**목적:** 명확한 요청과 용도
+**Purpose:** Clear request and use of funds
 
-**포함 요소:**
-- 조달 금액
-- 희석율 (선택)
-- 자금 사용 계획
-- 마일스톤 (18-24개월)
+**Include:**
+- Fundraising amount
+- Dilution (optional)
+- Use of funds plan
+- Milestones (18-24 months)
 
-**권장 형식:**
+**Recommended Format:**
 ```
 Raising: $3M Series A
 Use of Funds:
-  - Engineering (50%): 5명 채용
-  - Sales & Marketing (30%): GTM 확장
-  - Operations (20%): 인프라, 운영
+  - Engineering (50%): Hire 5 engineers
+  - Sales & Marketing (30%): GTM expansion
+  - Operations (20%): Infrastructure, operations
 
 18-month Milestones:
   - $1M ARR
@@ -396,298 +399,298 @@ Use of Funds:
 ```
 
 **Do:**
-- 명확한 금액
-- 구체적 사용 계획
-- 측정 가능한 마일스톤
+- Be specific on amount
+- Have concrete use plan
+- Set measurable milestones
 
 **Don't:**
-- "유연하게" 금액
-- 애매한 용도
-- 비현실적 마일스톤
+- Say "flexible" on amount
+- Have vague uses
+- Set unrealistic milestones
 
 ---
 
-## 스토리텔링 원칙
+## Storytelling Principles
 
-### Hero's Journey 구조
+### Hero's Journey Structure
 
 ```
-Act 1: Setup (슬라이드 1-3)
-  - 주인공: 타겟 고객
-  - 평범한 세계: 현재 상황
-  - Call to Adventure: 문제 발생
+Act 1: Setup (Slides 1-3)
+  - Hero: Target customer
+  - Ordinary world: Current situation
+  - Call to Adventure: Problem emerges
 
-Act 2: Confrontation (슬라이드 4-8)
-  - 시험: 기존 해결책의 실패
-  - 조력자: 우리 제품
-  - 증명: 트랙션, 고객 성공
+Act 2: Confrontation (Slides 4-8)
+  - Trials: Existing solutions fail
+  - Helper: Our product
+  - Proof: Traction, customer success
 
-Act 3: Resolution (슬라이드 9-12)
-  - 계획: GTM, 재무
-  - 팀: 이걸 해낼 사람들
-  - Call to Action: 투자 요청
+Act 3: Resolution (Slides 9-12)
+  - Plan: GTM, financials
+  - Team: People who can execute this
+  - Call to Action: Investment ask
 ```
 
-### 내러티브 흐름
+### Narrative Flow
 
 ```
-문제 (Why now?)
+Problem (Why now?)
   ↓
-기회 (Why this?)
+Opportunity (Why this?)
   ↓
-솔루션 (Why us?)
+Solution (Why us?)
   ↓
-증명 (Why believe?)
+Proof (Why believe?)
   ↓
-계획 (Why succeed?)
+Plan (Why succeed?)
   ↓
-요청 (Why invest?)
+Request (Why invest?)
 ```
 
 ---
 
-## VC 예상질문 30개 + 답변 전략
+## 30 Anticipated VC Questions + Answer Strategies
 
-### 시장 (Market)
+### Market
 
-**Q1: "TAM이 실제로 그렇게 큰가요?"**
-답변 전략: 2가지 이상 방법론으로 교차 검증, 보수적 가정 강조
+**Q1: "Is the TAM really that big?"**
+Answer Strategy: Cross-validate with 2+ methodologies, emphasize conservative assumptions
 
-**Q2: "이 시장이 지금 성장하는 이유는?"**
-답변 전략: 3가지 트렌드 (기술, 규제, 행동 변화) 제시
+**Q2: "Why is this market growing now?"**
+Answer Strategy: Present 3 trends (technology, regulation, behavior change)
 
-**Q3: "왜 기존 플레이어가 이걸 안 하나요?"**
-답변 전략: Innovator's Dilemma 또는 기술적 제약 설명
+**Q3: "Why aren't existing players doing this?"**
+Answer Strategy: Explain Innovator's Dilemma or technical constraints
 
-**Q4: "시장이 너무 니치한 거 아닌가요?"**
-답변 전략: Wedge 전략, 확장 경로 제시
+**Q4: "Isn't this market too niche?"**
+Answer Strategy: Show wedge strategy, expansion path
 
-**Q5: "경쟁사 X가 이미 하고 있는데?"**
-답변 전략: 차별화 포인트 3가지, 우리만의 Insight
-
----
-
-### 제품 (Product)
-
-**Q6: "이거 정말 10배 더 나은가요?"**
-답변 전략: 구체적 벤치마크, 고객 인용
-
-**Q7: "왜 고객이 전환하나요?"**
-답변 전략: Switching cost < Value gain 증명
-
-**Q8: "로드맵에 뭐가 있나요?"**
-답변 전략: Now/Next/Later, 고객 요청 기반
-
-**Q9: "기술적 방어벽이 있나요?"**
-답변 전략: 데이터, 네트워크 효과, 또는 "속도가 방어벽"
-
-**Q10: "AI가 이걸 대체할 수 있나요?"**
-답변 전략: AI를 활용하는 방법, AI만으로 불충분한 이유
+**Q5: "Isn't competitor X already doing this?"**
+Answer Strategy: 3 differentiation points, our unique insight
 
 ---
 
-### 트랙션 (Traction)
+### Product
 
-**Q11: "성장률이 왜 꺾였나요?"**
-답변 전략: 정직하게 이유 설명, 회복 계획
+**Q6: "Is this really 10x better?"**
+Answer Strategy: Specific benchmarks, customer quotes
 
-**Q12: "CAC가 왜 이렇게 높나요?"**
-답변 전략: 초기 단계 정상, 개선 경로
+**Q7: "Why will customers switch?"**
+Answer Strategy: Prove Switching cost < Value gain
 
-**Q13: "Churn이 왜 높나요?"**
-답변 전략: 코호트별 개선 추이, PMF 전 vs 후
+**Q8: "What's on the roadmap?"**
+Answer Strategy: Now/Next/Later, customer-driven
 
-**Q14: "Top 3 고객이 누구인가요?"**
-답변 전략: 로고, 사용 사례, ARR
+**Q9: "Do you have technical defensibility?"**
+Answer Strategy: Data, network effects, or "speed is moat"
 
-**Q15: "고객이 왜 계약했나요?"**
-답변 전략: 고객 인터뷰 인용, ROI 데이터
-
----
-
-### 비즈니스 모델 (Business Model)
-
-**Q16: "왜 이 가격인가요?"**
-답변 전략: Value-based pricing, A/B 테스트 결과
-
-**Q17: "Enterprise는 언제 가나요?"**
-답변 전략: SMB → Mid-market → Enterprise 경로
-
-**Q18: "Unit economics가 언제 건강해지나요?"**
-답변 전략: Payback 개선 추이, 스케일 효과
-
-**Q19: "왜 구독 모델인가요?"**
-답변 전략: 고객 lifetime 가치, 예측 가능성
-
-**Q20: "Cross-sell / upsell 기회는?"**
-답변 전략: 제품 로드맵, Expansion revenue 데이터
+**Q10: "Could AI replace this?"**
+Answer Strategy: How we leverage AI, why AI alone isn't enough
 
 ---
 
-### 경쟁 (Competition)
+### Traction
 
-**Q21: "[대기업]이 이걸 하면?"**
-답변 전략: 속도, 니치 초점, 대기업의 제약
+**Q11: "Why did growth flatten?"**
+Answer Strategy: Honestly explain why, show recovery plan
 
-**Q22: "경쟁사 X가 더 많이 조달했는데?"**
-답변 전략: 자본 효율성, 우리의 우위
+**Q12: "Why is CAC so high?"**
+Answer Strategy: Normal for early stage, show improvement path
 
-**Q23: "경쟁 우위가 지속 가능한가요?"**
-답변 전략: 네트워크 효과, 전환비용, 브랜드
+**Q13: "Why is churn high?"**
+Answer Strategy: Cohort improvement trends, pre vs post PMF
 
-**Q24: "M&A 위험은?"**
-답변 전략: 통합 어려움, 문화 차이
+**Q14: "Who are your top 3 customers?"**
+Answer Strategy: Logos, use cases, ARR
 
-**Q25: "가격 전쟁이 나면?"**
-답변 전략: 가치 차별화, 고객 LTV 높음
-
----
-
-### 팀 (Team)
-
-**Q26: "공동창업자는 왜 없나요?"**
-답변 전략: 핵심 팀 완성도, 채용 계획
-
-**Q27: "[역할] 경험이 없는데?"**
-답변 전략: 어드바이저, 채용 우선순위
-
-**Q28: "이전 창업 실패 경험은?"**
-답변 전략: 배운 점, 이번에 다른 이유
-
-**Q29: "풀타임 전환은 언제?"**
-답변 전략: 런웨이 확보 시점, 리스크 관리
-
-**Q30: "공동창업자 지분 분배는?"**
-답변 전략: 비율, Vesting 스케줄
+**Q15: "Why did customers sign?"**
+Answer Strategy: Customer interview quotes, ROI data
 
 ---
 
-## 디자인 원칙
+### Business Model
 
-### 시각적 계층
+**Q16: "Why this pricing?"**
+Answer Strategy: Value-based pricing, A/B test results
+
+**Q17: "When do you go enterprise?"**
+Answer Strategy: SMB → Mid-market → Enterprise path
+
+**Q18: "When will unit economics be healthy?"**
+Answer Strategy: Payback improvement trends, scale effects
+
+**Q19: "Why subscription model?"**
+Answer Strategy: Customer lifetime value, predictability
+
+**Q20: "Cross-sell / upsell opportunities?"**
+Answer Strategy: Product roadmap, expansion revenue data
+
+---
+
+### Competition
+
+**Q21: "What if [large company] does this?"**
+Answer Strategy: Speed, niche focus, large company constraints
+
+**Q22: "Competitor X raised more capital..."**
+Answer Strategy: Capital efficiency, our advantages
+
+**Q23: "Is competitive advantage sustainable?"**
+Answer Strategy: Network effects, switching costs, brand
+
+**Q24: "M&A risk?"**
+Answer Strategy: Integration difficulty, cultural differences
+
+**Q25: "What about price wars?"**
+Answer Strategy: Value differentiation, high customer LTV
+
+---
+
+### Team
+
+**Q26: "Why no co-founder?"**
+Answer Strategy: Core team completeness, hiring plan
+
+**Q27: "You lack [role] experience?"**
+Answer Strategy: Advisors, hiring priorities
+
+**Q28: "What about your previous failed startup?"**
+Answer Strategy: What you learned, what's different now
+
+**Q29: "When will you go full-time?"**
+Answer Strategy: Runway milestone, risk management
+
+**Q30: "Co-founder equity split?"**
+Answer Strategy: Allocation, vesting schedule
+
+---
+
+## Design Principles
+
+### Visual Hierarchy
 
 ```
 1. One Message Per Slide
-   - 슬라이드당 1가지 핵심 메시지
-   - 제목이 메시지 (세부는 본문)
+   - One key message per slide
+   - Title is the message (details in body)
 
 2. Visual > Text
-   - 그래프, 차트, 이미지 우선
-   - 긴 문단 금지
+   - Prioritize graphs, charts, images
+   - No long paragraphs
 
 3. Consistency
-   - 폰트, 컬러, 레이아웃 일관성
-   - 템플릿 활용
+   - Font, color, layout consistency
+   - Use templates
 ```
 
-### 컬러 & 폰트
+### Color & Font
 
 ```
-컬러:
-  - Primary: 브랜드 컬러
-  - Secondary: 데이터 시각화
-  - Accent: 강조
-  - 최대 3-4 컬러
+Color:
+  - Primary: Brand color
+  - Secondary: Data visualization
+  - Accent: Emphasis
+  - Max 3-4 colors
 
-폰트:
-  - 헤더: Bold, 32-48pt
-  - 본문: Regular, 18-24pt
-  - 주석: Light, 14-16pt
-  - Sans-serif 권장 (가독성)
+Font:
+  - Headers: Bold, 32-48pt
+  - Body: Regular, 18-24pt
+  - Annotations: Light, 14-16pt
+  - Sans-serif recommended (readability)
 ```
 
-### 데이터 시각화
+### Data Visualization
 
 ```
-✅ 좋은 차트:
-  - 라인 차트 (성장 추이)
-  - 바 차트 (비교)
-  - 간단한 파이 차트 (비율)
+✅ Good Charts:
+  - Line chart (growth trends)
+  - Bar chart (comparison)
+  - Simple pie chart (proportions)
 
-❌ 나쁜 차트:
-  - 3D 차트
-  - 너무 많은 데이터 포인트
-  - 범례 없는 차트
+❌ Bad Charts:
+  - 3D charts
+  - Too many data points
+  - Charts without legend
 ```
 
 ---
 
-## 안티패턴 (하지 말 것)
+## Anti-Patterns (What NOT To Do)
 
-### ❌ 텍스트 폭탄
+### ❌ Text Bomb
 
-슬라이드에 긴 문단, 작은 글씨
-→ VC는 읽지 않음, 당신 말을 듣지 않음
+Long paragraphs and tiny font on slides
+→ VCs won't read it, won't listen to you
 
-### ❌ 템플릿 과용
+### ❌ Template Overuse
 
-"Free pitch deck template" 그대로 사용
-→ 수백 개 똑같은 덱을 봄, 차별화 없음
+Using free pitch deck template as-is
+→ VCs have seen hundreds of identical decks, no differentiation
 
-### ❌ 기술 용어 과다
+### ❌ Excessive Jargon
 
 "AI-powered blockchain-based quantum..."
-→ VC는 문제 해결에 관심, 기술은 수단
+→ VCs care about problem solving, not technology
 
-### ❌ 경쟁사 무시
+### ❌ Ignoring Competition
 
-"경쟁사 없습니다"
-→ VC는 시장 이해 부족으로 해석
+"We have no competitors"
+→ VCs interpret as market misunderstanding
 
-### ❌ 비현실적 재무
+### ❌ Unrealistic Financials
 
 Hockey stick without explanation
-→ 신뢰도 하락
+→ Loses credibility
 
-### ❌ 애니메이션 과용
+### ❌ Animation Overuse
 
-슬라이드 전환 효과, 요소별 애니메이션
-→ 산만함, 비전문적
+Slide transitions, per-element animations
+→ Distracting, unprofessional
 
 ---
 
-## 피치 연습 (Rehearsal)
+## Pitch Practice (Rehearsal)
 
-### 연습 체크리스트
+### Practice Checklist
 
 ```
-□ 슬라이드 없이 스토리 말할 수 있는가
-□ 10분 버전 (핵심만)
-□ 30분 버전 (질문 포함)
-□ 60분 버전 (심층 DD)
-□ 예상 질문 30개 답변 준비
-□ 3번 이상 실전 연습 (어드바이저, 친구)
-□ 녹화해서 자가 피드백
-□ 목소리 톤, 속도, 제스처 체크
+□ Can you tell the story without slides?
+□ 10-minute version (essentials only)
+□ 30-minute version (with Q&A)
+□ 60-minute version (deep DD)
+□ Prepare answers to 30 anticipated questions
+□ Practice 3+ times in real settings (advisors, friends)
+□ Record yourself and review
+□ Check voice tone, pace, gestures
 ```
 
-### 피치 전달 팁
+### Pitch Delivery Tips
 
 ```
 1. Storytelling
-   - 숫자 나열이 아닌 이야기
-   - 고객 사례로 시작
+   - Tell a story, not recite numbers
+   - Start with customer use cases
 
 2. Confidence without Arrogance
-   - 자신감 O, 오만함 X
-   - 겸손하게 배우는 자세
+   - Be confident, not arrogant
+   - Maintain humble learning stance
 
 3. Listen
-   - VC 질문에 방어적 X
-   - 피드백을 배움의 기회로
+   - Don't be defensive to VC questions
+   - Treat feedback as learning opportunity
 
 4. Time Management
-   - 10분 핵심 피치 마스터
-   - 시간 초과 금지
+   - Master the 10-minute core pitch
+   - Never exceed time limit
 ```
 
 ---
 
-## 관련 스킬 및 커맨드
+## Related Skills and Commands
 
-- **financial-modeling** — 슬라이드 11 재무 전망 생성
-- **market-sizing** — 슬라이드 4 TAM/SAM/SOM 분석
-- **competitive-landscape** — 슬라이드 8 경쟁 분석
-- **startup-metrics** — 슬라이드 6 트랙션 지표 선택
-- `/pitch-review` — 완성된 피치 덱 리뷰 (100점 평가)
-- `/business-case` — 피치 덱 내용을 문서로 확장
+- **financial-modeling** — Generate Slide 11 financial projections
+- **market-sizing** — Analyze Slide 4 TAM/SAM/SOM
+- **competitive-landscape** — Build Slide 8 competitive analysis
+- **startup-metrics** — Choose Slide 6 traction metrics
+- `/pitch-review` — Review completed pitch deck (100-point rubric)
+- `/business-case` — Expand pitch deck content into document
