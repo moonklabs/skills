@@ -1,363 +1,356 @@
 ---
 name: pricing-strategy
-description: 가격 전략 및 패키징을 안내합니다 — 가격 모델, 밸류 메트릭, 심리학, 패키징. "가격", "요금제", "패키징", "밸류 메트릭", "가격 책정" 등으로 실행합니다.
+description: >
+  Pricing strategy and packaging guidance — pricing models, value metrics, psychology, packaging.
+  Triggers on "pricing", "pricing tiers", "packaging", "value metric", "price setting",
+  "가격 전략", "가격 책정", "패키징", "가치 지표", "요금 결정".
 ---
 
 # Pricing Strategy
 
-> 익숙하지 않은 플레이스홀더가 보이거나 연결된 도구를 확인하려면 [CONNECTORS.md](../../CONNECTORS.md)를 참조하세요.
+> For unfamiliar placeholders or connected tools, see [CONNECTORS.md](../../CONNECTORS.md).
 
-SaaS 가격 전략 프레임워크입니다. 가격 모델 선택, 밸류 메트릭 설정, 심리학 적용, Good/Better/Best 패키징, Feature Fencing을 통해 고객 가치와 매출을 최적화합니다.
+SaaS pricing strategy framework. Covers pricing models, value metric selection, psychology tactics, Good/Better/Best packaging, and feature fencing to optimize customer value and revenue.
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    PRICING STRATEGY FRAMEWORK                    │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (단독 작동)                                            │
-│  ✓ 비즈니스 모델 기반 가격 모델 추천                              │
-│  ✓ 밸류 메트릭 4기준 평가 (설명/정렬/예측/확장)                   │
-│  ✓ Good/Better/Best 3-tier 패키징                               │
-│  ✓ 가격 심리학 적용 (Anchoring, Decoy, Charm)                   │
+│  Core Features (Standalone)                                      │
+│  ✓ Recommend pricing model based on business type               │
+│  ✓ Evaluate value metric on 4 criteria (explain/align/predict)  │
+│  ✓ Design Good/Better/Best 3-tier packaging                     │
+│  ✓ Apply pricing psychology (Anchoring, Decoy, Charm)           │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~analytics: 고객별 사용량 데이터로 메트릭 검증                │
-│  + ~~CRM: 딜별 가격 민감도 및 패키지 선호 분석                    │
-│  + ~~spreadsheet: 가격 시나리오별 매출 시뮬레이션                │
+│  Enhanced Mode (with tool connections)                           │
+│  + ~~analytics: Validate metrics with customer usage data        │
+│  + ~~CRM: Analyze price sensitivity and package preference       │
+│  + ~~spreadsheet: Simulate revenue by pricing scenario           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 시작하기
+## Getting Started
 
-1. **가격 모델 선택**: "우리 SaaS에 맞는 가격 모델은?"
-2. **밸류 메트릭**: "어떤 단위로 과금해야 해?"
-3. **패키징**: "3-tier 요금제를 만들어줘"
-4. **가격 최적화**: "현재 가격을 검증해줘"
+1. **Pricing Model**: "What pricing model fits our SaaS?"
+2. **Value Metric**: "Which unit should we charge by?"
+3. **Packaging**: "Design our 3-tier pricing structure"
+4. **Optimize**: "Validate our current pricing"
 
-## 가격 모델 (Pricing Models)
+## Pricing Models
 
-### 5가지 주요 모델
+### 5 Main Models
 
-| 모델 | 정의 | 장점 | 단점 | 최적 상황 |
-|------|------|------|------|-----------|
-| **Per-Seat** | 사용자당 과금 | 예측 가능, 단순 | 팀 확장 저항 | 협업 툴 (Slack) |
-| **Usage-Based** | 사용량 과금 | 가치 정렬, 확장성 | 예측 어려움 | API, 인프라 (Twilio) |
-| **Flat-Rate** | 고정 요금 | 마찰 없음 | 가치 누수 | 소규모 SaaS |
-| **Tiered** | 구간별 과금 | 업셀 기회 | 복잡도 | 범용 SaaS (HubSpot) |
-| **Hybrid** | 조합 | 유연성 | 가장 복잡 | Enterprise (Salesforce) |
+| Model | Definition | Advantages | Disadvantages | Best For |
+|-------|-----------|-----------|----------------|----------|
+| **Per-Seat** | Charge per user | Predictable, simple | Growth resistance | Collaboration tools (Slack) |
+| **Usage-Based** | Charge by volume | Value-aligned, scalable | Unpredictable revenue | APIs, infrastructure (Twilio) |
+| **Flat-Rate** | Fixed monthly fee | Friction-free | Leaves money on table | Small SaaS |
+| **Tiered** | Graduated tiers | Upsell pathway | Choice paralysis | General SaaS (HubSpot) |
+| **Hybrid** | Mix (seats + usage) | Flexible, optimized | Complex | Enterprise (Salesforce) |
 
-### 1. Per-Seat (사용자당)
+### 1. Per-Seat (User-Based)
 
-**공식**: `가격 = 사용자 수 × User당 가격`
+**Formula**: `Price = User Count × Per-User Price`
 
-**예시**:
-- Slack: $8/user/월
-- Zoom: $15/user/월
-- Asana: $10.99/user/월
+**Examples**:
+- Slack: $8/user/month
+- Zoom: $15/user/month
+- Asana: $10.99/user/month
 
-**장점**:
-- ✅ 단순 (이해/구매 결정 쉬움)
-- ✅ 예측 가능 (MRR 계산 명확)
-- ✅ 팀 확장 = 매출 증가
+**Advantages**:
+- Simple (easy to understand/decide)
+- Predictable MRR
+- Team growth = revenue growth
 
-**단점**:
-- ❌ 성장 저항 (팀원 추가 부담)
-- ❌ Seat Sharing (1계정 공유)
-- ❌ 가치 불일치 (파워 유저 vs 가끔 유저)
+**Disadvantages**:
+- Growth friction (each user costs)
+- Seat sharing (1 account, many users)
+- Value mismatch (power user vs casual)
 
-**최적화**:
-- **Active User 정의**: 월 1회 이상 로그인
-- **Viewer/Guest 무료**: Read-only 사용자
-- **Volume Discount**: 100명+ 할인
+**Optimization**:
+- **Active User Definition**: Logged in 1+ month
+- **Viewer/Guest Free**: Read-only users
+- **Volume Discount**: 100+ users get discount
 
-### 2. Usage-Based (사용량 기반)
+### 2. Usage-Based (Consumption)
 
-**공식**: `가격 = 사용량 × 단가`
+**Formula**: `Price = Usage Volume × Unit Rate`
 
-**예시**:
-- Twilio: SMS 1개당 $0.0075
-- AWS: 컴퓨팅 시간당 과금
-- Stripe: 거래액의 2.9% + $0.30
+**Examples**:
+- Twilio: $0.0075 per SMS
+- AWS: Per compute hour
+- Stripe: 2.9% + $0.30 per transaction
 
-**장점**:
-- ✅ 가치 정렬 (많이 쓸수록 많이 지불)
-- ✅ 진입 장벽 낮음 (소량부터 시작)
-- ✅ 고객 성장 = 매출 성장
+**Advantages**:
+- Value-aligned (use more, pay more)
+- Low entry barrier (start small)
+- Customer growth = your growth
 
-**단점**:
-- ❌ 예측 어려움 (월별 변동)
-- ❌ Bill Shock (예상 초과 청구)
-- ❌ 복잡한 계산
+**Disadvantages**:
+- Revenue unpredictability
+- Bill shock risk (surprise overages)
+- Calculation complexity
 
-**최적화**:
-- **Usage Cap**: 최대 한도 설정
-- **Usage Alert**: 80% 도달 알림
-- **Commitment Discount**: 최소 사용량 약정 할인
+**Optimization**:
+- **Usage Cap**: Set maximum
+- **Usage Alert**: Notify at 80% threshold
+- **Commitment Discount**: Commit to minimum usage
 
-### 3. Flat-Rate (고정 요금)
+### 3. Flat-Rate (All-You-Can-Eat)
 
-**공식**: `가격 = 고정액` (사용량 무제한)
+**Formula**: `Price = Fixed Amount (unlimited usage)`
 
-**예시**:
-- Basecamp: $99/월 (무제한 사용자)
-- Netflix: $15.99/월 (무제한 시청)
+**Examples**:
+- Basecamp: $99/month (unlimited users)
+- Netflix: $15.99/month (unlimited viewing)
 
-**장점**:
-- ✅ 마찰 없음 (사용 걱정 X)
-- ✅ 예측 가능 (고정 비용)
-- ✅ 마케팅 단순 ("무제한")
+**Advantages**:
+- Zero friction (worry-free usage)
+- Predictable cost to customer
+- Marketing simplicity ("unlimited")
 
-**단점**:
-- ❌ 가치 누수 (파워 유저 과소 지불)
-- ❌ 업셀 어려움 (이미 무제한)
-- ❌ 수익 최적화 한계
+**Disadvantages**:
+- Value leakage (power users underpay)
+- Limited upsell
+- Revenue optimization ceiling
 
-**최적 상황**:
-- 소규모 SaaS (복잡도 회피)
-- 명확한 타겟 (SMB만)
-- 브랜드 차별화 ("심플함")
+**Best For**:
+- Small SaaS (simplicity)
+- SMB-only (limited segments)
+- Brand differentiation ("simple")
 
-### 4. Tiered (구간별)
+### 4. Tiered (Good/Better/Best)
 
-**공식**: Good/Better/Best 3-tier
+**Formula**: Features/usage increase per tier
 
-**예시**:
+**Examples**:
 - HubSpot:
-  - Starter: $50/월 (1,000 contacts)
-  - Professional: $800/월 (10,000 contacts)
-  - Enterprise: $3,200/월 (무제한)
+  - Starter: $50/month (1K contacts)
+  - Professional: $800/month (10K contacts)
+  - Enterprise: $3,200/month (unlimited)
 
-**장점**:
-- ✅ 업셀 경로 명확
-- ✅ 세그먼트별 최적화
-- ✅ Price Anchoring 활용
+**Advantages**:
+- Clear upsell path
+- Segment optimization
+- Anchoring effect
 
-**단점**:
-- ❌ 선택 마비 (너무 많으면)
-- ❌ 경계 불만 (Tier 경계선 고객)
+**Disadvantages**:
+- Choice overload (too many tiers)
+- Boundary frustration
 
-**최적화**:
-- **3-tier 권장** (연구: 3개가 최적)
-- **중간 Tier Highlight**: "Most Popular"
-- **Enterprise Custom**: 대기업은 별도
+**Optimization**:
+- **3-Tier Rule** (research: optimal)
+- **Highlight Middle**: "Most Popular" badge
+- **Enterprise Custom**: Large deals separate
 
-### 5. Hybrid (혼합)
+### 5. Hybrid (Mixed)
 
-**공식**: `Base Fee + Usage 또는 Per-Seat + Feature Tier`
+**Formula**: Base Fee + Usage OR Per-Seat + Feature Tier
 
-**예시**:
-- Salesforce: Base (User) + Add-on (Feature)
-- Snowflake: Compute + Storage 분리
-- MongoDB Atlas: Cluster Tier + Data Transfer
+**Examples**:
+- Salesforce: Base (users) + Add-ons (features)
+- Snowflake: Compute + Storage separate
+- MongoDB Atlas: Cluster tier + Data transfer
 
-**장점**:
-- ✅ 유연성 (다양한 고객)
-- ✅ 수익 최적화
-- ✅ Lock-in 강화
+**Advantages**:
+- Flexibility (diverse customers)
+- Revenue optimization
+- Lock-in strengthened
 
-**단점**:
-- ❌ 복잡도 높음
-- ❌ 설명 어려움
-- ❌ 청구 시스템 복잡
+**Disadvantages**:
+- Complex to explain
+- Billing system complex
+- Customer confusion
 
-**최적 상황**:
-- Enterprise 고객
-- 다양한 Use Case
-- 성숙한 제품
+**Best For**:
+- Enterprise customers
+- Diverse use cases
+- Mature products
 
 ---
 
-## 밸류 메트릭 (Value Metric)
+## Value Metric
 
-### 정의
+### Definition
 
-**밸류 메트릭**: 과금 단위. "무엇을 세어서 과금할 것인가?"
+**Value Metric**: What unit you measure/charge by. "What do we count?"
 
-**예시**:
-- Slack: Active User
+**Examples**:
+- Slack: Active users
 - Mailchimp: Contacts
-- Twilio: API Calls
-- Stripe: Transaction Volume
+- Twilio: API calls
+- Stripe: Transaction volume
 
-### 4가지 평가 기준
+### 4 Evaluation Criteria
 
-| 기준 | 정의 | 예시 (Good) | 예시 (Bad) |
-|------|------|-------------|------------|
-| **설명 가능성** | 고객이 이해하기 쉬운가? | "사용자 수" | "API Request per 1K batches" |
-| **가치 정렬** | 고객 가치와 일치하는가? | "매출 증가" | "데이터베이스 Row" |
-| **예측 가능성** | 고객이 비용 예측 가능한가? | "고정 사용자 10명" | "변동 많은 Daily Active" |
-| **확장성** | 고객 성장 = 매출 성장? | "거래액" | "로그인 횟수" |
+| Criterion | Definition | Good Example | Bad Example |
+|-----------|-----------|--------------|------------|
+| **Understandability** | Customer grasps it in 5 secs? | "Users" | "API Request per 1K batches" |
+| **Value Alignment** | Metric matches customer value? | "Revenue generated" | "Database rows" |
+| **Predictability** | Customer forecasts own cost? | "Fixed 10 users" | "Daily active users" (volatile) |
+| **Scalability** | Customer growth = your growth? | "Transactions" | "Login counts" (plateaus) |
 
-### 설명 가능성 (Understandability)
+### Understandability
 
-**나쁜 예**:
-- "Compute Unit" (무엇인지 모름)
-- "Storage Blocks in 128KB" (복잡)
+**Bad**:
+- "Compute Units" (undefined)
+- "Storage Blocks in 128KB" (complex)
 
-**좋은 예**:
-- "Users" (명확)
-- "Projects" (이해 쉬움)
-- "Contacts" (직관적)
+**Good**:
+- "Users"
+- "Projects"
+- "Contacts"
 
-**테스트**:
-- 고객에게 5초 내 설명 가능?
-- 엄마도 이해할까?
+**Test**: 5-second explanation possible? Mom would understand?
 
-### 가치 정렬 (Value Alignment)
+### Value Alignment
 
-**나쁜 예**:
-- CRM → "Database Rows" (고객은 관심 X)
-- 마케팅 툴 → "Email Sent" (스팸 유도)
+**Bad**:
+- CRM → "Database Rows" (customer doesn't care)
+- Marketing Tool → "Emails Sent" (encourages spam)
 
-**좋은 예**:
-- CRM → "Revenue Generated" (성과 연결)
-- 마케팅 → "Leads Converted" (결과 중심)
+**Good**:
+- CRM → "Revenue Generated" (outcome-focused)
+- Marketing → "Leads Converted" (result-oriented)
 
-**테스트**:
-- 고객이 더 쓸수록 더 큰 가치?
-- ROI 명확?
+**Test**: More use = bigger value? Clear ROI?
 
-### 예측 가능성 (Predictability)
+### Predictability
 
-**나쁜 예**:
-- "Daily Active Users" (일별 변동 큼)
-- "API Calls" (예측 불가)
+**Bad**:
+- "Daily Active Users" (high volatility)
+- "API Calls" (unpredictable)
 
-**좋은 예**:
-- "Seats" (고정)
-- "Monthly Active Users" (안정적)
+**Good**:
+- "Seats" (fixed)
+- "Monthly Active Users" (stable)
 
-**테스트**:
-- 다음 달 청구액 예측 가능?
-- Surprise Bill 가능성?
+**Test**: Can customer forecast next month's bill?
 
-### 확장성 (Scalability)
+### Scalability
 
-**나쁜 예**:
-- "Logins per Month" (한계 있음)
-- "Files Uploaded" (포화)
+**Bad**:
+- "Logins per Month" (hits ceiling)
+- "Files Uploaded" (saturates)
 
-**좋은 예**:
-- "Transaction Volume" (무한 성장)
-- "Team Size" (회사 성장 = 매출)
+**Good**:
+- "Transaction Volume" (infinite scale)
+- "Team Size" (company growth = revenue)
 
-**테스트**:
-- 고객이 10x 성장 시 우리 매출도 10x?
+**Test**: 10x customer growth = 10x your revenue?
 
-### 밸류 메트릭 선택 프로세스
+### Selection Process
 
-**1단계: 후보 나열**
-- 가능한 모든 메트릭 브레인스토밍
-- 예: Users, Projects, Storage, API Calls, Revenue
+**Step 1: Brainstorm Candidates**
+- All possible metrics
+- Example: Users, Projects, Storage, API Calls, Revenue
 
-**2단계: 4기준 평가**
-| 메트릭 | 설명 | 가치 | 예측 | 확장 | 총점 |
-|--------|------|------|------|------|------|
+**Step 2: Score on 4 Criteria**
+```
+| Metric | Explain | Value | Predict | Scale | Total |
+|--------|---------|-------|---------|-------|-------|
 | Users | 5 | 3 | 5 | 4 | 17 |
 | Projects | 4 | 4 | 4 | 3 | 15 |
 | API Calls | 2 | 3 | 2 | 5 | 12 |
 | Revenue % | 3 | 5 | 3 | 5 | 16 |
+```
 
-**3단계: Top 2-3 선택**
-- 총점 높은 순
-- 경쟁사 벤치마크
+**Step 3: Select Top 2-3**
+- Highest scores
+- Competitive benchmarks
 
-**4단계: 고객 테스트**
-- 10-20명 인터뷰
-- "어떤 방식이 공정해 보이나요?"
+**Step 4: Customer Test**
+- Interview 10-20 customers
+- "Which feels fairest?"
 
 ---
 
-## 가격 심리학 (Pricing Psychology)
+## Pricing Psychology
 
-### 1. Anchoring (앵커링)
+### 1. Anchoring
 
-**정의**: 첫 번째 가격이 기준점(Anchor)
+**Definition**: First price = reference point
 
-**적용**:
-- **높은 가격 먼저 표시**: Enterprise → Pro → Starter (좌→우)
-- **Original Price 취소선**: ~~$199~~ → $99 (할인 강조)
-- **Annual Discount**: $100/월 → $1,000/년 (17% 할인)
+**Application**:
+- Show high price first (sets expectation)
+- Strikethrough discount: ~~$199~~ → $99
+- Annual discount: $100/mo → $1,000/yr (17% off)
 
-**예시**:
+**Example**:
 ```
-┌─────────────────────────────────────────┐
-│ Enterprise    Pro         Starter       │
-│ $499/월      $99/월       $29/월        │
-│ (Anchor)     (Target)    (Entry)        │
-└─────────────────────────────────────────┘
+┌─────────────────────────────┐
+│ Enterprise    Pro    Starter│
+│ $499/mo      $99/mo  $29/mo │
+│ (Anchor)   (Target) (Entry) │
+└─────────────────────────────┘
 ```
+Enterprise anchors perception → Pro seems "reasonable"
 
-Enterprise가 Anchor → Pro가 "합리적" 느낌
+### 2. Decoy Effect
 
-### 2. Decoy Effect (미끼 효과)
+**Definition**: Intentionally unattractive option → guides choice
 
-**정의**: 의도적으로 덜 매력적인 옵션 추가 → 타겟 선택 유도
+**Application**:
+- Want Pro chosen
+- Add Decoy: similar price, fewer features
 
-**적용**:
-- Pro (목표)를 선택하게 하려면
-- Decoy: Pro와 비슷한 가격, 기능 적음
-
-**예시**:
+**Example**:
 ```
 Starter: $29 (100 contacts)
-Pro: $99 (10,000 contacts) ← 목표
-Decoy: $79 (1,000 contacts) ← 의도적으로 비효율
+Pro: $99 (10K contacts) ← target
+Decoy: $79 (1K contacts) ← intentionally bad deal
 ```
+Customer thinks: "Decoy is waste; Pro is clear winner"
 
-고객 생각: "Decoy가 $79면 Pro $99가 훨씬 나아"
+### 3. Charm Pricing
 
-### 3. Charm Pricing (매력 가격)
+**Definition**: End in 9 → "cheaper" perception
 
-**정의**: 끝자리 9 사용 → "저렴" 인식
-
-**적용**:
+**Application**:
 - $100 → $99
-- $1,000 → $997 (또는 $995)
+- $1,000 → $997 (or $995)
 
-**효과**:
-- 연구: $100 대비 $99는 20% 전환율 증가
-- 심리적 "한 자리" 낮은 느낌 ($99 = 90번대)
+**Effect**:
+- Research: $99 vs $100 = 20% conversion boost
+- Psychology: "90s" feels cheaper than "100s"
 
-**주의**:
-- Enterprise는 X ($999 vs $1,000 차이 미미)
-- Premium 브랜드는 정가 ($100)가 품격
+**Caution**:
+- Enterprise: $999 vs $1,000 difference negligible
+- Premium brand: $100 keeps prestige
 
-### 4. Price Partitioning (가격 분할)
+### 4. Price Partitioning
 
-**정의**: 총 가격을 분할 표시 → 저렴 인식
+**Definition**: Break down total → cheaper perception
 
-**적용**:
-- **월간 표시**: $1,200/년 → $100/월
-- **Per User**: $1,000 (10명) → $100/user
-- **Base + Add-on**: $50 Base + $10/user
+**Application**:
+- Annual → Monthly: $1,200/yr → $100/month
+- Per-Account: $1,000 (10 users) → $100/user
 
-**예시**:
+**Example**:
 ```
-Bad:  $1,440/년
-Good: $120/월 또는 $12/user/월
+Bad:  $1,440/year
+Good: $120/month OR $12/user/month
 ```
 
-### 5. Bundling (번들링)
+### 5. Bundling
 
-**정의**: 여러 제품/기능 묶어 판매
+**Definition**: Bundle products → cross-sell
 
-**전략**:
-- **Mixed Bundling**: 개별 + 번들 선택지
-  - Feature A: $50
-  - Feature B: $30
-  - Bundle (A+B): $60 (25% 할인)
+**Strategy**:
+- Individual: Feature A $50, Feature B $30
+- Bundle: A+B $60 (10% discount)
 
-**효과**:
-- Cross-sell 증가
-- 이탈 감소 (더 많은 제품 사용)
+**Effect**:
+- Cross-sell increases
+- Churn decreases (more features used)
 
 ---
 
-## Good/Better/Best 패키징
+## Good/Better/Best Packaging
 
-### 3-Tier 구조
+### 3-Tier Structure
 
 ```
 ┌──────────────┬──────────────┬──────────────┐
@@ -365,65 +358,63 @@ Good: $120/월 또는 $12/user/월
 │   (Good)     │  (Better)    │    (Best)    │
 ├──────────────┼──────────────┼──────────────┤
 │  Entry       │  Most Popular│   Custom     │
-│  $29/월      │  $99/월      │  Contact Us  │
+│  $29/month   │  $99/month   │  Contact Us  │
 │              │              │              │
-│ 기본 기능     │ 고급 기능     │ 모든 기능     │
-│ 이메일 지원   │ 우선 지원     │ 전담 매니저   │
-│ 1 프로젝트    │ 10 프로젝트   │ 무제한        │
+│ Basic        │ Advanced     │ All features │
+│ Email support│ Priority     │ Dedicated CSM│
+│ 1 project    │ 10 projects  │ Unlimited    │
 └──────────────┴──────────────┴──────────────┘
 ```
 
-### Tier별 설계 원칙
+### Starter (Good)
 
-#### Starter (Good)
+**Purpose**: Lower entry barrier, product experience
 
-**목적**: 진입 장벽 낮춤, 제품 경험
+**Characteristics**:
+- Price: $10-50/month
+- Target: Individual, freelancer, tiny team
+- Features: Core only (80% of use cases)
+- Constraints: Usage limits (100 contacts, 1 project)
 
-**특징**:
-- 가격: $10-50/월
-- 타겟: 개인, 프리랜서, 초소규모
-- 기능: 핵심만 (80% Use Case 커버)
-- 제한: 사용량 (예: 100 contacts, 1 project)
+**Exclude**:
+- Advanced features (AI, Automation)
+- Integrations (API, Zapier)
+- Support (self-serve only)
 
-**제외 기능**:
-- Advanced Features (AI, Automation)
-- Integration (API, Zapier)
-- Support (Self-serve만)
+### Pro (Better)
 
-#### Pro (Better)
+**Goal**: Majority of customers (60-70%)
 
-**목표**: 대부분 고객 (60-70% 선택)
+**Characteristics**:
+- Price: $50-200/month
+- Target: SMB, team (5-20 people)
+- Features: All core + some advanced
+- Constraints: Reasonable (10 projects, 10K contacts)
 
-**특징**:
-- 가격: $50-200/월
-- 타겟: SMB, 팀 (5-20명)
-- 기능: 모든 핵심 + 일부 고급
-- 제한: 합리적 (10 projects, 10K contacts)
+**Emphasis**:
+- **"Most Popular" badge**
+- Colored highlight (blue border)
+- 10x value vs Starter
 
-**강조**:
-- **"Most Popular" 배지**
-- 색상 강조 (파란색 테두리)
-- Starter 대비 10x 가치
+### Enterprise (Best)
 
-#### Enterprise (Best)
+**Goal**: High-value customers, upsell path
 
-**목표**: High-value 고객, 업셀 경로
+**Characteristics**:
+- Price: $300+ or "Contact Us"
+- Target: Enterprise (50+ employees)
+- Features: Everything + custom
+- Constraints: None (unlimited)
 
-**특징**:
-- 가격: $300+ 또는 "Contact Us"
-- 타겟: Enterprise (50명+)
-- 기능: 모든 것 + 맞춤형
-- 제한: 없음 (무제한)
-
-**추가 혜택**:
-- Dedicated CSM (고객 성공 매니저)
+**Add-ons**:
+- Dedicated CSM (customer success manager)
 - SLA (Service Level Agreement)
-- Custom Integration
-- Onboarding Support
+- Custom integrations
+- Onboarding support
 
-### Tier 간격 (Pricing Ladder)
+### Tier Spacing (Pricing Ladder)
 
-**권장 배수**: 3-5x
+**Recommended Multiplier**: 3-5x
 
 ```
 Starter: $29
@@ -431,284 +422,241 @@ Pro: $99 (3.4x)
 Enterprise: $499 (5x)
 ```
 
-**너무 좁으면** (2x 미만):
-- 업그레이드 동기 약함
-- 매출 증가 제한
+**Too Narrow** (<2x):
+- Weak upgrade motivation
+- Limited revenue growth
 
-**너무 넓으면** (10x 이상):
-- 중간 Tier 누락 (Gap)
-- 고객 이탈 위험
+**Too Wide** (>10x):
+- Middle tier missing
+- Customer abandonment
 
 ---
 
-## Feature Fencing (기능 제한)
+## Feature Fencing
 
-### 5가지 Fencing 전략
+### 5 Strategies
 
-| 전략 | 설명 | 예시 | 장점 | 단점 |
-|------|------|------|------|------|
-| **Usage** | 사용량 제한 | 100 vs 10K contacts | 명확, 공정 | 계산 복잡 |
-| **Feature** | 기능 on/off | AI 없음 vs 있음 | 차별화 명확 | 개발 부담 |
-| **Support** | 지원 수준 | 이메일 vs 전화 | 비용 정렬 | 경험 차이 |
-| **SLA** | 응답 시간 | 48h vs 1h | Enterprise 정당화 | 측정 필요 |
-| **API** | 통합 제한 | API 없음 vs 무제한 | Lock-in | 개발자 불만 |
+| Strategy | Description | Example | Pros | Cons |
+|----------|-----------|---------|------|------|
+| **Usage** | Limit volume | 100 vs 10K contacts | Clear, fair | Complex calculation |
+| **Feature** | On/off features | AI unavailable | Differentiates | Development burden |
+| **Support** | Tier quality | Email vs phone | Cost-aligned | Experience gap |
+| **SLA** | Response time | 48h vs 1h | Justifies enterprise | Measurement needed |
+| **API** | Integration limits | No API vs unlimited | Lock-in | Developer frustration |
 
-### 1. Usage Fencing (사용량)
+### 1. Usage Fencing
 
-**예시**:
-- Contacts: 100 (Starter) vs 10,000 (Pro)
+**Examples**:
+- Contacts: 100 (Starter) vs 10K (Pro)
 - Projects: 1 vs 10 vs Unlimited
 - Storage: 10GB vs 100GB vs 1TB
 
-**장점**:
-- 공정 (많이 쓸수록 많이 지불)
-- 이해 쉬움
+**Best Practices**:
+- Soft limit (encourage upgrade)
+- Hard limit (block) = bad UX
 
-**주의**:
-- Soft Limit (초과 시 업그레이드 유도)
-- Hard Limit (차단)은 UX 나쁨
+### 2. Feature Fencing
 
-### 2. Feature Fencing (기능)
-
-**예시**:
-- AI 기능: Pro 이상
-- Automation: Enterprise만
+**Examples**:
+- AI: Pro+ only
+- Automation: Enterprise only
 - Custom Branding: Enterprise
 
-**전략**:
-- **20% 기능 = 80% 가치**: 핵심 고급 기능만 제한
-- **Freemium**: 기본은 무료, 고급만 유료
+**Strategy**:
+- Limit 20% features = 80% value creation
+- Core available all tiers
 
-**주의**:
-- 너무 많이 제한 → 불만
-- 핵심 가치는 모든 Tier 제공
+### 3. Support Fencing
 
-### 3. Support Fencing (지원)
+**Example**:
+- Starter: Self-serve (Help Center)
+- Pro: Email (48h response)
+- Enterprise: Phone + Dedicated CSM (1h)
 
-**예시**:
-| Tier | Support |
-|------|---------|
-| Starter | Self-serve (Help Center) |
-| Pro | Email (48h 응답) |
-| Enterprise | Phone + Dedicated CSM (1h 응답) |
-
-**장점**:
-- 비용 구조 일치 (CSM 비용 높음)
-- Enterprise 차별화
+**Advantage**:
+- Cost structure alignment
+- Enterprise differentiation
 
 ### 4. SLA Fencing
 
-**예시**:
-| Tier | Uptime SLA | Response Time |
-|------|------------|---------------|
+**Example**:
+| Tier | Uptime | Response Time |
+|------|--------|---------------|
 | Starter | Best Effort (95%) | N/A |
 | Pro | 99.5% | 4h |
 | Enterprise | 99.9% | 1h (P1) |
 
-**장점**:
-- Enterprise 정당화 (미션 크리티컬)
-
-**주의**:
-- 인프라 투자 필요
-- 페널티 약정 (SLA 미달 시 환불)
-
 ### 5. API/Integration Fencing
 
-**예시**:
-- Starter: API 없음
-- Pro: 1,000 calls/day
+**Example**:
+- Starter: No API
+- Pro: 1K calls/day
 - Enterprise: Unlimited
-
-**장점**:
-- Lock-in 강화 (통합 많을수록)
-
-**주의**:
-- 개발자 타겟이면 제한 최소화
-- API가 핵심 가치면 Free Tier도 제공
 
 ---
 
-## 연간 vs 월간 (Annual vs Monthly)
+## Annual vs Monthly
 
-### 비교
+### Comparison
 
-| 요소 | Monthly | Annual | Annual 장점 |
-|------|---------|--------|-------------|
-| **가격** | $100/월 | $1,000/년 ($83/월) | 17% 할인 |
-| **현금흐름** | 월별 수금 | 선납 | 즉시 현금 확보 |
-| **해지율** | 높음 (월별 리뷰) | 낮음 (연간 약정) | Churn 감소 |
-| **세일즈 난이도** | 쉬움 (부담 낮음) | 어려움 (큰 결정) | 고객 심리 장벽 |
+| Factor | Monthly | Annual | Annual Advantage |
+|--------|---------|--------|------------------|
+| **Price** | $100/mo | $1,000/yr ($83/mo) | 17% discount |
+| **Cash Flow** | Monthly | Upfront | Immediate cash |
+| **Churn** | High (monthly review) | Low (committed) | Better retention |
+| **Sales Friction** | Easy (low barrier) | Hard (big decision) | Higher barrier |
 
-### 권장 할인율
+### Recommended Discount
 
-**연간 할인**: 15-20%
+**Annual Discount**: 15-20%
 
-**계산 예시**:
+**Calculation**:
 ```
-Monthly: $100/월 → $1,200/년
-Annual: $1,000/년 ($83/월, 17% 할인)
+Monthly: $100/mo → $1,200/year
+Annual: $1,000/year ($83/mo, 17% off)
 ```
 
-**왜 17%?**
-- 10%는 너무 작음 (동기 약함)
-- 25%는 너무 큼 (매출 손실)
-- 15-20%가 Sweet Spot
+**Why 17%?**
+- 10%: Too weak (no motivation)
+- 25%: Too high (margin loss)
+- 15-20%: Sweet spot
 
-### 전략
+### Strategy
 
-**1. Annual Default**:
-- 기본 표시 Annual → "or $100/월"
-- 예: Basecamp, ConvertKit
+**Option 1: Annual Default**
+- Show Annual first → "or $100/month"
+- Example: Basecamp, ConvertKit
 
-**2. Monthly Default**:
-- 기본 Monthly → "Save 17% with Annual"
-- 예: Slack, Zoom
+**Option 2: Monthly Default**
+- Monthly primary → "Save 17% with Annual"
+- Example: Slack, Zoom
 
-**3. Annual Only** (고급):
-- Enterprise는 Annual만
-- 이유: 큰 계약, 선납 확보
+**Option 3: Annual Only** (Advanced)
+- Enterprise: Annual only
+- Reason: Large contract, upfront cash
 
-### 현금흐름 영향
+### Cash Flow Impact
 
 **Monthly**:
 ```
-Year 1: $100 × 12 = $1,200 (분산 수금)
+Year 1: $100 × 12 = $1,200 (distributed)
 ```
 
 **Annual**:
 ```
-Year 1: $1,000 (즉시 전액)
-→ 런웨이 연장, 마케팅 투자 가능
+Year 1: $1,000 (immediate)
+→ Extended runway, marketing investment
 ```
 
-**Startup 초기**: Annual 강력 추천
-- 현금흐름 개선
-- Churn 감소
-- 예측 가능성
+**For Startups**: Annual strongly recommended
+- Improves cash flow
+- Reduces churn
+- Increases predictability
 
 ---
 
-## 안티패턴 (Anti-Patterns)
+## Anti-Patterns
 
-### 1. 너무 많은 Tier
+### 1. Too Many Tiers
 
-**문제**: 5+ Tier → 선택 마비
+**Problem**: 5+ tiers → choice paralysis
 
-**예시**:
-- Starter, Basic, Pro, Premium, Enterprise, Ultimate
+**Fix**: **3-Tier Rule** (research-optimal)
+- If 4+ needed: Split SMB/Enterprise
 
-**해결**:
-- **3-Tier 원칙**: Good/Better/Best
-- 4개 이상 필요하면 SMB/Enterprise 분리
+### 2. Value/Price Mismatch
 
-### 2. 가치 vs 가격 불일치
+**Problem**: Price doesn't match customer value
 
-**문제**: 고객 가치 ≠ 지불 금액
+**Fix**:
+- Use value-based pricing
+- ROI-driven, not cost-driven
 
-**예시**:
-- CRM이 ₩1억 매출 증대 → 가격 ₩10만/월 (과소 과금)
-- 단순 알림 앱 → 가격 ₩50만/월 (과다 과금)
+### 3. Race to Bottom
 
-**해결**:
-- Value-based Pricing
-- 고객 ROI 기반 가격 설정
+**Problem**: Continuous undercutting → margin death
 
-### 3. "Race to the Bottom" (가격 경쟁)
+**Fix**:
+- **Differentiate on value** (not price)
+- Niche premium positioning
+- Bundle defensively
 
-**문제**: 경쟁사 따라 계속 인하 → 마진 소멸
+### 4. Frequent Price Changes
 
-**예시**:
-- 경쟁사 $50 → 우리 $45
-- 경쟁사 $40 → 우리 $35
-- ... 결국 모두 손실
+**Problem**: 3-month changes → customer confusion
 
-**해결**:
-- **차별화된 가치**: 가격 대신 기능/서비스
-- **Niche**: 특정 세그먼트 Premium
-- **Bundling**: 단독 비교 불가하게
+**Fix**:
+- Change 1-2× annually
+- Grandfather existing customers
 
-### 4. 잦은 가격 변경
+### 5. Hidden Costs
 
-**문제**: 3개월마다 가격 변경 → 고객 혼란, 신뢰 하락
+**Problem**: "Contact Us" or surprise fees
 
-**해결**:
-- 연 1-2회만 변경
-- 기존 고객 Grandfather (기존 가격 유지 옵션)
-
-### 5. 투명하지 않은 가격
-
-**문제**: "Contact Us"만 → 리드 이탈
-
-**예시**:
-- 모든 Tier가 "문의 필요"
-- 숨겨진 비용 (Setup Fee, Overage)
-
-**해결**:
-- 최소 2개 Tier는 명확한 가격
-- Enterprise만 "Contact Us"
-- 모든 비용 명시 (No Hidden Fee)
+**Fix**:
+- Transparent pricing (all tiers)
+- No surprise fees
+- Enterprise only "Contact Us"
 
 ---
 
-## 가격 테스트 및 최적화
+## Testing & Optimization
 
-### A/B 테스트
+### A/B Testing
 
-**테스트 항목**:
-1. **가격 포인트**: $99 vs $129
-2. **할인율**: 15% vs 20% Annual
-3. **Tier 이름**: Pro vs Business
-4. **Anchoring**: Enterprise 먼저 vs 나중
-5. **CTA**: "Start Free Trial" vs "Get Started"
+**Test Items**:
+1. Price point: $99 vs $129
+2. Discount: 15% vs 20% annual
+3. Tier name: Pro vs Business
+4. Anchoring: Enterprise first vs last
+5. CTA: "Start Free Trial" vs "Get Started"
 
-**샘플 크기**:
-- 최소 100 conversions/variant
-- 통계적 유의성 95%+
+**Sample Size**: 100+ conversions/variant, 95%+ confidence
 
-### Van Westendorp PSM (Price Sensitivity Meter)
+### Van Westendorp Price Sensitivity Meter
 
-**4가지 질문**:
-1. "어떤 가격이면 **너무 저렴**해서 품질 의심?"
-2. "어떤 가격이면 **저렴**하다고 느낌?"
-3. "어떤 가격이면 **비싸**다고 느낌?"
-4. "어떤 가격이면 **너무 비싸**서 구매 안 함?"
+**4 Questions**:
+1. "What price would be **too cheap** (suspect quality)?"
+2. "What price is **good bargain**?"
+3. "What price is **expensive**?"
+4. "What price is **too expensive** (won't buy)?"
 
-**분석**:
-- 적정 가격 범위: Q2-Q3 교차점
-- 최적 가격: Q1-Q4 교차점
+**Analysis**:
+- Optimal range: Q2-Q3 intersection
+- Best price: Q1-Q4 intersection
 
-### 가격 인상 전략
+### Price Increase Strategy
 
-**언제 인상?**:
-- NPS > 40 (고객 만족 높음)
-- Churn < 업계 평균
-- 신규 기능 출시 (가치 증대)
+**When to Raise?**:
+- NPS >40 (high satisfaction)
+- Churn below industry average
+- New features added
 
-**얼마나?**:
-- 연 10-20%
-- 한 번에 크게보다 자주 작게
+**How Much?**:
+- 10-20% annually
+- Gradual vs sudden
 
-**기존 고객 처리**:
-- **Grandfather**: 기존 가격 유지 (6-12개월)
-- **Gradual**: 3개월 유예 후 적용
-- **Value 강조**: "신기능 추가로 인한"
+**Handle Existing Customers**:
+- **Grandfather**: Maintain old price (6-12 months)
+- **Gradual**: 3-month notice
+- **Emphasize Value**: "New features justify increase"
 
 ---
 
-## 관련 스킬
+## Related Skills
 
-- **gtm-strategy**: 가격을 GTM 전략에 통합
-- **financial-modeling**: 가격 시나리오별 매출 예측
-- **startup-metrics**: ARPA, LTV 추적
-- **sales-playbook**: 가격 협상 전략
+- **gtm-strategy**: Integrate pricing into GTM
+- **financial-modeling**: Model pricing scenarios
+- **startup-metrics**: Track ARPA, LTV
+- **sales-playbook**: Pricing negotiation tactics
 
-## 팁
+## Tips
 
-- **고객 가치 기준**: 비용 기반이 아닌 고객 ROI 기반 가격
-- **3-Tier**: 연구 결과 3개가 최적 (2개는 부족, 4개는 과다)
-- **Pro 타겟**: 60-70% 고객이 Pro 선택하도록 설계
-- **연간 우선**: 초기 스타트업은 현금흐름 위해 Annual 강력 권장
-- **가격 인상 주저 말기**: 가치 있으면 인상. 경쟁사보다 20% 비싸도 OK
-- **밸류 메트릭 검증**: 10-20 고객 인터뷰 필수
-- **투명성**: 숨겨진 비용 없이 모든 것 명시
-- **정기 리뷰**: 분기별 가격 전략 검토, 연 1회 조정
+- **Customer Value**: Price on ROI, not cost
+- **3-Tier Rule**: Research shows 3 optimal (not 2, not 4)
+- **Pro Target**: Design so 60-70% choose Pro
+- **Annual Priority**: Early-stage needs cash flow
+- **Don't Hesitate**: Raise if value exists. 20% premium > competitors is OK
+- **Validate Metric**: 10-20 customer interviews required
+- **Transparency**: No hidden fees; Enterprise only "Contact"
+- **Regular Review**: Quarterly check, annual adjustment

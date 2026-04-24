@@ -1,478 +1,486 @@
 ---
 name: market-sizing
-description: TAM/SAM/SOM 시장 규모 분석과 3가지 방법론(Top-down, Bottom-up, Value Theory)을 안내합니다. "시장 규모", "TAM", "SAM", "SOM", "시장 분석", "총 시장" 등으로 실행합니다.
+description: >
+  TAM/SAM/SOM market size analysis and 3 methodologies (Top-down, Bottom-up, Value Theory).
+  Triggers on "market size", "TAM", "SAM", "SOM", "market analysis", "total market",
+  "시장 규모", "TAM", "SAM", "SOM", "시장 분석", "전체 시장".
 ---
 
 # Market Sizing
 
-> 익숙하지 않은 플레이스홀더가 보이거나 연결된 도구를 확인하려면 [CONNECTORS.md](../../CONNECTORS.md)를 참조하세요.
+> For unfamiliar placeholders or connected tools, see [CONNECTORS.md](../../CONNECTORS.md).
 
-TAM (Total Addressable Market), SAM (Serviceable Available Market), SOM (Serviceable Obtainable Market) 시장 규모 분석 프레임워크입니다. Top-down, Bottom-up, Value Theory 3가지 방법론으로 교차 검증하여 투자자에게 설득력 있는 시장 기회를 제시합니다.
+TAM (Total Addressable Market), SAM (Serviceable Available Market), SOM (Serviceable Obtainable Market) analysis framework. Cross-validates using 3 methodologies (Top-down, Bottom-up, Value Theory) to present compelling market opportunity to investors.
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    MARKET SIZING FRAMEWORK                      │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (단독 작동)                                            │
-│  ✓ 3가지 방법론으로 TAM/SAM/SOM 계산 (Top-down/Bottom-up/Value) │
-│  ✓ 웹 검색으로 산업 보고서 및 시장 데이터 수집                     │
-│  ✓ 교차 검증 및 삼각측량으로 신뢰도 높은 추정치 도출               │
-│  ✓ 투자자 프레젠테이션용 시각적 요약 및 가정 문서화                │
+│  Core Features (Standalone)                                      │
+│  ✓ Calculate TAM/SAM/SOM using 3 methodologies                  │
+│  ✓ Web search for industry reports and market data              │
+│  ✓ Cross-validate with triangulation for confidence             │
+│  ✓ Create investor-ready visual summary & assumptions doc       │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~knowledge base: 내부 고객 데이터로 Bottom-up 정교화         │
-│  + ~~spreadsheet: 시나리오별 시장 규모 모델링                    │
-│  + ~~data enrichment: 경쟁사 데이터로 벤치마크 검증              │
+│  Enhanced Mode (with tool connections)                           │
+│  + ~~knowledge base: Refine Bottom-up with internal customer     │
+│                      data                                        │
+│  + ~~spreadsheet: Model market size scenarios                    │
+│  + ~~data enrichment: Validate against competitor data           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 시작하기
+## Getting Started
 
-1. **기본 분석**: "한국 B2B SaaS CRM 시장의 TAM/SAM/SOM을 분석해줘"
-2. **특정 세그먼트**: "중소기업 대상 회계 SaaS의 시장 규모는?"
-3. **투자자용**: "Series A 피치에 쓸 시장 규모 슬라이드 만들어줘"
-4. **검증**: "우리 TAM $5B 추정치가 합리적인지 검증해줘"
+1. **Basic Analysis**: "Analyze TAM/SAM/SOM for Korea B2B SaaS CRM"
+2. **Specific Segment**: "What's the market size for SMB accounting SaaS?"
+3. **Investor Pitch**: "Create a market sizing slide for Series A pitch"
+4. **Validate**: "Verify our $5B TAM estimate"
 
-## TAM / SAM / SOM 정의
+## TAM / SAM / SOM Definition
 
-### 3-Tier 프레임워크
+### 3-Tier Framework
 
 ```
 ┌──────────────────────────────────────────────────────┐
 │                   TAM (Total)                        │
-│  "이 문제를 가진 모든 사람"                            │
-│  예: 전 세계 CRM 시장 $50B                            │
+│  "Everyone with this problem"                        │
+│  Example: Global CRM market $50B                     │
 │  ┌───────────────────────────────────────────┐       │
 │  │          SAM (Serviceable)                │       │
-│  │  "우리가 도달 가능한 사람"                  │       │
-│  │  예: 한국 중소기업 CRM 시장 $500M           │       │
+│  │  "People we can reach"                    │       │
+│  │  Example: Korea SMB CRM $500M             │       │
 │  │  ┌─────────────────────────────────┐      │       │
 │  │  │    SOM (Obtainable)             │      │       │
-│  │  │  "현실적으로 확보 가능"           │      │       │
-│  │  │  예: 3년 내 목표 $15M (3%)       │      │       │
+│  │  │  "Realistic capture target"     │      │       │
+│  │  │  Example: 3-year goal $15M (3%) │      │       │
 │  │  └─────────────────────────────────┘      │       │
 │  └───────────────────────────────────────────┘       │
 └──────────────────────────────────────────────────────┘
 ```
 
-### 각 단계 정의
+### Each Tier Defined
 
-| 단계 | 정의 | 질문 | 투자자 관심사 |
-|------|------|------|---------------|
-| **TAM** | 총 주소 가능 시장 | "만약 모든 잠재 고객이 우리 제품을 쓴다면?" | 시장이 충분히 큰가? ($1B+ 선호) |
-| **SAM** | 서비스 가능 시장 | "우리 비즈니스 모델로 도달 가능한 고객은?" | 현실적인 타겟인가? |
-| **SOM** | 획득 가능 시장 | "3-5년 내 실제로 확보할 수 있는 점유율은?" | 실행 가능성이 있는가? |
+| Tier | Definition | Key Question | Investor Focus |
+|------|-----------|--------------|-----------------|
+| **TAM** | Total addressable market | "If all potential customers used us?" | Is market big enough? ($1B+ preferred) |
+| **SAM** | Serviceable available market | "Who can our business model reach?" | Is target realistic? |
+| **SOM** | Serviceable obtainable market | "How much can we realistically capture?" | Is execution feasible? |
 
-### 일반적인 비율
-- **SAM**: TAM의 10-50% (지역, 세그먼트, 채널 제약)
-- **SOM**: SAM의 2-10% (3-5년 목표, 경쟁 고려)
+### Typical Ratios
+- **SAM**: 10-50% of TAM (geography, segment, channel constraints)
+- **SOM**: 2-10% of SAM (3-5 year goal, competition considered)
 
-**예시** (글로벌 SaaS CRM):
-- TAM: $50B (전 세계 모든 기업)
-- SAM: $5B (한국 + 중소기업 + 클라우드 기반)
-- SOM: $150M (5년 후 3% 점유율)
+**Example** (Global SaaS CRM):
+- TAM: $50B (all enterprises worldwide)
+- SAM: $5B (Korea + SMB + cloud-based)
+- SOM: $150M (5-year 3% market share goal)
 
 ---
 
-## 3가지 방법론
+## 3 Methodologies
 
-### 방법론 비교
+### Methodology Comparison
 
-| 방법론 | 접근 방식 | 장점 | 단점 | 적합 상황 |
-|--------|----------|------|------|-----------|
-| **Top-down** | 전체 시장 → 세그먼트 | 빠름, 산업 보고서 활용 | 가정 많음, 과대 추정 위험 | 성숙 시장, 초기 추정 |
-| **Bottom-up** | 단위 경제 → 집계 | 정확함, 현실적 | 데이터 필요, 시간 소요 | 검증된 Unit Economics |
-| **Value Theory** | 창출 가치 기반 | 신시장 적합, 차별화 | 증명 어려움, 추상적 | 혁신적 제품, 새 카테고리 |
+| Methodology | Approach | Advantages | Disadvantages | Best For |
+|------------|----------|-----------|----------------|----------|
+| **Top-down** | Market → Segment | Fast, uses reports | Many assumptions, over-estimates | Mature market, initial estimates |
+| **Bottom-up** | Unit economics → Aggregate | Accurate, realistic | Data-heavy, time-consuming | Validated Unit Economics |
+| **Value Theory** | Customer value creation | Fits new markets, differentiates | Subjective, hard to prove | New categories, 10x products |
 
-**권장**: 3가지 모두 실행 후 교차 검증 (Triangulation)
+**Recommendation**: Execute all 3, then cross-validate (Triangulation)
 
-### 1. Top-down (하향식)
+### 1. Top-down (Top to Bottom)
 
-#### 프로세스
+#### Process
 
 ```
-전체 시장 규모
-    ↓ 지역 필터 (예: 한국 = 글로벌의 2%)
-한국 시장 규모
-    ↓ 세그먼트 필터 (예: 중소기업 = 60%)
-타겟 세그먼트
-    ↓ 채택률 (예: 클라우드 전환 = 40%)
+Entire market size
+    ↓ Region filter (example: Korea = 2% of global)
+Korea market size
+    ↓ Segment filter (example: SMB = 60%)
+Target segment
+    ↓ Adoption rate (example: cloud conversion = 40%)
 SAM
-    ↓ 점유율 목표 (예: 3-5년 5%)
+    ↓ Market share target (example: 5% in 5 years)
 SOM
 ```
 
-#### 계산 예시 (CRM SaaS)
+#### Calculation Example (CRM SaaS)
 
-1. **TAM**: 글로벌 CRM 시장 = $50B (Gartner 2024)
-2. **지역 축소**: 한국 = 글로벌의 2% = $1B
-3. **세그먼트**: 중소기업(직원 10-500명) = 60% = $600M
-4. **채널**: 클라우드 기반 = 70% = **$420M (SAM)**
-5. **점유율**: 5년 후 5% = **$21M (SOM)**
+1. **TAM**: Global CRM market = $50B (Gartner 2024)
+2. **Region Filter**: Korea = 2% of global = $1B
+3. **Segment**: SMB (10-500 employees) = 60% = $600M
+4. **Channel**: Cloud-based = 70% = **$420M (SAM)**
+5. **Market Share**: 5-year goal 5% = **$21M (SOM)**
 
-#### 데이터 소스
-- **글로벌**: Gartner, IDC, Forrester, Statista, Grand View Research
-- **한국**: 한국정보통신산업협회(KAIT), KISA, 통계청
-- **무료 대안**: 상장사 IR, 산업 협회 보고서, CB Insights
+#### Data Sources
+- **Global**: Gartner, IDC, Forrester, Statista, Grand View Research
+- **Korea**: Korean IT Industry Association (KAIT), KISA, Statistics Korea
+- **Free Alternative**: Public company IR, industry association reports, CB Insights
 
-#### 주의사항
-- **과대 추정 방지**: 필터 단계마다 보수적 가정
-- **최신 데이터**: 2-3년 된 보고서는 성장률로 조정
-- **정의 일치**: "CRM"의 범위가 보고서마다 다름 (확인 필수)
+#### Cautions
+- **Avoid Over-estimation**: Conservative filter at each step
+- **Use Current Data**: 2-3 year old reports, adjust for growth
+- **Confirm Definitions**: "CRM" scope varies by report
 
-### 2. Bottom-up (상향식)
+### 2. Bottom-up (Bottom to Top)
 
-#### 프로세스
+#### Process
 
 ```
-단위 경제
- (고객당 매출)
-    ↓ × 타겟 고객 수
-잠재 매출
-    ↓ × 현실적 도달률
+Unit economics
+ (Revenue per customer)
+    ↓ × Target customer count
+Potential revenue
+    ↓ × Realistic reach rate
 SAM
-    ↓ × 전환율
+    ↓ × Conversion rate
 SOM
 ```
 
-#### 계산 예시 (회계 SaaS for SMB)
+#### Calculation Example (Accounting SaaS for SMB)
 
-**1단계: 타겟 고객 수 산정**
-- 한국 중소기업 (직원 10-100명): 150,000개 (통계청)
-- 현재 회계 소프트웨어 사용: 80% = 120,000개
-- 클라우드 전환 의향: 50% = **60,000개 (TAM 고객 수)**
+**Step 1: Target Customer Count**
+- Korea SMB (10-100 employees): 150,000 (Statistics Korea)
+- Current accounting software users: 80% = 120,000
+- Cloud conversion intent: 50% = **60,000 (TAM customers)**
 
-**2단계: 고객당 매출**
-- ARPA (Average Revenue Per Account): ₩30만원/월
-- 연간 매출: ₩360만원/고객
+**Step 2: Customer Revenue**
+- ARPA (Average Revenue Per Account): ₩300K/month
+- Annual: ₩3.6M per customer
 
-**3단계: TAM 계산**
-- 60,000개 × ₩360만원 = **₩2,160억 (약 $180M)**
+**Step 3: TAM Calculation**
+- 60,000 × ₩3.6M = **₩216B (~$180M)**
 
-**4단계: SAM (도달 가능)**
-- 우리 영업력으로 커버 가능: 30% = 18,000개
-- SAM = 18,000 × ₩360만원 = **₩648억 ($54M)**
+**Step 4: SAM (Reachable)**
+- Sales team can cover: 30% = 18,000 customers
+- SAM = 18,000 × ₩3.6M = **₩64.8B ($54M)**
 
-**5단계: SOM (5년 목표)**
-- 목표 점유율: 5% = 900개 고객
-- SOM = 900 × ₩360만원 = **₩32.4억 ($2.7M ARR)**
+**Step 5: SOM (5-year target)**
+- Target share: 5% = 900 customers
+- SOM = 900 × ₩3.6M = **₩3.24B ($2.7M ARR)**
 
-#### 데이터 소스
-- **고객 수**: 통계청, 중소벤처기업부, 산업별 협회
-- **ARPA**: 경쟁사 공시 자료, 베타 고객 데이터, 가격 페이지
-- **전환율**: 자사 퍼널 데이터, 벤치마크 (Seed: 1-3%, Series A: 5-10%)
+#### Data Sources
+- **Customer Count**: Statistics Korea, SME Office, industry associations
+- **ARPA**: Competitor disclosures, beta customer data, pricing pages
+- **Conversion**: Own funnel data, benchmarks (Seed: 1-3%, Series A: 5-10%)
 
-#### 장점
-- **검증 가능**: 각 단계 가정을 데이터로 뒷받침
-- **실행 계획 연결**: SOM에서 역산하여 필요 고객 수 도출
-- **투자자 신뢰**: "몇 개 고객, 얼마씩" 구체적 설명
+#### Advantages
+- **Verifiable**: Each step backed by data
+- **Connects to Execution**: SOM reverse-calculates needed customers
+- **Investor Trust**: Specific, credible narrative
 
-### 3. Value Theory (가치 기반)
+### 3. Value Theory (Value-Based)
 
-#### 프로세스
+#### Process
 
 ```
-현재 솔루션 비용
-    ↓ - 우리 제품 비용
-절감액 (또는 추가 가치)
-    ↓ × 총 고객 수
+Current solution cost
+    ↓ - Our product cost
+Savings (or added value)
+    ↓ × Total customer count
 TAM
-    ↓ × 점유율 목표
+    ↓ × Adoption target %
 SOM
 ```
 
-#### 계산 예시 (AI 채용 플랫폼)
+#### Calculation Example (AI Recruiting Platform)
 
-**1단계: 현재 비용 산정**
-- 중소기업 평균 채용 비용: ₩500만원/건 (에이전시 수수료 20%)
-- 연간 채용 건수: 평균 5명
-- 연간 채용 비용: ₩2,500만원/기업
+**Step 1: Current Cost**
+- Avg SMB recruiting cost: ₩5M per hire (20% agency fee)
+- Avg hires/year: 5
+- Annual recruiting cost: ₩25M/business
 
-**2단계: 우리 솔루션 가치**
-- AI 매칭으로 에이전시 불필요 → 비용 80% 절감
-- 절감액: ₩2,000만원/기업/년
-- 우리 구독료: ₩600만원/년
-- **순 절감액: ₩1,400만원/기업/년**
+**Step 2: Our Value**
+- Reduce agency fee 80%: -₩4M
+- Save HR time 50%: -₩1.2M
+- Reduce bad hires 30%: -₩1.5M
+- Total savings: ₩7.5M/year
 
-**3단계: 지불 의향 (Willingness to Pay)**
-- 절감액의 50%를 지불 의향으로 가정: ₩1,000만원
-- 우리 가격 ₩600만원은 **60% 할인** → 매력적
+**Our subscription**: ₩1.2M/year
+- **Net savings**: ₩6.3M/year
+- **ROI**: 525%
 
-**4단계: TAM 계산**
-- 타겟 고객: 50,000개 중소기업
-- TAM = 50,000 × ₩600만원 = **₩3,000억 ($250M)**
+**Step 3: Willingness to Pay**
+- Customers pay 10-30% of savings: 30% = ₩1.9M
+- Our price ₩1.2M is 63% of willingness → attractive
 
-**5단계: SOM**
-- 5년 후 10% 점유율: 5,000개
-- SOM = 5,000 × ₩600만원 = **₩300억 ($25M ARR)**
+**Step 4: TAM**
+- Target: 50,000 SMBs
+- TAM = 50,000 × ₩1.2M = **₩600B (~$50M)**
 
-#### 적용 시나리오
-- **신규 카테고리**: 기존 시장 데이터 없음 (예: Web3, 메타버스)
-- **혁신 제품**: 10x 더 나은 솔루션
-- **B2B ROI**: 명확한 비용 절감 또는 매출 증대
+**Step 5: SOM**
+- 5-year adoption: 10% (existing solution replacement)
+- SOM = 5,000 customers × ₩1.2M = **₩300B ($25M ARR)**
 
-#### 주의사항
-- **가정 검증**: "80% 절감" 주장을 베타 고객 데이터로 증명
-- **대체재 고려**: 무료 또는 저가 대안과 비교
-- **행동 변화**: 가치는 있지만 "전환 비용"이 높으면 채택 느림
+#### When to Use
+- **New Categories**: No existing market data
+- **10x Innovation**: Revolutionary product
+- **B2B ROI**: Clear cost savings narrative
+
+#### Cautions
+- **Validate Assumptions**: "80% savings" proven with beta customer data
+- **Consider Alternatives**: Free/low-cost competing options
+- **Behavior Change**: Value exists, but conversion may be slow
 
 ---
 
-## 교차 검증 (Triangulation)
+## Cross-Validation (Triangulation)
 
-### 왜 필요한가?
-- **Top-down**: 과대 추정 경향
-- **Bottom-up**: 과소 추정 경향 (보수적 가정)
-- **Value Theory**: 주관적, 증명 어려움
+### Why It's Needed
 
-→ **3가지 결과가 비슷한 범위에 있으면 신뢰도 ↑**
+- **Top-down**: Tends to over-estimate
+- **Bottom-up**: Tends to under-estimate (conservative)
+- **Value Theory**: Subjective, hard to prove
 
-### 검증 프로세스
+→ **3 results in similar range = high confidence**
 
-1. **3가지 방법론 실행**
-   - 각각 독립적으로 TAM/SAM/SOM 계산
+### Validation Process
 
-2. **결과 비교**
+1. **Run 3 Methodologies Independently**
+   - Don't let one result influence another
+
+2. **Compare Results**
    ```
-   | 방법론 | TAM | SAM | SOM (5년) |
+   | Methodology | TAM | SAM | SOM (5-year) |
    |--------|-----|-----|-----------|
    | Top-down | $200M | $50M | $5M |
    | Bottom-up | $180M | $45M | $3M |
    | Value Theory | $250M | $60M | $6M |
-   | **평균** | **$210M** | **$52M** | **$4.7M** |
-   | **범위** | ±15% | ±14% | ±29% |
+   | **Average** | **$210M** | **$52M** | **$4.7M** |
+   | **Range** | ±15% | ±14% | ±29% |
    ```
 
-3. **차이 분석**
-   - **±20% 이내**: 일관성 있음 → 평균 사용
-   - **±50% 이상**: 가정 재검토 (어디서 차이 발생?)
+3. **Assess Consistency**
+   - **±20% or less**: Confident → use average
+   - **±20-50%**: Medium confidence → review assumptions
+   - **±50%+**: Low confidence → re-run methodology
 
-4. **보수적 선택**
-   - 투자자용: **중간값** 또는 **하위 25%** 제시
-   - 내부 계획: **상위 값** 목표로 설정
+4. **Choose Conservative Value**
+   - **Investor**: Mid-range or lower 25%
+   - **Internal Plan**: Upper range as stretch goal
 
-### 예시: 차이 원인 분석
+### Example: Analysis Difference
 
-**Bottom-up ($45M SAM) vs Top-down ($50M SAM) 차이**:
-- Top-down: 산업 보고서의 "중소기업" 정의가 더 넓음 (직원 500명까지 포함)
-- Bottom-up: 우리는 10-100명만 타겟 → 더 좁은 세그먼트
-- **결론**: Bottom-up이 더 정확. Top-down 가정 조정 필요.
+**Bottom-up ($45M SAM) vs Top-down ($50M SAM) – Why?**:
+- Top-down: "SMB" in report includes up to 500 employees
+- Bottom-up: We target only 10-100 employees
+- **Conclusion**: Bottom-up is more accurate; adjust Top-down assumptions
 
 ---
 
-## 투자자 프레젠테이션
+## Investor Presentation
 
-### 슬라이드 구성 (1페이지)
+### Slide Structure (1 Page)
 
 ```markdown
-# 시장 기회
+# Market Opportunity
 
 ## TAM / SAM / SOM
 
 ┌──────────────────────────────────────────┐
-│  TAM   $200M   한국 중소기업 회계 SaaS    │
+│  TAM   $200M   Korea SMB Accounting SaaS │
 │    ↓                                      │
-│  SAM    $50M   10-100명 기업, 클라우드    │
+│  SAM    $50M   10-100 employees, cloud   │
 │    ↓                                      │
-│  SOM     $5M   5년 후 10% 점유율          │
+│  SOM     $5M   5-year 10% market share   │
 └──────────────────────────────────────────┘
 
-### 방법론 (교차 검증)
-✓ Top-down: Gartner 시장 보고서 기반
-✓ Bottom-up: 60,000개 타겟 고객 × ₩360만원 ARPA
-✓ Value Theory: 기존 대비 ₩1,400만원/년 절감 가치
+### Methodology (Cross-Validated)
+✓ Top-down: Gartner market report basis
+✓ Bottom-up: 60,000 targets × ₩3.6M ARPA
+✓ Value Theory: ₩6.3M/year savings basis
 
-### 성장 동인
-• 클라우드 전환 가속 (연 15% 성장)
-• 디지털 세금계산서 의무화 (2025년)
-• 중소기업 회계 자동화 수요 증가
+### Growth Drivers
+• Cloud migration acceleration (15% annual)
+• Digital tax invoice mandate (2025)
+• SMB automation demand increase
 ```
 
-### 투자자가 보는 포인트
+### Investor Red Flags vs Green Lights
 
-| 체크 항목 | RED FLAG 🔴 | GREEN LIGHT 🟢 |
-|-----------|-------------|----------------|
-| **TAM 크기** | <$500M | >$1B |
-| **SAM 논리** | "모든 사람" | 명확한 세그먼트 |
-| **SOM 근거** | "우리는 10% 차지" | Unit Economics 역산 |
-| **성장률** | 정체 시장 | 연 10%+ 성장 |
-| **경쟁** | 포화 시장 | 파편화 또는 신규 |
-| **방법론** | 1가지만 | 2-3가지 교차 검증 |
+| Check | RED FLAG 🔴 | GREEN LIGHT 🟢 |
+|-------|------------|-----------------|
+| **TAM Size** | <$500M | >$1B |
+| **SAM Logic** | "Everyone" | Clear segment definition |
+| **SOM Basis** | "We'll take 10%" | Unit economics reverse-calc |
+| **Growth Rate** | Flat market | 10%+ annual growth |
+| **Competition** | Saturated | Fragmented or new |
+| **Methodology** | 1 only | 2-3 cross-validated |
 
-### 일반적인 실수
+### Common Mistakes
 
-❌ **과대 추정**
-- "글로벌 $500B 시장의 1%만 차지해도 $5B"
-- → 왜 1%? 어떻게 도달? 구체적 계획 없음
+❌ **Over-estimation**
+- "Global $500B market, we'll take 1% = $5B"
+- → Why 1%? How? Plan not shown
 
 ❌ **TAM = SAM**
-- 지역, 세그먼트, 채널 제약 고려 안 함
-- → "서울 강남 3개 구만 커버 가능"을 간과
+- Ignores geography, segment, channel constraints
+- → "Only Seoul, 3 districts" coverage missed
 
-❌ **정적 시장**
-- 현재 시장 크기만 제시, 성장률 누락
-- → 5년 후 시장은? CAGR?
+❌ **Static Market**
+- Current size only, no growth rate
+- → What about market in 5 years?
 
-❌ **단일 방법론**
-- Top-down만 사용 → 검증 불가
-- → 최소 2가지로 교차 확인
+❌ **Single Methodology**
+- Top-down only → unverified
+- → Use minimum 2, ideally 3
 
-✅ **좋은 예시**
+✅ **Good Example**
 ```
 TAM: $2B (2024) → $4B (2029, 15% CAGR)
-SAM: $500M (한국 + 중소기업 + SaaS 전환 40%)
-SOM: $25M (5년 후 5% 점유율)
+SAM: $500M (Korea + SMB + SaaS 40% adoption)
+SOM: $25M (5-year 5% market share)
 
-근거:
-• Top-down: Gartner 보고서
-• Bottom-up: 60K 기업 × ₩5M ARPA
-• 베타 고객 30개 → ₩4.8M 실제 ARPA 검증
+Evidence:
+• Top-down: Gartner report
+• Bottom-up: 60K accounts × ₩5M ARPA
+• Beta customer validation: ₩4.8M actual ARPA (±4%)
 ```
 
 ---
 
-## 비즈니스 모델별 고려사항
+## By Business Model
 
 ### SaaS
 
-**TAM 산정 기준**:
-- 총 타겟 고객 수 (기업 또는 개인)
-- ARPA × 고객 수
-- 기존 레거시 솔루션 시장 크기
+**TAM Calculation Basis**:
+- Total target customers (companies or people)
+- ARPA × customer count
+- Existing legacy solution market size
 
-**핵심 가정**:
-- 클라우드 전환율 (온프레미스 → SaaS)
-- 채택률 (Excel/수작업 → 소프트웨어)
-- ARPA (Tier별 가격 × 믹스)
+**Key Assumptions**:
+- Cloud migration rate (on-premise → SaaS)
+- Adoption rate (manual/Excel → software)
+- ARPA (price per tier × mix)
 
-**예시**:
-- TAM = 100K 기업 × $500/월 × 12개월 = $600M
+**Example**:
+- TAM = 100K companies × $500/month × 12 = $600M
 
-### 마켓플레이스
+### Marketplace
 
-**TAM 산정 기준**:
-- 총 거래액 (GMV) × Take Rate
-- 또는 현재 오프라인 시장의 온라인 전환
+**TAM Calculation Basis**:
+- Total transaction value (GMV) × Take Rate
+- OR: Offline market online conversion
 
-**핵심 가정**:
-- 온라인 침투율 (예: 중고차 거래의 10%가 온라인)
-- Take Rate (10-30%, 카테고리별 상이)
-- 거래 빈도 (예: 연 2회 중고차 거래)
+**Key Assumptions**:
+- Online penetration rate (e.g., 20% of used car sales)
+- Take rate (10-30%, category-specific)
+- Transaction frequency
 
-**예시**:
-- 한국 중고차 연 300만대 × 평균 ₩1,500만원 = ₩45조
-- 온라인 전환 20% = ₩9조 (GMV)
-- Take Rate 3% → TAM = ₩2,700억
+**Example**:
+- Korea used car sales: ₩45 trillion
+- Online conversion: 20% = ₩9 trillion GMV
+- Take rate: 3% → TAM = ₩270B
 
-### 컨슈머 (Consumer)
+### Consumer
 
-**TAM 산정 기준**:
-- 총 타겟 사용자 수 × ARPU
-- 또는 대체하는 오프라인 지출
+**TAM Calculation Basis**:
+- Total target users × ARPU
+- OR: Replace offline spending
 
-**핵심 가정**:
-- 타겟 연령/지역/관심사 인구
-- 스마트폰 보급률 (모바일 앱일 경우)
-- 지불 의향 (구독, IAP, 광고 ARPU)
+**Key Assumptions**:
+- Target demographic size
+- Smartphone adoption (mobile apps)
+- Monetization willingness (subscription, IAP, ads)
 
-**예시** (운동 앱):
-- 한국 성인 (20-50대) 운동 인구: 1,000만명
-- 앱 사용 의향 30% = 300만명
-- ARPU ₩5,000/월 → TAM = ₩1,800억/년
+**Example** (Fitness app):
+- Korea 20-50 age exercise population: 10M
+- App usage intent: 10% = 1M
+- ARPU: ₩5,000/month → TAM = ₩600B/year
 
-### B2B (Enterprise)
+### B2B Enterprise
 
-**TAM 산정 기준**:
-- Account 수 (기업 수) × ACV
-- 또는 IT 예산 중 특정 카테고리 비중
+**TAM Calculation Basis**:
+- Account count (enterprises) × ACV
+- OR: IT budget category share
 
-**핵심 가정**:
-- ICP (Ideal Customer Profile) 필터
-  - 산업, 직원 수, 매출 규모
-- ACV (SMB < $50K, Mid $50-250K, Ent >$250K)
-- Buying Center (의사결정자 존재 여부)
+**Key Assumptions**:
+- ICP filters (industry, employee count, revenue)
+- ACV (SMB <$50K, Mid $50-250K, Ent >$250K)
+- Buying committee existence
 
-**예시**:
-- 한국 제조업 (직원 500+): 2,000개
-- IT 예산 연 ₩10억 × 5% (우리 카테고리) = ₩5,000만
-- TAM = 2,000 × ₩5,000만 = ₩1,000억
+**Example**:
+- Korea manufacturing (500+ employees): 2,000
+- IT budget ₩1B × 5% (our category) = ₩50M
+- TAM = 2,000 × ₩50M = ₩100B
 
 ---
 
-## 실행 흐름
+## Execution Flow
 
-1. **입력 수집**
-   - 제품/서비스 설명
-   - 타겟 고객 (지역, 세그먼트)
-   - 가격 모델 (ARPA 또는 ACV)
-   - 기존 경쟁사 (있다면)
+1. **Collect Input**
+   - Product description
+   - Target customer (region, segment)
+   - Pricing model (ARPA or ACV)
+   - Competitors (if known)
 
-2. **웹 리서치** (10-15 queries)
-   - "한국 [산업] 시장 규모 2024"
-   - "[카테고리] global market size forecast"
-   - "number of [타겟 고객] in [지역]"
-   - "[경쟁사] revenue ARR"
-   - "ARPA benchmark [업종]"
+2. **Web Research** (10-15 queries)
+   - "Korea [industry] market size 2024"
+   - "[category] global market size forecast"
+   - "Number of [target customers] in [region]"
+   - "[competitor] revenue ARR"
+   - "ARPA benchmark [industry]"
 
-3. **Top-down 계산**
-   - 글로벌/한국 시장 크기 파악
-   - 필터 적용 (지역 → 세그먼트 → 채널)
+3. **Top-down Calculation**
+   - Find global/Korea market size
+   - Apply filters (geography → segment → channel)
    - TAM → SAM → SOM
 
-4. **Bottom-up 계산**
-   - 타겟 고객 수 산정
-   - ARPA 설정
-   - 도달 가능성 및 전환율 적용
+4. **Bottom-up Calculation**
+   - Define target customer count
+   - Set ARPA
+   - Apply reach and conversion rates
 
-5. **Value Theory** (선택)
-   - 현재 솔루션 비용 vs 우리 가격
-   - 절감액 또는 추가 가치
-   - 지불 의향 검증
+5. **Value Theory** (optional)
+   - Current solution cost vs our price
+   - Savings or value addition
+   - Willingness to pay validation
 
-6. **교차 검증**
-   - 3가지 결과 비교
-   - ±20% 이내면 평균 사용
-   - 차이 크면 가정 재검토
+6. **Cross-Validate**
+   - Compare 3 results
+   - If ±20% range: use average
+   - If wider: recheck assumptions
 
-7. **출력 생성**
-   - 투자자용 슬라이드 (1페이지)
-   - 가정 문서화 (상세 계산)
-   - 데이터 소스 명시
-
----
-
-## 연결 가능한 도구
-
-| 도구 카테고리 | 플레이스홀더 | 용도 | 예시 도구 |
-|---------------|-------------|------|-----------|
-| 지식 베이스 | `~~knowledge base` | 내부 고객 데이터로 ARPA 검증 | Notion, Confluence |
-| 스프레드시트 | `~~spreadsheet` | 시나리오별 시장 규모 모델링 | Google Sheets, Excel |
-| 데이터 보강 | `~~data enrichment` | 경쟁사 투자·성장 지표 수집 | THE VC, 혁신의숲, OpenDART |
-| CRM | `~~CRM` | 실제 전환율 데이터 추출 | Relate, HubSpot |
+7. **Create Output**
+   - Investor slide (1 page)
+   - Assumptions doc (detailed calculation)
+   - Data sources cited
 
 ---
 
-## 관련 스킬
+## Connected Tools
 
-- **startup-metrics**: SOM을 달성하기 위한 핵심 지표 설정
-- **financial-modeling**: 시장 규모를 매출 예측에 반영
-- **competitive-landscape**: 시장 내 경쟁 강도 및 점유율 분석
-- **gtm-strategy**: SAM 도달을 위한 GTM 모션 선택
+| Tool Category | Placeholder | Use Case | Example Tools |
+|---------------|-------------|----------|----------------|
+| Knowledge Base | `~~knowledge base` | Validate ARPA with internal customer data | Notion, Confluence |
+| Spreadsheet | `~~spreadsheet` | Model market scenarios | Google Sheets, Excel |
+| Data Enrichment | `~~data enrichment` | Verify against competitor data | THE VC, Innovation Forest, OpenDART |
+| CRM | `~~CRM` | Extract actual conversion data | Relate, HubSpot |
 
 ---
 
-## 팁
+## Related Skills
 
-- **보수적 가정**: 투자자는 항상 "너무 낙관적" 의심. 하향 조정된 수치가 신뢰
-- **성장 시장 선호**: 정체 시장보다 연 10%+ 성장 시장이 유리
-- **3가지 모두 실행**: 1가지만 하면 "검증 안 됨" 인상. 최소 2가지
-- **데이터 소스 명시**: "Gartner 2024", "통계청 2023" 등 출처 표기 필수
-- **가정 문서화**: "중소기업 = 10-100명"처럼 정의 명확히
-- **역산 검증**: SOM에서 필요 고객 수 역산 → 실행 가능한지 체크
-  - 예: $5M SOM ÷ $50K ACV = 100개 고객 필요. 현실적?
-- **시장 vs 우리**: TAM은 시장, SOM은 우리 목표. 혼동 금지
-- **지역 특성**: 한국은 미국 대비 시장 작고, ACV 낮고, 채택 느림 → 조정 필요
+- **startup-metrics**: Set metrics to achieve SOM
+- **financial-modeling**: Embed market sizing into revenue forecast
+- **competitive-landscape**: Analyze competition within market
+- **gtm-strategy**: Select GTM motion for SAM reach
 
-**상세 방법론**: [references/methodology-guide.md](references/methodology-guide.md) 참조
+---
+
+## Tips
+
+- **Conservative Assumptions**: Investors always suspect over-optimism; downside estimates build credibility
+- **Growth Markets Preferred**: Stagnant market < 10%+ growth
+- **Do All 3 Methods**: 1 method = "not validated" impression; minimum 2, ideally 3
+- **Cite Data Sources**: "Gartner 2024", "Statistics Korea 2023" — specifics matter
+- **Document Definitions**: "SMB = 10-100 employees" — be explicit
+- **Reverse-Check SOM**: $5M SOM ÷ $50K ACV = 100 customers needed. Realistic? Check.
+- **Market vs Us**: TAM is market; SOM is us. Don't confuse.
+- **Korea Adjustments**: Korea market smaller, lower ACV, slower adoption than US → calibrate
+
+**Detailed Methodology**: See [references/methodology-guide.md](references/methodology-guide.md)
