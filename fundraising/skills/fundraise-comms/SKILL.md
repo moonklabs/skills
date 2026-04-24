@@ -1,785 +1,788 @@
 ---
 name: fundraise-comms
-description: 투자자 이메일 템플릿(웜인트로/콜드/팔로업), 월간 업데이트, Day5/10/21 케이던스, 스타일 가이드를 안내합니다. "투자자 이메일", "VC 연락", "투자자 업데이트", "인트로 이메일", "팔로업 이메일", "월간 업데이트" 등으로 실행합니다.
+description: >
+  Email templates for investors (warm intro, cold, follow-up), monthly updates, Day 5/10/21 cadence, and style guide.
+  Triggers on "investor email", "contact VC", "investor update", "intro email", "follow-up email", "monthly update",
+  "투자자 이메일", "VC 연락", "투자자 업데이트", "인트로 이메일", "팔로업 이메일", "월간 업데이트".
 ---
 
-# 투자자 커뮤니케이션
+# Investor Communications
 
-투자자와의 모든 커뮤니케이션은 신뢰 구축의 기회입니다. 이 스킬은 첫 접촉부터 정기 업데이트까지, 투자자와의 관계를 지속적으로 강화하는 커뮤니케이션 프레임워크를 제공합니다.
+Every investor interaction is an opportunity to build trust. This skill provides a communication framework that strengthens investor relationships from initial contact through regular updates.
 
-## 커넥터 (선택사항)
+## Connectors (Optional)
 
-| 커넥터 | 추가 기능 |
-|--------|----------|
-| **CRM** | 투자자 관계 이력, 이전 커뮤니케이션 맥락 |
-| **이메일** | 받은 편지함에서 직접 초안 생성, 응답률 추적 |
-| **데이터 보강** | 투자자 최신 활동, 포트폴리오 뉴스 |
-| **지식 베이스** | 월간 업데이트 히스토리, 메트릭스 추이 |
+| Connector | Additional Features |
+|-----------|-------------------|
+| **CRM** | Investor relationship history, prior communication context |
+| **Email** | Draft directly from inbox, track response rates |
+| **Data Enrichment** | Latest investor activity, portfolio news |
+| **Knowledge Base** | Monthly update history, metric trends |
 
-> **커넥터가 없나요?** 웹 리서치와 사용자 입력만으로도 훌륭한 투자자 커뮤니케이션을 작성할 수 있습니다.
+> **No connectors?** Web research and user input alone create excellent investor communications.
 
 ---
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                  FUNDRAISE COMMUNICATIONS                         │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (단독 작동)                                            │
-│  ✓ 투자자 맥락 파악 (thesis, 포트폴리오, 최근 활동)               │
-│  ✓ 시나리오별 이메일 템플릿 (웜/콜드/팔로업/업데이트)              │
-│  ✓ Day 5/10/21 팔로업 케이던스                                   │
-│  ✓ 월간 투자자 업데이트 템플릿                                    │
+│  Core Features (works standalone)                               │
+│  ✓ Investor context (thesis, portfolio, recent activity)        │
+│  ✓ Scenario email templates (warm/cold/follow-up/update)        │
+│  ✓ Day 5/10/21 follow-up cadence                                │
+│  ✓ Monthly investor update template                             │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~CRM: 투자자 관계 이력, 커뮤니케이션 히스토리                 │
-│  + ~~email: 받은 편지함에서 직접 초안 생성                        │
-│  + ~~data enrichment: 투자자 최신 활동 자동 수집                 │
-│  + ~~knowledge base: 과거 업데이트 참조, 메트릭스 추이            │
+│  Enhanced Mode (with tool connections)                          │
+│  + ~~CRM: investor relationship history, communication log       │
+│  + ~~email: draft from inbox, auto-track responses              │
+│  + ~~data enrichment: auto-collect latest investor activity     │
+│  + ~~knowledge base: reference past updates, metric trends      │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 시작하기
+## Getting Started
 
 ```bash
-"[연결자]에게 우리를 [투자자]에게 소개 요청 이메일"
-"[VC 펀드] [파트너]에게 콜드 이메일 - [섹터] 투자"
-"[투자자] 미팅 후 팔로업 - 데이터룸 공유"
-"투자자 월간 업데이트 - [월] 실적"
+"Request intro email to [Connector] to introduce us to [Investor]"
+"Cold email to [VC Fund] [Partner] - [Sector] investment"
+"Follow-up after meeting with [Investor] - share data room"
+"Monthly investor update - [Month] performance"
 ```
 
 ---
 
-## 출력 형식
+## Output Format
 
-### 투자자 아웃리치 출력
+### Investor Outreach Output
 
 ```markdown
-# 투자자 아웃리치: [투자자명] @ [VC 펀드]
-**생성일:** [날짜] | **시나리오:** [웜인트로/콜드/팔로업] | **단계:** [Pre-seed/Seed/Series A]
+# Investor Outreach: [Investor Name] @ [VC Fund]
+**Date Generated:** [Date] | **Scenario:** [Warm intro/Cold/Follow-up] | **Stage:** [Pre-seed/Seed/Series A]
 
 ---
 
-## 투자자 맥락
+## Investor Context
 
-**대상:** [이름], [직함] at [VC 펀드]
-**Thesis 적합도:** [GREEN/YELLOW/RED] - [섹터], [단계], [지역]
-**포트폴리오:** [유사 기업 2-3개]
-**최근 활동:** [최근 투자 또는 뉴스]
-**접근 경로:** [웜인트로/공통 포트폴리오/콜드]
-
----
-
-## 이메일 초안
-
-**To:** [이메일]
-**Cc:** [연결자 이메일 - 웜인트로 시]
-**Subject:** [개인화된 제목]
+**Target:** [Name], [Title] at [VC Fund]
+**Thesis Fit:** [GREEN/YELLOW/RED] - [sector], [stage], [geography]
+**Portfolio:** [Similar companies, 2-3]
+**Recent Activity:** [Latest investment or news]
+**Approach Path:** [Warm intro/shared portfolio/cold]
 
 ---
 
-[이메일 본문]
+## Email Draft
+
+**To:** [Email]
+**Cc:** [Connector email — warm intro only]
+**Subject:** [Personalized subject]
 
 ---
 
-**제목 대안:**
-1. [옵션 2]
-2. [옵션 3]
+[Email body]
 
 ---
 
-## 이 접근 방식의 근거
-
-| 요소 | 기반 |
-|------|------|
-| 오프닝 | [Thesis 적합도 또는 공통 포트폴리오] |
-| 훅 | [시장 기회 + 우리 트랙션] |
-| 증거 | [핵심 메트릭스 또는 마일스톤] |
-| CTA | [명확한 요청: 미팅 or 데이터룸] |
+**Subject Alternatives:**
+1. [Option 2]
+2. [Option 3]
 
 ---
 
-## 후속 커뮤니케이션
+## Rationale for This Approach
 
-**Day 5 - 부드러운 리마인더:**
-[짧게, 새로운 각도]
+| Element | Based On |
+|---------|----------|
+| Opening | [Thesis fit or shared portfolio] |
+| Hook | [Market opportunity + our traction] |
+| Evidence | [Key metrics or milestone] |
+| CTA | [Clear ask: meeting or data room] |
 
-**Day 10 - 가치 추가:**
-[새로운 트랙션 또는 뉴스]
+---
 
-**Day 21 - 최종 연락:**
-[정중한 마무리]
+## Follow-up Communications
+
+**Day 5 — Soft Reminder:**
+[Brief, new angle]
+
+**Day 10 — Add Value:**
+[New traction or news]
+
+**Day 21 — Final Touch:**
+[Respectful closing]
 ```
 
-### 월간 투자자 업데이트 출력
+### Monthly Investor Update Output
 
 ```markdown
-# 투자자 업데이트 - [월]
-**발송일:** [날짜] | **대상:** [기존 투자자 / 잠재 투자자 / 전체]
+# Investor Update — [Month]
+**Sent:** [Date] | **Audience:** [Existing investors / Prospects / All]
 
 ---
 
 ## TL;DR
 
-[3줄 요약]
-- [주요 성과 1]
-- [핵심 지표 2]
-- [이번 달 하이라이트 3]
+[3-line summary]
+- [Key achievement 1]
+- [Core metric 2]
+- [This month highlight 3]
 
 ---
 
-## 핵심 지표
+## Key Metrics
 
-| 지표 | 이번 달 | 지난 달 | 변화 | 목표 대비 |
-|------|---------|---------|------|-----------|
-| [지표1] | [값] | [값] | [+X%] | [90%] |
-| [지표2] | [값] | [값] | [+X%] | [105%] |
-| [지표3] | [값] | [값] | [-X%] | [85%] |
+| Metric | This Month | Last Month | Change | vs Target |
+|--------|-----------|-----------|--------|-----------|
+| [Metric 1] | [Value] | [Value] | [+X%] | [90%] |
+| [Metric 2] | [Value] | [Value] | [+X%] | [105%] |
+| [Metric 3] | [Value] | [Value] | [-X%] | [85%] |
 
-**해석:** [간략한 설명]
-
----
-
-## 이번 달 하이라이트
-
-1. **[카테고리: 제품/고객/팀/자금]**
-   - [구체적 성과]
-   - [영향 또는 의미]
-
-2. **[카테고리]**
-   - [성과]
-   - [영향]
-
-3. **[카테고리]**
-   - [성과]
-   - [영향]
+**Interpretation:** [Brief explanation]
 
 ---
 
-## 챌린지 & 학습
+## This Month's Highlights
 
-- **[챌린지 1]:** [상황] → [우리의 대응] → [결과]
-- **[챌린지 2]:** [상황] → [우리의 대응] → [진행 중]
+1. **[Category: Product/Customer/Team/Funding]**
+   - [Specific achievement]
+   - [Impact or meaning]
 
-**투명성:** [어려운 상황도 솔직하게, 하지만 해결 의지 명확히]
+2. **[Category]**
+   - [Achievement]
+   - [Impact]
 
----
-
-## 도움 요청
-
-[구체적이고 실행 가능한 요청 2-3개]
-- [ ] [인트로 요청: 특정 인물/기업]
-- [ ] [조언 요청: 구체적 영역]
-- [ ] [채용 지원: 특정 포지션]
+3. **[Category]**
+   - [Achievement]
+   - [Impact]
 
 ---
 
-## 다음 달 목표
+## Challenges & Learning
 
-- [목표 1] by [날짜]
-- [목표 2] by [날짜]
-- [목표 3] by [날짜]
+- **[Challenge 1]:** [Situation] → [Our response] → [Result]
+- **[Challenge 2]:** [Situation] → [Our response] → [In progress]
 
----
-
-## 감사 인사
-
-[진심 어린 감사 + 다음 업데이트 예고]
-
-**다음 업데이트:** [다음 달 X일]
-```
+**Transparency:** [Honest about tough situations, but clear on resolution]
 
 ---
 
-## 실행 흐름
+## Asks for Help
 
-### 1단계: 시나리오 파악
+[Concrete, actionable requests — 2-3 items]
+- [ ] [Intro request: specific person/company]
+- [ ] [Advice request: specific area]
+- [ ] [Hiring support: specific role]
 
-```
-입력 패턴 분석:
-- "introduce us to [투자자]" → 웜 인트로 (포워딩 블럽)
-- "cold email to [투자자]" → 콜드 아웃리치
-- "follow up with [투자자]" → 팔로업 (미팅 후 / 무응답)
-- "monthly update" → 월간 투자자 업데이트
-```
+---
 
-### 2단계: 투자자 리서치 (아웃리치 시)
+## Next Month Goals
 
-**내부적으로 investor-research 스킬 사용:**
-```
-1. 투자자 배경 웹 검색
-2. Thesis 매칭 (섹터/단계/체크사이즈/지역)
-3. 포트폴리오 분석 (유사 기업)
-4. 최근 활동 확인 (투자, 뉴스, 트윗)
-5. 접근 경로 식별 (웜인트로 가능성)
-```
+- [Goal 1] by [Date]
+- [Goal 2] by [Date]
+- [Goal 3] by [Date]
 
-**작성 전 반드시 파악:**
-- 투자자의 투자 thesis
-- 포트폴리오 중 유사 기업
-- 최근 투자 활동
-- 개인화 훅
+---
 
-### 3단계: 템플릿 선택 및 개인화
+## Thank You
 
-```
-시나리오별 템플릿:
-1. 웜 인트로 요청 → 연결자에게 포워딩 가능한 블럽
-2. 콜드 아웃리치 → Thesis 적합도 + 트랙션
-3. 미팅 팔로업 → 논의 요약 + 다음 단계
-4. 무응답 팔로업 → Day 5/10/21 케이던스
-5. 월간 업데이트 → 7섹션 구조
-```
+[Genuine gratitude + next update preview]
 
-### 4단계: 메시지 작성
-
-**투자자 아웃리치 구조 (AIDA + 투자자 맥락):**
-```
-SUBJECT: [개인화, Thesis 관련, <50자]
-
-[오프닝: Thesis 적합도 + 훅]
-
-[관심: 시장 기회 1-2문장]
-
-[욕구: 우리 트랙션 + 차별점]
-
-[행동: 명확한 CTA - 미팅 or 데이터룸]
-
-[서명]
-```
-
-**월간 업데이트 구조:**
-```
-1. TL;DR (3줄)
-2. 핵심 지표 표
-3. 하이라이트 (3-4개)
-4. 챌린지 & 학습
-5. 도움 요청
-6. 다음 달 목표
-7. 감사 인사
-```
-
-### 5단계: 이메일 전달
-
-```
-이메일 커넥터 사용 가능 시:
-1. to, subject, body로 초안 생성
-2. 발송 예약 가능 시 최적 시간 제안
-3. 초안 링크 반환
-
-사용 불가 시:
-1. 이메일 텍스트 출력
-2. 참고: "이메일 클라이언트에 복사"
+**Next Update:** [Next month, Day X]
 ```
 
 ---
 
-## 템플릿 라이브러리
+## Execution Flow
 
-### 1. 웜 인트로 요청 (포워딩 블럽)
+### Step 1: Identify Scenario
 
-**연결자에게 보내는 이메일:**
 ```
-Subject: Quick intro to [투자자 이름] at [VC 펀드]?
+Analyze input pattern:
+- "introduce us to [Investor]" → Warm intro (forwardable blurb)
+- "cold email to [Investor]" → Cold outreach
+- "follow up with [Investor]" → Follow-up (post-meeting / no response)
+- "monthly update" → Monthly investor update
+```
 
-Hi [연결자 이름],
+### Step 2: Investor Research (for outreach)
 
-Hope you're doing well! I'm reaching out because we're raising [금액] [라운드]
-for [회사명], and [투자자 이름] at [VC 펀드] would be a perfect fit given
-[구체적 이유: thesis, 포트폴리오 유사성].
+**Internally uses investor-research skill:**
+```
+1. Web search investor background
+2. Thesis match (sector/stage/check size/geography)
+3. Portfolio analysis (similar companies)
+4. Confirm recent activity (investments, news, tweets)
+5. Identify approach path (warm intro potential)
+```
+
+**Must confirm before writing:**
+- Investor's investment thesis
+- Similar companies in portfolio
+- Recent investment activity
+- Personalization hook
+
+### Step 3: Template Selection & Personalization
+
+```
+Templates by scenario:
+1. Warm intro request → Forwardable blurb for connector
+2. Cold outreach → Thesis fit + traction
+3. Post-meeting follow-up → Discussion recap + next steps
+4. No-response follow-up → Day 5/10/21 cadence
+5. Monthly update → 7-section structure
+```
+
+### Step 4: Message Composition
+
+**Investor outreach structure (AIDA + investor context):**
+```
+SUBJECT: [Personalized, thesis-related, <50 characters]
+
+[Opening: Thesis fit + hook]
+
+[Interest: Market opportunity 1-2 sentences]
+
+[Desire: Our traction + differentiation]
+
+[Action: Clear CTA — meeting or data room]
+
+[Signature]
+```
+
+**Monthly update structure:**
+```
+1. TL;DR (3 lines)
+2. Key metrics table
+3. Highlights (3-4 items)
+4. Challenges & Learning
+5. Asks for Help
+6. Next Month Goals
+7. Thank You
+```
+
+### Step 5: Email Delivery
+
+```
+When email connector available:
+1. Generate draft with to, subject, body
+2. Suggest optimal send time if scheduling available
+3. Return draft link
+
+When unavailable:
+1. Output email text
+2. Note: "Copy to your email client"
+```
+
+---
+
+## Template Library
+
+### 1. Warm Intro Request (Forwardable Blurb)
+
+**Email to Connector:**
+```
+Subject: Quick intro to [Investor Name] at [VC Fund]?
+
+Hi [Connector Name],
+
+Hope you're doing well! I'm reaching out because we're raising [Amount] [Round]
+for [Company], and [Investor Name] at [VC Fund] would be a perfect fit given
+[Specific reason: thesis, portfolio similarity].
 
 Would you be open to making an introduction? Happy to send over a forwardable
 blurb to make it easy.
 
 Thanks for considering!
-[서명]
+[Signature]
 ```
 
-**포워딩 가능한 블럽:**
+**Forwardable Blurb:**
 ```
-[연결자 이름],
+[Connector Name],
 
-I wanted to introduce you to [창업자 이름], founder of [회사명].
+I wanted to introduce you to [Founder Name], founder of [Company].
 
-[회사명]는 [한 문장 설명]. They've achieved [핵심 트랙션] in [기간] and
-are currently raising [금액] [라운드].
+[Company] is [one-sentence description]. They've achieved [key traction] in [timeframe] and
+are currently raising [Amount] [Round].
 
-Given [VC 펀드]'s investments in [유사 포트폴리오 기업], I thought this
-would be highly relevant to your thesis on [섹터].
+Given [VC Fund]'s investments in [similar portfolio companies], I thought this
+would be highly relevant to your thesis on [Sector].
 
-[창업자], meet [투자자]. [투자자], meet [창업자].
+[Founder], meet [Investor]. [Investor], meet [Founder].
 
 I'll let you two take it from here!
 ```
 
-### 2. 콜드 아웃리치
+### 2. Cold Outreach
 
 ```
-Subject: [회사명] - [섹터] opportunity [thesis 키워드]
+Subject: [Company] - [Sector] opportunity [thesis keyword]
 
-Hi [투자자 이름],
+Hi [Investor Name],
 
-[개인화 오프닝 - 그들의 최근 투자 또는 콘텐츠 언급].
+[Personalized opening - mention their recent investment or content].
 
-We're [회사명], solving [문제] for [고객]. The market is [시장 규모/기회],
-but current solutions [기존 해법의 문제점].
+We're [Company], solving [Problem] for [Customer]. The market is [market size/opportunity],
+but current solutions [limitations of existing solutions].
 
-Early traction: [핵심 메트릭스 2-3개] in [기간]. We're backed by [기존 투자자]
-and raising [금액] to [구체적 목표].
+Early traction: [2-3 key metrics] in [timeframe]. We're backed by [existing investors]
+and raising [Amount] to [specific goal].
 
-Given [VC 펀드]'s thesis on [섹터] and investments like [포트폴리오 기업],
+Given [VC Fund]'s thesis on [Sector] and investments like [Portfolio Company],
 would love to share more details.
 
 Open to a 15-min intro call this week?
 
 Best,
-[서명]
+[Signature]
 ```
 
-### 3. 미팅 후 팔로업
+### 3. Post-Meeting Follow-up
 
 ```
-Subject: Thanks for the meeting - [회사명] follow-up
+Subject: Thanks for the meeting - [Company] follow-up
 
-Hi [투자자 이름],
+Hi [Investor Name],
 
-Thanks for taking the time yesterday. Great to discuss [논의 주제].
+Thanks for taking the time yesterday. Great to discuss [Discussion topic].
 
 As requested, here are the materials we discussed:
-- Data room: [링크]
-- Financial model: [링크]
-- [기타 요청 자료]: [링크]
+- Data room: [Link]
+- Financial model: [Link]
+- [Other requested materials]: [Link]
 
 Quick recap of your questions:
-- [질문 1]: [간략한 답변 + 상세 자료 위치]
-- [질문 2]: [답변]
+- [Question 1]: [Brief answer + location of detailed materials]
+- [Question 2]: [Answer]
 
-[미팅에서 언급한 새로운 트랙션 또는 뉴스가 있으면 추가]
+[Add any new traction or news mentioned in the meeting]
 
 Looking forward to next steps. Happy to set up a follow-up call or connect
-with other partners at [VC 펀드].
+with other partners at [VC Fund].
 
 Best,
-[서명]
+[Signature]
 ```
 
-### 4. 무응답 팔로업 시퀀스
+### 4. No-Response Follow-up Sequence
 
-**Day 5 - 부드러운 리마인더:**
+**Day 5 — Soft Reminder:**
 ```
-Subject: Re: [원래 제목]
+Subject: Re: [Original Subject]
 
-Hi [투자자 이름],
+Hi [Investor Name],
 
 Following up on my email from last week. I know you're busy, but wanted
 to make sure this didn't get buried.
 
-[한 문장으로 새로운 각도 또는 업데이트]
+[One sentence with new angle or update]
 
 Still interested in exploring this together?
 
 Best,
-[서명]
+[Signature]
 ```
 
-**Day 10 - 가치 추가:**
+**Day 10 — Add Value:**
 ```
-Subject: [회사명] update: [새로운 트랙션]
+Subject: [Company] update: [New Traction]
 
-Hi [투자자 이름],
+Hi [Investor Name],
 
-Quick update since my last email: [구체적 새로운 성과 또는 뉴스].
+Quick update since my last email: [Specific new achievement or news].
 
-This reinforces the [시장 기회 또는 우리 차별점] we discussed.
+This reinforces the [market opportunity or our differentiation] we discussed.
 
 If the timing's better now, I'd love to reconnect. If not, happy to keep
 you posted on future milestones.
 
 Best,
-[서명]
+[Signature]
 ```
 
-**Day 21 - 최종 연락:**
+**Day 21 — Final Touch:**
 ```
-Subject: Last follow-up - [회사명]
+Subject: Last follow-up - [Company]
 
-Hi [투자자 이름],
+Hi [Investor Name],
 
 I know you're likely swamped, so this will be my last follow-up for now.
 
 If timing doesn't work right now, totally understand. Happy to reconnect
-when [구체적 마일스톤 - e.g., "we hit Series A metrics" or "we launch in Q2"].
+when [specific milestone - e.g., "we hit Series A metrics" or "we launch in Q2"].
 
 Feel free to reach out anytime.
 
 Best,
-[서명]
+[Signature]
 ```
 
-### 5. 월간 투자자 업데이트 (전체 템플릿)
+### 5. Monthly Investor Update (Full Template)
 
 ```
-Subject: [회사명] 업데이트 - [월] | [핵심 하이라이트 1줄]
+Subject: [Company] update - [Month] | [Key highlight one-liner]
 
 Hi everyone,
 
-Here's our [월] update. TL;DR: [3줄 요약].
+Here's our [Month] update. TL;DR: [3-line summary].
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 핵심 지표
+📊 Key Metrics
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-| 지표 | 이번 달 | 지난 달 | 변화 | 목표 대비 |
-|------|---------|---------|------|-----------|
-| [지표1] | X | Y | +Z% | 90% |
-| [지표2] | X | Y | +Z% | 105% |
-| [지표3] | X | Y | -Z% | 85% |
+| Metric | This Month | Last Month | Change | vs Target |
+|--------|-----------|-----------|--------|-----------|
+| [Metric 1] | X | Y | +Z% | 90% |
+| [Metric 2] | X | Y | +Z% | 105% |
+| [Metric 3] | X | Y | -Z% | 85% |
 
-[간략한 해석 2-3문장]
+[Brief interpretation 2-3 sentences]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 하이라이트
+🚀 Highlights
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. 제품
-   - [구체적 성과]
-   - [영향]
+1. Product
+   - [Specific achievement]
+   - [Impact]
 
-2. 고객
-   - [성과]
-   - [영향]
+2. Customers
+   - [Achievement]
+   - [Impact]
 
-3. 팀
-   - [성과]
-   - [영향]
+3. Team
+   - [Achievement]
+   - [Impact]
 
-4. 자금
-   - [현재 런웨이]
+4. Funding
+   - [Current runway]
    - [Burn rate]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ 챌린지 & 학습
+⚠️ Challenges & Learning
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- [챌린지 1]: [상황] → [대응] → [결과]
-- [챌린지 2]: [상황] → [대응] → [진행 중]
+- [Challenge 1]: [Situation] → [Response] → [Result]
+- [Challenge 2]: [Situation] → [Response] → [In progress]
 
-[투명하되 해결 의지 명확히]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🙏 도움 요청
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-[구체적이고 실행 가능한 요청]
-- [ ] [인트로: 특정 인물/기업]
-- [ ] [조언: 구체적 영역]
-- [ ] [채용: 특정 포지션]
+[Transparent but clear on resolution]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 다음 달 목표
+🙏 Asks for Help
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- [목표 1] by [날짜]
-- [목표 2] by [날짜]
-- [목표 3] by [날짜]
+[Concrete, actionable requests]
+- [ ] [Intro: specific person/company]
+- [ ] [Advice: specific area]
+- [ ] [Hiring: specific role]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 Next Month Goals
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- [Goal 1] by [Date]
+- [Goal 2] by [Date]
+- [Goal 3] by [Date]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Thanks for your continued support. Always happy to discuss any of this
 in more detail.
 
-Next update: [다음 달 X일]
+Next update: [Next month Day X]
 
 Best,
-[서명]
+[Signature]
 ```
 
 ---
 
-## 커뮤니케이션 케이던스
+## Communication Cadence
 
-### 투자 유치 중 (Active Fundraise)
-
-```
-Week 1: 초기 아웃리치
-  Day 0: 첫 이메일 발송
-  Day 5: 첫 팔로업 (응답 없으면)
-  Day 10: 두 번째 팔로업 (응답 없으면)
-
-Week 3-4: 미팅 단계
-  Day 0: 미팅 후 즉시 (24시간 이내) 팔로업
-  Day 3: 추가 자료 또는 질문 답변
-  Day 7: 파트너 미팅 또는 다음 단계 제안
-
-DD (Due Diligence) 중:
-  - 요청 자료: 24-48시간 이내 제공
-  - 주 1회: 진행 상황 체크인
-  - 중요 뉴스: 즉시 공유
-```
-
-### 투자 유치 후 (Post-Investment)
+### During Active Fundraise
 
 ```
-월간 업데이트:
-  - 매달 같은 날짜 (e.g., 매달 첫째 주 금요일)
-  - 일관된 형식 유지
-  - 성과/챌린지 모두 투명하게
+Week 1: Initial Outreach
+  Day 0: Send first email
+  Day 5: First follow-up (if no response)
+  Day 10: Second follow-up (if no response)
 
-분기 심층 리뷰:
-  - 분기별 1회: 전략 리뷰, OKR 점검
-  - 이사회 미팅 1주 전: 자료 공유
+Week 3-4: Meeting Phase
+  Day 0: Follow-up immediately after meeting (within 24 hours)
+  Day 3: Additional materials or answer questions
+  Day 7: Partner meeting or propose next steps
 
-Ad-hoc 커뮤니케이션:
-  - 중요 마일스톤: 즉시 공유
-  - 위기 상황: 24시간 이내 알림
-  - 좋은 소식: 즉시 (사기 진작)
+During Due Diligence (DD):
+  - Requested materials: provide within 24-48 hours
+  - Weekly: check-in on progress
+  - Important news: share immediately
+```
+
+### Post-Investment
+
+```
+Monthly Updates:
+  - Same date each month (e.g., first Friday of every month)
+  - Maintain consistent format
+  - Transparent on both wins and challenges
+
+Quarterly Deep Dives:
+  - Once per quarter: strategy review, OKR check
+  - 1 week before board meeting: share materials
+
+Ad-hoc Communications:
+  - Major milestone: share immediately
+  - Crisis: notify within 24 hours
+  - Good news: share immediately (morale boost)
 ```
 
 ---
 
-## 이메일 스타일 가이드
+## Email Style Guide
 
-### 투자자 커뮤니케이션 원칙
+### Investor Communication Principles
 
-1. **간결하되 구체적** — 바쁜 투자자는 훑어봅니다. 핵심을 먼저, 상세는 링크로.
-2. **데이터 중심** — 주관적 표현 대신 구체적 숫자와 메트릭스.
-3. **투명성** — 좋은 소식과 어려운 소식 모두 솔직하게. 신뢰 구축이 핵심.
-4. **실행 가능한 요청** — 막연한 "도움 주세요" 대신 구체적 ask.
+1. **Concise but specific** — Busy investors skim. Lead with highlights, detail via links.
+2. **Data-driven** — Concrete numbers and metrics over subjective claims.
+3. **Transparent** — Share good and difficult news honestly. Trust is built on candor.
+4. **Actionable asks** — Specific requests over vague "help us out."
 
-### 톤 & 스타일
+### Tone & Style
 
-**좋은 예:**
+**Good Example:**
 ```
 We hit $50K MRR this month (up 40% MoM). Key driver: enterprise upsells
 from 3 existing customers ($15K → $30K ACV).
 
 Challenge: Sales cycle for new logos stretched to 45 days (vs 30-day target).
-Testing new demo approach with [구체적 액션].
+Testing new demo approach with [specific action].
 ```
 
-**나쁜 예:**
+**Poor Example:**
 ```
 Things are going great this month! We're seeing really strong growth and
 customers love the product. A few challenges here and there but we're
 working hard to solve them.
 ```
 
-### 금지 사항
+### Language to Avoid
 
-**피할 표현:** "폭발적 성장", "게임 체인저", "혁명적", "진행 중", "곧 출시"
-**대신 사용:** 구체적 숫자, 날짜, 증가율, 고객 인용, 비교 메트릭스
+**Phrases to skip:** "explosive growth", "game-changer", "revolutionary", "in progress", "coming soon"
+**Use instead:** Concrete numbers, dates, growth rates, customer quotes, comparative metrics
 
-### 서식 규칙
+### Formatting Rules
 
-1. **마크다운 금지** — 이메일에서 별표(**bold**), 헤더(##) 사용 안 됨. 일반 텍스트로.
-2. **짧은 단락** — 단락당 2-3문장 최대. 여백이 가독성을 높입니다.
-3. **시각적 구분** — 유니코드 또는 일반 텍스트 구분선 사용 (━━━━).
-4. **표 사용** — 메트릭스는 간단한 텍스트 표로 정리.
-
----
-
-## 시나리오별 고려사항
-
-**Pre-seed/Seed:** 비전+팀 중심, 초기 트랙션, 관계 중심
-**Series A+:** 데이터+메트릭스 강조, 유닛 이코노믹스, 일관된 형식
-**한국 VC:** 약간 형식적 톤, 웜 인트로 선호, 빠른 응답
+1. **No markdown in email** — No asterisks (**bold**) or headers (##) in email. Plain text only.
+2. **Short paragraphs** — Max 2-3 sentences per paragraph. Whitespace aids readability.
+3. **Visual separators** — Use Unicode or plain-text dividers (━━━━).
+4. **Tables for metrics** — Organize metrics in simple text tables.
 
 ---
 
-## 하지 말아야 할 것
+## Stage-Specific Considerations
 
-**피해야 할 실수:**
-- 장황한 회사 소개, 기술 디테일 과다
-- 좋은 소식만 강조, 변명 또는 책임 전가
-- 압박적 팔로업 ("이번 주까지 결정 필요")
-- 여러 CTA 동시에, 구체성 없는 "진행 중"
-
-**대신 권장:**
-- 한 문장 회사 설명 + 핵심 트랙션 2-3개
-- 성과와 챌린지 균형 + 학습과 대응 방안
-- 가치 추가 팔로업 + 존중하는 톤
+**Pre-seed/Seed:** Vision + team focus, early traction, relationship-driven
+**Series A+:** Emphasize data + metrics, unit economics, consistent format
+**Korean VC:** Slightly formal tone, warm intro preference, expect quick responses
 
 ---
 
-## 관련 스킬
+## What Not To Do
 
-이 스킬과 함께 사용하면 효과적인 스킬:
+**Mistakes to avoid:**
+- Lengthy company introduction, excessive technical detail
+- Only highlight wins, make excuses or shift blame
+- Pushy follow-ups ("need decision by end of week")
+- Multiple CTAs at once, vague "in progress" updates
 
-- **investor-research** — 투자자 리서치 후 맞춤형 이메일 작성
-- **deal-sourcing** — 새 투자자 발굴 후 콜드 아웃리치
-- **fundraising-process** — 전체 투자 유치 프로세스에서 커뮤니케이션 타이밍
-- **pitch-craft** — 피치 덱 내용을 이메일 요약에 활용
-- **financial-modeling** — 월간 업데이트 메트릭스 추출
+**Recommended instead:**
+- One-sentence company description + 2-3 key traction points
+- Balance wins and challenges + learning and response plan
+- Add-value follow-ups + respectful tone
 
 ---
 
-## 예시
+## Related Skills
 
-### 예시 1: 웜 인트로 요청
+Skills that pair well with this one:
 
-**입력:**
-"서울투자파트너스 김철수 파트너에게 인트로 요청 - 우리 공동투자자 이영희가 연결자"
+- **investor-research** — Write customized email after investor research
+- **deal-sourcing** — Cold outreach after discovering new investors
+- **fundraising-process** — Communication timing across entire fundraising process
+- **pitch-craft** — Use pitch deck content in email summaries
+- **financial-modeling** — Extract metrics for monthly updates
 
-**출력:**
+---
+
+## Examples
+
+### Example 1: Warm Intro Request
+
+**Input:**
+"Request intro to Partner Kim Chul-soo at Seoul Investment Partners - our co-investor Lee Young-hee is the connector"
+
+**Output:**
 
 ```markdown
-# 투자자 아웃리치: 김철수 @ 서울투자파트너스
+# Investor Outreach: Chul-soo Kim @ Seoul Investment Partners
 
-## 투자자 맥락
-**대상:** 김철수, Partner at 서울투자파트너스
-**Thesis 적합도:** GREEN - B2B SaaS, Seed 단계, 한국 시장
-**포트폴리오:** 유사기업 X, 유사기업 Y
-**최근 활동:** 작년 4분기 B2B SaaS 3건 투자
-**접근 경로:** 웜인트로 (공동투자자 이영희)
+## Investor Context
+**Target:** Chul-soo Kim, Partner at Seoul Investment Partners
+**Thesis Fit:** GREEN - B2B SaaS, Seed stage, Korean market
+**Portfolio:** Similar Company X, Similar Company Y
+**Recent Activity:** 3 B2B SaaS investments in Q4 last year
+**Approach Path:** Warm intro (co-investor Lee Young-hee)
 
 ---
 
-## 이메일 초안 (연결자에게)
+## Email Draft (to Connector)
 
 **To:** lee.younghee@earlystage.vc
-**Subject:** 김철수 파트너님께 인트로 부탁드립니다
+**Subject:** Introduction request to Partner Kim Chul-soo
 
 ---
 
-영희님, 안녕하세요!
+Young-hee, hello!
 
-저희가 시드 라운드 20억 모집 중인데, 서울투자파트너스 김철수 파트너님이
-딱 맞을 것 같아 연락드립니다. 포트폴리오 중 [유사기업 X]와 섹터가 비슷하고,
-B2B SaaS 투자 thesis에 정확히 부합합니다.
+We're raising 2 billion won for our Seed round, and Partner Kim Chul-soo at Seoul Investment Partners
+seems like a perfect fit. Your portfolio includes [Similar Company X] in a similar sector, and
+this aligns perfectly with your B2B SaaS investment thesis.
 
-인트로 가능하실까요? 포워딩 가능한 블럽 아래 첨부드립니다.
+Would an introduction be possible? I'm attaching a forwardable blurb below.
 
-감사합니다!
+Thanks!
 
 ---
 
-## 포워딩 블럽
+## Forwardable Blurb
 
-영희님,
+Young-hee,
 
-[창업자 이름], [회사명] 대표님을 소개합니다.
+I'd like to introduce you to [Founder Name], CEO of [Company].
 
-[회사명]는 [한 문장 설명]입니다. 지난 6개월간 [핵심 트랙션] 달성했고,
-현재 시드 라운드 20억 모집 중입니다.
+[Company] is [one-sentence description]. They've achieved [key traction] over the last 6 months and
+are currently raising 2 billion won for their Seed round.
 
-서울투자파트너스의 [유사 포트폴리오 기업] 투자를 보면, B2B SaaS thesis에
-딱 맞는 케이스입니다.
+Looking at Seoul Investment Partners' investment in [Similar Portfolio Company], this is
+a perfect match for your B2B SaaS thesis.
 
-[창업자], 김철수 파트너님과 연결해 드립니다.
-[창업자], 이영희 대표님과 연결해 드립니다.
+[Founder], meet Partner Kim Chul-soo.
+[Founder], meet Lee Young-hee.
 
-이후 진행은 두 분께서 직접 하시면 될 것 같습니다!
+I think you two should take it from here!
 ```
 
-### 예시 2: 월간 투자자 업데이트
+### Example 2: Monthly Investor Update
 
-**입력:**
-"11월 투자자 업데이트 작성 - MRR 5천만원(+25%), DAU 12K(+18%), 기업고객 3개 신규 확보"
+**Input:**
+"Create November investor update - MRR 50M won (+25%), DAU 12K (+18%), 3 new enterprise customers"
 
-**출력:**
+**Output:**
 
 ```
-Subject: [회사명] 11월 업데이트 | MRR 5천만원 돌파 🚀
+Subject: [Company] November Update | MRR 50M Won Achieved 🚀
 
-안녕하세요,
+Hi everyone,
 
-11월 업데이트 공유드립니다. TL;DR:
-- MRR 5천만원 달성 (+25% MoM)
-- 기업고객 3개 신규 확보 (총 8개)
-- 엔지니어 2명 조인 (팀 12명)
+November update. TL;DR:
+- MRR 50M won achieved (+25% MoM)
+- 3 new enterprise customers (total 8)
+- 2 engineers joined (team now 12)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 핵심 지표
+📊 Key Metrics
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-| 지표 | 11월 | 10월 | 변화 | 목표 대비 |
-|------|------|------|------|-----------|
-| MRR | 5천만 | 4천만 | +25% | 100% ✓ |
+| Metric | November | October | Change | vs Target |
+|--------|----------|---------|--------|-----------|
+| MRR | 50M | 40M | +25% | 100% ✓ |
 | DAU | 12K | 10.2K | +18% | 95% |
-| 기업고객 | 8 | 5 | +60% | 110% ✓ |
-| Churn | 2.5% | 3.1% | -19% | 개선 중 |
+| Enterprise Customers | 8 | 5 | +60% | 110% ✓ |
+| Churn | 2.5% | 3.1% | -19% | Improving |
 
-MRR 목표 달성, DAU는 신규 기능 출시로 다음 달 가속 예상.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🚀 하이라이트
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. 제품
-   - 기업용 대시보드 출시 → 3개 기업고객 즉시 전환
-   - API 성능 40% 개선
-
-2. 고객
-   - [대기업 A] 파일럿 확정 (내년 1월 시작)
-   - NPS 65 → 72 상승
-
-3. 팀
-   - 시니어 백엔드 엔지니어 2명 조인 (전 네이버, 카카오)
-   - CTO 후보 3명과 최종 면접 중
-
-4. 자금
-   - 현재 런웨이: 14개월
-   - Burn rate: 월 5천만원 (안정적)
+MRR target achieved. DAU expected to accelerate next month with new feature launch.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ 챌린지 & 학습
+🚀 Highlights
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- 엔터프라이즈 세일즈 사이클 예상보다 김 (45일 → 60일):
-  → POC 프로세스 표준화 중, 다음 달부터 적용
+1. Product
+   - Enterprise dashboard launch → 3 enterprise customers converted immediately
+   - API performance improved 40%
 
-- 초기 유저 Activation 70% → 목표 80% 미달:
-  → 온보딩 플로우 A/B 테스트 시작, 2주 내 결과 예상
+2. Customers
+   - [Large Company A] pilot confirmed (starts January)
+   - NPS improved from 65 to 72
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🙏 도움 요청
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. Team
+   - 2 senior backend engineers joined (ex-Naver, Kakao)
+   - Final interviews underway with 3 CTO candidates
 
-- [ ] 엔터프라이즈 세일즈 경험 있는 Head of Sales 후보 추천
-- [ ] [대기업 B] 담당자 인트로 (POC 제안 중)
-- [ ] 시리즈 A 준비: 멘토링 or 모의 피칭 가능하신 분
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎯 12월 목표
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-- MRR 6.5천만원 by 12/31
-- [대기업 A] 파일럿 킥오프
-- CTO 영입 완료
+4. Funding
+   - Current runway: 14 months
+   - Burn rate: 50M won/month (stable)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ Challenges & Learning
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-항상 지원해 주셔서 감사합니다. 자세한 내용은 언제든 논의 가능합니다.
+- Enterprise sales cycle longer than expected (45 days → 60 days):
+  → Standardizing POC process, implementation starting next month
 
-다음 업데이트: 1월 5일
+- Early user activation 70% → target 80% shortfall:
+  → Started A/B testing onboarding flow, results expected in 2 weeks
 
-감사합니다,
-[창업자 이름]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🙏 Asks for Help
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- [ ] Recommend Head of Sales candidate with enterprise sales experience
+- [ ] Intro to [Large Company B] decision maker (POC pitch in progress)
+- [ ] Series A prep: mentoring or mock pitch opportunity
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 December Goals
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- MRR 65M won by 12/31
+- [Large Company A] pilot kickoff
+- CTO hire completed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Thank you for your continued support. Always happy to discuss any of this in detail.
+
+Next update: January 5
+
+Thanks,
+[Founder Name]
 ```
 
 ---
 
-## 팁
+## Tips
 
-1. **일관성이 신뢰를 만듭니다** — 월간 업데이트는 같은 날짜, 같은 형식으로 발송하세요.
+1. **Consistency builds trust** — Send monthly updates on the same date, in the same format.
 
-2. **투명성은 양날의 검이 아닙니다** — 챌린지를 솔직히 공유하되, 항상 대응 방안도 함께 제시하세요.
+2. **Transparency is not a double-edged sword** — Share challenges honestly, but always include your response plan.
 
-3. **데이터는 스토리의 재료입니다** — 숫자만 나열하지 말고, 왜 중요한지 맥락을 제공하세요.
+3. **Data is story material** — Don't just list numbers; provide context on why they matter.
 
-4. **Ask는 구체적으로** — "도움 주세요"보다 "X기업 Y담당자 인트로 가능하신가요?"가 실행 가능합니다.
+4. **Make asks specific** — "Can you help?" is less actionable than "Can you intro me to person Y at company X?"
 
-5. **좋은 소식은 즉시, 나쁜 소식은 더 즉시** — 위기 상황일수록 빠른 커뮤니케이션이 신뢰를 유지합니다.
+5. **Good news immediately, bad news even faster** — Fast communication during crises maintains trust.
 
-6. **팔로업은 가치 추가** — "혹시 메일 보셨나요?"보다 "새로운 트랙션 업데이트 공유드립니다"가 효과적입니다.
+6. **Follow-ups add value** — "Did you see my email?" is less effective than "New traction update to share."
 
-7. **Day 5/10/21 리듬** — 무응답 시 3회 이상 팔로업하지 마세요. 타이밍이 안 맞는 것일 수 있습니다.
+7. **Day 5/10/21 rhythm** — Don't follow up more than 3 times on no response. Timing may not be right.
 
-8. **CRM 활용** — ~~CRM 연결 시, 모든 커뮤니케이션을 기록하여 관계 이력을 추적하세요.
+8. **Use CRM** — When ~~CRM is connected, track all communications to maintain relationship history.
 
-9. **이메일은 빙산의 일각** — 투자자 관계는 이메일 너머에서 만들어집니다. 이벤트, 인트로, 꾸준한 업데이트가 핵심입니다.
+9. **Email is the tip of the iceberg** — Investor relationships are built beyond email. Events, intros, and consistent updates are key.
 
-10. **템플릿은 시작점** — 이 스킬의 템플릿을 자신의 스타일과 회사 맥락에 맞게 조정하세요.
+10. **Templates are starting points** — Adapt these templates to your style and company context.

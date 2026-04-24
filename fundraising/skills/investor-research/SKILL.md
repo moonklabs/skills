@@ -1,549 +1,555 @@
 ---
 name: investor-research
-description: VC 펀드/파트너를 조사하여 thesis 매칭, 포트폴리오 분석, 접근전략을 제공합니다. 웹 검색만으로 단독 작동하며, 데이터 보강 도구를 연결하면 더욱 강력해집니다. "[VC명] 리서치", "[VC] 조사", "[파트너명] 배경", "투자자 정보" 등으로 실행합니다.
+description: >
+  Research VC funds/partners to provide thesis matching, portfolio analysis, and approach strategy.
+  Works standalone with web search; enhanced by data tools.
+  Triggers on "[VC Name] research", "[VC] research", "[Partner Name] background", "investor info",
+  "[VC명] 리서치", "[VC] 조사", "[파트너명] 배경", "투자자 정보".
 ---
 
-# 투자자 리서치 (Investor Research)
+# Investor Research
 
-아웃리치 전에 모든 VC 펀드 또는 파트너에 대한 완전한 그림을 제공합니다. 이 스킬은 웹 검색만으로도 항상 작동하며, 데이터 보강(THE VC, 혁신의숲, OpenDART)이 추가되면 크게 향상됩니다.
+Deliver complete picture of any VC fund or partner before outreach. Works standalone with web search alone; scales dramatically with data enrichment (THE VC, Innovation Forest, OpenDART).
 
-## 작동 방식
+## How It Works
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                   INVESTOR RESEARCH                              │
 ├─────────────────────────────────────────────────────────────────┤
-│  기본 기능 (웹 검색으로 단독 작동)                                 │
-│  ✓ 펀드 개요: Thesis, 펀드 규모, 투자 단계                       │
-│  ✓ 포트폴리오 분석: 대표 기업, 섹터 패턴                          │
-│  ✓ 주요 파트너: 배경, 투자 이력, LinkedIn                        │
-│  ✓ 최신 뉴스: 신규 펀드, 최근 투자, 발표                          │
-│  ✓ Thesis 적합도: 4차원 평가 (섹터·단계·체크·지역)               │
+│  Core Features (works standalone via web search)                │
+│  ✓ Fund overview: Thesis, fund size, investment stage           │
+│  ✓ Portfolio analysis: key companies, sector patterns           │
+│  ✓ Key partners: background, investment track record, LinkedIn  │
+│  ✓ Latest news: new funds, recent investments, announcements    │
+│  ✓ Thesis fit: 4-dimension rating (sector·stage·check·geo)     │
 ├─────────────────────────────────────────────────────────────────┤
-│  강화 모드 (도구 연결 시)                                         │
-│  + ~~data enrichment: 정확한 펀드 데이터, 전체 포트폴리오, 투자 이력│
-│  + ~~CRM: 기존 인트로 경로, 공동 포트폴리오 자동 매핑              │
+│  Enhanced Mode (with tool connections)                          │
+│  + ~~data enrichment: accurate fund data, full portfolio,        │
+│    complete investment history                                   │
+│  + ~~CRM: auto-discover intro paths from existing network,      │
+│    shared portfolio mapping                                      │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 시작하기
+## Getting Started
 
-조사 대상 투자자를 알려주세요:
+Tell us which investor to research:
 
-- "Sequoia Capital 리서치"
-- "Andreessen Horowitz의 Marc Andreessen 배경 조사"
-- "Y Combinator thesis 분석"
-- "블루포인트파트너스 포트폴리오 확인"
+- "Research Sequoia Capital"
+- "Research Marc Andreessen at Andreessen Horowitz"
+- "Analyze Y Combinator thesis"
+- "Check Bluepoint Partners portfolio"
 
-즉시 웹 검색을 실행합니다. ~~data enrichment가 연결되어 있으면 해당 데이터도 가져옵니다.
-
----
-
-## 커넥터 (선택사항)
-
-도구를 연결하여 이 스킬을 강화하세요:
-
-| 커넥터 | 추가 기능 |
-|--------|----------|
-| **데이터 보강** | THE VC (투자 라운드·포트폴리오), 혁신의숲 (성장 지표), OpenDART (상장사 공시) — 웹 검색 기반 접근, OpenDART는 MCP 연결 가능 |
-| **CRM** | 기존 투자자 네트워크에서 인트로 경로 자동 발견 |
-| **지식 베이스** | Notion, Google Drive — 팀의 커넥션, 과거 인트로 이력 검색 |
-
-> **커넥터가 없나요?** 문제없습니다. 웹 검색만으로도 모든 VC에 대한 충실한 리서치를 제공합니다.
+Executes web search immediately. If ~~data enrichment connected, pulls from those sources as well.
 
 ---
 
-## 출력 형식
+## Connectors (Optional)
+
+Enhance this skill by connecting tools:
+
+| Connector | Additional Features |
+|-----------|-------------------|
+| **Data Enrichment** | THE VC (investment rounds, portfolio), Innovation Forest (growth metrics), OpenDART (public company filings) — web search-based, OpenDART supports MCP |
+| **CRM** | Auto-discover intro paths from existing investor network |
+| **Knowledge Base** | Notion, Google Drive — search team connections and intro history |
+
+> **No connectors?** No problem. Web search alone provides thorough research on any VC.
+
+---
+
+## Output Format
 
 ```markdown
-# 투자자 리서치: [VC 펀드명]
+# Investor Research: [VC Fund Name]
 
-**생성일:** [날짜]
-**소스:** 웹 검색 [+ THE VC] [+ 혁신의숲] [+ CRM]
+**Date Generated:** [Date]
+**Sources:** Web search [+ THE VC] [+ Innovation Forest] [+ CRM]
 
 ---
 
 ## Executive Summary
 
-[2-3문장: 이 VC가 누구인지, 우리에게 왜 적합한지/부적합한지, 접근 전략]
+[2-3 sentences: who this VC is, why we're a good/bad fit, approach strategy]
 
 ---
 
-## Thesis 적합도: [HIGH / MEDIUM / LOW]
+## Thesis Fit: [HIGH / MEDIUM / LOW]
 
-| 차원 | 평가 | 상세 |
-|------|------|------|
-| **섹터** | 🟢/🟡/🔴 | [thesis, 포트폴리오 패턴] |
-| **단계** | 🟢/🟡/🔴 | [투자 단계 범위] |
-| **체크사이즈** | 🟢/🟡/🔴 | [전형적 투자 금액] |
-| **지역** | 🟢/🟡/🔴 | [투자 지역] |
+| Dimension | Rating | Details |
+|-----------|--------|---------|
+| **Sector** | 🟢/🟡/🔴 | [thesis, portfolio patterns] |
+| **Stage** | 🟢/🟡/🔴 | [investment stage range] |
+| **Check Size** | 🟢/🟡/🔴 | [typical investment amount] |
+| **Geography** | 🟢/🟡/🔴 | [investment regions] |
 
-**종합 평가:** [⭐⭐⭐ HIGH / ⭐⭐ MEDIUM / ⭐ LOW]
+**Overall Assessment:** [⭐⭐⭐ HIGH / ⭐⭐ MEDIUM / ⭐ LOW]
 
-**권장 조치:**
-- [HIGH] → 우선순위 접촉, 웜인트로 확보
-- [MEDIUM] → 웜인트로 있으면 시도
-- [LOW] → 우선순위 하향 또는 제외
+**Recommended Action:**
+- [HIGH] → Prioritize outreach, secure warm intro
+- [MEDIUM] → Attempt if warm intro available
+- [LOW] → Lower priority or exclude
 
 ---
 
-## 펀드 프로필
+## Fund Profile
 
-| 항목 | 값 |
-|------|-----|
-| **펀드명** | [이름] |
-| **웹사이트** | [URL] |
-| **설립** | [연도] |
-| **본사** | [위치] |
-| **AUM** | $[X]B (추정) |
-| **최근 펀드** | [펀드 X, $XM, 연도] |
-| **투자 단계** | [Seed / Series A / Series B / Multi-stage] |
-| **전형적 체크** | $[X]M - $[X]M |
-| **포트폴리오** | [X]개 기업 |
+| Item | Value |
+|------|-------|
+| **Fund Name** | [Name] |
+| **Website** | [URL] |
+| **Founded** | [Year] |
+| **HQ** | [Location] |
+| **AUM** | $[X]B (estimated) |
+| **Latest Fund** | [Fund X, $XM, Year] |
+| **Investment Stage** | [Seed / Series A / Series B / Multi-stage] |
+| **Typical Check** | $[X]M - $[X]M |
+| **Portfolio** | [X] companies |
 
 ### Investment Thesis
 
-[펀드 웹사이트, 발표, 인터뷰에서 추출한 thesis 요약]
+[Summary of thesis extracted from fund website, presentations, interviews]
 
-**초점 섹터:**
-- [섹터 1] — [포트폴리오 X개]
-- [섹터 2] — [포트폴리오 X개]
-- [섹터 3] — [포트폴리오 X개]
+**Sector Focus:**
+- [Sector 1] — [X portfolio companies]
+- [Sector 2] — [X portfolio companies]
+- [Sector 3] — [X portfolio companies]
 
-**초점 단계:**
+**Stage Focus:**
 - [Seed/A/B] — [X]%
 
-**지리적 초점:**
-- [지역] — [X]%
+**Geographic Focus:**
+- [Region] — [X]%
 
 ---
 
-## 포트폴리오 분석
+## Portfolio Analysis
 
-### 대표 기업 (상위 10개)
+### Representative Companies (Top 10)
 
-| 기업 | 섹터 | 단계 | 투자일 | 우리와 유사도 |
-|------|------|------|--------|-------------|
-| [회사명] | [섹터] | Series [X] | [날짜] | [HIGH/MEDIUM/LOW] |
+| Company | Sector | Stage | Investment Date | Similarity to Us |
+|---------|--------|-------|-----------------|-----------------|
+| [Company Name] | [Sector] | Series [X] | [Date] | [HIGH/MEDIUM/LOW] |
 
-### 섹터 분포
+### Sector Distribution
 
-| 섹터 | 포트폴리오 비율 | 대표 기업 |
-|------|---------------|----------|
-| [섹터 1] | [X]% | [회사 3개] |
-| [섹터 2] | [X]% | [회사 3개] |
+| Sector | Portfolio Share | Representative Companies |
+|--------|-----------------|--------------------------|
+| [Sector 1] | [X]% | [3 companies] |
+| [Sector 2] | [X]% | [3 companies] |
 
-### 투자 패턴
+### Investment Patterns
 
 **Lead vs Follow:**
-- Lead 투자: [X]% — [리드 역할 선호/회피]
+- Lead investments: [X]% — [prefers lead/avoids lead]
 - Follow-on: [X]%
 
-**포트폴리오 지원 스타일:**
+**Portfolio Support Style:**
 - [Hands-on / Hands-off]
-- [보드 참여 비율]
-- [후속 투자 적극성]
+- [Board participation rate]
+- [Follow-on investment aggressiveness]
 
 ---
 
-## 최근 활동
+## Recent Activity
 
-### 최근 투자 (최근 90일)
+### Recent Investments (Last 90 Days)
 
-| 기업 | 섹터 | 금액 | 날짜 | Why Now 시그널 |
-|------|------|------|------|---------------|
-| [회사명] | [섹터] | $[X]M | [날짜] | [신규 펀드 / thesis 확장] |
+| Company | Sector | Amount | Date | Why Now Signal |
+|---------|--------|--------|------|----------------|
+| [Company Name] | [Sector] | $[X]M | [Date] | [New fund / thesis expansion] |
 
-### 뉴스 & 발표
+### News & Announcements
 
-- **[헤드라인]** — [날짜] — [우리 아웃리치에 중요한 이유]
-- **[헤드라인]** — [날짜] — [중요한 이유]
+- **[Headline]** — [Date] — [Why important for our outreach]
+- **[Headline]** — [Date] — [Why important]
 
 **Why Now:**
-[최근 펀드 조성, 신규 파트너 영입, thesis 변화 등 → 지금 접촉이 좋은 이유]
+[Recent fund close, new partner hire, thesis shift, etc. → why reaching out now is good timing]
 
 ---
 
-## 주요 파트너
+## Key Partners
 
-### [파트너명 1] — [직함]
+### [Partner Name 1] — [Title]
 
-| 항목 | 상세 |
-|------|------|
+| Item | Details |
+|------|---------|
 | **LinkedIn** | [URL] |
-| **배경** | [이전 커리어, 창업 경험, 학력] |
-| **투자 초점** | [섹터, 단계] |
-| **대표 투자** | [회사 3개] |
-| **재직 기간** | [X년] |
+| **Background** | [Previous career, founder experience, education] |
+| **Investment Focus** | [Sectors, stages] |
+| **Representative Investments** | [3 companies] |
+| **Tenure** | [X years] |
 
-**대화 포인트:**
-- [배경 기반 개인적 훅]
-- [투자 이력 기반 전문적 훅]
+**Conversation Hooks:**
+- [Personal hook based on background]
+- [Professional hook based on investment track record]
 
-**접근 전략:**
-- [웜인트로 경로 또는 콜드 각도]
-
----
-
-### [파트너명 2] — [직함]
-
-[위와 동일한 형식]
+**Approach Strategy:**
+- [Warm intro path or cold angle]
 
 ---
 
-## 접근 경로 매핑
+### [Partner Name 2] — [Title]
 
-### 🔥 웜인트로 (최우선)
+[Same format as above]
 
-**경로 1: 포트폴리오 CEO**
-```
-[포트폴리오 CEO] (우리와 유사) → [파트너명]
-- 접촉 방법: [LinkedIn / 이메일 / 기존 관계]
-- 커넥션 강도: [강함 / 보통]
-```
+---
 
-**경로 2: 기존 투자자**
-```
-[우리 투자자] → [타겟 VC]
-- Co-investment 이력: [기업명]
-- 관계: [강함 / 보통]
-```
+## Approach Path Mapping
 
-**경로 3: 네트워크**
+### 🔥 Warm Intro (Top Priority)
+
+**Path 1: Portfolio CEO**
 ```
-LinkedIn 2촌: [X명]
-- [이름] — [공동 배경: 학교/회사]
-- [이름] — [관계]
+[Portfolio CEO] (similar to us) → [Partner Name]
+- Contact method: [LinkedIn / Email / Existing relationship]
+- Connection strength: [Strong / Moderate]
 ```
 
-### 콜드 아웃리치
+**Path 2: Existing Investor**
+```
+[Our Investor] → [Target VC]
+- Co-investment history: [Company Name]
+- Relationship: [Strong / Moderate]
+```
 
-**파트너 이메일 패턴:**
+**Path 3: Network**
+```
+LinkedIn 2nd degree: [X people]
+- [Name] — [Shared background: school/company]
+- [Name] — [Relationship]
+```
+
+### Cold Outreach
+
+**Partner Email Patterns:**
 - firstname@fund.com
 - firstname.lastname@fund.com
 
-**웹사이트 제출 폼:** [URL]
+**Website Submission Form:** [URL]
 
 ---
 
-## ~~CRM 연결 시 추가 정보
+## ~~CRM Connection — Additional Information
 
-[우리 CRM에서 이 투자자와의 이력]
+[Our CRM history with this investor]
 
-| 항목 | 상세 |
-|------|------|
-| **상태** | [신규 / 이전 접촉 / 거절] |
-| **최근 연락** | [날짜 및 유형] |
-| **과거 피드백** | [있는 경우] |
-| **담당자** | [팀 내 누가 관계 있는지] |
-
----
-
-## 경쟁사 투자 체크
-
-이 VC가 우리 경쟁사에 투자했는지 확인:
-
-| 경쟁사 | 투자 여부 | 투자 단계 | 시사점 |
-|--------|----------|----------|--------|
-| [경쟁사 A] | ✅ Yes | Series A | ⚠️ 동일 카테고리 재투자 unlikely |
-| [경쟁사 B] | ❌ No | — | ✅ 기회 열림 |
-
-**권장:**
-- 경쟁사 투자 있으면 → 파트너십 각도, 또는 제외
-- 없으면 → "아직 이 카테고리에 투자 안 함" 각도
+| Item | Details |
+|------|---------|
+| **Status** | [New / Previous contact / Rejected] |
+| **Last Contact** | [Date and type] |
+| **Past Feedback** | [If any] |
+| **Owner** | [Who in team has relationship] |
 
 ---
 
-## 권장 아웃리치 각도
+## Competitive Investment Check
 
-### 각도 1: 포트폴리오 유사성
+Verify if this VC has invested in our competitors:
 
-"귀사의 [유사 포트폴리오 기업]에 투자하신 것을 봤습니다. 저희도 [공통점]을 다루고 있으며..."
+| Competitor | Invested? | Investment Stage | Implication |
+|------------|-----------|------------------|-------------|
+| [Competitor A] | ✅ Yes | Series A | ⚠️ Unlikely to reinvest in same category |
+| [Competitor B] | ❌ No | — | ✅ Opportunity open |
 
-**장점:** Thesis 적합도 즉시 증명
-**단점:** 경쟁으로 보일 수 있음
-
----
-
-### 각도 2: Thesis 정렬
-
-"귀사의 '[Thesis 인용]'과 완벽히 정렬됩니다. 저희는..."
-
-**장점:** 파트너가 말한 언어 사용
-**단점:** 너무 일반적일 수 있음
+**Recommendation:**
+- If invested in competitor → Partnership angle or exclude
+- If not invested → "Not yet in this category" angle
 
 ---
 
-### 각도 3: 최근 활동
+## Recommended Outreach Angles
 
-"[최근 투자/펀드 조성/발표]를 보고 연락드립니다..."
+### Angle 1: Portfolio Similarity
 
-**장점:** 타이밍 관련성
-**단점:** 많은 사람이 같은 각도 사용
+"I saw you invested in [similar portfolio company]. We're also addressing [common point]..."
 
----
-
-### 각도 4: 파트너 배경
-
-"[파트너명]님의 [이전 커리어/창업 경험]을 보고..."
-
-**장점:** 개인화, 공감대
-**단점:** 특정 파트너만 해당
+**Advantage:** Immediately proves thesis fit
+**Disadvantage:** Could appear competitive
 
 ---
 
-## 다음 단계
+### Angle 2: Thesis Alignment
 
-1. [ ] Thesis 적합도 HIGH인가? → 우선순위 리스트 추가
-2. [ ] 웜인트로 경로 있는가? → 인트로 요청 메시지 작성
-3. [ ] 경쟁사 투자 없는가? → 아웃리치 각도 선택
-4. [ ] `/investor-outreach [VC명]` 실행 → 맞춤형 이메일 작성
-5. [ ] `/lead-dashboard` 업데이트 → 파이프라인 추가
+"Your thesis on '[thesis quote]' aligns perfectly with what we're doing..."
+
+**Advantage:** Uses partner's own language
+**Disadvantage:** May be too generic
 
 ---
 
-## 출처
+### Angle 3: Recent Activity
 
-- [VC 웹사이트](URL)
-- [THE VC: [펀드명]](URL)
-- [넥스트유니콘: [펀드명]](URL)
-- [LinkedIn: [파트너명]](URL)
-- [최근 뉴스: [헤드라인]](URL)
+"I saw [recent investment/fund close/announcement] and wanted to reach out..."
+
+**Advantage:** Timing relevance
+**Disadvantage:** Many people use same angle
+
+---
+
+### Angle 4: Partner Background
+
+"I saw [Partner Name]'s [previous career/founder experience] and wanted to reach out..."
+
+**Advantage:** Personalization, relatability
+**Disadvantage:** Only applies to specific partner
+
+---
+
+## Next Steps
+
+1. [ ] Is thesis fit HIGH? → Add to priority list
+2. [ ] Any warm intro paths? → Write intro request message
+3. [ ] No competitive investments? → Select outreach angle
+4. [ ] Run `/investor-outreach [VC name]` → Create customized email
+5. [ ] Update `/lead-dashboard` → Add to pipeline
+
+---
+
+## Sources
+
+- [VC Website](URL)
+- [THE VC: [Fund Name]](URL)
+- [Next Unicorn: [Fund Name]](URL)
+- [LinkedIn: [Partner Name]](URL)
+- [Recent News: [Headline]](URL)
 ```
 
 ---
 
-## 실행 흐름
+## Execution Flow
 
-### 1단계: 요청 분석
-
-```
-조사 대상 파악:
-- "Sequoia Capital 리서치" → 펀드 전체
-- "Marc Andreessen at a16z" → 특정 파트너
-- "fintech seed investors in Korea" → 카테고리 (deal-sourcing으로 라우팅)
-```
-
-### 2단계: 웹 검색 (항상 실행)
+### Step 1: Analyze Request
 
 ```
-다음 검색 병렬 실행:
-1. "[VC 펀드명]" → 공식 웹사이트, About 페이지
-2. "[VC 펀드명] thesis investment strategy"
-3. "[VC 펀드명] portfolio companies"
-4. "[VC 펀드명] recent investments 2024 2025"
-5. "[VC 펀드명] partners team"
-6. "[파트너명] [VC] LinkedIn"
-7. "[VC 펀드명] fund size AUM"
-8. "[VC 펀드명] news announcements"
+Identify research target:
+- "Research Sequoia Capital" → entire fund
+- "Marc Andreessen at a16z" → specific partner
+- "fintech seed investors in Korea" → category (route to deal-sourcing)
 ```
 
-**추출 정보:**
-- Thesis, 투자 초점
-- 포트폴리오 대표 기업 (5-10개)
-- 주요 파트너 (이름, 직함, LinkedIn)
-- 펀드 규모, 최근 펀드 조성
-- 최근 투자 발표 (최근 90일)
-- 전형적 체크사이즈, 투자 단계
-
-### 3단계: Thesis 매칭 (4차원 평가)
+### Step 2: Web Search (Always Executed)
 
 ```
-우리 스타트업 정보와 VC thesis를 비교:
+Run these searches in parallel:
+1. "[VC Fund Name]" → official website, About page
+2. "[VC Fund Name] thesis investment strategy"
+3. "[VC Fund Name] portfolio companies"
+4. "[VC Fund Name] recent investments 2024 2025"
+5. "[VC Fund Name] partners team"
+6. "[Partner Name] [VC] LinkedIn"
+7. "[VC Fund Name] fund size AUM"
+8. "[VC Fund Name] news announcements"
+```
 
-차원 1: 섹터
-   - VC thesis에 명시된 섹터
-   - 포트폴리오 섹터 분포
-   - 우리 섹터와 일치 여부
+**Extract:**
+- Thesis, investment focus
+- Representative portfolio companies (5-10)
+- Key partners (name, title, LinkedIn)
+- Fund size, recent fund closes
+- Recent investment announcements (last 90 days)
+- Typical check size, investment stage
+
+### Step 3: Thesis Match (4-Dimension Rating)
+
+```
+Compare our startup with VC thesis:
+
+Dimension 1: Sector
+   - Sectors explicit in VC thesis
+   - Portfolio sector distribution
+   - Alignment with our sector
    → 🟢 MATCH / 🟡 PARTIAL / 🔴 MISMATCH
 
-차원 2: 단계
-   - VC 투자 단계 범위
-   - 포트폴리오 단계 분포
-   - 우리 현재 단계와 일치
+Dimension 2: Stage
+   - VC investment stage range
+   - Portfolio stage distribution
+   - Alignment with our current stage
    → 🟢 MATCH / 🟡 PARTIAL / 🔴 MISMATCH
 
-차원 3: 체크사이즈
-   - 전형적 투자 금액
-   - 우리 조달 목표와 일치
+Dimension 3: Check Size
+   - Typical investment amount
+   - Alignment with our target
    → 🟢 MATCH / 🟡 PARTIAL / 🔴 MISMATCH
 
-차원 4: 지역
-   - VC 지리적 초점
-   - 우리 위치와 일치
+Dimension 4: Geography
+   - VC geographic focus
+   - Alignment with our location
    → 🟢 MATCH / 🟡 PARTIAL / 🔴 MISMATCH
 
-종합 적합도:
-   - 3개+ GREEN, RED 없음 → HIGH
-   - 2개 GREEN, 또는 1개 RED → MEDIUM
-   - 2개+ RED → LOW
+Overall Fit:
+   - 3+ GREEN, no RED → HIGH
+   - 2 GREEN, or 1 RED → MEDIUM
+   - 2+ RED → LOW
 ```
 
-### 4단계: 포트폴리오 분석
+### Step 4: Portfolio Analysis
 
 ```
-포트폴리오 기업을 분석하여:
-1. 우리와 유사한 기업 식별 (섹터, 비즈니스 모델)
-2. 섹터 분포 계산
-3. 투자 패턴 파악 (Lead/Follow, 투자 빈도)
-4. 경쟁사 투자 여부 체크
+Analyze portfolio companies to:
+1. Identify similar companies (sector, business model)
+2. Calculate sector distribution
+3. Understand investment patterns (lead/follow, frequency)
+4. Check for competitive investments
 
-유사 기업 발견 시 → 웜인트로 경로 최우선
+If similar companies found → warm intro path priority
 ```
 
-### 5단계: ~~data enrichment 연결 시
+### Step 5: When ~~data enrichment connected
 
 ```
-THE VC/혁신의숲/OpenDART에서 (웹 검색 기반, OpenDART는 MCP 연결 가능):
-1. 투자 라운드, 밸류에이션 이력 (THE VC)
-2. 포트폴리오 현황 및 투자 이력 (THE VC)
-3. 스타트업 트래픽·고용·매출 성장 지표 (혁신의숲)
-4. 상장사 재무제표, 지분구조 (OpenDART)
-5. Exit 이력 — 상장, M&A (OpenDART + 웹 검색)
+From THE VC/Innovation Forest/OpenDART (web search-based, OpenDART supports MCP):
+1. Investment round history, valuation (THE VC)
+2. Portfolio status and investment history (THE VC)
+3. Startup traffic, hiring, revenue growth metrics (Innovation Forest)
+4. Public company financials, cap structure (OpenDART)
+5. Exit history — IPO, M&A (OpenDART + web search)
 ```
 
-### 6단계: 접근 경로 매핑
+### Step 6: Approach Path Mapping
 
 ```
-웜인트로 경로 탐색:
-1. 포트폴리오 연결
-   - 유사 기업 CEO → VC 파트너
-   - LinkedIn 검색, 이메일 확인
+Discover warm intro paths:
+1. Portfolio connection
+   - Similar company CEO → VC partner
+   - LinkedIn search, email verification
 
-2. 기존 투자자 연결
-   - 우리 투자자 → 타겟 VC
-   - Co-investment 이력 확인
+2. Existing investor connection
+   - Our investor → target VC
+   - Co-investment history check
 
-3. 네트워크 연결
-   - LinkedIn 2촌 분석
-   - 공동 배경 (학교, 회사)
+3. Network connection
+   - LinkedIn 2nd-degree analysis
+   - Shared background (school, company)
 
-~~CRM 또는 ~~knowledge base 연결 시:
-   - 팀원 커넥션 자동 스캔
-   - 과거 이메일 이력 검색
+When ~~CRM or ~~knowledge base connected:
+   - Auto-scan team connections
+   - Search past email history
 ```
 
-### 7단계: 출력 생성
+### Step 7: Generate Output
 
 ```
-리서치 리포트 생성:
+Generate research report:
 1. Executive Summary
-2. Thesis 적합도 (4차원 평가)
-3. 펀드 프로필
-4. 포트폴리오 분석
-5. 최근 활동 & Why Now
-6. 주요 파트너 프로필
-7. 접근 경로
-8. 권장 아웃리치 각도
-9. 다음 단계
+2. Thesis fit (4-dimension rating)
+3. Fund profile
+4. Portfolio analysis
+5. Recent activity & Why Now
+6. Key partner profiles
+7. Approach paths
+8. Recommended outreach angles
+9. Next steps
 ```
 
 ---
 
-## 파트너별 리서치
+## Research by Partner
 
-특정 파트너를 조사할 때:
+When researching a specific partner:
 
-### 추출 정보
+### Information to Extract
 
 ```
-1. 배경
-   - 이전 커리어 (창업, 운영, 투자)
-   - 학력
-   - 전문성 영역
+1. Background
+   - Previous career (founder, operator, investor)
+   - Education
+   - Areas of expertise
 
-2. 투자 초점
-   - 주로 투자하는 섹터
-   - 선호 단계
-   - 대표 투자 (3-5개)
+2. Investment Focus
+   - Sectors they typically invest in
+   - Preferred stages
+   - Representative investments (3-5)
 
-3. 투자 스타일
+3. Investment Style
    - Hands-on / Hands-off
-   - 보드 참여 적극성
-   - 포트폴리오 지원 방식
+   - Board participation level
+   - Portfolio support approach
 
-4. 최근 활동
-   - 트위터/LinkedIn 포스트
-   - 블로그, 팟캐스트
-   - 컨퍼런스 발표
+4. Recent Activity
+   - Twitter/LinkedIn posts
+   - Blog, podcasts
+   - Conference talks
 
-5. 대화 포인트
-   - 공통 배경
-   - 공유 관심사
-   - 투자 철학
+5. Conversation Hooks
+   - Shared background
+   - Shared interests
+   - Investment philosophy
 ```
 
-### 개인화 각도
+### Personalization Angles
 
 ```
-각도 1: 공통 배경
-"[학교/회사]에서 [연도]에 계셨다는 것을 봤습니다..."
+Angle 1: Shared Background
+"I saw you were at [school/company] in [year]..."
 
-각도 2: 투자 철학
-"[파트너명]님이 [인터뷰/포스트]에서 '[인용]'라고 하신 것에 깊이 공감합니다..."
+Angle 2: Investment Philosophy
+"I deeply resonate with your point in [interview/post] where you said '[quote]'..."
 
-각도 3: 대표 투자
-"[대표 투자 기업]에 투자하신 것을 보고, 저희도..."
+Angle 3: Representative Investment
+"Saw you invested in [company], and we're also..."
 
-각도 4: 최근 활동
-"[최근 트윗/포스트]를 보고 연락드립니다..."
-```
-
----
-
-## 한국 VC 리서치 특화
-
-한국 VC를 조사할 때 추가 확인 사항:
-
-### 추가 데이터 소스
-
-```
-1. thevc.kr — 한국 VC 데이터베이스
-2. KVCA 회원사 리스트
-3. 투자 뉴스: Platum, 벤처스퀘어
-4. LinkedIn Korea VC 그룹
-```
-
-### 한국 VC 특성
-
-```
-1. 네트워크 중심
-   - 웜인트로 필수 (콜드 응답률 매우 낮음)
-   - 인맥, 학연, 지연 중요
-
-2. 정부 출자 펀드
-   - 모펀드, 투자조합 구조
-   - 투자 제약 조건 (섹터, 지역)
-
-3. CVC 비중 높음
-   - 네이버, 카카오, 삼성 등
-   - 전략적 투자 우선
-
-4. 투자 문화
-   - DD 기간 길음 (3-6개월)
-   - 조건부 투자 (마일스톤)
-   - 후속 투자 적극적
+Angle 4: Recent Activity
+"[Recent tweet/post] caught my eye..."
 ```
 
 ---
 
-## 팁
+## Korea VC Research Specialization
 
-1. **포트폴리오 역추적** — 유사 기업에 투자한 VC가 가장 관련성 높음
-2. **Thesis 언어 사용** — VC가 웹사이트에 쓴 언어로 아웃리치 작성
-3. **Why Now 찾기** — 최근 펀드 조성, 신규 파트너, 유사 투자 = 좋은 타이밍
-4. **경쟁사 투자 체크** — 동일 카테고리 재투자는 드물지만, 파트너십 각도는 가능
-5. **파트너별 맞춤** — 펀드에 여러 파트너 → 가장 관련성 높은 파트너 타게팅
-6. **웜인트로 최우선** — 포트폴리오 CEO 인트로가 가장 효과적
+Additional focus when researching Korean VCs:
+
+### Additional Data Sources
+
+```
+1. thevc.kr — Korean VC database
+2. KVCA member list
+3. Investment news: Platum, VentureSquare
+4. LinkedIn Korea VC groups
+```
+
+### Korean VC Characteristics
+
+```
+1. Network-driven
+   - Warm intro essential (cold response rate very low)
+   - Personal connections, alumni networks critical
+
+2. Government-backed funds
+   - Fund-of-funds structure
+   - Investment restrictions (sector, geography)
+
+3. High CVC proportion
+   - Naver, Kakao, Samsung, others
+   - Strategic investment priority
+
+4. Investment culture
+   - Longer DD period (3-6 months)
+   - Conditional investment (milestone-based)
+   - Active follow-on investing
+```
 
 ---
 
-## 관련 스킬 및 커맨드
+## Tips
 
-- **deal-sourcing** — 다수 투자자 발굴 (이 스킬은 1명 심층 조사)
-- **fundraise-comms** — 웜인트로, 콜드 이메일 템플릿
-- `/investor-outreach` — 이 리서치 기반 맞춤형 아웃리치 작성
-- `/deal-sourcing` — 섹터·단계 기반 다수 투자자 발굴
-- `/lead-dashboard` — 리서치한 투자자를 파이프라인에 추가
+1. **Portfolio reverse sourcing** — VCs investing in similar companies most relevant
+2. **Use VC's thesis language** — Write outreach in language VC uses on website
+3. **Find "Why Now"** — Recent fund close, new partner, similar investment = good timing
+4. **Check competitive investments** — Same category re-investment rare, but partnership angle possible
+5. **Tailor by partner** — Multiple partners in fund → target most relevant one
+6. **Prioritize warm intros** — Portfolio CEO intro = most effective
+
+---
+
+## Related Skills and Commands
+
+- **deal-sourcing** — Discover multiple investors (this skill = deep research on 1)
+- **fundraise-comms** — Warm intro, cold email templates
+- `/investor-outreach` — Write customized outreach based on this research
+- `/deal-sourcing` — Discover multiple investors by sector/stage
+- `/lead-dashboard` — Add researched investor to pipeline
