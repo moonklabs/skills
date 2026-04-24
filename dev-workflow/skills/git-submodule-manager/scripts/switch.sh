@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e
 
-# 사용법: ./switch.sh <branch-name> [--create] [--yes]
-# 예: ./switch.sh feature/new-feature --create --yes
+# Usage: ./switch.sh <branch-name> [--create] [--yes]
+# Example: ./switch.sh feature/new-feature --create --yes
 
 source "$(dirname "$0")/_config.sh"
 
 BRANCH_NAME=$1
 CREATE_FLAG=""
 
-# --create 및 --yes 플래그 파싱
+# Parse --create and --yes flags
 parse_yes_flag "$@"
 for arg in "$@"; do
     if [ "$arg" = "--create" ]; then
@@ -17,7 +17,7 @@ for arg in "$@"; do
     fi
 done
 
-# 인자 검증
+# Validate arguments
 if [ -z "$BRANCH_NAME" ]; then
     log_error "Branch name is required"
     echo "Usage: $0 <branch-name> [--create] [--yes]"
@@ -25,7 +25,7 @@ if [ -z "$BRANCH_NAME" ]; then
     exit 1
 fi
 
-# 변경사항 확인
+# Uncommitted-change check
 check_uncommitted_changes() {
     local path=$1
     local name=$2
@@ -37,7 +37,7 @@ check_uncommitted_changes() {
     return 0
 }
 
-# 변경사항 체크
+# Run the check across every repo
 log_info "Checking for uncommitted changes..."
 HAS_CHANGES=false
 
@@ -56,18 +56,18 @@ if [ "$HAS_CHANGES" = true ]; then
     exit 1
 fi
 
-# 현재 상태 출력
+# Current state
 log_info "Current branches:"
 echo "  Main: $(git branch --show-current)"
 for sub in "${SUBMODULES[@]}"; do
     echo "  $sub: $(git -C $sub branch --show-current 2>/dev/null || echo 'not initialized')"
 done
 
-# 브랜치 전환/생성
+# Switch / create branch
 echo ""
 log_info "Switching to: $BRANCH_NAME"
 
-# 1. 메인 리포지토리
+# 1. Main repo
 if [ "$CREATE_FLAG" = "--create" ]; then
     log_info "Creating and switching main repo branch..."
     git checkout -B "$BRANCH_NAME"
@@ -76,7 +76,7 @@ else
     git checkout "$BRANCH_NAME"
 fi
 
-# 2. 서브모듈
+# 2. Submodules
 for sub in "${SUBMODULES[@]}"; do
     if [ ! -d "$sub/.git" ] && [ ! -f "$sub/.git" ]; then
         log_warn "$sub is not initialized, skipping"
@@ -106,7 +106,7 @@ for sub in "${SUBMODULES[@]}"; do
     cd ..
 done
 
-# 최종 상태
+# Final state
 log_success "Branch switch completed!"
 echo ""
 echo "=== New Status ==="

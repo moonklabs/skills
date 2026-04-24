@@ -7,18 +7,18 @@ echo -e "${BOLD}${CYAN}║           Worktree & Submodule Status                
 echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-# 현재 디렉토리
+# Current directory
 echo -e "${BOLD}📍 Current Directory:${NC} $(pwd)"
 echo ""
 
-# Worktree 목록
+# Worktree list
 echo -e "${BOLD}🌳 Git Worktrees:${NC}"
 git worktree list | while read line; do
     echo "   $line"
 done
 echo ""
 
-# 상태 출력 함수
+# Print status for one repo
 show_repo_status() {
     local name=$1
     local path=$2
@@ -39,7 +39,7 @@ show_repo_status() {
     local unstaged=$(echo "$status" | grep "^.[MADRC]" | wc -l | tr -d ' ')
     local untracked=$(echo "$status" | grep "^??" | wc -l | tr -d ' ')
 
-    # 브랜치 색상
+    # Branch color
     local branch_color=$GREEN
     if [ "$current_branch" = "DETACHED HEAD" ]; then
         branch_color=$RED
@@ -47,7 +47,7 @@ show_repo_status() {
         branch_color=$CYAN
     fi
 
-    # 상태 아이콘
+    # Status icon
     local status_icon="${GREEN}✓${NC}"
     if [ -n "$status" ]; then
         status_icon="${YELLOW}●${NC}"
@@ -61,7 +61,7 @@ show_repo_status() {
         echo -e "│   Changes: ${GREEN}+$staged staged${NC}, ${YELLOW}~$unstaged modified${NC}, ${RED}?$untracked untracked${NC}"
     fi
 
-    # 원격과의 차이
+    # Ahead/behind vs remote
     local ahead=$(git -C "$path" rev-list --count @{u}..HEAD 2>/dev/null || echo "0")
     local behind=$(git -C "$path" rev-list --count HEAD..@{u} 2>/dev/null || echo "0")
     if [ "$ahead" != "0" ] || [ "$behind" != "0" ]; then
@@ -69,24 +69,24 @@ show_repo_status() {
     fi
 }
 
-# 메인 리포지토리
+# Main repo
 echo -e "${BOLD}📦 Repository Status:${NC}"
 echo "├──────────────────────────────────────────────────────────────"
 show_repo_status "Main Repository" "." ""
 echo "│"
 
-# 서브모듈
+# Submodules
 for sub in "${SUBMODULES[@]}"; do
     show_repo_status "$sub" "$sub" "$(get_default_branch "$sub")"
     echo "│"
 done
 echo "└──────────────────────────────────────────────────────────────"
 
-# 경고 메시지
+# Warnings
 echo ""
 WARNINGS=()
 
-# Detached HEAD 체크
+# Detached HEAD check
 for sub in "${SUBMODULES[@]}"; do
     if [ -d "$sub" ]; then
         branch=$(git -C "$sub" branch --show-current 2>/dev/null)
@@ -96,7 +96,7 @@ for sub in "${SUBMODULES[@]}"; do
     fi
 done
 
-# 브랜치 불일치 체크
+# Branch-mismatch check
 MAIN_BRANCH=$(git branch --show-current)
 for sub in "${SUBMODULES[@]}"; do
     if [ -d "$sub" ]; then
