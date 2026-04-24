@@ -1,154 +1,154 @@
 ---
 name: gov-program-knowledge
-description: 한국 정부/민간 지원사업 공고 체계, 평가 기준, 주요 프로그램 특성을 안내합니다. "지원사업", "정부 과제", "TIPS", "예비창업패키지", "창업성장기술개발", "AI바우처", "공고 분석", "apply-find", "apply-check" 등의 맥락에서 자동 활성화됩니다.
+description: Provides domain knowledge of Korean government/private funding program announcement systems, evaluation criteria, and key program characteristics. Auto-activates in contexts like "funding programs", "government projects", "TIPS", "Early-Stage Startup Package", "Startup Growth Technology Development", "AI Voucher", "program analysis", "apply-find", "apply-check", and Korean terms "지원사업", "정부 과제", "TIPS", "예비창업패키지", "창업성장기술개발", "AI바우처", "공고 분석".
 ---
 
-# 한국 지원사업 도메인 지식
+# Korean Government Funding Program Domain Knowledge
 
-## 지원사업 생태계 개요
+## Funding Ecosystem Overview
 
-### 주관기관별 분류
+### Classification by Administering Agency
 
-| 분류 | 주관기관 | 대표 프로그램 |
-|------|---------|-------------|
-| 중앙정부 | 중소벤처기업부 | TIPS, 예창패, 초창패, 창업성장기술개발 |
-| 중앙정부 | 과학기술정보통신부 | AI 바우처, R&D 사업, 정보통신산업진흥원 |
-| 중앙정부 | 산업통상자원부 | 산업기술개발, 소재부품장비 |
-| 지자체 | 서울시 / SBA | 서울형 R&D, 서울창업허브 |
-| 지자체 | 경기도 / 경기창조경제혁신센터 | 경기 스타트업 지원 |
-| 지자체 | 각 테크노파크 | 지역 R&D, 사업화 지원 |
-| 공공기관 | KOTRA | 글로벌 액셀러레이팅, K-스타트업 그랜드챌린지 |
-| 공공기관 | NIPA | 정보통신산업진흥원, AI 바우처, R&D 사업 |
-| 민간 | 주요 AC | 스파크랩, 매쉬업, 패스트벤처스 등 |
-| 대기업 | 오픈이노베이션 | 삼성, LG, SK, 현대차 등 |
-| 해외 | 글로벌 | YC, Techstars, 500 Startups |
-
----
-
-## 주요 프로그램 상세
-
-### TIPS (기술창업투자프로그램)
-
-- **주관:** 중소벤처기업부 / 민간 운영사 (AC, VC)
-- **지원 규모:** 최대 5억원 (R&D 3억 + 사업화 2억)
-- **대상:** 기술 기반 스타트업 (업력 7년 이내)
-- **핵심:** 민간 운영사가 먼저 투자 → 정부 매칭 방식
-- **선발 과정:** 운영사 추천 → 서면 심사 → 발표 심사
-- **강조 포인트:** 기술 혁신성, 글로벌 확장 가능성
-- **운영사 선택:** 포트폴리오와 업종이 맞는 운영사 선택이 핵심
-
-### 예비창업패키지
-
-- **주관:** 중소벤처기업부
-- **지원 규모:** 최대 1억원
-- **대상:** 예비 창업자 (미창업)
-- **강조 포인트:** 사업화 가능성, 아이템 혁신성, 대표자 역량
-- **특징:** 고객 인터뷰/시장 검증 증거가 매우 중요
-
-### 초기창업패키지
-
-- **주관:** 중소벤처기업부
-- **지원 규모:** 최대 1억원
-- **대상:** 창업 3년 이내
-- **강조 포인트:** 실제 달성한 성과 (매출, 고객), 성장 가능성
-
-### 창업성장기술개발 (R&D 과제)
-
-- **주관:** 중소벤처기업부 / 창업진흥원
-- **지원 규모:** 최대 3억원 (1~2년)
-- **대상:** 창업 7년 이내, 기술 개발 역량 보유
-- **강조 포인트:** 기술 로드맵 구체성, 연구개발비 집행 계획
-- **특징:** 연차별 기술 목표와 성능 지표 필수
-
-### AI 바우처
-
-- **주관:** 과학기술정보통신부 / 정보통신산업진흥원(NIPA)
-- **지원 규모:** 최대 3억원
-- **대상:** AI 기술 도입/개발이 필요한 기업
-- **강조 포인트:** AI 적용 시나리오 구체성, 도입 전/후 KPI
-- **특징:** 공급기업(AI 기술 제공) + 수요기업(AI 도입) 매칭 구조
-
-### 글로벌 액셀러레이팅 / K-스타트업 그랜드챌린지
-
-- **주관:** KOTRA / 중소벤처기업부
-- **지원:** 해외 VC 연결, 현지화 지원, 글로벌 데모데이
-- **대상:** 해외 진출 의지가 있는 스타트업
-- **강조 포인트:** 글로벌 시장 분석, 현지화 전략
+| Category | Agency | Key Programs |
+|----------|--------|--------------|
+| Central Government | 중소벤처기업부 | TIPS, 예비창업패키지, 초기창업패키지, 창업성장기술개발 |
+| Central Government | 과학기술정보통신부 | AI 바우처, R&D 사업, 정보통신산업진흥원 |
+| Central Government | 산업통상자원부 | 산업기술개발, 소재부품장비 |
+| Local Government | 서울시 / SBA | 서울형 R&D, 서울창업허브 |
+| Local Government | 경기도 / 경기창조경제혁신센터 | 경기 스타트업 지원 |
+| Local Government | 각 테크노파크 | Regional R&D, Commercialization Support |
+| Public Institutions | KOTRA | 글로벌 액셀러레이팅, K-스타트업 그랜드챌린지 |
+| Public Institutions | NIPA | 정보통신산업진흥원, AI 바우처, R&D 사업 |
+| Private Sector | Major Accelerators | Sparklabs, Mash Up, Fastventures, etc. |
+| Large Companies | Open Innovation | Samsung, LG, SK, Hyundai Motors, etc. |
+| Global | Global | YC, Techstars, 500 Startups |
 
 ---
 
-## 평가 기준 공통 프레임워크
+## Detailed Program Profiles
 
-대부분의 지원사업은 다음 4개 축으로 평가합니다:
+### TIPS (기술창업투자프로그램 — Technology Startup Investment Program)
 
-| 평가 축 | 핵심 질문 | 대응 항목 |
-|--------|---------|---------|
-| **기술성** | 기술이 얼마나 독창적인가? | 특허, TRL, 경쟁 대비 성능 |
-| **시장성** | 시장이 얼마나 크고 성장하는가? | TAM/SAM/SOM, CAGR |
-| **사업화 가능성** | 돈을 벌 수 있는가? | BM, 매출 이력, 고객 수 |
-| **팀 역량** | 이 팀이 해낼 수 있는가? | 학력/경력, 역할 분담, 실적 |
+- **Administering Agency:** 중소벤처기업부 / Private Operators (AC, VC)
+- **Funding Scale:** Up to 500M KRW (R&D 300M + Commercialization 200M)
+- **Target:** Tech-based startups (operating for less than 7 years)
+- **Core Model:** Private operator invests first → Government matching funding
+- **Selection Process:** Operator recommendation → Document review → Pitch evaluation
+- **Emphasis Points:** Technology innovation, global expansion potential
+- **Key Success Factor:** Choosing the right operator with relevant portfolio in your industry
+
+### Early-Stage Startup Package (예비창업패키지)
+
+- **Administering Agency:** 중소벤처기업부
+- **Funding Scale:** Up to 100M KRW
+- **Target:** Pre-founders (not yet incorporated)
+- **Emphasis Points:** Commercialization feasibility, idea innovation, founder capability
+- **Critical Feature:** Customer interviews and market validation evidence are essential
+
+### Initial Startup Package (초기창업패키지)
+
+- **Administering Agency:** 중소벤처기업부
+- **Funding Scale:** Up to 100M KRW
+- **Target:** Startups operating for 3 years or less
+- **Emphasis Points:** Actual achievements (revenue, customers), growth potential
+
+### Startup Growth Technology Development (창업성장기술개발 — R&D Project)
+
+- **Administering Agency:** 중소벤처기업부 / 창업진흥원
+- **Funding Scale:** Up to 300M KRW (1-2 years)
+- **Target:** Startups under 7 years old with R&D capability
+- **Emphasis Points:** Technology roadmap concreteness, R&D expense execution plan
+- **Critical Feature:** Annual technology targets and performance metrics are mandatory
+
+### AI Voucher (AI 바우처)
+
+- **Administering Agency:** 과학기술정보통신부 / 정보통신산업진흥원(NIPA)
+- **Funding Scale:** Up to 300M KRW
+- **Target:** Companies requiring AI technology adoption/development
+- **Emphasis Points:** AI application scenario specificity, pre/post-adoption KPIs
+- **Characteristic:** Supplier-Demand company matching structure (AI provider + AI adopter)
+
+### Global Accelerating / K-Startup Grand Challenge (글로벌 액셀러레이팅 / K-스타트업 그랜드챌린지)
+
+- **Administering Agency:** KOTRA / 중소벤처기업부
+- **Support Includes:** Overseas VC connections, localization support, global demo day
+- **Target:** Startups with intention to expand globally
+- **Emphasis Points:** Global market analysis, localization strategy
 
 ---
 
-## 주요 소싱 포털
+## Common Evaluation Framework
 
-| 포털 | URL | 특화 |
-|------|-----|------|
-| **기업마당** | bizinfo.go.kr | 정부 지원사업 통합 검색 |
-| **K-Startup** | k-startup.go.kr | 창업 지원사업 전문 |
-| **TIPS** | tips.go.kr | TIPS 운영사 목록, 공고 |
-| **중소기업 통합공시** | smes.go.kr | 중기부 공고 |
-| **과기부 R&D** | ntis.go.kr | 국가 R&D 과제 |
-| **SBA** | sba.seoul.kr | 서울 기업 특화 |
-| **경기기업비서** | egbiz.or.kr | 경기 기업 특화 |
-| **NIPA** | https://www.nipa.kr/home/2-2?tab=1 | NIPA |
-| **KOTRA** | kotra.or.kr | 해외 진출 지원 |
+Most funding programs evaluate along these four axes:
+
+| Evaluation Axis | Core Question | Evidence Items |
+|-----------------|---------------|-----------------|
+| **Technology** | How original is the technology? | Patents, TRL, competitive performance |
+| **Market Opportunity** | How large and growing is the market? | TAM/SAM/SOM, CAGR |
+| **Commercialization Feasibility** | Can you generate revenue? | Business model, revenue history, customer count |
+| **Team Capability** | Can this team execute? | Education/experience, role distribution, track record |
 
 ---
 
-## 지원사업 연간 캘린더 (대략적 시기)
+## Key Sourcing Portals
 
-| 월 | 주요 공고 |
-|----|---------|
-| 1~2월 | 예비창업패키지, TIPS 1차 |
-| 3~4월 | 초기창업패키지, 창업성장기술개발 1차, 지자체 과제 |
-| 5~6월 | AI 바우처, TIPS 2차, 글로벌 액셀러레이팅 |
-| 7~8월 | 중간 평가 및 2차 모집 |
-| 9~10월 | 창업성장기술개발 2차, 지자체 하반기 과제 |
-| 11~12월 | 다음 연도 예산 반영 공고, 오픈이노베이션 다수 |
-
-> 정확한 일정은 기업마당(bizinfo.go.kr)에서 확인 필요
+| Portal | URL | Specialty |
+|--------|-----|-----------|
+| **기업마당** | bizinfo.go.kr | Integrated government funding program search |
+| **K-Startup** | k-startup.go.kr | Startup funding programs specialized |
+| **TIPS** | tips.go.kr | TIPS operators list, announcements |
+| **중소기업 통합공시** | smes.go.kr | SME announcements |
+| **과기부 R&D** | ntis.go.kr | National R&D projects |
+| **SBA** | sba.seoul.kr | Seoul-based companies specialized |
+| **경기기업비서** | egbiz.or.kr | Gyeonggi Province companies specialized |
+| **NIPA** | https://www.nipa.kr/home/2-2?tab=1 | 정보통신산업진흥원 |
+| **KOTRA** | kotra.or.kr | Global expansion support |
 
 ---
 
-## 심사 프로세스
+## Funding Program Annual Calendar (Approximate Timeline)
+
+| Month | Key Programs |
+|-------|-------------|
+| Jan~Feb | 예비창업패키지, TIPS Round 1 |
+| Mar~Apr | 초기창업패키지, 창업성장기술개발 Round 1, Local government projects |
+| May~Jun | AI 바우처, TIPS Round 2, 글로벌 액셀러레이팅 |
+| Jul~Aug | Mid-term review and Round 2 recruitment |
+| Sep~Oct | 창업성장기술개발 Round 2, Local government H2 projects |
+| Nov~Dec | Next-year budget-reflected announcements, Open Innovation programs |
+
+> For exact schedules, check 기업마당(bizinfo.go.kr)
+
+---
+
+## Review Process
 
 ```
-1. 공고 확인 → 자격 요건 검토
+1. Check announcement → Review eligibility requirements
         ↓
-2. 사업계획서 작성 → 제출
+2. Write business plan (사업계획서) → Submit
         ↓
-3. 서류 심사 (2~4주)
+3. Document review (2~4 weeks)
         ↓
-4. 발표 심사 (PT, 10~20분) ← TIPS/R&D 과제 해당
+4. Pitch evaluation (Presentation, 10~20 min) ← TIPS/R&D projects only
         ↓
-5. 선정 발표 → 협약 체결
+5. Selection announcement → Sign agreement
         ↓
-6. 사업비 지급 → 과제 수행
+6. Funding disbursement → Project execution
         ↓
-7. 중간 점검 / 최종 성과 보고
+7. Mid-term checkpoint / Final performance report
 ```
 
 ---
 
-## 지원사업 선택 전략
+## Program Selection Strategy
 
-| 상황 | 추천 프로그램 |
-|------|-------------|
-| 예비 창업자, 아이디어 단계 | 예비창업패키지 |
-| 창업 1~3년, 초기 매출 있음 | 초기창업패키지, TIPS |
-| 기술 개발 자금 필요 | 창업성장기술개발, TIPS |
-| AI 기술 도입/개발 | AI 바우처 |
-| 서울 소재, 지역 네트워크 필요 | 서울형 R&D, SBA 프로그램 |
-| 글로벌 진출 준비 | K-스타트업 그랜드챌린지, KOTRA |
-| 대기업 파트너십 필요 | 대기업 오픈이노베이션 |
+| Situation | Recommended Program |
+|-----------|-------------------|
+| Pre-founder, idea stage | 예비창업패키지 |
+| 1-3 years old, initial revenue | 초기창업패키지, TIPS |
+| Requires technology development funding | 창업성장기술개발, TIPS |
+| AI technology adoption/development | AI 바우처 |
+| Seoul-based, needs regional network | 서울형 R&D, SBA 프로그램 |
+| Global expansion preparation | K-스타트업 그랜드챌린지, KOTRA |
+| Requires corporate partnership | 대기업 오픈이노베이션 |
