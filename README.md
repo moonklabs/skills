@@ -10,10 +10,10 @@
 | `gtm-strategy/` | `moonklabs-gtm-strategy` | gtm-strategy · competitive-landscape · pricing-strategy · market-sizing · sales-playbook |
 | `finance-metrics/` | `moonklabs-finance-metrics` | startup-metrics · financial-modeling |
 | `gov-apply/` | `moonklabs-gov-apply` | kb-structure · gov-program-knowledge · bizplan-writing · hwp-format |
-| `dev-workflow/` | `moonklabs-dev-workflow` | git-submodule-manager |
+| `dev-workflow/` | `moonklabs-dev-workflow` | git-submodule-manager · explain-diff-html · explain-diff-html-plain · explain-plan-html |
 | `design-system/` | `moonklabs-design-system` | design-md · sprintable-design |
 
-총 **20개 스킬**이 6개 카테고리로 묶여 있습니다.
+총 **23개 스킬**이 6개 카테고리로 묶여 있습니다.
 
 ## 저장소 구조
 
@@ -82,7 +82,7 @@ skills/
 2. 최소 한 카테고리를 설치 → 대표 스킬이 트리거되는지 테스트 (예: "피치 덱 만들기", "DESIGN.md 만들어줘").
 
 ### Codex CLI
-1. `./skill.sh build && ./skill.sh install` 실행 후 `ls ~/.codex/prompts/` 에 20개 파일 확인.
+1. `./skill.sh build && ./skill.sh install` 실행 후 `ls ~/.codex/prompts/` 에 23개 파일 확인.
 2. Codex CLI에서 스킬 이름을 참조해 1회 호출이 성공하는지 확인.
 
 ## 출처
@@ -90,6 +90,7 @@ skills/
 - `fundraising/`, `gtm-strategy/`, `finance-metrics/` 카테고리: `startup-plugins/startup-fundraise/skills/` 에서 재분류.
 - `gov-apply/` 카테고리: `startup-plugins/startup-apply/skills/` 에서 이관.
 - `dev-workflow/`, `design-system/` 카테고리: `developer-plugins/skills/` 에서 이관.
+- `dev-workflow/explain-diff-html`, `explain-diff-html-plain`, `explain-plan-html`: 개인 스킬 폴더(`~/.claude/skills/`)에서 복사.
 
 ## 로드맵
 

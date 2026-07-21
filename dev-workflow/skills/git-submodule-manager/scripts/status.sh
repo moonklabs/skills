@@ -2,21 +2,28 @@
 
 source "$(dirname "$0")/_config.sh"
 
-echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BOLD}${CYAN}║           Worktree & Submodule Status                        ║${NC}"
-echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════╝${NC}"
-echo ""
+# --quiet collapses each repo to a single line and drops the banner/worktree
+# list — use it for routine checks so the status output fed back to Claude
+# stays small; drop it only when the user actually wants the full picture.
+parse_quiet_flag "$@"
 
-# Current directory
-echo -e "${BOLD}📍 Current Directory:${NC} $(pwd)"
-echo ""
+if [ "$QUIET_FLAG" != "true" ]; then
+    echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${BOLD}${CYAN}║           Worktree & Submodule Status                        ║${NC}"
+    echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════════════════╝${NC}"
+    echo ""
 
-# Worktree list
-echo -e "${BOLD}🌳 Git Worktrees:${NC}"
-git worktree list | while read line; do
-    echo "   $line"
-done
-echo ""
+    # Current directory
+    echo -e "${BOLD}📍 Current Directory:${NC} $(pwd)"
+    echo ""
+
+    # Worktree list
+    echo -e "${BOLD}🌳 Git Worktrees:${NC}"
+    git worktree list | while read line; do
+        echo "   $line"
+    done
+    echo ""
+fi
 
 # Print status for one repo
 show_repo_status() {
@@ -38,6 +45,19 @@ show_repo_status() {
     local staged=$(echo "$status" | grep "^[MADRC]" | wc -l | tr -d ' ')
     local unstaged=$(echo "$status" | grep "^.[MADRC]" | wc -l | tr -d ' ')
     local untracked=$(echo "$status" | grep "^??" | wc -l | tr -d ' ')
+
+    # Ahead/behind vs remote
+    local ahead=$(git -C "$path" rev-list --count @{u}..HEAD 2>/dev/null || echo "0")
+    local behind=$(git -C "$path" rev-list --count HEAD..@{u} 2>/dev/null || echo "0")
+
+    if [ "$QUIET_FLAG" = "true" ]; then
+        local mark="clean"
+        [ -n "$status" ] && mark="+$staged ~$unstaged ?$untracked"
+        local remote=""
+        { [ "$ahead" != "0" ] || [ "$behind" != "0" ]; } && remote=" ↑$ahead↓$behind"
+        echo "$name: $current_branch ($mark)$remote"
+        return
+    fi
 
     # Branch color
     local branch_color=$GREEN
@@ -61,26 +81,25 @@ show_repo_status() {
         echo -e "│   Changes: ${GREEN}+$staged staged${NC}, ${YELLOW}~$unstaged modified${NC}, ${RED}?$untracked untracked${NC}"
     fi
 
-    # Ahead/behind vs remote
-    local ahead=$(git -C "$path" rev-list --count @{u}..HEAD 2>/dev/null || echo "0")
-    local behind=$(git -C "$path" rev-list --count HEAD..@{u} 2>/dev/null || echo "0")
     if [ "$ahead" != "0" ] || [ "$behind" != "0" ]; then
         echo -e "│   Remote: ↑$ahead ↓$behind"
     fi
 }
 
 # Main repo
-echo -e "${BOLD}📦 Repository Status:${NC}"
-echo "├──────────────────────────────────────────────────────────────"
+if [ "$QUIET_FLAG" != "true" ]; then
+    echo -e "${BOLD}📦 Repository Status:${NC}"
+    echo "├──────────────────────────────────────────────────────────────"
+fi
 show_repo_status "Main Repository" "." ""
-echo "│"
+[ "$QUIET_FLAG" != "true" ] && echo "│"
 
 # Submodules
 for sub in "${SUBMODULES[@]}"; do
     show_repo_status "$sub" "$sub" "$(get_default_branch "$sub")"
-    echo "│"
+    [ "$QUIET_FLAG" != "true" ] && echo "│"
 done
-echo "└──────────────────────────────────────────────────────────────"
+[ "$QUIET_FLAG" != "true" ] && echo "└──────────────────────────────────────────────────────────────"
 
 # Warnings
 echo ""
