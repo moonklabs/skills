@@ -20,8 +20,10 @@ if [ -z "$FEATURE_NAME" ]; then
     exit 1
 fi
 
-# Worktree path
-WORKTREE_PATH="../sellerking-data-monolith-${FEATURE_NAME}"
+# Worktree path — derived from the main repo's own directory name so this
+# works in any monorepo, not just one specific project
+REPO_NAME=$(basename "$(git rev-parse --show-toplevel)")
+WORKTREE_PATH="../${REPO_NAME}-${FEATURE_NAME}"
 FEATURE_BRANCH="feature/${FEATURE_NAME}"
 
 # 1. Guard against existing worktree

@@ -1,36 +1,46 @@
-# Submodule Branch Mapping
+# Submodule Branch Resolution
 
-## Submodules
+This skill has no repo-specific submodule list or branch table baked in. `_config.sh` derives everything from `.gitmodules` at runtime, so this reference describes the *mechanism*, not a fixed mapping — read your own repo's `.gitmodules` for the actual list.
 
-| Path | Repository | Default Branch | Purpose |
-|------|------------|----------------|---------|
-| `admin-backend` | moonklabs/sellerking-admin-backend | `develop-ai` | NestJS admin API |
-| `backend` | moonklabs/sellerking-backend | `develop` | NestJS main API |
-| `batch` | moonklabs/sellerking-scraper | `develop` | Scraping batch jobs |
+## Where the submodule list comes from
+
+```bash
+git config --file .gitmodules --get-regexp path
+```
+
+Every path returned becomes an entry in `SUBMODULES` — add or remove a submodule with normal `git submodule add`/`deinit` and the scripts follow automatically.
+
+## Where each submodule's default branch comes from
+
+Resolution order, first match wins:
+
+1. **`.gitmodules` `branch =` field** — the git-native way to pin a submodule to a specific branch:
+   ```bash
+   git submodule set-branch --branch develop-ai admin-backend
+   git add .gitmodules && git commit -m "chore: pin admin-backend to develop-ai"
+   ```
+2. **The submodule's remote HEAD** (`origin/HEAD`), if no override is set — read locally first, falling back to a live `git remote show origin` query only when the local ref is missing
+
+Use step 1 whenever a submodule's default branch differs from its own repo's `HEAD` (e.g. an AI-focused fork that develops off `develop-ai` instead of `develop`) — everything else needs no configuration at all.
 
 ## Branching Strategy
 
 ### Feature Branches
 - Format: `feature/{feature-name}`
-- Examples: `feature/batch-queue-prd`, `feature/user-auth`
-- Created on main and every submodule with the same name
-
-### Per-Submodule Default Branch (base when no feature branch exists yet)
-- `admin-backend`: `develop-ai` — AI feature development
-- `backend`: `develop` — main API development
-- `batch`: `develop` — batch/scraper development
+- Created on main and every detected submodule with the same name
 
 ### Branch Creation Rules
 1. If the remote already has the feature branch → check it out from the remote
-2. Otherwise → create a new branch from the submodule's default branch
+2. Otherwise → create a new branch from the submodule's resolved default branch (see above)
 
 ## Worktree Path Convention
 
+The worktree directory name is derived from the main repo's own directory name, not hardcoded:
+
 ```
-../sellerking-data-monolith-{feature-name}/
-├── admin-backend/      # Submodule (feature branch)
-├── backend/            # Submodule (feature branch)
-├── batch/              # Submodule (feature branch)
+../{repo-name}-{feature-name}/
+├── {submodule-1}/      # Submodule (feature branch)
+├── {submodule-2}/      # Submodule (feature branch)
 └── ...                 # Main repo files
 ```
 
@@ -38,10 +48,8 @@
 
 To keep submodule pointers consistent, always process in this order:
 
-1. `admin-backend` (if it has changes)
-2. `backend` (if it has changes)
-3. `batch` (if it has changes)
-4. `main` — submodule pointer updates (`.gitmodules` + commits) plus any main-only changes
+1. Each submodule with changes, in the order `.gitmodules` lists them
+2. `main` — submodule pointer updates (`.gitmodules` + commits) plus any main-only changes
 
 ## Cautions
 

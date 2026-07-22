@@ -1,6 +1,6 @@
 ---
 name: bizplan-writing
-description: Provides domain knowledge for writing Korean government funding program business plans (사업계획서). Auto-activates in contexts like "Korean funding application", "business plan writing", "bizplan", "plan evaluation", "writing strategy", "apply-write", etc. Triggers on Korean terms: "사업계획서", "지원사업 작성", "사업계획서 평가", "작성 전략", "공고 작성".
+description: 'Provides domain knowledge for writing Korean government funding program business plans (사업계획서). Auto-activates in contexts like "Korean funding application", "business plan writing", "bizplan", "plan evaluation", "writing strategy", "apply-write", etc. Triggers on Korean terms: "사업계획서", "지원사업 작성", "사업계획서 평가", "작성 전략", "공고 작성".'
 ---
 
 # Business Plan Writing Guide
