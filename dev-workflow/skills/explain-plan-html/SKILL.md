@@ -1,6 +1,6 @@
 ---
 name: explain-plan-html
-description: 작업 계획(plan) 파일을 분석해 대화형 HTML 해설서로 만드는 스킬입니다 ("플랜 분석", "플랜 해설", "계획 시각화", "이 플랜 설명해줘", "plan을 html로"). 두 모드 — brief(브리핑, 승인 판단용 요약: "간단히/한눈에")와 full(실행 추적용 전체 커버리지: "상세히/풀") — 를 요청 목적에 맞춰 선택하며, 플랜 골격(Context·핵심 결정·Phase·의존 관계·파일 배치·검증)을 전용 다이어그램(timeline/deps/files/checklist/decision)과 원문 패널(src: 점프 링크)로 옮깁니다. diff·코드 변경 해설은 explain-diff-html 를 사용하세요.
+description: '작업 계획(plan) 파일을 분석해 대화형 HTML 해설서로 만드는 스킬입니다 ("플랜 분석", "플랜 해설", "계획 시각화", "이 플랜 설명해줘", "plan을 html로"). 두 모드 — brief(브리핑, 승인 판단용 요약: "간단히/한눈에")와 full(실행 추적용 전체 커버리지: "상세히/풀") — 를 요청 목적에 맞춰 선택하며, 플랜 골격(Context·핵심 결정·Phase·의존 관계·파일 배치·검증)을 전용 다이어그램(timeline/deps/files/checklist/decision)과 원문 패널(src: 점프 링크)로 옮깁니다. diff·코드 변경 해설은 explain-diff-html 를 사용하세요.'
 ---
 
 # Explain Plan (플랜 HTML 해설서)

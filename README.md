@@ -2,6 +2,31 @@
 
 뭉클랩 스킬 마켓플레이스 — 스타트업 운영, 지원사업, 개발자 워크플로, 디자인 시스템까지 **카테고리별 Claude Code 플러그인**을 한곳에서 관리합니다.  `developer-plugins`의 멀티타겟(모노리식 plugin + `skill.sh`) 패턴을 확장해, 각 카테고리가 독립 플러그인이면서 하나의 마켓플레이스로 묶입니다.
 
+## 빠른 설치 — 코드 리뷰·플랜 해설서 스킬 3종
+
+PR·diff·작업 계획(plan)을 대화형 HTML 교육 자료로 바꿔주는 스킬입니다. 저장소를 클론할 필요 없이 한 줄로
+설치되고, Claude Code·Codex·Cursor 등 [skills](https://skills.sh) 지원 에이전트에 자동 연결됩니다.
+
+```bash
+npx skills add moonklabs/skills --skill explain-diff-html explain-diff-html-plain explain-plan-html --global
+```
+
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `explain-diff-html` | 코드 변경·PR·브랜치 diff를 마크다운 + 다이어그램 DSL로 작성하면 CSS/JS/목차/퀴즈까지 렌더러가 자동 처리해 대화형 HTML 해설서를 만듭니다. |
+| `explain-diff-html-plain` | 위 스킬의 렌더러 없이 HTML을 직접 작성하는 순수판 — DSL로 표현 못 하는 자유 레이아웃이 필요하거나 Python을 쓸 수 없을 때. |
+| `explain-plan-html` | 작업 계획(plan) 파일을, 승인 판단용 브리핑(brief) 또는 실행 추적용 풀 버전(full)으로 — 원문 패널·체크리스트까지 포함한 HTML로 만듭니다. |
+
+설치 후 Claude Code/Codex/Cursor 등에서 "이 diff 설명해줘", "이 PR 해설 만들어줘", "이 플랜 분석해줘" 라고
+요청하면 자동으로 트리거됩니다. 하나만 골라 설치하려면:
+
+```bash
+npx skills add moonklabs/skills --skill explain-diff-html --global
+```
+
+`--global`을 빼면 현재 프로젝트에만 설치됩니다. 전체 23개 스킬 마켓플레이스는 아래 [설치](#설치) 절을
+참고하세요.
+
 ## 카테고리 구성 (6)
 
 | 카테고리 | 플러그인 이름 | 스킬 |
