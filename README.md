@@ -1,44 +1,139 @@
 # Moonklabs Skills
 
-뭉클랩 스킬 마켓플레이스 — 스타트업 운영, 지원사업, 개발자 워크플로, 디자인 시스템까지 **카테고리별 Claude Code 플러그인**을 한곳에서 관리합니다.  `developer-plugins`의 멀티타겟(모노리식 plugin + `skill.sh`) 패턴을 확장해, 각 카테고리가 독립 플러그인이면서 하나의 마켓플레이스로 묶입니다.
+뭉클랩 스킬 마켓플레이스 — 스타트업 운영, 지원사업, 개발자 워크플로, 디자인 시스템까지 **카테고리별 Claude Code 플러그인**을 한곳에서 관리합니다. `developer-plugins`의 멀티타겟(모노리식 plugin + `skill.sh`) 패턴을 확장해, 각 카테고리가 독립 플러그인이면서 하나의 마켓플레이스로 묶입니다.
 
-## 빠른 설치 — 코드 리뷰·플랜 해설서 스킬 3종
+## 설치 방법 2가지
 
-PR·diff·작업 계획(plan)을 대화형 HTML 교육 자료로 바꿔주는 스킬입니다. 저장소를 클론할 필요 없이 한 줄로
-설치되고, Claude Code·Codex·Cursor 등 [skills](https://skills.sh) 지원 에이전트에 자동 연결됩니다.
+| 방법 | 대상 | 특징 |
+|---|---|---|
+| **`npx skills`** | Claude Code, Codex, Cursor 등 [skills.sh](https://skills.sh) 지원 에이전트 전체 | 저장소를 클론할 필요 없이 카테고리·스킬 단위로 한 줄 설치 |
+| **플러그인 추가** | **Claude Code**, **Codex** | 저장소를 마켓플레이스/프롬프트 소스로 직접 등록하는 네이티브 방식. Claude Code는 `/plugin` → Add Marketplace, Codex는 `skill.sh`로 `~/.codex/prompts/`에 설치 |
+
+아래 "카테고리별 설치"는 `npx skills`, "플러그인 방식 설치"는 Claude Code·Codex 네이티브 방법을 다룹니다.
+
+## 카테고리 구성 (6)
+
+| 카테고리 | 플러그인 이름 | 스킬 수 |
+|---|---|---|
+| `fundraising/` | `moonklabs-fundraising` | 6 |
+| `gtm-strategy/` | `moonklabs-gtm-strategy` | 5 |
+| `finance-metrics/` | `moonklabs-finance-metrics` | 2 |
+| `gov-apply/` | `moonklabs-gov-apply` | 4 |
+| `dev-workflow/` | `moonklabs-dev-workflow` | 4 |
+| `design-system/` | `moonklabs-design-system` | 2 |
+
+총 **23개 스킬**이 6개 카테고리로 묶여 있습니다.
+
+## 카테고리별 설치 (`npx skills`)
+
+카테고리 전체를 한 번에 설치하거나, `--skill` 뒤 이름을 골라 개별 스킬만 설치할 수 있습니다. `--global`을 빼면 현재 프로젝트에만 설치됩니다.
+
+### `fundraising/` — moonklabs-fundraising
 
 ```bash
-npx skills add moonklabs/skills --skill explain-diff-html explain-diff-html-plain explain-plan-html --global
+npx skills add moonklabs/skills --skill fundraising-process term-sheet-knowledge deal-sourcing investor-research fundraise-comms pitch-craft --global
 ```
 
 | 스킬 | 무엇을 하나요 |
 |---|---|
-| `explain-diff-html` | 코드 변경·PR·브랜치 diff를 마크다운 + 다이어그램 DSL로 작성하면 CSS/JS/목차/퀴즈까지 렌더러가 자동 처리해 대화형 HTML 해설서를 만듭니다. |
-| `explain-diff-html-plain` | 위 스킬의 렌더러 없이 HTML을 직접 작성하는 순수판 — DSL로 표현 못 하는 자유 레이아웃이 필요하거나 Python을 쓸 수 없을 때. |
-| `explain-plan-html` | 작업 계획(plan) 파일을, 승인 판단용 브리핑(brief) 또는 실행 추적용 풀 버전(full)으로 — 원문 패널·체크리스트까지 포함한 HTML로 만듭니다. |
+| `fundraising-process` | 프리시드~시리즈B 투자유치 라이프사이클 — 단계별 벤치마크, 8주 타임라인, 준비 체크리스트 |
+| `term-sheet-knowledge` | 텀시트 핵심 조항, SAFE/전환사채 구조, 캡테이블 희석 계산, 레드플래그 |
+| `deal-sourcing` | VC·AC·엔젤·CVC 투자자 소싱 방법론과 데이터 소스 |
+| `investor-research` | VC 펀드/파트너 리서치 — thesis 매칭, 포트폴리오 분석, 접근 전략 |
+| `fundraise-comms` | 투자자 이메일 템플릿(웜인트로/콜드/팔로업), 월간 업데이트, Day5/10/21 케이던스 |
+| `pitch-craft` | 세쿼이아 스타일 피치덱 구조, 슬라이드 가이드, 스토리텔링, 예상 VC 질문 30개 |
 
-설치 후 Claude Code/Codex/Cursor 등에서 "이 diff 설명해줘", "이 PR 해설 만들어줘", "이 플랜 분석해줘" 라고
-요청하면 자동으로 트리거됩니다. 하나만 골라 설치하려면:
+### `gtm-strategy/` — moonklabs-gtm-strategy
+
+```bash
+npx skills add moonklabs/skills --skill gtm-strategy competitive-landscape pricing-strategy market-sizing sales-playbook --global
+```
+
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `gtm-strategy` | Go-to-Market 전략 — GTM 모션, 콘텐츠 전략, 채널 선택, 브랜드 빌딩 |
+| `competitive-landscape` | 경쟁 환경 분석, 포지셔닝 전략, 배틀카드 작성 |
+| `pricing-strategy` | 가격 전략과 패키징 — 가격 모델, 가치 지표, 가격 심리학 |
+| `market-sizing` | TAM/SAM/SOM 시장 규모 분석 (Top-down · Bottom-up · Value Theory) |
+| `sales-playbook` | B2B 세일즈 프로세스 — MEDDPICC, 세일즈 단계, 팀 설계 |
+
+### `finance-metrics/` — moonklabs-finance-metrics
+
+```bash
+npx skills add moonklabs/skills --skill startup-metrics financial-modeling --global
+```
+
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `startup-metrics` | 비즈니스 모델(SaaS/마켓플레이스/컨슈머/B2B)별 핵심 지표 프레임워크와 단계별 벤치마크 |
+| `financial-modeling` | Base/Bull/Bear 3-시나리오 재무 모델링, 유닛 이코노믹스(CAC/LTV), 코호트 분석, 런웨이 계산 |
+
+### `gov-apply/` — moonklabs-gov-apply
+
+```bash
+npx skills add moonklabs/skills --skill kb-structure gov-program-knowledge bizplan-writing hwp-format --global
+```
+
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `kb-structure` | 회사 지식베이스 구조화, 스키마 정의, 완성도 검증 |
+| `gov-program-knowledge` | 한국 정부·민간 지원사업 공고 시스템, 평가 기준, 프로그램 특성(TIPS·예비창업패키지 등) 지식 |
+| `bizplan-writing` | 한국 정부지원사업 사업계획서(事業計劃書) 작성 도메인 지식 |
+| `hwp-format` | HWP/HWPX 파일 형식과 한글 정부 문서 서식 가이드 |
+
+### `dev-workflow/` — moonklabs-dev-workflow
+
+```bash
+npx skills add moonklabs/skills --skill git-submodule-manager explain-diff-html explain-diff-html-plain explain-plan-html --global
+```
+
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `git-submodule-manager` | Git worktree 생성/전환, 서브모듈 브랜치 동기화, 모노리포 커밋/푸시 관리 |
+| `explain-diff-html` | 코드 변경·PR·브랜치 diff를 마크다운 + 다이어그램 DSL로 작성하면 CSS/JS/목차/퀴즈까지 렌더러가 자동 처리해 대화형 HTML 해설서를 만듭니다 |
+| `explain-diff-html-plain` | 위 스킬의 렌더러 없이 HTML을 직접 작성하는 순수판 — DSL로 표현 못 하는 자유 레이아웃이 필요하거나 Python을 쓸 수 없을 때 |
+| `explain-plan-html` | 작업 계획(plan) 파일을 승인 판단용 브리핑(brief) 또는 실행 추적용 풀 버전(full) HTML 해설서로 변환 |
+
+하나만 설치하려면:
 
 ```bash
 npx skills add moonklabs/skills --skill explain-diff-html --global
 ```
 
-`--global`을 빼면 현재 프로젝트에만 설치됩니다. 전체 23개 스킬 마켓플레이스는 아래 [설치](#설치) 절을
-참고하세요.
+### `design-system/` — moonklabs-design-system
 
-## 카테고리 구성 (6)
+```bash
+npx skills add moonklabs/skills --skill design-md sprintable-design --global
+```
 
-| 카테고리 | 플러그인 이름 | 스킬 |
-|---|---|---|
-| `fundraising/` | `moonklabs-fundraising` | fundraising-process · term-sheet-knowledge · deal-sourcing · investor-research · fundraise-comms · pitch-craft |
-| `gtm-strategy/` | `moonklabs-gtm-strategy` | gtm-strategy · competitive-landscape · pricing-strategy · market-sizing · sales-playbook |
-| `finance-metrics/` | `moonklabs-finance-metrics` | startup-metrics · financial-modeling |
-| `gov-apply/` | `moonklabs-gov-apply` | kb-structure · gov-program-knowledge · bizplan-writing · hwp-format |
-| `dev-workflow/` | `moonklabs-dev-workflow` | git-submodule-manager · explain-diff-html · explain-diff-html-plain · explain-plan-html |
-| `design-system/` | `moonklabs-design-system` | design-md · sprintable-design |
+| 스킬 | 무엇을 하나요 |
+|---|---|
+| `design-md` | Stitch(Google Labs) `design.md` 알파 스펙을 준수하는 DESIGN.md 파일을 프로젝트 토큰·컴포넌트 자동 탐색으로 생성 |
+| `sprintable-design` | Sprintable 브랜드 UI 키트 — 컬러·타이포·폰트·에셋으로 프로덕션/프로토타입 인터페이스 생성 |
 
-총 **23개 스킬**이 6개 카테고리로 묶여 있습니다.
+설치 후 각 에이전트에서 표에 적힌 트리거 문구(예: "피치 덱 만들기", "DESIGN.md 만들어줘", "이 PR 해설 만들어줘")를 말하면 자동으로 해당 스킬이 실행됩니다.
+
+## 플러그인 방식 설치 (Claude Code / Codex)
+
+`npx skills` 없이 저장소를 직접 플러그인/프롬프트 소스로 등록하는 방법입니다. **Claude Code와 Codex는 이 네이티브 플러그인 추가 방식을 지원합니다.**
+
+### Claude Code (canonical)
+
+1. 이 저장소를 클론하거나 경로를 준비합니다.
+2. `/plugin` 메뉴 → **Add Marketplace** → 이 저장소의 절대 경로(예: `/Users/you/workspace_plugin/skills`)를 입력.
+3. `/plugin` 에서 원하는 카테고리 플러그인을 개별 설치 (`moonklabs-fundraising`, `moonklabs-gtm-strategy` 등) 또는 필요한 것만 골라 설치합니다.
+4. 설치된 플러그인에 속한 스킬은 이름 자동 트리거 또는 `/skill:<name>` 형태로 호출됩니다.
+
+### Codex CLI (via skill.sh)
+
+사전 요구사항: `yq`, `jq` — macOS에서는 `brew install yq jq`.
+
+```bash
+./skill.sh build      # dist/AGENTS.md + dist/codex-prompts/*.md 생성
+./skill.sh install    # ~/.codex/prompts/ 로 복사
+```
+
+설치 후 Codex CLI에서 스킬 이름(`fundraising-process`, `pitch-craft`, `git-submodule-manager` 등)으로 프롬프트를 참조할 수 있습니다. 각 스킬의 SKILL.md를 수정한 뒤 `./skill.sh build`로 재빌드하세요.
 
 ## 저장소 구조
 
@@ -63,26 +158,6 @@ skills/
 └── README.md
 ```
 
-## 설치
-
-### Claude Code (canonical)
-
-1. 이 저장소를 클론하거나 경로를 준비합니다.
-2. `/plugin` 메뉴 → **Add Marketplace** → 이 저장소의 절대 경로(예: `/Users/you/workspace_plugin/skills`)를 입력.
-3. `/plugin` 에서 원하는 카테고리 플러그인을 개별 설치 (`moonklabs-fundraising`, `moonklabs-gtm-strategy` 등) 또는 필요한 것만 골라 설치합니다.
-4. 설치된 플러그인에 속한 스킬은 이름 자동 트리거 또는 `/skill:<name>` 형태로 호출됩니다.
-
-### Codex CLI (via skill.sh)
-
-사전 요구사항: `yq`, `jq` — macOS에서는 `brew install yq jq`.
-
-```bash
-./skill.sh build      # dist/AGENTS.md + dist/codex-prompts/*.md 생성
-./skill.sh install    # ~/.codex/prompts/ 로 복사
-```
-
-설치 후 Codex CLI에서 스킬 이름(`fundraising-process`, `pitch-craft`, `git-submodule-manager` 등)으로 프롬프트를 참조할 수 있습니다. 각 스킬의 SKILL.md를 수정한 뒤 `./skill.sh build`로 재빌드하세요.
-
 ## skill.sh 명령
 
 | 명령 | 설명 |
@@ -101,6 +176,9 @@ skills/
 5. `./skill.sh verify` 통과 확인 → `./skill.sh build && ./skill.sh install` 로 Codex 반영.
 
 ## 수동 검증
+
+### npx skills
+1. 카테고리 명령 실행 후 대상 에이전트(Claude Code/Codex/Cursor)에서 스킬 이름 또는 트리거 문구로 1회 호출.
 
 ### Claude Code
 1. 마켓플레이스 등록 후 `/plugin list`에서 6개 플러그인이 노출되는지 확인.
