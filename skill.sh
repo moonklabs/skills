@@ -229,26 +229,21 @@ verify() {
     failed=$((failed+1))
   fi
 
-  # 4. plugin.json skills[].source references resolve to real dirs
-  local bad_sources=0
+  # 4. Every category exposes Claude's auto-discovered skills directory
+  local missing_skill_dirs=0
   while IFS= read -r category; do
     [[ -z "${category}" ]] && continue
-    local manifest="${REPO_ROOT}/${category}/.claude-plugin/plugin.json"
-    [[ ! -f "${manifest}" ]] && continue
-    while IFS= read -r src; do
-      [[ -z "${src}" ]] && continue
-      local resolved="${REPO_ROOT}/${category}/${src#./}"
-      [[ ! -d "${resolved}" ]] && {
-        echo "  - missing: ${category} → ${src}"
-        bad_sources=$((bad_sources+1))
-      }
-    done < <(jq -r '.skills[].source' "${manifest}" 2>/dev/null)
+    local skills_dir="${REPO_ROOT}/${category}/skills"
+    [[ ! -d "${skills_dir}" ]] && {
+      echo "  - missing: ${category}/skills/"
+      missing_skill_dirs=$((missing_skill_dirs+1))
+    }
   done < <(list_category_plugins)
-  if [[ ${bad_sources} -eq 0 ]]; then
-    echo "[PASS] Every plugin.json skill source resolves to a real directory"
+  if [[ ${missing_skill_dirs} -eq 0 ]]; then
+    echo "[PASS] All category plugins expose an auto-discovered skills directory"
     passed=$((passed+1))
   else
-    echo "[FAIL] ${bad_sources} skill source(s) missing"
+    echo "[FAIL] ${missing_skill_dirs} category skills directory/directories missing"
     failed=$((failed+1))
   fi
 

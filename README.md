@@ -164,14 +164,14 @@ skills/
 |------|------|
 | `./skill.sh build` | 모든 카테고리를 순회해 `dist/AGENTS.md`와 카테고리별 요약을 포함한 `dist/codex-prompts/*.md`를 생성합니다. |
 | `./skill.sh install` | `dist/codex-prompts/*.md` 를 `~/.codex/prompts/` 로 복사합니다. |
-| `./skill.sh verify` | 7개 자동 테스트 (PASS/FAIL) — marketplace 검증, 카테고리별 plugin.json, SKILL.md 존재, source 경로, 빌드 성공, AGENTS.md 스모크, 이름 충돌 없음. |
+| `./skill.sh verify` | 7개 자동 테스트 (PASS/FAIL) — marketplace 검증, 카테고리별 plugin.json, `skills/` 디렉터리와 SKILL.md 존재, 빌드 성공, AGENTS.md 스모크, 이름 충돌 없음. |
 | `./skill.sh check` | plugin.json/SKILL.md 형식을 린트합니다. |
 
 ## 스킬 추가/수정
 
 1. 적절한 카테고리 선택 (`fundraising/`, `gtm-strategy/`, ...).
 2. `<category>/skills/<new-skill>/SKILL.md` 를 추가하거나 기존 SKILL.md를 편집.
-3. 해당 카테고리 `<category>/.claude-plugin/plugin.json` 의 `skills` 배열에 등록.
+3. Claude Code는 카테고리 루트의 `skills/`를 자동 탐색하므로 별도 manifest 등록은 필요 없습니다.
 4. 새 카테고리가 필요하면 `.claude-plugin/marketplace.json` 에 플러그인 항목을 추가.
 5. `./skill.sh verify` 통과 확인 → `./skill.sh build && ./skill.sh install` 로 Codex 반영.
 
