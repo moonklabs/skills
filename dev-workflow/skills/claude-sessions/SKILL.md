@@ -1,6 +1,6 @@
 ---
 name: claude-sessions
-description: For non-Claude agents to delegate development, review, and testing to Claude Code when the user explicitly requests Claude (클로드) or Sonnet/Opus (소넷/오퍼스) with a model, effort, role, or session composition. Preserve requested versions and session counts. Claude itself and delegated Claude sessions must not use this skill. Examples, questions, and skill edits do not launch sessions.
+description: For non-Claude agents to delegate development, review, and testing to actual Claude Code sessions when the user explicitly requests a Claude session. Preserve explicit model, effort, and session choices; automatically select supported review defaults when omitted. Claude itself and delegated Claude sessions must not use this skill. Examples, questions, and skill edits do not launch sessions.
 ---
 
 # Claude Sessions
@@ -11,14 +11,19 @@ Claude 이외의 조정 에이전트가 사용자가 지정한 Claude 구성을 
 
 ## 1. 요청을 실행표로 변환
 
-현재 목표와 사용자 지침에서 `역할 / 모델 원문 / 정확한 model ID / effort / 세션 수 / 담당 범위`를 추출한다. 명시된 값은 우선하고, 없는 값만 기존 세션 지침에서 상속한다. 작업·모델을 결정할 정보가 없으면 필요한 정보만 질문한다. 예시 인용은 실행 요청이 아니다.
+현재 목표와 사용자 지침에서 `역할 / 모델 원문 / 정확한 model ID / effort / 세션 수 / 담당 범위`를 추출한다. 명시된 값은 우선하고, 없는 값만 기존 사용자·프로젝트 지침에서 상속한다. 예시 인용은 실행 요청이 아니다.
 
 - 역할: 개발/develop → 구현, 리뷰/review → 읽기 전용 검토, 테스트/test → 현재 목표의 인수 검증.
+- 사용자가 실제 Claude 리뷰를 요청했지만 model 또는 effort가 상속된 뒤에도 비어 있으면 질문하지 말고 최적 후보를 선택한다. 현재 Claude CLI·연결된 provider에서 사용할 수 있는 모델과 지원 effort, 프로젝트 지침, 리뷰 대상의 전문성·위험도·범위·상호작용 복잡도를 확인한다.
+  - 설계·동시성·프로토콜·광범위한 계획처럼 추론과 시스템 관점이 중요한 리뷰는 현재 사용 가능하고 지원이 확인된 가장 강한 추론 모델과 `high`를 우선 고려한다. 코드 diff·보안·성능 범위가 넓으면 코드 분석 능력이 강한 모델과 `high`, 좁고 위험도가 낮은 변경은 유능한 효율형 모델과 `medium`을 고려한다. 결함이 미묘하거나 영향 범위가 크면 effort를 올리고, 가장 높은 수준은 추가 깊이가 정당화될 때만 쓴다.
+  - model만 지정됐거나 effort만 지정된 경우 지정값을 유지하고 빠진 값만 고른다. 버전이 명시됐으면 최신 alias로 바꾸지 않는다. 후보 모델이나 지원 effort를 확인할 수 없으면 값을 지어내지 말고 확인 불가 사유를 보고한다.
+  - 실제 호출 전에 고른 model / effort와 대상에 맞는 짧은 이유를 알린다. 예: “대상은 설계·동시성·프로토콜 계획이므로 현재 지원되는 `<model>` / `high`로 1차 리뷰를 의뢰합니다.”
+- 리뷰 이외 작업의 model·effort 누락은 기존 지침이나 현재 설정에서 상속한다. 실행값을 정할 근거가 여전히 부족하면 호출 전에 필요한 정보만 질문한다.
 - 범위 effort는 세션에 순서대로 분산한다. `low~high` 3세션은 `low, medium, high`, 2세션은 `low, high`다. 다른 수는 CLI가 지원하는 범위의 수준에 균등 분산하고, 1세션은 상한을 사용한다. 이 해석을 실행표에 명시한다. 사용자가 세션 내부에서 effort를 조절하라고 지정했다면 그 지시를 따른다.
 - 모델의 버전은 고정한다. `소넷 5.5` → `claude-sonnet-5-5`, `opus 5.5` → `claude-opus-5-5`는 공식 문서에서 확인한 매핑이다. 다른 버전·provider의 ID는 실행 시 공식 문서와 연결 환경에서 확인한다. 버전이 지정됐으면 최신 alias로 바꾸지 않는다.
 - 요청한 최초 세션 수를 보존한다. 수정·후속 질문은 해당 세션을 재개하며 추가 세션·재귀 위임·테스트 세션을 임의 생성하지 않는다. 플랫폼 동시 실행 상한이 있으면 요청된 세션을 차례로 실행한다.
 
-예시 요청의 실행표:
+사용자가 `Sonnet 5.5` 개발 세션 3개와 `Opus 5.5` 리뷰 세션 2개를 지정하고 effort 범위를 `low~high`로 요청한 경우의 실행표 예시:
 
 | 세션 | 역할 | model | effort |
 | --- | --- | --- | --- |

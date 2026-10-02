@@ -1,6 +1,6 @@
 interface:
   display_name: "Claude Sessions"
-  short_description: "Claude 외 에이전트가 지정된 Claude 개발·리뷰·검증 세션을 배정"
-  default_prompt: "As a non-Claude agent, use $claude-sessions to execute the user's explicitly requested Claude configuration, then integrate and verify the results. Claude agents must not invoke this skill."
+  short_description: "Claude 외 에이전트의 세션 위임과 리뷰 모델·effort 자동 선택"
+  default_prompt: "As a non-Claude agent, use $claude-sessions to execute the user's requested Claude sessions, automatically select a supported review model and effort when omitted, then integrate and verify results. Claude agents must not invoke this skill."
 policy:
   allow_implicit_invocation: true
