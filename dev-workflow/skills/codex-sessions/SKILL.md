@@ -1,6 +1,6 @@
 ---
 name: codex-sessions
-description: For non-Codex agents such as Claude to delegate development, review, and testing to actual Codex CLI sessions when the user explicitly requests Codex with a model, reasoning effort, role, or session composition. Preserve requested models and counts. Codex itself and delegated Codex sessions must not use this skill. Examples, questions, and skill edits do not launch sessions.
+description: For non-Codex agents such as Claude to delegate development, review, and testing to actual Codex CLI sessions when the user explicitly requests a Codex session. Preserve explicit model, effort, and session choices; automatically select supported review defaults when omitted. Codex itself and delegated Codex sessions must not use this skill. Examples, questions, and skill edits do not launch sessions.
 ---
 
 # Codex Sessions
@@ -11,7 +11,13 @@ Claude·Gemini·OpenCode 등 Codex 이외의 조정 에이전트가 사용자 �
 
 ## 1. 실행표와 현재 CLI 확인
 
-- 사용자 요청에서 역할·정확한 model ID·reasoning effort·최초 세션 수·담당 범위를 추출한다. 명시되지 않은 값은 기존 사용자 지침에서 상속하며 모델 alias를 임의로 최신 모델로 바꾸지 않는다.
+- 사용자 요청에서 역할·정확한 model ID·reasoning effort·최초 세션 수·담당 범위를 추출한다. 명시된 값은 우선하고, 명시되지 않은 값은 기존 사용자·프로젝트 지침에서 상속한다. 모델 alias를 임의로 최신 모델로 바꾸지 않는다.
+- 사용자가 실제 Codex 리뷰를 요청했지만 model 또는 effort가 남아 있지 않으면 질문으로 되돌리지 말고 최적 후보를 선택한다. 현재 Codex CLI의 사용 가능 모델·provider 설정·프로젝트 지침과 후보별 지원 effort를 확인한다. 리뷰 대상의 전문성, 위험도, 범위, 상호작용 복잡도에 맞춰 가장 적합한 사용 가능 모델과 충분한 effort를 고른다.
+  - 설계·동시성·프로토콜·광범위한 계획처럼 추론과 시스템 관점이 중요한 리뷰는 사용 가능한 frontier급 추론 모델과 `high`를 우선 고려한다. 예를 들어 현재 CLI에서 지원되고 해당 대상에 적합하다면 `gpt-6-astra` / `high`가 맞을 수 있다. 이것은 고정 기본값이 아니다.
+  - 넓은 코드 diff나 보안·성능 검토는 코드 분석 능력이 강한 사용 가능 모델을 고르고, 좁고 위험도가 낮은 변경은 유능한 효율형 모델과 `medium`을 고려한다. 결함이 미묘하거나 영향 범위가 크면 effort를 올린다. `xhigh`는 추가 깊이가 정당화되는 상호의존성·위험이 있을 때만 선택한다.
+  - model만 지정됐거나 effort만 지정된 경우 지정값은 유지하고 빠진 값만 선택한다. 모델 카탈로그나 지원 여부를 확인할 수 없으면 정확한 값을 지어내지 말고 확인 불가 사유를 보고한다.
+  - 실행 전에 선택한 model / effort와 대상에 맞는 짧은 이유를 알린다. 예: “대상은 설계·동시성·프로토콜 계획이므로 `<model>` / `high`로 1차 리뷰를 의뢰합니다.”
+- 리뷰 이외 작업의 model·effort 누락은 사용자·프로젝트 지침이나 현재 설정에서 상속한다. 여전히 실행값을 정할 근거가 없으면 실행을 시작하기 전에 필요한 정보만 확인한다.
 - `low~high` 개발 3세션은 `low, medium, high`, 2세션은 `low, high`, 1세션은 상한이다. 세션 내 조정을 명시했다면 그 요청을 따른다. 실제 모델이 지원하는 수준인지 먼저 확인하고 미지원 값을 다른 effort로 바꾸지 않는다.
 - `command -v codex`, `codex --version`, `codex exec --help`, `codex exec resume --help`로 설치와 옵션을 확인한다. 현재 설치의 모델 목록·provider 설정·프로젝트 지침에서 model/effort를 확인하되 인증 파일과 토큰을 읽지 않는다. 도움말 확인만으로 계정 사용 가능성을 주장하지 않는다.
 - 실제 호출에서 인증·모델 지원·사용량·sandbox 오류가 나면 그 원인을 보고한다. fallback 모델이나 추가 세션으로 대체하지 않는다.
