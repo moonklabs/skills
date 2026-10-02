@@ -19,10 +19,10 @@
 | `gtm-strategy/` | `moonklabs-gtm-strategy` | 5 |
 | `finance-metrics/` | `moonklabs-finance-metrics` | 2 |
 | `gov-apply/` | `moonklabs-gov-apply` | 4 |
-| `dev-workflow/` | `moonklabs-dev-workflow` | 4 |
+| `dev-workflow/` | `moonklabs-dev-workflow` | 8 |
 | `design-system/` | `moonklabs-design-system` | 2 |
 
-총 **23개 스킬**이 6개 카테고리로 묶여 있습니다.
+총 **27개 스킬**이 6개 카테고리로 묶여 있습니다.
 
 ## 카테고리별 설치 (`npx skills`)
 
@@ -84,7 +84,7 @@ npx skills add moonklabs/skills --skill kb-structure gov-program-knowledge bizpl
 ### `dev-workflow/` — moonklabs-dev-workflow
 
 ```bash
-npx skills add moonklabs/skills --skill git-submodule-manager explain-diff-html explain-diff-html-plain explain-plan-html --global
+npx skills add moonklabs/skills --skill git-submodule-manager explain-diff-html explain-diff-html-plain explain-plan-html cpr goal-delivery claude-sessions codex-sessions --global
 ```
 
 | 스킬 | 무엇을 하나요 |
@@ -93,6 +93,10 @@ npx skills add moonklabs/skills --skill git-submodule-manager explain-diff-html 
 | `explain-diff-html` | 코드 변경·PR·브랜치 diff를 마크다운 + 다이어그램 DSL로 작성하면 CSS/JS/목차/퀴즈까지 렌더러가 자동 처리해 대화형 HTML 해설서를 만듭니다 |
 | `explain-diff-html-plain` | 위 스킬의 렌더러 없이 HTML을 직접 작성하는 순수판 — DSL로 표현 못 하는 자유 레이아웃이 필요하거나 Python을 쓸 수 없을 때 |
 | `explain-plan-html` | 작업 계획(plan) 파일을 승인 판단용 브리핑(brief) 또는 실행 추적용 풀 버전(full) HTML 해설서로 변환 |
+| `cpr` | 커밋·푸시·PR 및 CPRM 병합 워크플로 — 모든 에이전트에서 사용 |
+| `goal-delivery` | 승인된 목표를 작업·인수 기준·검증·결과 보고로 구조화 — 모든 에이전트에서 사용 |
+| `claude-sessions` | 실제 Claude Code 세션 위임 — Claude 이외 에이전트에서 사용 |
+| `codex-sessions` | 실제 Codex CLI 세션 위임 — Codex 이외 에이전트에서 사용 |
 
 하나만 설치하려면:
 
@@ -185,7 +189,7 @@ skills/
 2. 최소 한 카테고리를 설치 → 대표 스킬이 트리거되는지 테스트 (예: "피치 덱 만들기", "DESIGN.md 만들어줘").
 
 ### Codex CLI
-1. `./skill.sh build && ./skill.sh install` 실행 후 `ls ~/.codex/prompts/` 에 23개 파일 확인.
+1. `./skill.sh build && ./skill.sh install` 실행 후 `ls ~/.codex/prompts/` 에 27개 파일 확인.
 2. Codex CLI에서 스킬 이름을 참조해 1회 호출이 성공하는지 확인.
 
 ## 출처
@@ -194,6 +198,7 @@ skills/
 - `gov-apply/` 카테고리: `startup-plugins/startup-apply/skills/` 에서 이관.
 - `dev-workflow/`, `design-system/` 카테고리: `developer-plugins/skills/` 에서 이관.
 - `dev-workflow/explain-diff-html`, `explain-diff-html-plain`, `explain-plan-html`: 개인 스킬 폴더(`~/.claude/skills/`)에서 복사.
+- `dev-workflow/cpr`, `goal-delivery`, `claude-sessions`, `codex-sessions`: 사용자 공용 스킬 폴더(`~/.agents/skills/`)에서 복사.
 
 ## 로드맵
 

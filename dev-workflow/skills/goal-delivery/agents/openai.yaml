@@ -1,0 +1,6 @@
+interface:
+  display_name: "Goal Delivery"
+  short_description: "승인된 목표를 수용 ID·담당 작업·증거 보고로 고정"
+  default_prompt: "Use $goal-delivery to turn the explicitly authorized goal into acceptance IDs, owned work, and an evidence-backed delivery report."
+policy:
+  allow_implicit_invocation: true

@@ -37,8 +37,8 @@
     },
     {
       "name": "moonklabs-dev-workflow",
-      "description": "개발자 워크플로 — Git worktree/서브모듈 통합 관리, diff·플랜 HTML 해설서 생성 4종 스킬 번들.",
-      "version": "1.1.0",
+      "description": "개발자 워크플로 — Git worktree·서브모듈, diff·플랜 해설, CPR/CPRM, 목표 전달, Claude/Codex 세션 위임을 포함한 8종 스킬 번들.",
+      "version": "1.2.0",
       "source": "./dev-workflow",
       "author": { "name": "moonklabs" },
       "category": "developer"
